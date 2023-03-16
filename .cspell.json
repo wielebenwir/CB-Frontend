@@ -1,0 +1,12 @@
+{
+  "version": "0.2",
+  "languageSettings": [
+    {
+      "languageId": "typescript,javascript,markdown,vue",
+      "locale": ["en", "de"]
+    }
+  ],
+  "words": [],
+  "flagWords": ["hte"],
+  "ignorePaths": ["node_modules/**", "dist/**"]
+}

@@ -1,0 +1,6558 @@
+[
+  {
+    "lat": 52.512226200000001,
+    "lon": 13.495272,
+    "location_name": "Bioladen NaturPur",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Frankfurter Allee 231",
+      "city": "Berlin-Lichtenberg",
+      "zip": "10365"
+    },
+    "items": [
+      {
+        "id": 58,
+        "name": "Lukas",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/lukas/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/01/Lukas-150x150.jpg",
+        "status": "publish",
+        "terms": [25, 71, 11, 20, 171, 152, 18, 216, 27, 162, 60, 88],
+        "timeframes": [
+          {
+            "date_start": "2018-01-06",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.490118500000001,
+    "lon": 13.4488498,
+    "location_name": "Fahrradpraxis Jürgen Albrecht",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Karl-Kunger-Str. 21",
+      "city": "Berlin-Alt-Treptow",
+      "zip": "12435"
+    },
+    "items": [
+      {
+        "id": 79,
+        "name": "Walter",
+        "short_desc": "PFAU-Tec Jumbo (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/walter/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/01/Walter-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 20, 132, 27, 73, 204, 111, 57],
+        "timeframes": [
+          {
+            "date_start": "2018-04-03",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      },
+      {
+        "id": 80,
+        "name": "Inge",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken und Regenverdeck",
+        "link": "https://flotte-berlin.de/cb-items/inge/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2017/12/Inge-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 20, 132, 18, 216, 27, 149, 204, 111, 57],
+        "timeframes": [
+          {
+            "date_start": "2018-04-03",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.493509099999997,
+    "lon": 13.394836400000001,
+    "location_name": "Bilder-Buch-Laden",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Zossener Str. 6",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10961"
+    },
+    "items": [
+      {
+        "id": 1109,
+        "name": "Ali",
+        "short_desc": "Zonix Cargo Trike mit einer Kinderbank.",
+        "link": "https://flotte-berlin.de/cb-items/ali/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/03/Ali-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 20, 158, 18, 27, 73, 204, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2018-08-21",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      },
+      {
+        "id": 844,
+        "name": "Lisbeth",
+        "short_desc": "PedalPower Long Harry einspurig",
+        "link": "https://flotte-berlin.de/cb-items/lisbeth/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/02/lisbeth1-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 20, 171, 158, 94, 27, 72, 26, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2018-07-30",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.474226399999999,
+    "lon": 13.328701199999999,
+    "location_name": "Buchhandlung Zauberberg",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Bundesallee 133",
+      "city": "Berlin-Friedenau",
+      "zip": "12161"
+    },
+    "items": [
+      {
+        "id": 1634,
+        "name": "Frieda",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/frieda/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/06/Frieda-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 20, 171, 134, 18, 216, 27, 26, 59, 161],
+        "timeframes": [
+          {
+            "date_start": "2018-06-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.558915376890127,
+    "lon": 13.378762006759645,
+    "location_name": "QM Soldiner Straße",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Koloniestr. 129",
+      "city": "Berlin-Gesundbrunnen",
+      "zip": "13359"
+    },
+    "items": [
+      {
+        "id": 1837,
+        "name": "Soldini",
+        "short_desc": "3rädriges AKI Lastenfahrradbau mit Deckel und Ladefläche (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/soldini/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/06/Soldini-1-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 90, 20, 158, 18, 94, 27, 167, 61, 73, 204],
+        "timeframes": [
+          {
+            "date_start": "2019-09-03",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.508239500000002,
+    "lon": 13.479132,
+    "location_name": "Stadtteilzentrum \"Kiezspinne\"",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Schulze-Boysen-Str. 38",
+      "city": "Berlin-Lichtenberg",
+      "zip": "10365"
+    },
+    "items": [
+      {
+        "id": 2325,
+        "name": "Bruno",
+        "short_desc": " PedalPower Berliner Lastenrad mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/bruno/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Bruno-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 53, 171, 152, 18, 216, 27, 48, 162, 60, 72],
+        "timeframes": [
+          {
+            "date_start": "2018-11-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.481082200000003,
+    "lon": 13.5227041,
+    "location_name": "Nachbarschaftszentrum iKARUS",
+    "closed_days": ["1", "6", "7"],
+    "address": {
+      "street": "Wandlitzstr. 13",
+      "city": "Berlin-Karlshorst",
+      "zip": "10318"
+    },
+    "items": [
+      {
+        "id": 2328,
+        "name": "iKARUS",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/ikarus/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Ikarus-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 48, 162, 60, 114],
+        "timeframes": [
+          {
+            "date_start": "2018-11-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.502984807638946,
+    "lon": 13.480798602104187,
+    "location_name": "Museum Lichtenberg",
+    "closed_days": ["1", "6", "7"],
+    "address": {
+      "street": "Türrschmidtstr. 24",
+      "city": "Berlin-Rummelsburg",
+      "zip": "10317"
+    },
+    "items": [
+      {
+        "id": 2329,
+        "name": "Victoria",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/victoria/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Victoria-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 48, 162, 60, 88],
+        "timeframes": [
+          {
+            "date_start": "2018-11-08",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.525979999999997,
+    "lon": 13.4779,
+    "location_name": "Begegnungsstätte RBO - Inmitten gGmbH",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Paul-Junius-Str. 64 A",
+      "city": "Berlin-Fennpfuhl",
+      "zip": "10369"
+    },
+    "items": [
+      {
+        "id": 2327,
+        "name": "Roberto",
+        "short_desc": " PedalPower Berliner Lastenrad mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/roberto/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Roberto-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 53, 171, 152, 18, 216, 27, 48, 162, 60, 72],
+        "timeframes": [
+          {
+            "date_start": "2018-11-08",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.513331700000002,
+    "lon": 13.481066800000001,
+    "location_name": "Egon-Erwin-Kisch-Bibliothek",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Frankfurter Allee 149",
+      "city": "Berlin-Lichtenberg",
+      "zip": "10365"
+    },
+    "items": [
+      {
+        "id": 2331,
+        "name": "Egon",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/egon/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Egon-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 48, 162, 60],
+        "timeframes": [
+          {
+            "date_start": "2018-11-12",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.530536400000003,
+    "lon": 13.4707671,
+    "location_name": "Anton-Saefkow-Bibliothek",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Anton-Saefkow-Platz 14",
+      "city": "Berlin-Fennpfuhl",
+      "zip": "10369"
+    },
+    "items": [
+      {
+        "id": 2332,
+        "name": "Anton",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/anton/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Anton-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 48, 162, 60],
+        "timeframes": [
+          {
+            "date_start": "2018-11-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.497855299999998,
+    "lon": 13.520922499999999,
+    "location_name": "Bodo-Uhse-Bibliothek",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Erich-Kurz-Str. 9",
+      "city": "Berlin-Friedrichsfelde",
+      "zip": "10319"
+    },
+    "items": [
+      {
+        "id": 2333,
+        "name": "Bodo",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/bodo/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Bodo-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 48, 162, 60],
+        "timeframes": [
+          {
+            "date_start": "2018-11-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.564995099999997,
+    "lon": 13.506270199999999,
+    "location_name": "Anna-Seghers-Bibliothek",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Prerower Platz 2 (Linden-Center)",
+      "city": "Berlin-Neu-HSH",
+      "zip": "13051"
+    },
+    "items": [
+      {
+        "id": 2334,
+        "name": "Anna",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/anna/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Anna-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 48, 162, 61, 60],
+        "timeframes": [
+          {
+            "date_start": "2018-10-31",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.550550600000001,
+    "lon": 13.1772618,
+    "location_name": "Klubhaus Spandau",
+    "closed_days": ["3", "6", "7"],
+    "address": {
+      "street": "Westerwaldstr. 13",
+      "city": "Berlin-Falkenhag.Feld",
+      "zip": "13585"
+    },
+    "items": [
+      {
+        "id": 2340,
+        "name": "FiFFi",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/fiffi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/FiFFi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 88, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2018-11-12",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.542673100000002,
+    "lon": 13.230532200000001,
+    "location_name": "Spielhaus Goldbeckweg",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Goldbeckweg 6",
+      "city": "Berlin-Haselhorst",
+      "zip": "13599"
+    },
+    "items": [
+      {
+        "id": 2335,
+        "name": "Bärbel",
+        "short_desc": " PedalPower Berliner Lastenrad mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/baerbel/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Bärbel-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 53, 171, 202, 18, 216, 27, 72, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2018-11-08",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.568477199999997,
+    "lon": 13.214983,
+    "location_name": "SUZ Spandau - Gartenarbeitsschule Hakenfelde",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Bernkastler Weg 26",
+      "city": "Berlin-Hakenfelde",
+      "zip": "13587"
+    },
+    "items": [
+      {
+        "id": 2336,
+        "name": "Suzi",
+        "short_desc": " PedalPower Berliner Lastenrad mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/suzi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Suzi-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 53, 171, 202, 18, 216, 27, 72, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2018-11-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.561683600000002,
+    "lon": 13.2093436,
+    "location_name": "Familienzentrum VillaNova (Kompaxx e.V.)",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Rauchstr. 66",
+      "city": "Berlin-Hakenfelde",
+      "zip": "13587"
+    },
+    "items": [
+      {
+        "id": 2337,
+        "name": "Giovanni",
+        "short_desc": " PedalPower Berliner Lastenrad mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/giovanni/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Giovanni-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 53, 171, 202, 18, 216, 27, 72, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2018-11-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.529813949999998,
+    "lon": 13.138777149999999,
+    "location_name": "Jona's Haus",
+    "closed_days": [],
+    "address": {
+      "street": "Schulstr. 3",
+      "city": "Berlin-Staaken",
+      "zip": "13591"
+    },
+    "items": [
+      {
+        "id": 2338,
+        "name": "Jona",
+        "short_desc": " PedalPower Berliner Lastenrad mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/jona/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Jona-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 53, 171, 202, 18, 216, 27, 72, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2018-10-27",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.517955200000003,
+    "lon": 13.168990900000001,
+    "location_name": "Kulturzentrum Staaken",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Sandstr. 41",
+      "city": "Berlin-Staaken",
+      "zip": "13593"
+    },
+    "items": [
+      {
+        "id": 2342,
+        "name": "Clipper",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/clipper/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Clipper-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 88, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2018-10-29",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.5382569,
+    "lon": 13.267042500000001,
+    "location_name": "Schülerhaus an der Schule an der Jungfernheide",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Lenther Steig 1-3",
+      "city": "Berlin-Siemensstadt",
+      "zip": "13629"
+    },
+    "items": [
+      {
+        "id": 2343,
+        "name": "Radler",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/radler/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Radler-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2018-11-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.534288599999996,
+    "lon": 13.513114099999999,
+    "location_name": "IKEA Lichtenberg",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Landsberger Allee 364",
+      "city": "Berlin-Lichtenberg",
+      "zip": "10365"
+    },
+    "items": [
+      {
+        "id": 2516,
+        "name": "Margaretha",
+        "short_desc": "Bakfiets Cargo Trike wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/margaretha/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Margaretha-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 20, 171, 152, 18, 216, 27, 162, 60, 203],
+        "timeframes": [
+          {
+            "date_start": "2018-10-22",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      },
+      {
+        "id": 5923,
+        "name": "Annika",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/annika/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Annika-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 20, 171, 152, 18, 216, 27, 162, 60, 203],
+        "timeframes": [
+          {
+            "date_start": "2019-12-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.549714399999999,
+    "lon": 13.4150735,
+    "location_name": "Schönhauser Allee Arcaden",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Schönhauser Allee 80",
+      "city": "Berlin-PrenzlBerg",
+      "zip": "10439"
+    },
+    "items": [
+      {
+        "id": 889,
+        "name": "Bella",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken und Regenverdeck",
+        "link": "https://flotte-berlin.de/cb-items/bella/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/05/Bella-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 20, 171, 152, 18, 216, 27, 61, 168, 149, 203, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-03-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.550391212236057,
+    "lon": 13.413480533892219,
+    "location_name": "Vattenfall Store Prenzlberg",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Schönhauser Allee 113",
+      "city": "Berlin-PrenzlBerg",
+      "zip": "10439"
+    },
+    "items": [
+      {
+        "id": 3451,
+        "name": "Karlsson",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/karlsson/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/03/Karlsson-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 152, 18, 27, 61, 168, 203, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-03-18",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.441352549999998,
+    "lon": 13.584113443205601,
+    "location_name": "BENN Allende-Viertel",
+    "closed_days": ["1", "3", "5", "6", "7"],
+    "address": {
+      "street": "Pohlestr. 4",
+      "city": "Berlin-Köpenick",
+      "zip": "12557"
+    },
+    "items": [
+      {
+        "id": 3583,
+        "name": "Pablo",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit zwei Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/pablo/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/04/Pablo-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 37, 11, 20, 171, 132, 18, 216, 27, 114, 217, 111],
+        "timeframes": [
+          {
+            "date_start": "2019-04-08",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.495994000000003,
+    "lon": 13.5107734,
+    "location_name": "Stadtteilkoordination Lichtenberg Mitte",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Sewanstraße 178 (1. OG)",
+      "city": "Berlin-Friedrichsfelde",
+      "zip": "10319"
+    },
+    "items": [
+      {
+        "id": 3740,
+        "name": "Rocky",
+        "short_desc": "Babboe Transporter mit Deckel (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/rocky/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/04/Rocky-1-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 11, 90, 20, 53, 171, 132, 27, 48, 162, 60],
+        "timeframes": [
+          {
+            "date_start": "2019-04-23",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.632271734199961,
+    "lon": 13.287137806883543,
+    "location_name": "Alnatura Frohnau",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Ludolfinger Platz 8a",
+      "city": "Berlin-Frohnau",
+      "zip": "13465"
+    },
+    "items": [
+      {
+        "id": 3814,
+        "name": "Ludolf",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/ludolf/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/04/Ludolf-2-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 202, 18, 27, 61, 169],
+        "timeframes": [
+          {
+            "date_start": "2019-04-22",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.526815977261393,
+    "lon": 13.332663670878663,
+    "location_name": "Alnatura Moabit",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Turmstr. 72/73",
+      "city": "Berlin-Moabit",
+      "zip": "10551"
+    },
+    "items": [
+      {
+        "id": 3815,
+        "name": "Oli4",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/oli4/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/04/Oli4-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 158, 18, 27, 167, 88, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-04-22",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.502205699999998,
+    "lon": 13.3091987,
+    "location_name": "Alnatura Charlottenburg Giesebrecht",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Giesebrechtstr. 4",
+      "city": "Berlin-Charlottenburg",
+      "zip": "10629"
+    },
+    "items": [
+      {
+        "id": 3823,
+        "name": "Biene",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/biene/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/04/Biene-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 160, 20, 171, 202, 18, 27, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-04-30",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.460503924678363,
+    "lon": 13.518569751532025,
+    "location_name": "Café Schöneweile",
+    "closed_days": [],
+    "address": {
+      "street": "Reinbeckstr. 9",
+      "city": "Berlin-OSW",
+      "zip": "12459"
+    },
+    "items": [
+      {
+        "id": 3789,
+        "name": "Klara",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/klara/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/04/Clara-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 132, 18, 27, 203, 114, 111],
+        "timeframes": [
+          {
+            "date_start": "2019-05-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.545010367601847,
+    "lon": 13.550788164138796,
+    "location_name": "BENN Blumberger Damm",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Marzahner Promenade 36",
+      "city": "Berlin-Marzahn",
+      "zip": "12679"
+    },
+    "items": [
+      {
+        "id": 4051,
+        "name": "Blumi",
+        "short_desc": "PedalPower Lastendreirad mit einer Kinderbank und Deckel",
+        "link": "https://flotte-berlin.de/cb-items/blumi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/06/Blumi-150x150.jpg",
+        "status": "publish",
+        "terms": [37, 11, 90, 20, 171, 152, 18, 27, 164, 60, 72],
+        "timeframes": [
+          {
+            "date_start": "2019-06-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.485553757964567,
+    "lon": 13.351553790278091,
+    "location_name": "Ährensache Naturkost",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Eisenacher Str. 56",
+      "city": "Berlin-Schöneberg",
+      "zip": "10823"
+    },
+    "items": [
+      {
+        "id": 4379,
+        "name": "Ute",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/ute/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/08/Ute-Naturkost-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 158, 18, 27, 203, 161, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-08-26",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.482298900000004,
+    "lon": 13.380419699999999,
+    "location_name": "Vintique Wood Store",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Manfred-von-Richthofen-Str. 26",
+      "city": "Berlin-Tempelhof",
+      "zip": "12101"
+    },
+    "items": [
+      {
+        "id": 2168,
+        "name": "Lena",
+        "short_desc": "zweirädriges Bullitt-Lastenrad ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/lena/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/08/Lena-2-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 20, 158, 27, 73, 204, 161, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-07-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.482401256599843,
+    "lon": 13.524534671819531,
+    "location_name": "denn‘s Biomarkt Karlshorst",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Dönhoffstr. 41",
+      "city": "Berlin-Karlshorst",
+      "zip": "10318"
+    },
+    "items": [
+      {
+        "id": 60,
+        "name": "Bola",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/bola/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/07/Bola-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 132, 18, 27, 162, 60, 203, 114],
+        "timeframes": [
+          {
+            "date_start": "2019-08-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.567271599999998,
+    "lon": 13.5187946,
+    "location_name": "BENN HSH-Nord",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Warnitzer Str. 14",
+      "city": "Berlin-Neu-HSH",
+      "zip": "13057"
+    },
+    "items": [
+      {
+        "id": 2326,
+        "name": "Ben",
+        "short_desc": "Christiania Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/ben/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Ben-neu-2-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 53, 171, 152, 18, 216, 27, 48, 162, 61, 60, 72],
+        "timeframes": [
+          {
+            "date_start": "2019-07-25",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.462693799999997,
+    "lon": 13.339460000000001,
+    "location_name": "Walthers Buchladen",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Bismarckstr. 71",
+      "city": "Berlin-Steglitz",
+      "zip": "12157"
+    },
+    "items": [
+      {
+        "id": 3790,
+        "name": "Luna",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/luna/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/05/Luna-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 134, 18, 27, 88, 26, 159, 59],
+        "timeframes": [
+          {
+            "date_start": "2019-09-07",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.4929098,
+    "lon": 13.407617200000001,
+    "location_name": "NHU e.V.",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Urbanstr. 21",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10961"
+    },
+    "items": [
+      {
+        "id": 5039,
+        "name": "Ulle",
+        "short_desc": "3rädriges Christiania Bike mit Ladefläche (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/ulle/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/09/Ulle-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 20, 158, 94, 27, 204, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-03-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      },
+      {
+        "id": 11905,
+        "name": "Schnelle Uschi",
+        "short_desc": "Omnium Mini-Max ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/schnelle-uschi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/06/Schnelle-Uschi-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 20, 158, 94, 27, 73, 204, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-12-03",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.464453599999999,
+    "lon": 13.486181642433101,
+    "location_name": "KJFE RumBa",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Baumschulenstraße 28",
+      "city": "Berlin-Baumschulenweg",
+      "zip": "12437"
+    },
+    "items": [
+      {
+        "id": 5045,
+        "name": "Franz",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/franz/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/09/Franz-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 96, 53, 171, 132, 18, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2019-09-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.443865324760189,
+    "lon": 13.564362823963167,
+    "location_name": "Stadtteilzentrum Campus Kiezspindel",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Rudower Str. 37",
+      "city": "Berlin-Spindlersfeld",
+      "zip": "12557"
+    },
+    "items": [
+      {
+        "id": 5046,
+        "name": "Wilhelm",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/wilhelm/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/09/Wilhelm-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 96, 53, 171, 132, 18, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2019-09-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.526560400000001,
+    "lon": 13.3588045000722,
+    "location_name": "Moabiter Kinderhof",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Seydlitzstr. 12",
+      "city": "Berlin-Moabit",
+      "zip": "10557"
+    },
+    "items": [
+      {
+        "id": 5222,
+        "name": "Molara",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/molara/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/09/Molara-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 158, 18, 216, 27, 193, 167, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-10-02",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.53164592634073,
+    "lon": 13.326070010662079,
+    "location_name": "Stadtschloss Moabit",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Rostocker Str. 32b",
+      "city": "Berlin-Moabit",
+      "zip": "10553"
+    },
+    "items": [
+      {
+        "id": 5226,
+        "name": "Mathilde",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/mathilde/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Mathilde-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 158, 18, 216, 27, 193, 167, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-11-18",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.428561550072132,
+    "lon": 13.325933266625386,
+    "location_name": "Alnatura Lichterfelde Ost",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Jungfernstieg 1-2",
+      "city": "Berlin-Lichterfelde",
+      "zip": "12207"
+    },
+    "items": [
+      {
+        "id": 5289,
+        "name": "Ferdinand",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/ferdinand/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/09/AlnaturaSeven-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 134, 18, 27, 159, 59],
+        "timeframes": [
+          {
+            "date_start": "2019-11-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.570549300000003,
+    "lon": 13.328328600000001,
+    "location_name": "Alnatura Reinickendorf",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Ollenhauerstr. 106A",
+      "city": "Berlin-Reinickendorf",
+      "zip": "13403"
+    },
+    "items": [
+      {
+        "id": 5290,
+        "name": "Margot",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/margot/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/10/Margot-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 202, 18, 27, 61, 169],
+        "timeframes": [
+          {
+            "date_start": "2019-11-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.500124200000002,
+    "lon": 13.3545269,
+    "location_name": "Alnatura Schöneberg",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Else-Lasker-Schüler-Str. 18-22",
+      "city": "Berlin-Schöneberg",
+      "zip": "10783"
+    },
+    "items": [
+      {
+        "id": 5291,
+        "name": "Else",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/else/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/10/Else-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 158, 18, 27, 161, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-11-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.455192155705952,
+    "lon": 13.625568132565046,
+    "location_name": "Alnatura Friedrichshagen",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Bölschestr. 63",
+      "city": "Berlin-Friedrichshagen",
+      "zip": "12587"
+    },
+    "items": [
+      {
+        "id": 5292,
+        "name": "Müggelkäfer",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/mueggelkaefer/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/10/Mueggelkaefer-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 132, 18, 27, 114, 111],
+        "timeframes": [
+          {
+            "date_start": "2019-11-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.528433100000001,
+    "lon": 13.3859899,
+    "location_name": "Alnatura Mitte Chausseestraße",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Chausseestr. 10",
+      "city": "Berlin-Mitte",
+      "zip": "10115"
+    },
+    "items": [
+      {
+        "id": 5293,
+        "name": "Friedrich",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/friedrich/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/10/Friedrich-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 158, 18, 27, 167, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-11-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.512737899999998,
+    "lon": 13.1966584,
+    "location_name": "Alnatura Spandau",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Heerstr. 221",
+      "city": "Berlin-Wilhelmstadt",
+      "zip": "13595"
+    },
+    "items": [
+      {
+        "id": 5294,
+        "name": "Heera",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/heera/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/10/Heera-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 202, 18, 27, 88, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2019-11-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.543958600000003,
+    "lon": 13.4151937,
+    "location_name": "Café Butter",
+    "closed_days": ["1"],
+    "address": {
+      "street": "Pappelallee 73",
+      "city": "Berlin-Prenzlberg",
+      "zip": "10437"
+    },
+    "items": [
+      {
+        "id": 57,
+        "name": "Luise",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/luise/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2017/12/Luise-150x150.jpg",
+        "status": "publish",
+        "terms": [25, 71, 15, 20, 171, 152, 18, 27, 168, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-11-28",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.446269649999998,
+    "lon": 13.3347554089043,
+    "location_name": "Campus Albert Schweitzer",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Am Eichgarten 14",
+      "city": "Berlin-Steglitz",
+      "zip": "12167"
+    },
+    "items": [
+      {
+        "id": 5567,
+        "name": "Albert",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/albert/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Albert-2-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 53, 171, 134, 18, 216, 27, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2019-11-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.511045498557955,
+    "lon": 13.329238063308138,
+    "location_name": "TU Berlin - ZE Hochschulsport",
+    "closed_days": ["2", "5", "6", "7"],
+    "address": {
+      "street": "Str. des 17. Juni 135 (Südcampus Geb. V EG 1.Tür rechts)",
+      "city": "Berlin-Charlottenburg",
+      "zip": "10623"
+    },
+    "items": [
+      {
+        "id": 5585,
+        "name": "Arnold",
+        "short_desc": "ROMA BASIC Work Tricycle ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/arnold/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Arnold-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 160, 20, 202, 94, 27, 73, 204, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-11-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.4637788,
+    "lon": 13.3877840696688,
+    "location_name": "Bezirkszentralbibliothek Tempelhof",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Götzstr. 8-12 (Eva-Maria-Buch-Haus)",
+      "city": "Berlin-Tempelhof",
+      "zip": "12099"
+    },
+    "items": [
+      {
+        "id": 5695,
+        "name": "Eva",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/eva/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Eva-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 59, 161, 110],
+        "timeframes": [
+          {
+            "date_start": "2020-01-23",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.540414749999997,
+    "lon": 13.5915053,
+    "location_name": "SOS-Familienzentrum Berlin",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Alte Hellersdorfer Str. 77",
+      "city": "Berlin-Hellersdorf",
+      "zip": "12629"
+    },
+    "items": [
+      {
+        "id": 5645,
+        "name": "SOSi",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/sosi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/SOSi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 164, 105, 60],
+        "timeframes": [
+          {
+            "date_start": "2019-11-25",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.484060839883618,
+    "lon": 13.350534675923388,
+    "location_name": "Mittelpunktbibliothek Schöneberg",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Hauptstr. 40",
+      "city": "Berlin-Schöneberg",
+      "zip": "10827"
+    },
+    "items": [
+      {
+        "id": 5646,
+        "name": "Theo",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/theo/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Theo-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 161, 110, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-11-25",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.449504599999997,
+    "lon": 13.3384643,
+    "location_name": "Evangelische Markusgemeinde",
+    "closed_days": ["3", "5", "6", "7"],
+    "address": {
+      "street": "Albrechtstr. 81A",
+      "city": "Berlin-Steglitz",
+      "zip": "12167"
+    },
+    "items": [
+      {
+        "id": 5759,
+        "name": "Markus",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/markus/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Markus-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 134, 18, 27, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2019-12-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.517545550000001,
+    "lon": 13.6256692490342,
+    "location_name": "Wuhletal gGmbH (BW)",
+    "closed_days": ["2", "5", "6", "7"],
+    "address": {
+      "street": "Lemkestr. 32",
+      "city": "Berlin-Mahlsdorf",
+      "zip": "12623"
+    },
+    "items": [
+      {
+        "id": 5841,
+        "name": "Dicke Berta",
+        "short_desc": "Christiania Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/dicke-berta/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Berta-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 53, 171, 152, 18, 216, 27, 164, 105, 60],
+        "timeframes": [
+          {
+            "date_start": "2019-12-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.507715400000002,
+    "lon": 13.3990271,
+    "location_name": "Alte Feuerwache e.V.",
+    "closed_days": [],
+    "address": {
+      "street": "Axel-Springer-Str. 40/41",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10969"
+    },
+    "items": [
+      {
+        "id": 5610,
+        "name": "Sirene",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/sirene/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Sirene-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 102, 53, 171, 158, 18, 216, 27, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-12-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.48793219461372,
+    "lon": 13.385038286350291,
+    "location_name": "Die gelbe Villa",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Wilhelmshöhe 10",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10965"
+    },
+    "items": [
+      {
+        "id": 5611,
+        "name": "Wilhelmine",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/wilhelmine/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/02/christiania-black-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 102, 53, 171, 158, 18, 216, 27, 88, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-12-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.500591182965266,
+    "lon": 13.418270945549013,
+    "location_name": "FHXB-Museum",
+    "closed_days": ["1"],
+    "address": {
+      "street": "Adalbertstr. 95A",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10999"
+    },
+    "items": [
+      {
+        "id": 5858,
+        "name": "Yasmin",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/yasmin/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Yasmin-1-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 102, 53, 171, 158, 18, 216, 27, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-01-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.528409400000001,
+    "lon": 13.5400022,
+    "location_name": "FreiwilligenAgentur Marzahn-Hellersdorf",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Helene-Weigel-Platz 6",
+      "city": "Berlin-Marzahn",
+      "zip": "12681"
+    },
+    "items": [
+      {
+        "id": 5860,
+        "name": "Helene",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/helene/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Helene-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 53, 171, 152, 18, 216, 27, 164, 105, 60],
+        "timeframes": [
+          {
+            "date_start": "2019-12-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.533216000000003,
+    "lon": 13.599221999999999,
+    "location_name": "JFE U5",
+    "closed_days": ["1", "6", "7"],
+    "address": {
+      "street": "Auerbacher Ring 25",
+      "city": "Berlin-Hellersdorf",
+      "zip": "12619"
+    },
+    "items": [
+      {
+        "id": 5862,
+        "name": "Longo",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/longo/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/12/Longo-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 53, 171, 152, 18, 216, 27, 164, 105, 60],
+        "timeframes": [
+          {
+            "date_start": "2020-01-07",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.520869188829067,
+    "lon": 13.413834571838379,
+    "location_name": "denn‘s Biomarkt Alexanderplatz",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Alexanderplatz 2 (Alexanderhaus)",
+      "city": "Berlin-Mitte",
+      "zip": "10178"
+    },
+    "items": [
+      {
+        "id": 5924,
+        "name": "Gandhi",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/gandhi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Gandhi-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 20, 171, 158, 18, 216, 27, 167, 88, 204, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-01-18",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.516482018817307,
+    "lon": 13.452717049074677,
+    "location_name": "Galerie im Turm",
+    "closed_days": [],
+    "address": {
+      "street": "Frankfurter Tor 1",
+      "city": "Berlin-Friedrichshain",
+      "zip": "10243"
+    },
+    "items": [
+      {
+        "id": 5612,
+        "name": "Git",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/git/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/GIT-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 102, 53, 171, 132, 18, 27, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2019-12-12",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.503868300000001,
+    "lon": 13.457008200000001,
+    "location_name": "Familienzentrum FUN",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Modersohnstr. 46",
+      "city": "Berlin-Friedrichshain",
+      "zip": "10245"
+    },
+    "items": [
+      {
+        "id": 5615,
+        "name": "FUNny",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/funny/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/12/FUNny-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 102, 53, 171, 132, 18, 216, 27, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-01-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.508183063343729,
+    "lon": 13.458160758018494,
+    "location_name": "Kinderfreizeiteinrichtung „Känguruh“",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Konitzerstr. 2",
+      "city": "Berlin-Friedrichshain",
+      "zip": "10245"
+    },
+    "items": [
+      {
+        "id": 5614,
+        "name": "I Kän Rad",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/i-kaen-rad/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/IKänRad-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 102, 53, 171, 132, 18, 27, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-01-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.519426432751317,
+    "lon": 13.431145593826736,
+    "location_name": "Familienzentrum Menschenskinder",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Fürstenwalder Str. 30 (Nordhof)",
+      "city": "Berlin-Friedrichshain",
+      "zip": "10243"
+    },
+    "items": [
+      {
+        "id": 5613,
+        "name": "Lieschen",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/lieschen/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Lieschen-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 102, 53, 171, 132, 18, 216, 27, 88, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-02-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.503339400000002,
+    "lon": 13.4045191,
+    "location_name": "Kinderfreizeithaus „Kleine Ritterburg“",
+    "closed_days": ["1", "6", "7"],
+    "address": {
+      "street": "Ritterstr. 36",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10969"
+    },
+    "items": [
+      {
+        "id": 5609,
+        "name": "Ritterkutsche",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/ritterkutsche/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Ritterkutsche-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 102, 53, 171, 158, 18, 27, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-01-27",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.470923900000003,
+    "lon": 13.3350998,
+    "location_name": "Nicolaische Buchhandlung",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Rheinstr. 65",
+      "city": "Berlin-Friedenau",
+      "zip": "12159"
+    },
+    "items": [
+      {
+        "id": 6032,
+        "name": "Lenja",
+        "short_desc": "Babboe Carve Mountain mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/lenja/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/12/Lenja-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 11, 75, 20, 134, 18, 27, 26, 59, 161],
+        "timeframes": [
+          {
+            "date_start": "2020-01-02",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.418017999999996,
+    "lon": 13.148059699999999,
+    "location_name": "JFE Wannsee / Jugendhaus",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Königstr. 42",
+      "city": "Berlin-Wannsee",
+      "zip": "14109"
+    },
+    "items": [
+      {
+        "id": 6043,
+        "name": "Wannseerad",
+        "short_desc": "Bakfiets E-CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/wannseerad/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Wannseerad-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 75, 53, 171, 134, 18, 27, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2020-01-21",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.433850366380511,
+    "lon": 13.254387869204297,
+    "location_name": "Mittelhof",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Königstr. 42-43",
+      "city": "Berlin-Zehlendorf",
+      "zip": "14163"
+    },
+    "items": [
+      {
+        "id": 6047,
+        "name": "VillaVelo",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/villavelo/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/12/VillaVelo-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 134, 18, 216, 27, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2020-02-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.439662599999998,
+    "lon": 13.2775608,
+    "location_name": "Nachbarschaftshaus Wannseebahn",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Berliner Str. 82",
+      "city": "Berlin-Zehlendorf",
+      "zip": "14169"
+    },
+    "items": [
+      {
+        "id": 6049,
+        "name": "Larisza",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/larisza/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/12/Larisza-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 134, 18, 27, 88, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2020-01-27",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.413244300000002,
+    "lon": 13.266227199999999,
+    "location_name": "Mehrgenerationenhaus Phoenix",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Teltower Damm 228",
+      "city": "Berlin-Zehlendorf",
+      "zip": "14167"
+    },
+    "items": [
+      {
+        "id": 6051,
+        "name": "Phoenix",
+        "short_desc": "Bakfiets E-CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/phoenix/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/02/Phoenix-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 75, 53, 171, 134, 18, 216, 27, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2020-02-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.461164199999999,
+    "lon": 13.3344541,
+    "location_name": "JFZ JeverNeun",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Jeverstr. 9",
+      "city": "Berlin-Steglitz",
+      "zip": "12157"
+    },
+    "items": [
+      {
+        "id": 6057,
+        "name": "Jever",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/jever/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/12/Jever-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 134, 18, 216, 27, 88, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2020-02-10",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.487341700000002,
+    "lon": 13.5600907,
+    "location_name": "Freizeithaus Balzerplatz",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Köpenicker Str. 184",
+      "city": "Berlin-Biesdorf",
+      "zip": "12683"
+    },
+    "items": [
+      {
+        "id": 6062,
+        "name": "Balzerina",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/balzerina/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Balzerina-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 152, 18, 216, 27, 164, 105, 60],
+        "timeframes": [
+          {
+            "date_start": "2020-01-20",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.5723062,
+    "lon": 13.568211099999999,
+    "location_name": "JFE \"UNO\"",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Märkische Allee 414",
+      "city": "Berlin-Marzahn",
+      "zip": "12689"
+    },
+    "items": [
+      {
+        "id": 6064,
+        "name": "UNO",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/uno/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/UNO-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 164, 105, 61, 60, 88],
+        "timeframes": [
+          {
+            "date_start": "2020-02-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.544024399999998,
+    "lon": 13.5594739,
+    "location_name": "Wuhletal gGmbH (Tagesstätte)",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Alt-Marzahn 31",
+      "city": "Berlin-Marzahn",
+      "zip": "12685"
+    },
+    "items": [
+      {
+        "id": 6066,
+        "name": "Schubidu",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/schubidu/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Schubidu-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 164, 105, 60],
+        "timeframes": [
+          {
+            "date_start": "2020-01-20",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.517194000000003,
+    "lon": 13.5702821,
+    "location_name": "Wuhletal gGmbH (BEW)",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Brebacher Weg 15 (Haus 32)",
+      "city": "Berlin-Biesdorf",
+      "zip": "12683"
+    },
+    "items": [
+      {
+        "id": 6069,
+        "name": "KonRad",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/konrad/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/12/KonRad-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 164, 105, 60],
+        "timeframes": [
+          {
+            "date_start": "2020-01-27",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.5160993,
+    "lon": 13.5887274,
+    "location_name": "Villa Pelikan",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Hellersdorfer Str. 27",
+      "city": "Berlin-Kaulsdorf",
+      "zip": "12621"
+    },
+    "items": [
+      {
+        "id": 6071,
+        "name": "Peli",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/peli/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Peli-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 152, 18, 216, 27, 164, 105, 60],
+        "timeframes": [
+          {
+            "date_start": "2020-01-18",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.527575200000001,
+    "lon": 13.5854508,
+    "location_name": "KOMPASS",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Kummerower Ring 42 (c/o Klub 74)",
+      "city": "Berlin-Kaulsdorf",
+      "zip": "12619"
+    },
+    "items": [
+      {
+        "id": 6077,
+        "name": "Liebe",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/liebe/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Liebe-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 164, 105, 60],
+        "timeframes": [
+          {
+            "date_start": "2020-01-20",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.4839299,
+    "lon": 13.388538,
+    "location_name": "CityLAB Berlin",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Platz der Luftbrücke 4",
+      "city": "Berlin-Tempelhof",
+      "zip": "12101"
+    },
+    "items": [
+      {
+        "id": 2169,
+        "name": "Lars",
+        "short_desc": " zweirädriges Bullitt-Lastenrad mit Deckel (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/lars/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/08/Lars-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 90, 20, 158, 27, 73, 204, 161, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-01-08",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.439832099999997,
+    "lon": 13.553709100000001,
+    "location_name": "Adlershofer Fahrradwelt",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Dörpfeldstr. 73",
+      "city": "Berlin-Adlershof",
+      "zip": "12489"
+    },
+    "items": [
+      {
+        "id": 3456,
+        "name": "Dörk",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken und Regenverdeck",
+        "link": "https://flotte-berlin.de/cb-items/doerk/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/03/Doerk-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 132, 18, 216, 27, 149, 204, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2020-01-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.529854499999999,
+    "lon": 13.345610499999999,
+    "location_name": "StadtRand gGmbH",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Perleberger Str. 44",
+      "city": "Berlin-Moabit",
+      "zip": "10559"
+    },
+    "items": [
+      {
+        "id": 6349,
+        "name": "Perle",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/perle/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Perle-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-01-22",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.491945000000001,
+    "lon": 13.3524589,
+    "location_name": "Nachbarschafts- und Familienzentrum Kiezoase",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Barbarossastraße 65",
+      "city": "Berlin-Schöneberg",
+      "zip": "10781"
+    },
+    "items": [
+      {
+        "id": 6585,
+        "name": "Rossi",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/rossi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/02/Rossi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 158, 18, 216, 27, 161, 110, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-03-02",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.471816699999998,
+    "lon": 13.3292327,
+    "location_name": "Jugendburg Friedenau",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Friedrich-Wilhelm-Platz 11",
+      "city": "Berlin-Friedenau",
+      "zip": "12161"
+    },
+    "items": [
+      {
+        "id": 6718,
+        "name": "Hermes",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/hermes/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/02/Hermes-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 53, 171, 134, 18, 216, 27, 59, 161, 110],
+        "timeframes": [
+          {
+            "date_start": "2020-03-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.557820999999997,
+    "lon": 13.4439554,
+    "location_name": "BENN Weißensee",
+    "closed_days": ["3", "5", "6", "7"],
+    "address": {
+      "street": "Gustav-Adolf-Str. 125",
+      "city": "Berlin-Weißensee",
+      "zip": "13086"
+    },
+    "items": [
+      {
+        "id": 6833,
+        "name": "Gustav",
+        "short_desc": "Bakfiets E-CargoTrike Classic Narrow mit 2 Kinderbänken und Tisch mit Schirm",
+        "link": "https://flotte-berlin.de/cb-items/gustav/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/03/Gustav-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 37, 11, 75, 20, 171, 152, 18, 216, 27, 61, 168, 217],
+        "timeframes": [
+          {
+            "date_start": "2020-03-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.449791472786636,
+    "lon": 13.252248028300706,
+    "location_name": "Toms Kaffeerösterei",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Ladenstr. 50",
+      "city": "Berlin-Zehlendorf",
+      "zip": "14169"
+    },
+    "items": [
+      {
+        "id": 7046,
+        "name": "Onkel Tom",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/onkel-tom/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/03/Onkel-Tom-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 134, 18, 27, 203, 159, 59],
+        "timeframes": [
+          {
+            "date_start": "2020-03-23",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.473782800000002,
+    "lon": 13.4490888,
+    "location_name": "Kaspertheater Rixdorf",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Böhmische Str. 46",
+      "city": "Berlin-Neukölln",
+      "zip": "12055"
+    },
+    "items": [
+      {
+        "id": 7077,
+        "name": "Rosinante",
+        "short_desc": "Babboe Big mit 2 Kinderbänken und Regenverdeck",
+        "link": "https://flotte-berlin.de/cb-items/rosinante/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/03/Rosinante-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 11, 20, 171, 132, 18, 216, 27, 165, 149, 204, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-03-30",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.632646800000003,
+    "lon": 13.4954775,
+    "location_name": "BENN Team – Bucher Bürgerhaus",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Franz-Schmidt-Str. 8-10",
+      "city": "Berlin-Buch",
+      "zip": "13125"
+    },
+    "items": [
+      {
+        "id": 7081,
+        "name": "Doris",
+        "short_desc": "Babboe Transporter Pro-Trike mit Deckel (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/doris/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/03/Doris-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 37, 11, 90, 20, 152, 27, 61, 168],
+        "timeframes": [
+          {
+            "date_start": "2020-05-15",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.451781500000003,
+    "lon": 13.4510988,
+    "location_name": "BENN-Nachbarschaftsbüro Britz",
+    "closed_days": ["2", "4", "5", "6", "7"],
+    "address": {
+      "street": "Hanne Nüte 1",
+      "city": "Berlin-Britz",
+      "zip": "12359"
+    },
+    "items": [
+      {
+        "id": 7793,
+        "name": "Britzer Flitzer",
+        "short_desc": "PedalPower Berliner Lastenrad mit Deckel (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/britzer-flitzer/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/05/Britzer-Flitzer-150x150.jpg",
+        "status": "publish",
+        "terms": [37, 11, 90, 20, 171, 132, 27, 165, 72, 59],
+        "timeframes": [
+          {
+            "date_start": "2020-06-02",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.462439199999999,
+    "lon": 13.513123500000001,
+    "location_name": "WERK116",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Wilhelminenhofstr. 88",
+      "city": "Berlin-OSW",
+      "zip": "12459"
+    },
+    "items": [
+      {
+        "id": 5042,
+        "name": "OSWald",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank und Babyschalenhalterung",
+        "link": "https://flotte-berlin.de/cb-items/oswald/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/09/OSWald-1-150x150.jpg",
+        "status": "publish",
+        "terms": [218, 71, 15, 96, 53, 171, 132, 18, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2020-06-08",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.456586100000003,
+    "lon": 13.3209654,
+    "location_name": "Vattenfall Store Steglitz",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Albrechtstr. 1",
+      "city": "Berlin-Steglitz",
+      "zip": "12165"
+    },
+    "items": [
+      {
+        "id": 7943,
+        "name": "Lotta",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/lotta/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/06/Lotta-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 134, 18, 27, 203, 159, 59],
+        "timeframes": [
+          {
+            "date_start": "2020-06-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.498605649151891,
+    "lon": 13.504257202148439,
+    "location_name": "Jugendverkehrsschule Lichtenberg Baikalstr.",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Baikalstr. 4",
+      "city": "Berlin-Friedrichsfelde",
+      "zip": "10319"
+    },
+    "items": [
+      {
+        "id": 7944,
+        "name": "Sabrina",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/sabrina/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/06/Sabrina-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 48, 162, 60],
+        "timeframes": [
+          {
+            "date_start": "2020-06-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.458899020810463,
+    "lon": 13.526173532009127,
+    "location_name": "Gastro-Norm",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Wilhelminenhofstr. 53",
+      "city": "Berlin-OSW",
+      "zip": "12459"
+    },
+    "items": [
+      {
+        "id": 4377,
+        "name": "Wilma",
+        "short_desc": "2rädriges DOUZE G4 V2 Urban mit Deckel (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/wilma/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/07/Wilma-1-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 90, 75, 20, 171, 132, 27, 73, 204, 114, 111],
+        "timeframes": [
+          {
+            "date_start": "2020-07-06",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.445788800000003,
+    "lon": 13.5787879,
+    "location_name": "Mittelpunktbibliothek Köpenick",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Alter Markt 2",
+      "city": "Berlin-Köpenick",
+      "zip": "12555"
+    },
+    "items": [
+      {
+        "id": 8101,
+        "name": "Goethe",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/goethe/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/06/Goethe-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 132, 18, 216, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2020-06-25",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.4551777,
+    "lon": 13.582845419277705,
+    "location_name": "Haus der Jugend Köpenick",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Seelenbinderstr. 54",
+      "city": "Berlin-Köpenick",
+      "zip": "12555"
+    },
+    "items": [
+      {
+        "id": 8100,
+        "name": "Volxfahrrad",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/volxfahrrad/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/06/Volxfahrrad-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 132, 18, 216, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2020-06-25",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.589283600000002,
+    "lon": 13.2930869,
+    "location_name": "Fernsehhaus Gaedke",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Ziekowstr. 114",
+      "city": "Berlin-Tegel",
+      "zip": "13509"
+    },
+    "items": [
+      {
+        "id": 8119,
+        "name": "Kiezkutsche",
+        "short_desc": "Bakfiets E-CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/kiezkutsche/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/07/Kiezkutsche-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 75, 20, 171, 202, 18, 216, 27, 61, 169, 203],
+        "timeframes": [
+          {
+            "date_start": "2020-07-07",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.420905400000002,
+    "lon": 13.587448999999999,
+    "location_name": "KIEZKLUB Haus der Begegnung",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Wendenschloßstr. 404",
+      "city": "Berlin-Wendenschloß",
+      "zip": "12557"
+    },
+    "items": [
+      {
+        "id": 8118,
+        "name": "Felix",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/felix/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/06/Felix-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 132, 18, 216, 27, 88, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2020-07-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.401630099400073,
+    "lon": 13.571022926436051,
+    "location_name": "KIEZKLUB Bohnsdorf",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Dahmestr. 33",
+      "city": "Berlin-Bohnsdorf",
+      "zip": "12526"
+    },
+    "items": [
+      {
+        "id": 8117,
+        "name": "Otti",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/otti/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/07/Otti-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2020-07-10",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.428711999999997,
+    "lon": 13.731129299999999,
+    "location_name": "KIEZKLUB Rahnsdorf",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Fürstenwalder Allee 362",
+      "city": "Berlin-Rahnsdorf",
+      "zip": "12589"
+    },
+    "items": [
+      {
+        "id": 8116,
+        "name": "Paulchen",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/paulchen/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/06/Paulchen-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2020-07-15",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.466305278564342,
+    "lon": 13.330506385027588,
+    "location_name": "LIFE e.V.",
+    "closed_days": ["1", "3", "5", "6", "7"],
+    "address": {
+      "street": "Rheinstr. 45",
+      "city": "Berlin-Friedenau",
+      "zip": "12161"
+    },
+    "items": [
+      {
+        "id": 8426,
+        "name": "Mileva",
+        "short_desc": "Christiania Bike Light mit 1 Kinderbank und Regenverdeck",
+        "link": "https://flotte-berlin.de/cb-items/mileva/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/08/Mileva-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 20, 134, 18, 27, 26, 149, 59, 161],
+        "timeframes": [
+          {
+            "date_start": "2020-08-19",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.488387599999996,
+    "lon": 13.346071556334969,
+    "location_name": "DIE WEISSE ROSE Kulturzentrum",
+    "closed_days": ["1", "6", "7"],
+    "address": {
+      "street": "Martin-Luther-Straße 77",
+      "city": "Berlin-Schöneberg",
+      "zip": "10825"
+    },
+    "items": [
+      {
+        "id": 7571,
+        "name": "Weisse Rose",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/weisse-rose/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/09/Weisse-Rose-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 53, 171, 158, 18, 216, 27, 161, 110, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-10-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.439200681234112,
+    "lon": 13.386004129528645,
+    "location_name": "Jugendverkehrsschule Tempelhof",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Alt-Mariendorf 43",
+      "city": "Berlin-Mariendorf",
+      "zip": "12107"
+    },
+    "items": [
+      {
+        "id": 7569,
+        "name": "Muli 1",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/muli-1/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/09/Muli-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 59, 161, 110],
+        "timeframes": [
+          {
+            "date_start": "2020-10-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.392236150000002,
+    "lon": 13.410556557372836,
+    "location_name": "Jugendcafé am Dorfteich",
+    "closed_days": ["1", "5", "6"],
+    "address": {
+      "street": "Alt-Lichtenrade 103",
+      "city": "Berlin-Lichtenrade",
+      "zip": "12309"
+    },
+    "items": [
+      {
+        "id": 7570,
+        "name": "LiBike",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/libike/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/04/Libike-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 134, 18, 27, 88, 59, 161, 110],
+        "timeframes": [
+          {
+            "date_start": "2020-10-06",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.465194650000001,
+    "lon": 13.715913249880616,
+    "location_name": "Kinder- und Jugendzentrum Schöneiche",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Prager Str. 23",
+      "city": "Schöneiche",
+      "zip": "15566"
+    },
+    "items": [
+      {
+        "id": 8871,
+        "name": "Täve",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/taeve/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/10/Taeve_fLotte-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 177, 15, 171, 174, 132, 18, 27, 60, 220, 157],
+        "timeframes": [
+          {
+            "date_start": "2020-10-26",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.480769100000003,
+    "lon": 13.694813060263659,
+    "location_name": "Kulturgiesserei Schöneiche",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "An der Reihe 5",
+      "city": "Schöneiche",
+      "zip": "15566"
+    },
+    "items": [
+      {
+        "id": 8872,
+        "name": "KuGi",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/kugi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/10/KuGi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 177, 11, 171, 174, 132, 18, 216, 27, 60, 220, 157],
+        "timeframes": [
+          {
+            "date_start": "2020-10-26",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.443532000000005,
+    "lon": 13.502268831854837,
+    "location_name": "KIEZKLUB Johannisthal",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Sterndamm 102",
+      "city": "Berlin-Johannisthal",
+      "zip": "12487"
+    },
+    "items": [
+      {
+        "id": 8914,
+        "name": "Johannes",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/johannes/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/12/Johannes-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2020-12-14",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.488711000000002,
+    "lon": 13.450639600000001,
+    "location_name": "KIEZKLUB Gerard Philipe",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Karl-Kunger-Straße 30",
+      "city": "Berlin-Alt-Treptow",
+      "zip": "12435"
+    },
+    "items": [
+      {
+        "id": 8915,
+        "name": "Gerard",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/gerard/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/11/Gerard-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 128, 111, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-11-26",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.403027628110422,
+    "lon": 13.526176658537523,
+    "location_name": "Kiezladen der Möglichkeiten WAMA",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Ortolfstr. 206 B",
+      "city": "Berlin-Altglienicke",
+      "zip": "12524"
+    },
+    "items": [
+      {
+        "id": 8916,
+        "name": "Kosmos-Blitz",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/kosmos-blitz/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/10/Kosmos-Blitz-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2021-03-08",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.468011221389901,
+    "lon": 13.484033253873422,
+    "location_name": "KIEZKLUB Treptow-Kolleg",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Kiefholzstr. 274",
+      "city": "Berlin-Baumschulenweg",
+      "zip": "12437"
+    },
+    "items": [
+      {
+        "id": 8917,
+        "name": "Speedy",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/speedy/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/10/Speedy-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2021-05-31",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.401950300000003,
+    "lon": 13.544067999999999,
+    "location_name": "Kinder- und Jugendtreff Fairness",
+    "closed_days": ["1", "6", "7"],
+    "address": {
+      "street": "Ehrenfelder Str. 25",
+      "city": "Berlin-Altglienicke",
+      "zip": "12524"
+    },
+    "items": [
+      {
+        "id": 8918,
+        "name": "Fairnessa",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/fairnessa/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/05/Fairnessa-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 132, 18, 216, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2021-03-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.496874300000002,
+    "lon": 13.363971100000001,
+    "location_name": "Nachbarschaftszentrum Steinmetzstraße",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Steinmetzstr. 68",
+      "city": "Berlin-Schöneberg",
+      "zip": "10783"
+    },
+    "items": [
+      {
+        "id": 7568,
+        "name": "Steinmetz",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/steinmetz/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/07/Steinmetz-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 88, 161, 110, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-11-06",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.566582500000003,
+    "lon": 13.504508100000001,
+    "location_name": "Selbsthilfekontaktstelle Horizont",
+    "closed_days": ["1", "5", "6", "7"],
+    "address": {
+      "street": "Ahrenshooper Str. 5",
+      "city": "Berlin-Neu-HSH",
+      "zip": "13051"
+    },
+    "items": [
+      {
+        "id": 9405,
+        "name": "Horizont",
+        "short_desc": "Babboe Transporter mit Deckel (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/horizont/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/11/Horizont-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 11, 90, 53, 171, 152, 27, 48, 162, 61, 60],
+        "timeframes": [
+          {
+            "date_start": "2021-04-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.669464300000001,
+    "lon": 13.286454900000001,
+    "location_name": "Sankt Hubertus Apotheke",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Schönfließer Str. 16",
+      "city": "Hohen Neuendorf",
+      "zip": "16540"
+    },
+    "items": [
+      {
+        "id": 9495,
+        "name": "Hubert",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/hubert/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/11/Hubert-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 175, 15, 174, 202, 18, 27, 61, 220, 157],
+        "timeframes": [
+          {
+            "date_start": "2020-11-23",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.558385199999996,
+    "lon": 13.3391068,
+    "location_name": "Centre Français de Berlin",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Müllerstr. 74",
+      "city": "Berlin-Wedding",
+      "zip": "13349"
+    },
+    "items": [
+      {
+        "id": 9498,
+        "name": "Amelie",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/amelie/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/12/Amelie-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 158, 18, 27, 167, 61, 88, 204],
+        "timeframes": [
+          {
+            "date_start": "2021-01-12",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.479362899999998,
+    "lon": 13.3501922,
+    "location_name": "Kita Ebersstraße",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Ebersstr. 68",
+      "city": "Berlin-Schöneberg",
+      "zip": "10827"
+    },
+    "items": [
+      {
+        "id": 9750,
+        "name": "Georg",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/georg/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/12/Georg-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 158, 18, 27, 26, 161, 57],
+        "timeframes": [
+          {
+            "date_start": "2020-12-18",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.545418400000003,
+    "lon": 13.500204399999999,
+    "location_name": "Familienbüro Lichtenberg",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Große-Leege-Str. 103",
+      "city": "Berlin-Alt-HSH",
+      "zip": "13055"
+    },
+    "items": [
+      {
+        "id": 2330,
+        "name": "Zoe",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/zoe/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Zoe-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 48, 162, 60],
+        "timeframes": [
+          {
+            "date_start": "2021-03-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.5177263,
+    "lon": 13.263037199999999,
+    "location_name": "Ev. Kirchengemeinde Neu-Westend",
+    "closed_days": ["1", "5", "6", "7"],
+    "address": {
+      "street": "Eichenallee 47",
+      "city": "Berlin-Westend",
+      "zip": "14050"
+    },
+    "items": [
+      {
+        "id": 10192,
+        "name": "Radalbert",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/radalbert/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/01/Radalbert-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 160, 170, 53, 171, 202, 18, 27, 58],
+        "timeframes": [
+          {
+            "date_start": "2021-04-27",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.482270578091729,
+    "lon": 13.28391913987646,
+    "location_name": "DRK Südwest gGmbH",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Plöner Str. 4-18",
+      "city": "Berlin-Schmargendorf",
+      "zip": "14193"
+    },
+    "items": [
+      {
+        "id": 10193,
+        "name": "Plöner Bike",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/ploener-bike/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/01/Ploener-Bike-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 160, 170, 53, 171, 202, 18, 27, 59, 58],
+        "timeframes": [
+          {
+            "date_start": "2021-03-02",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.506377200000003,
+    "lon": 13.3151651,
+    "location_name": "Radkunst Café",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Kantstr. 36",
+      "city": "Berlin-Charlottenburg",
+      "zip": "10625"
+    },
+    "items": [
+      {
+        "id": 10194,
+        "name": "Josch",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/josch/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/01/Josch-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 160, 170, 53, 171, 202, 18, 27, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-04-23",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.49864865,
+    "lon": 13.329879262716382,
+    "location_name": "Cafeteria Joseph‘s in der UdK Berlin",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Bundesallee 1-12",
+      "city": "Berlin-Wilmersdorf",
+      "zip": "10719"
+    },
+    "items": [
+      {
+        "id": 10196,
+        "name": "Hermann",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/hermann/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/01/Hermann-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 160, 170, 53, 171, 202, 18, 216, 27, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-04-26",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.484002036821401,
+    "lon": 13.324131584689345,
+    "location_name": "nachbarschafft e.V.",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Straße am Schoelerpark 37",
+      "city": "Berlin-Wilmersdorf",
+      "zip": "10715"
+    },
+    "items": [
+      {
+        "id": 10197,
+        "name": "Hermine",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/hermine/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/01/Hermine-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 160, 170, 53, 171, 202, 18, 216, 27, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-06-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.516233849999999,
+    "lon": 13.29805775336769,
+    "location_name": "Museum Charlottenburg-Wilmersdorf",
+    "closed_days": ["1"],
+    "address": {
+      "street": "Schloßstr. 55",
+      "city": "Berlin-Charlottenburg",
+      "zip": "14059"
+    },
+    "items": [
+      {
+        "id": 10198,
+        "name": "Oppi",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/oppi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/01/Oppi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 160, 170, 53, 171, 202, 18, 216, 27, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-05-25",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.492828863738019,
+    "lon": 13.318669639517118,
+    "location_name": "JugendTechnikSchule City-West (tjfbg) gGmbH",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Emser Str. 52",
+      "city": "Berlin-Wilmersdorf",
+      "zip": "10719"
+    },
+    "items": [
+      {
+        "id": 10202,
+        "name": "Kranz-Pirat",
+        "short_desc": "Bakfiets E-CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/kranz-pirat/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/01/KranzPirat-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 160, 170, 75, 53, 171, 202, 18, 216, 27, 88, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-04-19",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      },
+      {
+        "id": 5297,
+        "name": "Nele",
+        "short_desc": "Zonix Dreirad mit Kinderbank und Ladefläche",
+        "link": "https://flotte-berlin.de/cb-items/nele/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/10/Nele-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 160, 20, 202, 18, 94, 27, 88, 26, 73, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-03-15",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.547140499999998,
+    "lon": 13.200632499999999,
+    "location_name": "Spandauer Jugend e.V.",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Kleine Mittelstr. 9",
+      "city": "Berlin-Spandau",
+      "zip": "13585"
+    },
+    "items": [
+      {
+        "id": 2341,
+        "name": "Radewanne",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/radewanne/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Radewanne-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2021-04-12",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.5517155,
+    "lon": 13.4743317,
+    "location_name": "Familienzentrum Hand in Hand",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Else-Jahn-Str. 41",
+      "city": "Berlin-Weißensee",
+      "zip": "13088"
+    },
+    "items": [
+      {
+        "id": 10546,
+        "name": "Elsa",
+        "short_desc": "Bakfiets E-CargoTrike Classic Narrow mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/elsa/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/03/Elsa-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 37, 11, 75, 20, 171, 152, 18, 216, 27, 61, 60, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-03-15",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.505702999999997,
+    "lon": 13.508012300000001,
+    "location_name": "AWO Margaretentreff",
+    "closed_days": ["3", "5", "6", "7"],
+    "address": {
+      "street": "Zachertstr. 52",
+      "city": "Berlin-Friedrichsfelde",
+      "zip": "10315"
+    },
+    "items": [
+      {
+        "id": 10580,
+        "name": "Gretchen",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank und Babyschalenhalterung",
+        "link": "https://flotte-berlin.de/cb-items/gretchen/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/03/Gretchen-150x150.jpg",
+        "status": "publish",
+        "terms": [218, 71, 15, 53, 171, 152, 18, 27, 48, 162, 60],
+        "timeframes": [
+          {
+            "date_start": "2021-03-25",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.536133399999997,
+    "lon": 13.201386400000001,
+    "location_name": "Bezirkszentralbibliothek Spandau",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Carl-Schurz-Str. 13",
+      "city": "Berlin-Spandau",
+      "zip": "13597"
+    },
+    "items": [
+      {
+        "id": 2344,
+        "name": "Rosi",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/rosi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Rosi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2021-04-21",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.591408450000003,
+    "lon": 13.286209820648146,
+    "location_name": "Alnatura Tegel",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Bernstorffstr. 13A",
+      "city": "Berlin-Tegel",
+      "zip": "13507"
+    },
+    "items": [
+      {
+        "id": 1824,
+        "name": "Budde",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/budde/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/07/Budde-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 202, 18, 27, 61, 169],
+        "timeframes": [
+          {
+            "date_start": "2021-04-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.448954999999998,
+    "lon": 13.507996199999999,
+    "location_name": "Quartiersmanagement Johannisthal",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Sterndamm 47",
+      "city": "Berlin-Johannisthal",
+      "zip": "12487"
+    },
+    "items": [
+      {
+        "id": 5044,
+        "name": "Johanna",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/johanna/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/09/Johanna-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 96, 53, 171, 132, 18, 27, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2021-04-22",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.462618647570437,
+    "lon": 13.470827424039722,
+    "location_name": "Jugendtreff: TheCorner",
+    "closed_days": ["1", "3", "6", "7"],
+    "address": {
+      "street": "Neuköllnische Allee 129",
+      "city": "Berlin-Neukölln",
+      "zip": "12057"
+    },
+    "items": [
+      {
+        "id": 11242,
+        "name": "HIGHDI",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/highdi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/08/HIGHDI-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 172, 165, 114],
+        "timeframes": [
+          {
+            "date_start": "2021-08-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.480656000000003,
+    "lon": 13.4517262,
+    "location_name": "Quartiersmanagement-Büro Harzer Straße",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Treptower Str. 23",
+      "city": "Berlin-Neukölln",
+      "zip": "12059"
+    },
+    "items": [
+      {
+        "id": 11244,
+        "name": "HarzerRad",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/harzerrad/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/04/HarzerRad-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 132, 18, 216, 27, 172, 165, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-05-17",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.478133999999997,
+    "lon": 13.432108700000001,
+    "location_name": "MORUS 14 e.V.",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Werbellinstr. 41",
+      "city": "Berlin-Neukölln",
+      "zip": "12053"
+    },
+    "items": [
+      {
+        "id": 11240,
+        "name": "Yalla-Bike",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/yalla-bike/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/04/Yalla-Bike-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 172, 165, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-05-10",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.400854402768566,
+    "lon": 13.503173600894632,
+    "location_name": "JFE BlueBox",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Käte-Frankenthal-Weg 12",
+      "city": "Berlin-Rudow",
+      "zip": "12355"
+    },
+    "items": [
+      {
+        "id": 11238,
+        "name": "BlueBike",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/bluebike/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/05/BlueBike-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 172, 165, 59],
+        "timeframes": [
+          {
+            "date_start": "2021-05-25",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.438679350000001,
+    "lon": 13.315320463109877,
+    "location_name": "Küsterei Paulus-Kirchengemeinde",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Hindenburgdamm 101a",
+      "city": "Berlin-Lichterfelde",
+      "zip": "12203"
+    },
+    "items": [
+      {
+        "id": 11685,
+        "name": "Paulus",
+        "short_desc": "Bakfiets E-CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/paulus/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/06/Paulus-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 75, 20, 134, 18, 27, 204, 159, 59],
+        "timeframes": [
+          {
+            "date_start": "2021-06-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.491482461958796,
+    "lon": 13.488021790981295,
+    "location_name": "Boulderhalle ostbloc",
+    "closed_days": [],
+    "address": {
+      "street": "Hauptstr. 13",
+      "city": "Berlin-Rummelsburg",
+      "zip": "10317"
+    },
+    "items": [
+      {
+        "id": 11738,
+        "name": "Roter Stern",
+        "short_desc": "Winther Wallaroo ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/roter-stern/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/06/Roter_Stern-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 20, 171, 132, 27, 162, 60, 88, 26, 73],
+        "timeframes": [
+          {
+            "date_start": "2021-06-07",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.532869499999997,
+    "lon": 13.1805559,
+    "location_name": "agens",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Altonaer Str. 107",
+      "city": "Berlin-Spandau",
+      "zip": "13581"
+    },
+    "items": [
+      {
+        "id": 2339,
+        "name": "Brummi",
+        "short_desc": " Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/brummi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/10/Brummi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 88, 49, 163, 58],
+        "timeframes": [
+          {
+            "date_start": "2021-06-14",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.498011277841641,
+    "lon": 13.297853129975408,
+    "location_name": "Vattenfall Kurfürstendamm",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Kurfürstendamm 143",
+      "city": "Berlin-Halensee",
+      "zip": "10709"
+    },
+    "items": [
+      {
+        "id": 11970,
+        "name": "Oskar",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/oskar/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/06/Oskar-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 160, 20, 171, 202, 18, 27, 203, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-06-21",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.422006199999998,
+    "lon": 13.4571766,
+    "location_name": "Kinder- und Jugendclub Wildhüterweg",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Wildhüterweg 1",
+      "city": "Berlin-Gropiusstadt",
+      "zip": "12353"
+    },
+    "items": [
+      {
+        "id": 12077,
+        "name": "Wilde Foxi",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/wilde-foxi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/06/Wilde-Foxi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 132, 18, 216, 27, 172, 165, 59],
+        "timeframes": [
+          {
+            "date_start": "2021-08-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.572020199999997,
+    "lon": 13.4378718,
+    "location_name": "Zukunftswerkstatt Heinersdorf",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Romain-Rolland-Straße 112",
+      "city": "Berlin-Heinersdorf",
+      "zip": "13089"
+    },
+    "items": [
+      {
+        "id": 12331,
+        "name": "Heiner",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/heiner/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/08/Heiner-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 61, 173, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-09-27",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.606342499999997,
+    "lon": 13.4211037,
+    "location_name": "Nachbarschaftszentrum Amtshaus Buchholz",
+    "closed_days": ["1", "3", "5", "6", "7"],
+    "address": {
+      "street": "Rosenthaler Weg 32",
+      "city": "Berlin-Buchholz",
+      "zip": "13127"
+    },
+    "items": [
+      {
+        "id": 12329,
+        "name": "Buchholzer Packesel",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/buchholzer-packesel/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/09/Buchholzer-Packesel-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 152, 18, 216, 27, 61, 173, 168, 88, 129],
+        "timeframes": [
+          {
+            "date_start": "2021-09-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.593412594162182,
+    "lon": 13.453601002693178,
+    "location_name": "Ev. Kirchengemeinde Blankenburg",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Alt-Blankenburg 17",
+      "city": "Berlin-Blankenburg",
+      "zip": "13129"
+    },
+    "items": [
+      {
+        "id": 12327,
+        "name": "Blanka",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/blanka/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/08/Blanka-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 61, 173, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-08-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.569805045863504,
+    "lon": 13.399541079998018,
+    "location_name": "Stadtteilzentrum Pankow",
+    "closed_days": ["2", "3", "6", "7"],
+    "address": {
+      "street": "Schönholzer Straße 10",
+      "city": "Berlin-Pankow",
+      "zip": "13187"
+    },
+    "items": [
+      {
+        "id": 12325,
+        "name": "Kiezflitzer",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/kiezflitzer/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/08/Kiezflitzer-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 61, 173, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-08-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.595359650000006,
+    "lon": 13.373550811968995,
+    "location_name": "KJFE Landhaus Rosenthal",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Hauptstr. 94",
+      "city": "Berlin-Rosenthal",
+      "zip": "13158"
+    },
+    "items": [
+      {
+        "id": 12411,
+        "name": "Landlasti",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/landlasti/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/07/Landlasti-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 61, 173, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-07-26",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.547738699999996,
+    "lon": 13.452836700000001,
+    "location_name": "Wolfdietrich-Schnurre-Bibliothek",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Bizetstraße 41",
+      "city": "Berlin-Weissensee",
+      "zip": "13088"
+    },
+    "items": [
+      {
+        "id": 12554,
+        "name": "Elissa",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/elissa/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/10/Elissa-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 61, 173, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-11-22",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.541816400000002,
+    "lon": 13.440863999999999,
+    "location_name": "Heinrich-Böll-Bibliothek",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Greifswalder Str. 87",
+      "city": "Berlin-PrenzlBerg",
+      "zip": "10409"
+    },
+    "items": [
+      {
+        "id": 12549,
+        "name": "Nadja",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/nadja/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/09/Nadja-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 152, 18, 216, 27, 61, 173, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-09-24",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.616509000000001,
+    "lon": 13.4918242,
+    "location_name": "Stadtteilbibliothek Karow",
+    "closed_days": ["3", "6", "7"],
+    "address": {
+      "street": "Achillesstraße 77",
+      "city": "Berlin-Karow",
+      "zip": "13125"
+    },
+    "items": [
+      {
+        "id": 12547,
+        "name": "Caroline",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/caroline/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/10/Caroline-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 61, 173, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-10-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.503814218798759,
+    "lon": 13.363237432954234,
+    "location_name": "Nachbarschaftstreff Lützowstraße",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Lützowstr. 27",
+      "city": "Berlin-Tiergarten",
+      "zip": "10785"
+    },
+    "items": [
+      {
+        "id": 12613,
+        "name": "Rikscha8",
+        "short_desc": "Rikscha TC 93 mit Sitzbank für 2 Personen und Regenverdeck",
+        "link": "https://flotte-berlin.de/cb-items/rikscha8/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/07/Rikscha8-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 20, 158, 27, 167, 26, 149, 206, 73, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-01-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      },
+      {
+        "id": 17834,
+        "name": "Lulatsch",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/lulatsch/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/06/Lulatsch-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-07-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.501367999999999,
+    "lon": 13.364523200000001,
+    "location_name": "Harb GmbH",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Potsdamer Str. 93",
+      "city": "Berlin-Tiergarten",
+      "zip": "10785"
+    },
+    "items": [
+      {
+        "id": 6453,
+        "name": "Undine",
+        "short_desc": "SCO Long John ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/undine/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/02/Undine-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 20, 158, 94, 27, 167, 73, 203, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-09-02",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.568476364798343,
+    "lon": 13.412305712699892,
+    "location_name": "Janusz-Korczak-Bibliothek",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Berliner Straße 120-121",
+      "city": "Berlin-Pankow",
+      "zip": "13187"
+    },
+    "items": [
+      {
+        "id": 12837,
+        "name": "WiesoWeshalbWarum",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/wiesoweshalbwarum/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/10/wiesoweshalbwarum-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 61, 173, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-10-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.514830500000002,
+    "lon": 13.4907784,
+    "location_name": "aufatmen – Begegnungszentrum",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Schottstr. 2",
+      "city": "Berlin-Lichtenberg",
+      "zip": "10365"
+    },
+    "items": [
+      {
+        "id": 12978,
+        "name": "aufatmen",
+        "short_desc": "Pedalpower Berliner Lastenrad mit eingebauter Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/aufatmen/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/08/aufatmen-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 20, 171, 152, 18, 216, 27, 162, 60, 72, 204],
+        "timeframes": [
+          {
+            "date_start": "2021-09-28",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.635680441882656,
+    "lon": 13.493528366088869,
+    "location_name": "Stadtteilbibliothek Buch",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Wiltbergstraße 19-23",
+      "city": "Berlin-Buch",
+      "zip": "13125"
+    },
+    "items": [
+      {
+        "id": 13000,
+        "name": "May",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/may/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/09/May-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 152, 18, 27, 61, 173, 168],
+        "timeframes": [
+          {
+            "date_start": "2021-09-28",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.438625199999997,
+    "lon": 13.550449499999999,
+    "location_name": "Katha",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Dörpfeldstr. 53",
+      "city": "Berlin-Adlershof",
+      "zip": "12489"
+    },
+    "items": [
+      {
+        "id": 3455,
+        "name": "Dörte",
+        "short_desc": "Bakfiets CargoBike Classic Long mit Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/doerte/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/03/Doerte-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 204, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2021-09-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.681958194174094,
+    "lon": 13.273724056052099,
+    "location_name": "APIS PRO",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Wiesenstraße 1",
+      "city": "Hohen Neuendorf",
+      "zip": "16540"
+    },
+    "items": [
+      {
+        "id": 13165,
+        "name": "Maja",
+        "short_desc": "Bakfiets E-CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/maja/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/09/Maja-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 175, 11, 199, 174, 202, 18, 216, 27, 61, 220, 157],
+        "timeframes": [
+          {
+            "date_start": "2021-10-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.442990600000002,
+    "lon": 13.2939454,
+    "location_name": "Alnatura Lichterfelde-West",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Hans-Sachs-Straße 4 b-c",
+      "city": "Berlin-Lichterfelde",
+      "zip": "12205"
+    },
+    "items": [
+      {
+        "id": 5288,
+        "name": "Salomon",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/salomon/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/09/AlnaturaSeven-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 134, 18, 27, 159, 59],
+        "timeframes": [
+          {
+            "date_start": "2021-10-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.541806665759616,
+    "lon": 13.378601549764074,
+    "location_name": "Himmelbeet",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Gartenstraße/Grenzstraße",
+      "city": "Berlin-Gesundbrunnen",
+      "zip": "13347"
+    },
+    "items": [
+      {
+        "id": 2873,
+        "name": "Kalle",
+        "short_desc": "2rädriges Long André (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/kalle/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/11/Kalle-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 20, 158, 94, 27, 167, 73, 204, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-10-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.426833450000004,
+    "lon": 13.361431713983064,
+    "location_name": "JFE Wichurastraße",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Wichurastr. 59",
+      "city": "Berlin-Lankwitz",
+      "zip": "12249"
+    },
+    "items": [
+      {
+        "id": 6053,
+        "name": "Fridoline",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/fridoline/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Fridoline-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 134, 18, 27, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2021-11-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.4530271,
+    "lon": 13.267581399999999,
+    "location_name": "JFE G. Marshall",
+    "closed_days": [],
+    "address": {
+      "street": "Marshallstr. 3",
+      "city": "Berlin-Dahlem",
+      "zip": "14169"
+    },
+    "items": [
+      {
+        "id": 6045,
+        "name": "Georgina",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/georgina/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Georgina-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 134, 18, 27, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2021-11-03",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.433651099999999,
+    "lon": 13.353565,
+    "location_name": "LWERK FahrRADladen",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Kamenzer Damm 1",
+      "city": "Berlin-Lankwitz",
+      "zip": "12249"
+    },
+    "items": [
+      {
+        "id": 6055,
+        "name": "Lanky",
+        "short_desc": "Bakfiets E-CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/lanky/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Lanky-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 75, 53, 171, 134, 18, 27, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2021-11-03",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.472295395452292,
+    "lon": 13.336490435093973,
+    "location_name": "Friedenauer Weinhandlung",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Hauptstr. 80B",
+      "city": "Berlin-Friedenau",
+      "zip": "12159"
+    },
+    "items": [
+      {
+        "id": 14054,
+        "name": "Lastafari",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/lastafari/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/11/Lastafari-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 20, 171, 134, 18, 216, 27, 203, 59, 161],
+        "timeframes": [
+          {
+            "date_start": "2021-11-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.480792800000003,
+    "lon": 13.423963199999999,
+    "location_name": "tgf Lernwerkstatt",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Flughafenstr. 62",
+      "city": "Berlin-Neukölln",
+      "zip": "12049"
+    },
+    "items": [
+      {
+        "id": 14073,
+        "name": "Dostum 1",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/dostum-1/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/11/Dostum-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 172, 165, 129, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-11-26",
+            "date_end": "2023-03-31"
+          }
+        ],
+        "timeframe_hints": [
+          {
+            "type": "until",
+            "timestamp": 1680220800
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lat": 52.491614800000001,
+    "lon": 13.4251401,
+    "location_name": "Nachbarschaftszentrum elele",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Hobrechtstraße 55",
+      "city": "Berlin-Neukölln",
+      "zip": "12047"
+    },
+    "items": [
+      {
+        "id": 14069,
+        "name": "elele-bike",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/elele-bike/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/05/elele-bike-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 172, 165, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-11-12",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.429676899999997,
+    "lon": 13.471558399999999,
+    "location_name": "Jugendfreizeiteinrichtung UFO",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Lipschitzallee 27",
+      "city": "Berlin-Gropiusstadt",
+      "zip": "12351"
+    },
+    "items": [
+      {
+        "id": 14065,
+        "name": "Chabbo",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/chabbo/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/11/Chabbo-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 172, 165, 59],
+        "timeframes": [
+          {
+            "date_start": "2021-11-19",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.552801694941984,
+    "lon": 13.558295625439301,
+    "location_name": "DRK KV Berlin-Nordost",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Sella-Hasse-Str. 19/21",
+      "city": "Berlin-Marzahn",
+      "zip": "12687"
+    },
+    "items": [
+      {
+        "id": 11018,
+        "name": "Ludwig",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/ludwig/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/04/Ludwig-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 37, 11, 20, 171, 152, 18, 216, 27, 164, 60],
+        "timeframes": [
+          {
+            "date_start": "2021-11-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.524725400000001,
+    "lon": 13.3010947,
+    "location_name": "Insel Projekt Berlin",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Mindener Str. 22",
+      "city": "Berlin-Charlottenburg",
+      "zip": "10589"
+    },
+    "items": [
+      {
+        "id": 14502,
+        "name": "Ursus",
+        "short_desc": "Babboe Dog-E mit 1 Kinderbank und Ladefläche",
+        "link": "https://flotte-berlin.de/cb-items/ursus/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/12/Ursus-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 11, 160, 75, 20, 202, 18, 94, 27, 88, 204, 57],
+        "timeframes": [
+          {
+            "date_start": "2021-12-02",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.563035200000002,
+    "lon": 13.372370399999999,
+    "location_name": "Quartiersmanagement Letteplatz",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Mickestr. 14",
+      "city": "Berlin-Reinickendorf",
+      "zip": "13409"
+    },
+    "items": [
+      {
+        "id": 14528,
+        "name": "Kiezmobil",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/kiezmobil/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/11/Kiezmobil-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 202, 18, 216, 27, 61, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2021-12-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.425482000000002,
+    "lon": 13.465230200000001,
+    "location_name": "Stadtteilkoordination Gropiusstadt",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Lipschitzallee 63",
+      "city": "Berlin-Gropiusstadt",
+      "zip": "12353"
+    },
+    "items": [
+      {
+        "id": 1645,
+        "name": "Benno",
+        "short_desc": "PedalPower Lastendreirad mit Deckel (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/benno/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/06/Benno-150x150.jpg",
+        "status": "publish",
+        "terms": [37, 11, 90, 20, 171, 132, 27, 165, 72, 59],
+        "timeframes": [
+          {
+            "date_start": "2022-02-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.586482500000002,
+    "lon": 13.367333,
+    "location_name": "Kiezladen Wilhelmsruh",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Hauptstr. 24",
+      "city": "Berlin-Wilhelmsruh",
+      "zip": "13158"
+    },
+    "items": [
+      {
+        "id": 15414,
+        "name": "Wilhelmsrad",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/wilhelmsrad/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/01/Wilhelmsrad-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 152, 18, 27, 61, 168, 210],
+        "timeframes": [
+          {
+            "date_start": "2022-02-17",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.4531949,
+    "lon": 13.1427044,
+    "location_name": "2RadLaden „Kladow bewegt“",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Sakrower Landstr. 4",
+      "city": "Berlin-Kladow",
+      "zip": "14089"
+    },
+    "items": [
+      {
+        "id": 15503,
+        "name": "Imchen",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/imchen/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/01/Imchen-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 88, 210, 49, 163, 59, 58],
+        "timeframes": [
+          {
+            "date_start": "2022-02-24",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.465353999999998,
+    "lon": 13.127506800000001,
+    "location_name": "Ev. Kirchengemeinde am Groß-Glienicker See (Schilfdachkapelle)",
+    "closed_days": ["1", "3", "6", "7"],
+    "address": {
+      "street": "Waldallee 3",
+      "city": "Berlin-Kladow",
+      "zip": "14089"
+    },
+    "items": [
+      {
+        "id": 15508,
+        "name": "Schilfi",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/schilfi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/01/Schilfi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 210, 49, 163, 59, 58],
+        "timeframes": [
+          {
+            "date_start": "2022-02-24",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.620099797384469,
+    "lon": 13.35590943542681,
+    "location_name": "Labsaal Lübars",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Alt-Lübars 8",
+      "city": "Berlin-Lübars",
+      "zip": "13469"
+    },
+    "items": [
+      {
+        "id": 15889,
+        "name": "Ada",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/ada/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/07/Ada-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 117, 18, 27, 61, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2022-02-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.59194935,
+    "lon": 13.280664721943513,
+    "location_name": "Humboldt-Bibliothek",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Karolinenstr. 19",
+      "city": "Berlin-Tegel",
+      "zip": "13507"
+    },
+    "items": [
+      {
+        "id": 15895,
+        "name": "Alexander",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/alexander/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/03/Alexander-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 61, 88, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2022-03-14",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.571126599999999,
+    "lon": 13.314317000000001,
+    "location_name": "Quartiersmanagement Auguste-Viktoria-Allee",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Graf-Haeseler-Str. 17",
+      "city": "Berlin-Reinickendorf",
+      "zip": "13403"
+    },
+    "items": [
+      {
+        "id": 15901,
+        "name": "Auguste-Victoria",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/auguste-victoria/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/03/Auguste-Victoria-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 61, 88, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2022-04-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.610211568879585,
+    "lon": 13.248911463887268,
+    "location_name": "Diakoniezentrum Heiligensee Informationszentrum",
+    "closed_days": [],
+    "address": {
+      "street": "Keilerstr. 17/19",
+      "city": "Berlin-Heiligensee",
+      "zip": "13503"
+    },
+    "items": [
+      {
+        "id": 15907,
+        "name": "Doppelzentner",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/doppelzentner/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/01/Doppelzentner-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 61, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2022-02-24",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.589629071013483,
+    "lon": 13.324592264020827,
+    "location_name": "Rathaus Reinickendorf",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Eichborndamm 217 (Innenhof)",
+      "city": "Berlin-Wittenau",
+      "zip": "13437"
+    },
+    "items": [
+      {
+        "id": 15915,
+        "name": "Fuxxi",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/fuxxi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/05/Fuxxi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 61, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2022-05-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.609794200000003,
+    "lon": 13.3353292,
+    "location_name": "Quartiersmanagement Titiseestraße",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Titiseestraße 3",
+      "city": "Berlin-Waidmannslust",
+      "zip": "13469"
+    },
+    "items": [
+      {
+        "id": 15922,
+        "name": "Quartiersrad",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/quartiersrad/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/01/Quartiersrad-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 61, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2022-03-07",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.620323300000003,
+    "lon": 13.313090000000001,
+    "location_name": "Seniorenfreizeitstätte Hermsdorf",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Berliner Str. 105",
+      "city": "Berlin-Hermsdorf",
+      "zip": "13467"
+    },
+    "items": [
+      {
+        "id": 15932,
+        "name": "Bärchen",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/baerchen/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/08/Baerchen-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 61, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2022-08-03",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.493376865541862,
+    "lon": 13.379327952861788,
+    "location_name": "ADFC Berlin Velokiez",
+    "closed_days": ["1", "3", "4", "6", "7"],
+    "address": {
+      "street": "Möckernstraße 47",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10965"
+    },
+    "items": [
+      {
+        "id": 2266,
+        "name": "Dicke Marianne",
+        "short_desc": "Lastendreirad (Eigenbau) ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/dicke-marianne/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/09/Marianne-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 20, 171, 158, 94, 27, 88, 73, 204, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-02-15",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.500895910577633,
+    "lon": 13.423297479567546,
+    "location_name": "Frauenzentrum Schokofabrik / OYA",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Mariannenstr. 6",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10997"
+    },
+    "items": [
+      {
+        "id": 56,
+        "name": "Lotte",
+        "short_desc": "Bakfiets CargoTrike Classic Narrow mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/lotte/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/01/Lotte1-150x150.jpg",
+        "status": "publish",
+        "terms": [25, 71, 11, 20, 171, 158, 18, 216, 27, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-02-14",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.409237422254108,
+    "lon": 13.354423622110426,
+    "location_name": "Kinder- und Jugendclub „haus of fun“",
+    "closed_days": ["4", "6", "7"],
+    "address": {
+      "street": "Tirschenreuther Ring 67",
+      "city": "Berlin-Marienfelde",
+      "zip": "12279"
+    },
+    "items": [
+      {
+        "id": 5295,
+        "name": "Lasti",
+        "short_desc": "Christiania Light mit Ladefläche (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/lasti/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/10/Lasti-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 20, 171, 134, 94, 27, 204, 59, 161],
+        "timeframes": [
+          {
+            "date_start": "2022-02-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.553341507495865,
+    "lon": 13.35892975330353,
+    "location_name": "SuperCoop",
+    "closed_days": ["2", "7"],
+    "address": {
+      "street": "Oudenarder Str. 16",
+      "city": "Berlin-Wedding",
+      "zip": "13347"
+    },
+    "items": [
+      {
+        "id": 15990,
+        "name": "SuperCooper",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/supercooper/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/01/SuperCooper-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 158, 18, 27, 167, 61, 210],
+        "timeframes": [
+          {
+            "date_start": "2022-04-28",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.499915197145647,
+    "lon": 13.430930994592273,
+    "location_name": "Weltladen in der Emmaus-Kirche",
+    "closed_days": ["3", "6", "7"],
+    "address": {
+      "street": "Lausitzer Platz 8a",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10997"
+    },
+    "items": [
+      {
+        "id": 16234,
+        "name": "Emma",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/emma/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/02/Emma-1-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 102, 53, 171, 158, 18, 27, 210, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-02-14",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.463093299999997,
+    "lon": 13.31316,
+    "location_name": "JFE Flemmingstr",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Flemmingstr. 14B (Eingang Paulsenstr 22)",
+      "city": "Berlin-Steglitz",
+      "zip": "12163"
+    },
+    "items": [
+      {
+        "id": 16466,
+        "name": "Flemmi",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/flemmi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/02/Flemmi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 134, 18, 27, 159, 59, 104],
+        "timeframes": [
+          {
+            "date_start": "2022-04-08",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.597577299999998,
+    "lon": 13.3525606,
+    "location_name": "Bibliothek im Märkischen Viertel (Fontanehaus)",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Wilhelmsruher Damm 142C",
+      "city": "Berlin-Märkisches Viertel",
+      "zip": "13439"
+    },
+    "items": [
+      {
+        "id": 16687,
+        "name": "Theodor",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/theodor/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/04/Theodor-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 61, 88, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2022-04-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.571019551627536,
+    "lon": 13.347610943152221,
+    "location_name": "Bezirksamt Reinickendorf / Facility Management",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Teichstr. 65",
+      "city": "Berlin-Reinickendorf",
+      "zip": "13407"
+    },
+    "items": [
+      {
+        "id": 16694,
+        "name": "Dr. Foxi",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/dr-foxi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/05/Dr.-Foxi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 202, 18, 27, 61, 192, 169],
+        "timeframes": [
+          {
+            "date_start": "2022-05-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.503986650000002,
+    "lon": 13.286650810714285,
+    "location_name": "Mehrgenerationenhaus KiezKultur e.V.",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Herbartstr. 25",
+      "city": "Berlin-Charlottenburg",
+      "zip": "14057"
+    },
+    "items": [
+      {
+        "id": 10201,
+        "name": "Lietzy",
+        "short_desc": "Bakfiets E-CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/lietzy/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/07/Lietzy-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 160, 170, 75, 53, 171, 202, 18, 27, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-04-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.528940050000003,
+    "lon": 13.338927074812755,
+    "location_name": "Jugendverkehrsschule Moabit",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Bremer Str. 10",
+      "city": "Berlin-Moabit",
+      "zip": "10551"
+    },
+    "items": [
+      {
+        "id": 5659,
+        "name": "Sherpa",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/sherpa/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/11/Sherpa-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 88, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-04-21",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.536902900000001,
+    "lon": 13.286023399999999,
+    "location_name": "erlkönig Fahrschulen GmbH",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Halemweg 17-19",
+      "city": "Berlin-Charlottenburg",
+      "zip": "13627"
+    },
+    "items": [
+      {
+        "id": 10195,
+        "name": "Lottchen",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/lottchen/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/02/Lottchen-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 160, 170, 53, 171, 202, 18, 216, 27, 61, 58],
+        "timeframes": [
+          {
+            "date_start": "2022-04-27",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.512505099999998,
+    "lon": 13.434011999999999,
+    "location_name": "Alnatura Friedrichshain",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Koppenstr. 8",
+      "city": "Berlin-Friedrichshain",
+      "zip": "10243"
+    },
+    "items": [
+      {
+        "id": 17099,
+        "name": "Koppen-Rad",
+        "short_desc": "Riese &amp; Müller Packster 60 vario Business  mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/koppen-rad/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/03/Koppenrad-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 15, 75, 20, 171, 132, 18, 27, 73, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-05-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.437280350000002,
+    "lon": 13.293530960685615,
+    "location_name": "Ev. Johanneskirche Berlin-Lichterfelde",
+    "closed_days": ["3", "5", "6", "7"],
+    "address": {
+      "street": "Ringstr. 36",
+      "city": "Berlin-Lichterfelde",
+      "zip": "12205"
+    },
+    "items": [
+      {
+        "id": 17235,
+        "name": "Hannes",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/hannes/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/04/Hannes-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 171, 134, 18, 27, 210, 159, 59],
+        "timeframes": [
+          {
+            "date_start": "2022-04-21",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.553697029961718,
+    "lon": 13.37938421913387,
+    "location_name": "Bibliothek am Luisenbad",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Badstr. 39",
+      "city": "Berlin-Gesundbrunnen",
+      "zip": "13357"
+    },
+    "items": [
+      {
+        "id": 17678,
+        "name": "Brezel",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/brezel/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/04/Brezel-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 61],
+        "timeframes": [
+          {
+            "date_start": "2022-05-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.463888500000003,
+    "lon": 13.3915805,
+    "location_name": "Kirchenkreis Tempelhof-Schöneberg",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Götzstr. 24B",
+      "city": "Berlin-Tempelhof",
+      "zip": "12099"
+    },
+    "items": [
+      {
+        "id": 6038,
+        "name": "Marie",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/marie/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/02/Marie-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 53, 171, 158, 18, 216, 27, 59, 161, 110],
+        "timeframes": [
+          {
+            "date_start": "2022-05-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.553258300000003,
+    "lon": 13.373054099999999,
+    "location_name": "Wendepunkt/Jugendverkehrsschule Wedding",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Gottschedstr. 4",
+      "city": "Berlin-Gesundbrunnen",
+      "zip": "13357"
+    },
+    "items": [
+      {
+        "id": 17820,
+        "name": "Tenzing Norgay",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/tenzing-norgay/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/05/Tenzing-Norgay-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 61, 88],
+        "timeframes": [
+          {
+            "date_start": "2022-05-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.528111000000003,
+    "lon": 13.392887999999999,
+    "location_name": "Volkssolidarität - Begegnungsstätte Mehr Mitte",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Torstr. 190",
+      "city": "Berlin-Mitte",
+      "zip": "10115"
+    },
+    "items": [
+      {
+        "id": 17829,
+        "name": "Memi",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/memi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/05/Memi-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 158, 18, 216, 27, 193, 167, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-05-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.517094299999997,
+    "lon": 13.3427522,
+    "location_name": "Hansabibliothek",
+    "closed_days": {
+      "0": "7",
+      "1": "6",
+      "3": "1"
+    },
+    "address": {
+      "street": "Altonaer Str. 15",
+      "city": "Berlin-Tiergarten",
+      "zip": "10557"
+    },
+    "items": [
+      {
+        "id": 17909,
+        "name": "Werner",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/werner/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/05/Werner-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-05-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.556125000000002,
+    "lon": 13.385996799999999,
+    "location_name": "NachbarschaftsEtage (Fabrik Osloer Straße e.V.)",
+    "closed_days": ["4", "5", "6", "7"],
+    "address": {
+      "street": "Osloer Str. 12",
+      "city": "Berlin-Gesundbrunnen",
+      "zip": "13359"
+    },
+    "items": [
+      {
+        "id": 17914,
+        "name": "Prinz Oslo",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/prinz-oslo/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/05/Prinz-Oslo-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 61],
+        "timeframes": [
+          {
+            "date_start": "2022-06-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.553870400000001,
+    "lon": 13.3465515,
+    "location_name": "Zukunftshaus Wedding",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Müllerstr. 56-58",
+      "city": "Berlin-Wedding",
+      "zip": "13349"
+    },
+    "items": [
+      {
+        "id": 18192,
+        "name": "Lastlos",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/lastlos/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/05/Lastlos-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 53, 171, 158, 18, 27, 193, 167, 61],
+        "timeframes": [
+          {
+            "date_start": "2022-06-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.435003224456409,
+    "lon": 13.473422249394586,
+    "location_name": "Jugendhilfezentrum Neukölln",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Girlitzweg 1",
+      "city": "Berlin-Buckow",
+      "zip": "12357"
+    },
+    "items": [
+      {
+        "id": 14067,
+        "name": "Murphy",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/murphy/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/11/Murphy-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 172, 165, 59],
+        "timeframes": [
+          {
+            "date_start": "2022-08-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.372736835758808,
+    "lon": 13.616078426532782,
+    "location_name": "Buchhandlung KOMMA",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Bahnhofstr. 87",
+      "city": "Eichwalde",
+      "zip": "15732"
+    },
+    "items": [
+      {
+        "id": 18628,
+        "name": "Sebastian",
+        "short_desc": "Babboe E-Big Qwic mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/sebastian/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2023/01/Sebastian-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 177, 11, 199, 174, 154, 18, 216, 27, 114, 157],
+        "timeframes": [
+          {
+            "date_start": "2023-03-15",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.487209999999997,
+    "lon": 13.605589999999999,
+    "location_name": "Jugendfreizeiteinrichtung „Am Hultschi“",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Hultschiner Damm 140",
+      "city": "Berlin-Mahlsdorf",
+      "zip": "12623"
+    },
+    "items": [
+      {
+        "id": 18666,
+        "name": "Elke",
+        "short_desc": "Babboe Curve Mountain mit 2 Kinderbänken und Regenverdeck",
+        "link": "https://flotte-berlin.de/cb-items/elke/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/06/Elke-scaled-e1656420366808-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 11, 75, 20, 171, 152, 18, 216, 27, 164, 60, 26, 149],
+        "timeframes": [
+          {
+            "date_start": "2022-07-11",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.448156300000001,
+    "lon": 13.3858128,
+    "location_name": "BENN Mariendorf-Tempelhof",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Eisenacher Str. 72",
+      "city": "Berlin-Mariendorf",
+      "zip": "12109"
+    },
+    "items": [
+      {
+        "id": 6717,
+        "name": "MaTe",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/mate/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/06/MaTe-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 59, 161, 110],
+        "timeframes": [
+          {
+            "date_start": "2022-07-18",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.510464900000002,
+    "lon": 13.2932481,
+    "location_name": "denn‘s Biomarkt Charlottenburg",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Kaiserdamm 112",
+      "city": "Berlin-Charlottenburg",
+      "zip": "14057"
+    },
+    "items": [
+      {
+        "id": 9911,
+        "name": "Ruthje",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/ruthje/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/03/Ruthje-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 160, 20, 171, 202, 18, 27, 88, 203, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-07-20",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.511070799999999,
+    "lon": 13.3893114,
+    "location_name": "Alnatura Mitte Friedrichstraße",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Friedrichstr. 191",
+      "city": "Berlin-Mitte",
+      "zip": "10117"
+    },
+    "items": [
+      {
+        "id": 1825,
+        "name": "Tilo",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank ",
+        "link": "https://flotte-berlin.de/cb-items/tilo/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2018/06/Tilo-150x150.jpg",
+        "status": "publish",
+        "terms": [43, 71, 15, 20, 171, 158, 18, 27, 167, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-08-08",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.541906300000001,
+    "lon": 13.354854400000001,
+    "location_name": "Sprengelhaus",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Sprengelstr. 15",
+      "city": "Berlin-Wedding",
+      "zip": "13353"
+    },
+    "items": [
+      {
+        "id": 19363,
+        "name": "Kiezgurke",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/kiezgurke/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/08/Kiezgurke-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 61],
+        "timeframes": [
+          {
+            "date_start": "2022-08-22",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.528210899999998,
+    "lon": 13.3960922,
+    "location_name": "Volkshochschule Berlin Mitte",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Linienstraße 162",
+      "city": "Berlin-Mitte",
+      "zip": "10115"
+    },
+    "items": [
+      {
+        "id": 19449,
+        "name": "Rasender Roland",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/rasender-roland/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/08/Rasender-Roland-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 88, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-09-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.526083100000001,
+    "lon": 13.3057531,
+    "location_name": "Haus am Mierendorffplatz",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Mierendorffplatz 19",
+      "city": "Berlin-Charlottenburg",
+      "zip": "10589"
+    },
+    "items": [
+      {
+        "id": 10199,
+        "name": "Carlo",
+        "short_desc": "Bakfiets E-CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/carlo/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/01/Carlo-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 160, 170, 75, 53, 171, 202, 18, 27, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-08-23",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      },
+      {
+        "id": 10550,
+        "name": "Charlotte",
+        "short_desc": "Babboe Big E-Power mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/charlotte/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/03/Charlotte-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 11, 160, 170, 75, 53, 171, 202, 18, 216, 27, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-08-23",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.462219897701878,
+    "lon": 13.508956603427798,
+    "location_name": "KAOS Coworking GmbH",
+    "closed_days": ["2", "4", "5", "6", "7"],
+    "address": {
+      "street": "Wilhelminenhofstr. 92",
+      "city": "Berlin-Oberschöneweide",
+      "zip": "12459"
+    },
+    "items": [
+      {
+        "id": 19665,
+        "name": "MikeTheBike",
+        "short_desc": "zweirädriger Alu-Eigenbau ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/mikethebike/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/08/MikeTheBike_©Linda_Hanses-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 53, 171, 132, 94, 27, 73, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2023-01-03",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.637062999999998,
+    "lon": 13.201791999999999,
+    "location_name": "Skribo Hennigsdorf",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Havelpassage 12",
+      "city": "Hennigsdorf",
+      "zip": "16761"
+    },
+    "items": [
+      {
+        "id": 20093,
+        "name": "Henrietta",
+        "short_desc": "BBF Miami mit 1 Kindersitz und Regenverdeck",
+        "link": "https://flotte-berlin.de/cb-items/henrietta/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/10/Henrietta-150x150.jpg",
+        "status": "publish",
+        "terms": [175, 15, 174, 154, 18, 27, 61, 149, 73, 220, 157],
+        "timeframes": [
+          {
+            "date_start": "2022-10-25",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.577477999999999,
+    "lon": 13.509432,
+    "location_name": "BENN Wartenberg",
+    "closed_days": ["5", "6", "7"],
+    "address": {
+      "street": "Schweriner Ring 27",
+      "city": "Berlin-Wartenberg",
+      "zip": "13059"
+    },
+    "items": [
+      {
+        "id": 4056,
+        "name": "Fatima",
+        "short_desc": "Bakfiets CargoTrike Classic Wide mit zwei Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/fatima/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/05/Monty-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 37, 11, 20, 171, 152, 18, 216, 27, 162, 61, 60, 88],
+        "timeframes": [
+          {
+            "date_start": "2022-12-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.546449549999998,
+    "lon": 13.357275985841914,
+    "location_name": "Schiller-Bibliothek",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Müllerstraße 149",
+      "city": "Berlin-Wedding",
+      "zip": "13353"
+    },
+    "items": [
+      {
+        "id": 20675,
+        "name": "Leopold",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/leopold/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/11/Leopold-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 61],
+        "timeframes": [
+          {
+            "date_start": "2022-12-05",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.540006000000005,
+    "lon": 13.570945526301653,
+    "location_name": "Haus des Sports",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Eisenacher Str. 121",
+      "city": "Berlin-Marzahn",
+      "zip": "12685"
+    },
+    "items": [
+      {
+        "id": 20750,
+        "name": "Turi",
+        "short_desc": "Babboe Big E (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/turi/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/11/Turi-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 11, 90, 75, 20, 171, 152, 27, 164, 60, 88, 204],
+        "timeframes": [
+          {
+            "date_start": "2023-01-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.469320046492946,
+    "lon": 13.429742666157701,
+    "location_name": "Prinzessinnengarten Kollektiv",
+    "closed_days": [],
+    "address": {
+      "street": "Hermannstr. 99-105",
+      "city": "Berlin-Neukölln",
+      "zip": "12051"
+    },
+    "items": [
+      {
+        "id": 14063,
+        "name": "Wilde Hilde",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/wilde-hilde/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/12/WildeHilde-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 132, 18, 27, 172, 165, 57],
+        "timeframes": [
+          {
+            "date_start": "2022-12-02",
+            "date_end": "2023-07-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.449377249999998,
+    "lon": 13.624245413169991,
+    "location_name": "Unverpackt Berlin",
+    "closed_days": ["1", "7"],
+    "address": {
+      "street": "Bölschestr. 120",
+      "city": "Berlin-Friedrichshagen",
+      "zip": "12587"
+    },
+    "items": [
+      {
+        "id": 5396,
+        "name": "Erwin",
+        "short_desc": "Christiania Bike Light mit 2 Kinderbänken und Regenverdeck",
+        "link": "https://flotte-berlin.de/cb-items/erwin/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2019/10/Erwin-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 97, 53, 171, 132, 18, 216, 27, 88, 26, 149, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2023-01-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.440171100000001,
+    "lon": 13.309598686923547,
+    "location_name": "JFE Albrecht Dürer",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Memlingstr.14a",
+      "city": "Berlin-Lichterfelde",
+      "zip": "12203"
+    },
+    "items": [
+      {
+        "id": 21779,
+        "name": "Laranja",
+        "short_desc": "Bakfiets CargoBike Cruiser Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/laranja/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2023/01/Laranja-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 37, 15, 20, 171, 134, 18, 27, 159, 59],
+        "timeframes": [
+          {
+            "date_start": "2023-02-06",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      },
+      {
+        "id": 21772,
+        "name": "Siyah",
+        "short_desc": "Bakfiets CargoBike Cruiser Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/siyah/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2023/01/Siyah-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 37, 15, 20, 171, 134, 18, 27, 159, 59],
+        "timeframes": [
+          {
+            "date_start": "2023-02-06",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.470063494106157,
+    "lon": 13.560064120503732,
+    "location_name": "be4energy GmbH",
+    "closed_days": ["3", "5", "6", "7"],
+    "address": {
+      "street": "Köpenicker Str. 325 Haus 11",
+      "city": "Berlin-Köpenick",
+      "zip": "12555"
+    },
+    "items": [
+      {
+        "id": 21992,
+        "name": "be4bike",
+        "short_desc": "Pedalpower e-Harry ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/be4bike/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2023/02/be4bike-150x150.jpg",
+        "status": "publish",
+        "terms": [15, 90, 75, 20, 132, 27, 88, 72, 203, 114, 111],
+        "timeframes": [
+          {
+            "date_start": "2023-03-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.340692000000004,
+    "lon": 13.61132341250001,
+    "location_name": "Jugendclub Zeuthen",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Dorfstr. 12",
+      "city": "Zeuthen",
+      "zip": "15738"
+    },
+    "items": [
+      {
+        "id": 22001,
+        "name": "Bertha",
+        "short_desc": "Babboe E-Big Qwic mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/bertha/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/01/Babboe_Big-E_ecargo_bike-150x150.jpg",
+        "status": "publish",
+        "terms": [130, 177, 11, 199, 174, 154, 18, 216, 27, 220, 114, 157],
+        "timeframes": [
+          {
+            "date_start": "2023-02-16",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.428915000000003,
+    "lon": 13.595001399999999,
+    "location_name": "Kietz Klub Köpenick",
+    "closed_days": ["1", "2", "7"],
+    "address": {
+      "street": "Köpenzeile 117",
+      "city": "Berlin-Wendenschloß",
+      "zip": "12557"
+    },
+    "items": [
+      {
+        "id": 22012,
+        "name": "RadWende",
+        "short_desc": "BBF Toronto ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/radwende/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2023/01/BBF-Toronto-150x150.jpg",
+        "status": "publish",
+        "terms": [11, 53, 171, 132, 27, 88, 73, 114, 128, 111],
+        "timeframes": [
+          {
+            "date_start": "2023-02-09",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.562486325350918,
+    "lon": 13.097055290795812,
+    "location_name": "biofreunde Falkensee",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Bahnhofstr. 44",
+      "city": "Falkensee",
+      "zip": "14612"
+    },
+    "items": [
+      {
+        "id": 20572,
+        "name": "Gertrud",
+        "short_desc": "Bakfiets CargoTrike Classic Wide Steps mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/gertrud/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/11/bakfietsnl-classic-wide-steps-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 175, 11, 199, 174, 154, 18, 27, 220, 157, 58],
+        "timeframes": [
+          {
+            "date_start": "2023-03-01",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.577891879354688,
+    "lon": 13.333134949207306,
+    "location_name": "BENN Wittenau-Süd",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Ollenhauerstr. 70",
+      "city": "Berlin-Wittenau",
+      "zip": "13403"
+    },
+    "items": [
+      {
+        "id": 22630,
+        "name": "Karla",
+        "short_desc": "Bullitt StePS 6100 mit geschlossenem Alukasten inkl. Schiebedeckel, ohne Kinderbank. Durch diese Bauweise können nur Dinge transportiert werden die in die Kiste passen, die ist dann aber auch abschließbar und sicher. Der Deckel kann als Tisch genutzt werden. Für große und sperrige Dinge müsst ihr euch nach einem anderen Rad umschauen. ",
+        "link": "https://flotte-berlin.de/cb-items/karla/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2023/03/karla-150x150.jpg",
+        "status": "publish",
+        "terms": [37, 15, 90, 75, 20, 171, 202, 27, 61, 88, 169, 73, 204, 217],
+        "timeframes": [
+          {
+            "date_start": "2023-03-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.497548100000003,
+    "lon": 13.418786600000001,
+    "location_name": "Radspannerei",
+    "closed_days": ["7"],
+    "address": {
+      "street": "Kottbusser Str. 8",
+      "city": "Berlin-Kreuzberg",
+      "zip": "10999"
+    },
+    "items": [
+      {
+        "id": 7154,
+        "name": "Pascale",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/pascale/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2020/05/Pascale-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 20, 158, 18, 27, 203, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2023-02-27",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.688974000000002,
+    "lon": 13.282128800000001,
+    "location_name": "Clever-fit Birkenwerder GmbH",
+    "closed_days": [],
+    "address": {
+      "street": "Hauptstr. 38/40",
+      "city": "Birkenwerder",
+      "zip": "16547"
+    },
+    "items": [
+      {
+        "id": 23046,
+        "name": "Birki",
+        "short_desc": "BBF Miami ohne Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/birki/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2023/03/Birki-150x150.jpg",
+        "status": "publish",
+        "terms": [175, 15, 174, 154, 27, 61, 149, 73, 220, 157],
+        "timeframes": [
+          {
+            "date_start": "2023-03-13",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.703886601255519,
+    "lon": 13.302635547821946,
+    "location_name": "Waldschule Briesetal e.V.",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Briese Nr. 13",
+      "city": "Birkenwerder",
+      "zip": "16547"
+    },
+    "items": [
+      {
+        "id": 23051,
+        "name": "Briesa",
+        "short_desc": "BBF Seattle mit 2 Kinderbänken",
+        "link": "https://flotte-berlin.de/cb-items/briesa/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2023/03/Briesa-150x150.jpg",
+        "status": "publish",
+        "terms": [175, 11, 199, 174, 154, 18, 27, 61, 149, 73, 220, 157],
+        "timeframes": [
+          {
+            "date_start": "2023-03-15",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": []
+      }
+    ]
+  },
+  {
+    "lat": 52.540897700000002,
+    "lon": 13.38987,
+    "location_name": "Familienzentrum Wattstraße",
+    "closed_days": ["6", "7"],
+    "address": {
+      "street": "Wattstraße 16",
+      "city": "Berlin-Gesundbrunnen",
+      "zip": "13355"
+    },
+    "items": [
+      {
+        "id": 19571,
+        "name": "Defne",
+        "short_desc": "Bakfiets CargoBike Classic Long mit 1 Kinderbank",
+        "link": "https://flotte-berlin.de/cb-items/defne/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2022/08/Platte-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 15, 53, 171, 158, 18, 27, 193, 167, 88, 57],
+        "timeframes": [
+          {
+            "date_start": "2023-04-03",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": [
+          {
+            "type": "from",
+            "timestamp": 1680480000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lat": 52.510348949999994,
+    "lon": 13.444395803231632,
+    "location_name": "NIRGENDWO – Lokschuppen im Wriezener Park",
+    "closed_days": ["1", "5", "6", "7"],
+    "address": {
+      "street": "Helsingforser Str. 10",
+      "city": "Berlin-Friedrichshain",
+      "zip": "10243"
+    },
+    "items": [
+      {
+        "id": 12606,
+        "name": "Utopia",
+        "short_desc": "Bakfiets E-CargoTrike Classic Wide mit Ladefläche (ohne Kinderbank)",
+        "link": "https://flotte-berlin.de/cb-items/utopia/",
+        "thumbnail": "https://flotte-berlin.de/wp-content/uploads/2021/10/Utopia-150x150.jpg",
+        "status": "publish",
+        "terms": [71, 11, 75, 102, 53, 171, 158, 94, 27, 166, 57],
+        "timeframes": [
+          {
+            "date_start": "2023-04-04",
+            "date_end": "2024-01-31"
+          }
+        ],
+        "timeframe_hints": [
+          {
+            "type": "from",
+            "timestamp": 1680566400
+          }
+        ]
+      }
+    ]
+  }
+]
