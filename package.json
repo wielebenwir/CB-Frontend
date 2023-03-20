@@ -11,7 +11,7 @@
     "lint-eslint": "eslint --color --ext .js,.ts,.vue --ignore-path .gitignore --ignore-path .eslintignore src/ vite.config.ts",
     "lint-prettier": "prettier --check --ignore-path .gitignore --ignore-path .prettierignore .",
     "lint-types": "vue-tsc --noEmit",
-    "lint-spelling": "cspell **/*.{txt,js,ts,vue,md}",
+    "lint-spelling": "cspell .",
     "format": "npm run lint-prettier -- --write && npm run lint-eslint -- --fix",
     "prepare": "husky install",
     "test": "true"

@@ -6,7 +6,7 @@
       "locale": ["en", "de"]
     }
   ],
-  "words": [],
+  "words": ["CommonsBooking", "Nominatim", "camelcase", "timeframe", "timeframes", "HTTPAPI"],
   "flagWords": ["hte"],
-  "ignorePaths": ["node_modules/**", "dist/**"]
+  "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "dist-app/**", "*.svg", "*.json"]
 }
