@@ -1,76 +1,39 @@
 <template>
-  <div v-if="!locationData && !locationDataError">
+  <div v-if="!api && !apiError">
     <p>Loading location data...</p>
   </div>
 
-  <div v-else-if="locationDataError">
-    <p>{{ locationDataError }}</p>
+  <div v-else-if="apiError">
+    <p>{{ apiError }}</p>
     <p></p>
     <p>
-      <button type="button" @click="retryLocationDataAPI">Retry</button>
+      <button type="button" @click="retryAPI">Retry</button>
     </p>
   </div>
 
-  <div v-else-if="locationData" class="location-search">
+  <div v-else-if="api" class="location-search">
     <CBItemFilter style="grid-area: filter" />
     <CBItemList style="grid-area: results" />
-    <LMap
-      ref="map"
-      style="aspect-ratio: 1; grid-area: map"
-      :center="[config.latStart, config.lonStart]"
-      :max-zoom="config.zoomMax"
-      :min-zoom="config.zoomMin"
-      :use-global-leaflet="useGlobalLeaflet"
-      :zoom="config.zoomStart"
-    >
-      <LTileLayer
-        :url="tileServerUrl"
-        :attribution="attribution"
-        :max-zoom="config.zoomMax"
-        :min-zoom="config.zoomMin"
-        :detect-retina="true"
-      />
-      <template v-for="location in locationData.locations" :key="location.id">
-        <LMarker :lat-lng="location.coordinates" :name="location.name">
-          <LIcon
-            v-if="config.customMarkerIcon"
-            :icon-url="config.customMarkerIcon.iconUrl"
-            :icon-size="createPoint(config.customMarkerIcon.iconSize)"
-            :icon-anchor="createPoint(config.customMarkerIcon.iconAnchor)"
-          />
-        </LMarker>
-      </template>
-    </LMap>
+    <CBMap style="grid-area: map" :api="api" :config="config" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watchEffect } from 'vue';
-import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
+import { watchEffect } from 'vue';
 
 import { ParsedLocationSearchConfiguration } from '../types';
 import { useLocationSearchData } from '../apis';
-import { createPoint, getAttribution, getTileServerUrl } from './map';
 import { useI18n } from '../locales';
 import CBItemFilter from './CBItemFilter.vue';
 import CBItemList from './CBItemList.vue';
+import CBMap from './CBMap.vue';
 
 const props = defineProps<{
   config: ParsedLocationSearchConfiguration;
 }>();
 
-// map config
-const useGlobalLeaflet = Object.hasOwn(globalThis, 'Leaflet');
-const map = ref();
-const attribution = computed(() => getAttribution(props.config));
-const tileServerUrl = computed(() => getTileServerUrl(props.config.baseMap));
-
 // map data
-const {
-  data: locationData,
-  error: locationDataError,
-  retry: retryLocationDataAPI,
-} = useLocationSearchData(props.config);
+const { data: api, error: apiError, retry: retryAPI } = useLocationSearchData(props.config);
 
 // i18n config
 const { locale } = useI18n();
