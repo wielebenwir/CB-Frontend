@@ -3,7 +3,7 @@ import type { CamelCasedPropertiesDeep } from 'type-fest';
 
 import { HTTPAPIError } from './index';
 import { delay } from '../../util';
-import type { MapDataAPI } from '../types';
+import type { LocationSearchAPI } from '../types';
 import { computed, reactive, Ref, ref } from 'vue';
 
 type Day = '1' | '2' | '3' | '4' | '5' | '6' | '7';
@@ -22,7 +22,7 @@ type CommonsBookingItem = {
   timeframes: Timeframe[];
   availability: Availability[];
 };
-export type DataItem = {
+export type Location = {
   lat: number;
   lon: number;
   location_name: string;
@@ -34,9 +34,9 @@ export type DataItem = {
 
 type APIConfiguration = { url: string; nonce: string; mapId: number };
 
-async function fetchMapData(
+async function fetchLocationData(
   configuration: APIConfiguration,
-): Promise<CamelCasedPropertiesDeep<DataItem[]>> {
+): Promise<CamelCasedPropertiesDeep<Location[]>> {
   const res = await fetch(configuration.url, {
     method: 'POST',
     headers: {
@@ -59,9 +59,9 @@ async function fetchMapData(
   }
 }
 
-export function useAdminAjaxData(mapData: Ref<CamelCasedPropertiesDeep<DataItem[]>>) {
+export function useAdminAjaxData(locationData: Ref<CamelCasedPropertiesDeep<Location[]>>) {
   const locations = computed(() => {
-    return mapData.value.map((item) => {
+    return locationData.value.map((item) => {
       return {
         id: `${item.lat}-${item.lon}-${item.locationName}`,
         name: item.locationName,
@@ -78,8 +78,8 @@ export function useAdminAjaxData(mapData: Ref<CamelCasedPropertiesDeep<DataItem[
   return { locations };
 }
 
-export function API(configuration: APIConfiguration): MapDataAPI {
-  const mapData = ref<CamelCasedPropertiesDeep<DataItem[]>>([]);
+export function API(configuration: APIConfiguration): LocationSearchAPI {
+  const locationData = ref<CamelCasedPropertiesDeep<Location[]>>([]);
 
   async function init() {
     const maxRetries = 10;
@@ -88,7 +88,7 @@ export function API(configuration: APIConfiguration): MapDataAPI {
 
     while (retry++ > maxRetries) {
       try {
-        mapData.value = await fetchMapData(configuration);
+        locationData.value = await fetchLocationData(configuration);
         break;
       } catch (error) {
         const waitTime = retry * retryWaitTime;
@@ -101,6 +101,6 @@ export function API(configuration: APIConfiguration): MapDataAPI {
   return reactive({
     init,
     type: 'admin-ajax',
-    ...useAdminAjaxData(mapData),
+    ...useAdminAjaxData(locationData),
   });
 }

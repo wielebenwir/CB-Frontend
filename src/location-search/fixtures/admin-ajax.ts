@@ -1,4 +1,4 @@
-import { DataItem } from '../apis/admin-ajax-api';
+import { Location } from '../apis/admin-ajax-api';
 
 export default [
   {
@@ -513,4 +513,4 @@ export default [
       },
     ],
   },
-] as DataItem[];
+] as Location[];

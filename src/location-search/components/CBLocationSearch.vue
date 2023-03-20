@@ -1,17 +1,17 @@
 <template>
-  <div v-if="!mapData && !mapDataError">
-    <p>Loading map data...</p>
+  <div v-if="!locationData && !locationDataError">
+    <p>Loading location data...</p>
   </div>
 
-  <div v-else-if="mapDataError">
-    <p>{{ mapDataError }}</p>
+  <div v-else-if="locationDataError">
+    <p>{{ locationDataError }}</p>
     <p></p>
     <p>
-      <button type="button" @click="retryMapAPI">Retry</button>
+      <button type="button" @click="retryLocationDataAPI">Retry</button>
     </p>
   </div>
 
-  <div v-else-if="mapData" class="map">
+  <div v-else-if="locationData" class="location-search">
     <CBItemFilter style="grid-area: filter" />
     <CBItemList style="grid-area: results" />
     <LMap
@@ -30,7 +30,7 @@
         :min-zoom="config.zoomMin"
         :detect-retina="true"
       />
-      <template v-for="location in mapData.locations" :key="location.id">
+      <template v-for="location in locationData.locations" :key="location.id">
         <LMarker :lat-lng="location.coordinates" :name="location.name">
           <LIcon
             v-if="config.customMarkerIcon"
@@ -48,15 +48,15 @@
 import { computed, ref, watchEffect } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
 
-import { ParsedMapConfiguration } from '../types';
-import { useMapData } from '../apis';
+import { ParsedLocationSearchConfiguration } from '../types';
+import { useLocationSearchData } from '../apis';
 import { createPoint, getAttribution, getTileServerUrl } from './map';
 import { useI18n } from '../locales';
 import CBItemFilter from './CBItemFilter.vue';
 import CBItemList from './CBItemList.vue';
 
 const props = defineProps<{
-  config: ParsedMapConfiguration;
+  config: ParsedLocationSearchConfiguration;
 }>();
 
 // map config
@@ -66,7 +66,11 @@ const attribution = computed(() => getAttribution(props.config));
 const tileServerUrl = computed(() => getTileServerUrl(props.config.baseMap));
 
 // map data
-const { mapData, mapDataError, retryMapAPI } = useMapData(props.config);
+const {
+  data: locationData,
+  error: locationDataError,
+  retry: retryLocationDataAPI,
+} = useLocationSearchData(props.config);
 
 // i18n config
 const { locale } = useI18n();
@@ -76,7 +80,7 @@ watchEffect(() => {
 </script>
 
 <style scoped>
-.map {
+.location-search {
   padding: 2rem;
   display: grid;
   gap: 1.5rem;

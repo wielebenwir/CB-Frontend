@@ -1,7 +1,7 @@
-import { MapDataAPI, ParsedMapConfiguration } from '../types';
+import { LocationSearchAPI, ParsedLocationSearchConfiguration } from '../types';
 import { ref, watchEffect } from 'vue';
 
-type Fields = [keyof ParsedMapConfiguration, string][];
+type Fields = [keyof ParsedLocationSearchConfiguration, string][];
 
 export class HTTPAPIError extends Error {
   response: Response;
@@ -12,7 +12,7 @@ export class HTTPAPIError extends Error {
   }
 }
 
-class MapConfigurationError extends Error {
+class LocationSearchConfigurationError extends Error {
   missingOrMisconfiguredFields: Fields;
   constructor(missingOrMisconfiguredFields: Fields) {
     const fieldString = missingOrMisconfiguredFields
@@ -25,7 +25,7 @@ class MapConfigurationError extends Error {
     this.missingOrMisconfiguredFields = missingOrMisconfiguredFields;
   }
 
-  static checkFields(configuration: ParsedMapConfiguration, fields: Fields) {
+  static checkFields(configuration: ParsedLocationSearchConfiguration, fields: Fields) {
     const missingOrMisconfiguredFields = [];
     for (const field of fields) {
       const [fieldName, fieldType] = field;
@@ -34,16 +34,16 @@ class MapConfigurationError extends Error {
       }
     }
     if (missingOrMisconfiguredFields.length > 0) {
-      throw new MapConfigurationError(missingOrMisconfiguredFields);
+      throw new LocationSearchConfigurationError(missingOrMisconfiguredFields);
     }
   }
 }
 
-async function createMapAPI(config: ParsedMapConfiguration): Promise<MapDataAPI> {
+async function createMapAPI(config: ParsedLocationSearchConfiguration): Promise<LocationSearchAPI> {
   const dataSource = config.dataSource ?? 'admin-ajax';
 
   if (dataSource === 'admin-ajax') {
-    MapConfigurationError.checkFields(config, [
+    LocationSearchConfigurationError.checkFields(config, [
       ['dataUrl', 'string'],
       ['nonce', 'string'],
       ['cbMapId', 'number'],
@@ -68,22 +68,22 @@ async function createMapAPI(config: ParsedMapConfiguration): Promise<MapDataAPI>
   throw new TypeError('You’ve specified an unknown map data source configuration.');
 }
 
-export function useMapData(config: ParsedMapConfiguration) {
-  const mapDataError = ref<Error>();
-  const mapData = ref<MapDataAPI>();
+export function useLocationSearchData(config: ParsedLocationSearchConfiguration) {
+  const error = ref<Error>();
+  const data = ref<LocationSearchAPI>();
   async function initAPI() {
-    mapData.value = undefined;
-    mapDataError.value = undefined;
+    data.value = undefined;
+    error.value = undefined;
     const api = await createMapAPI(config);
     try {
       await api.init();
-      mapData.value = api;
-    } catch (error) {
-      mapDataError.value = error as Error;
+      data.value = api;
+    } catch (_error) {
+      error.value = _error as Error;
     }
   }
 
   watchEffect(initAPI);
 
-  return { mapData, mapDataError, retryMapAPI: initAPI };
+  return { data, error, retry: initAPI };
 }

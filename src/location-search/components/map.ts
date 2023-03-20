@@ -1,4 +1,4 @@
-import { ParsedMapConfiguration } from '../types';
+import { ParsedLocationSearchConfiguration } from '../types';
 
 export function getTileServerUrl(tileServerIndex: number) {
   return [
@@ -9,7 +9,7 @@ export function getTileServerUrl(tileServerIndex: number) {
   ][tileServerIndex];
 }
 
-export function getAttribution(config: ParsedMapConfiguration) {
+export function getAttribution(config: ParsedLocationSearchConfiguration) {
   let attribution =
     'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors - <a href="https://www.openstreetmap.org/copyright">License</a>';
   if (config.showLocationDistanceFilter) {

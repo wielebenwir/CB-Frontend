@@ -1,7 +1,7 @@
 import type { CamelCasedPropertiesDeep } from 'type-fest';
 import type { ComputedRef, UnwrapNestedRefs } from 'vue';
 
-export type MapConfiguration = {
+export type LocationSearchConfiguration = {
   data_source?: 'admin-ajax' | 'fixtures';
   data_url: string;
   nonce: string;
@@ -51,7 +51,8 @@ export type MapConfiguration = {
   label_item_category_filter: string;
 };
 
-export type ParsedMapConfiguration = CamelCasedPropertiesDeep<MapConfiguration>;
+export type ParsedLocationSearchConfiguration =
+  CamelCasedPropertiesDeep<LocationSearchConfiguration>;
 
 export type Location = {
   id: string;
@@ -64,11 +65,11 @@ export type Location = {
   };
 };
 
-interface _MapDataAPI {
+interface _LocationSearchAPI {
   init(): Promise<void>;
   type: string;
 
   locations: ComputedRef<Location[]>;
 }
 
-export type MapDataAPI = UnwrapNestedRefs<_MapDataAPI>;
+export type LocationSearchAPI = UnwrapNestedRefs<_LocationSearchAPI>;

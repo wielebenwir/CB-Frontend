@@ -3,16 +3,16 @@
 </template>
 
 <script lang="ts" setup>
-import createMap from './map';
+import createLocationSearch from './location-search';
 import { ref, watchEffect } from 'vue';
 import 'leaflet/dist/leaflet.css';
 
-import configuration from './map/fixtures/settings';
+import configuration from './location-search/fixtures/settings';
 const rootEl = ref<HTMLElement>();
 
 watchEffect(() => {
   if (rootEl.value) {
-    createMap(rootEl.value, configuration);
+    createLocationSearch(rootEl.value, configuration);
   }
 });
 </script>
