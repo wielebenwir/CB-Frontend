@@ -81,12 +81,21 @@ watchEffect(() => {
 
 <style scoped>
 .location-search {
+  box-sizing: border-box;
   padding: 2rem;
   display: grid;
   gap: 1.5rem;
-  grid-template-areas:
-    'filter filter filter'
-    'results map map'
-    'results map map';
+  grid-template-areas: 'filter' 'map' 'results';
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr 1fr;
+  height: 100%;
+}
+
+@media (min-width: 800px) {
+  .location-search {
+    grid-template-areas: 'filter filter' 'results map';
+    grid-template-columns: minmax(320px, max-content) 1fr;
+    grid-template-rows: 100px 1fr;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div ref="rootEl"></div>
+  <div ref="rootEl" style="height: 100dvh"></div>
 </template>
 
 <script lang="ts" setup>
