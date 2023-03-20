@@ -9,21 +9,24 @@ import { computed, reactive, Ref, ref } from 'vue';
 type Day = '1' | '2' | '3' | '4' | '5' | '6' | '7';
 type Address = { street: string; city: string; zip: string };
 type Timeframe = { date_start: string; date_end: string };
-type TimeframeHint = { type: 'until' | 'from'; timestamp: number };
+type AvailabilityStatus = 'available' | 'locked' | 'partially-booked' | 'booked';
+type Availability = { status: AvailabilityStatus; date: string };
 type CommonsBookingItem = {
   id: number;
   name: string;
+  short_desc: string;
   link: string;
-  thumbnail: string;
+  thumbnail: string | null;
   status: 'publish';
   terms: number[];
   timeframes: Timeframe[];
-  timeframe_hints: TimeframeHint[];
+  availability: Availability[];
 };
 export type DataItem = {
   lat: number;
   lon: number;
   location_name: string;
+  location_link: string;
   address: Address;
   closed_days: Day[];
   items: CommonsBookingItem[];

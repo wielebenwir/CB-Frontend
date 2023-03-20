@@ -1,5 +1,5 @@
 import camelcaseKeys from 'camelcase-keys';
-import adminAjaxFixtures from '../fixtures/admin-ajax.json';
+import adminAjaxFixtures from '../fixtures/admin-ajax';
 import { MapDataAPI } from '../types';
 import { reactive, ref } from 'vue';
 import { CamelCasedPropertiesDeep } from 'type-fest';
@@ -10,7 +10,7 @@ export function API(): MapDataAPI {
   async function init() {
     mapData.value = camelcaseKeys(adminAjaxFixtures, {
       deep: true,
-    }) as unknown as CamelCasedPropertiesDeep<DataItem[]>;
+    });
   }
 
   return reactive({

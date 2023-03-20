@@ -33,9 +33,10 @@
       <template v-for="location in mapData.locations" :key="location.id">
         <LMarker :lat-lng="location.coordinates" :name="location.name">
           <LIcon
+            v-if="config.customMarkerIcon"
             :icon-url="config.customMarkerIcon.iconUrl"
-            :icon-size="createPoint(props.config.customMarkerIcon.iconSize)"
-            :icon-anchor="createPoint(props.config.customMarkerIcon.iconAnchor)"
+            :icon-size="createPoint(config.customMarkerIcon.iconSize)"
+            :icon-anchor="createPoint(config.customMarkerIcon.iconAnchor)"
           />
         </LMarker>
       </template>

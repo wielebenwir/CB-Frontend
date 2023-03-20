@@ -10,7 +10,7 @@ export type MapConfiguration = {
     iconUrl: string;
     iconSize: [number, number];
     iconAnchor: [number, number];
-  };
+  } | null;
   item_draft_marker_icon: unknown;
   preferred_status_marker_icon: string;
   filter_cb_item_categories: Record<
@@ -20,7 +20,6 @@ export type MapConfiguration = {
       elements: {
         cat_id: number;
         markup: string;
-        color: string;
       }[];
     }
   >;
@@ -33,7 +32,6 @@ export type MapConfiguration = {
   asset_path: string;
   base_map: number;
   show_scale: boolean;
-  enable_map_data_export: boolean;
   zoom_min: number;
   zoom_max: number;
   zoom_start: number;
@@ -46,20 +44,11 @@ export type MapConfiguration = {
   show_location_contact: boolean;
   show_location_opening_hours: boolean;
   show_item_availability: boolean;
-  marker_cluster_icon: {
-    url: string;
-    size: {
-      width: number;
-      height: number;
-    };
-  };
   show_location_distance_filter: boolean;
   label_location_distance_filter: string;
   show_item_availability_filter: boolean;
   label_item_availability_filter: string;
   label_item_category_filter: string;
-  custom_category_colors_text: boolean;
-  custom_category_colors_marker_icon: boolean;
 };
 
 export type ParsedMapConfiguration = CamelCasedPropertiesDeep<MapConfiguration>;
