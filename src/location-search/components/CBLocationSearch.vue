@@ -22,7 +22,7 @@
 import { watchEffect } from 'vue';
 
 import { ParsedLocationSearchConfiguration } from '../types';
-import { useLocationSearchData } from '../apis';
+import { useLocationSearchAPI } from '../apis';
 import { useI18n } from '../locales';
 import CBItemFilter from './CBItemFilter.vue';
 import CBItemList from './CBItemList.vue';
@@ -33,7 +33,7 @@ const props = defineProps<{
 }>();
 
 // map data
-const { data: api, error: apiError, retry: retryAPI } = useLocationSearchData(props.config);
+const { api, apiError, retryAPI } = useLocationSearchAPI(props.config);
 
 // i18n config
 const { locale } = useI18n();

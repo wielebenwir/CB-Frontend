@@ -68,22 +68,22 @@ async function createMapAPI(config: ParsedLocationSearchConfiguration): Promise<
   throw new TypeError('You’ve specified an unknown map data source configuration.');
 }
 
-export function useLocationSearchData(config: ParsedLocationSearchConfiguration) {
-  const error = ref<Error>();
-  const data = ref<LocationSearchAPI>();
+export function useLocationSearchAPI(config: ParsedLocationSearchConfiguration) {
+  const apiError = ref<Error>();
+  const api = ref<LocationSearchAPI>();
   async function initAPI() {
-    data.value = undefined;
-    error.value = undefined;
-    const api = await createMapAPI(config);
+    api.value = undefined;
+    apiError.value = undefined;
+    const _api = await createMapAPI(config);
     try {
-      await api.init();
-      data.value = api;
-    } catch (_error) {
-      error.value = _error as Error;
+      await _api.init();
+      api.value = _api;
+    } catch (error) {
+      apiError.value = error as Error;
     }
   }
 
   watchEffect(initAPI);
 
-  return { data, error, retry: initAPI };
+  return { api, apiError, retryAPI: initAPI };
 }
