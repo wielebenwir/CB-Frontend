@@ -6,7 +6,7 @@ import { delay } from '../../util';
 import type { MapDataAPI } from '../types';
 import { computed, reactive, Ref, ref } from 'vue';
 
-type Days = '1' | '2' | '3' | '4' | '5' | '6' | '7';
+type Day = '1' | '2' | '3' | '4' | '5' | '6' | '7';
 type Address = { street: string; city: string; zip: string };
 type Timeframe = { date_start: string; date_end: string };
 type TimeframeHint = { type: 'until' | 'from'; timestamp: number };
@@ -25,7 +25,7 @@ export type DataItem = {
   lon: number;
   location_name: string;
   address: Address;
-  closed_days: Days;
+  closed_days: Day[];
   items: CommonsBookingItem[];
 };
 
