@@ -1,10 +1,14 @@
 import { computed, ref, unref, watchEffect } from 'vue';
 import { asyncIterableToArray } from '../../util';
 
+interface Translations {
+  [k: string]: string | Translations;
+}
+
 type Locale = {
   key: string;
   language: string;
-  translations: Record<string, string>;
+  translations: Translations;
 };
 
 const localeMap = Object.fromEntries(
@@ -12,7 +16,7 @@ const localeMap = Object.fromEntries(
     (/([a-z]{2}(-[A-Z]{2})?).json/.exec(filename) as RegExpExecArray)[1],
     module,
   ]),
-) as Record<string, () => Promise<Record<string, string>>>;
+) as Record<string, () => Promise<Translations>>;
 
 function getLanguage(locale: string) {
   const [language] = locale.split('-', 1);
@@ -20,11 +24,7 @@ function getLanguage(locale: string) {
 }
 
 async function* findLocales(requestedLocales: string[]): AsyncIterable<Locale> {
-  function createLocale(
-    key: string,
-    language: string,
-    translations: Record<string, string>,
-  ): Locale {
+  function createLocale(key: string, language: string, translations: Translations): Locale {
     return {
       key,
       language,
@@ -49,13 +49,27 @@ export function useI18n() {
   const language = computed(() => getLanguage(locale.value));
   const locales = ref<Locale[]>([]);
 
+  function findKey(keys: string[], translations: Translations): string | undefined {
+    const [key, ...rest] = keys;
+    if (!key) return;
+    const value = translations[key];
+    if (rest.length === 0 && typeof value === 'string') {
+      return value;
+    } else if (rest.length > 0 && typeof value === 'object') {
+      return findKey(rest, value);
+    } else {
+      return undefined;
+    }
+  }
+
   function t(key: string) {
     for (const locale of locales.value) {
       if (locale.language !== language.value) {
         console.warn(`Missing ${language.value} translation for key '${key}'`);
       }
-      if (typeof locale.translations[key] === 'string') {
-        return locale.translations[key];
+      const translation = findKey(key.split('.'), locale.translations);
+      if (typeof translation === 'string') {
+        return translation;
       }
     }
     return '! UNTRANSLATED !';
