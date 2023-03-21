@@ -12,8 +12,8 @@
   </div>
 
   <div v-else-if="api" class="location-search">
-    <CBItemFilter style="grid-area: filter" />
-    <CBItemList style="grid-area: results" />
+    <CBCommonFilter style="grid-area: filter" :api="api" />
+    <CBCommonList style="grid-area: results" :api="api" />
     <CBMap style="grid-area: map" :api="api" :config="config" />
   </div>
 </template>
@@ -24,8 +24,8 @@ import { watchEffect } from 'vue';
 import { ParsedLocationSearchConfiguration } from '../types';
 import { useLocationSearchAPI } from '../apis';
 import { useI18n } from '../locales';
-import CBItemFilter from './CBItemFilter.vue';
-import CBItemList from './CBItemList.vue';
+import CBCommonFilter from './CBCommonFilter.vue';
+import CBCommonList from './CBCommonList.vue';
 import CBMap from './CBMap.vue';
 
 const props = defineProps<{
