@@ -1,4 +1,4 @@
-import { Location } from '../apis/admin-ajax-api';
+import { APILocation } from '../apis/admin-ajax-api';
 
 export default [
   {
@@ -513,4 +513,4 @@ export default [
       },
     ],
   },
-] as Location[];
+] as APILocation[];

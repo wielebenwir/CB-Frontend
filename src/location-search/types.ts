@@ -54,7 +54,7 @@ export type LocationSearchConfiguration = {
 export type ParsedLocationSearchConfiguration =
   CamelCasedPropertiesDeep<LocationSearchConfiguration>;
 
-export type Location = {
+export type CommonLocation = {
   id: string;
   name: string;
   coordinates: { lat: number; lng: number };
@@ -69,7 +69,7 @@ interface _LocationSearchAPI {
   init(): Promise<void>;
   type: string;
 
-  locations: ComputedRef<Location[]>;
+  locations: ComputedRef<CommonLocation[]>;
 }
 
 export type LocationSearchAPI = UnwrapNestedRefs<_LocationSearchAPI>;

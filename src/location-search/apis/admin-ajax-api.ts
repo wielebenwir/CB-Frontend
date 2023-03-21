@@ -6,12 +6,12 @@ import { delay } from '../../util';
 import type { LocationSearchAPI } from '../types';
 import { computed, reactive, Ref, ref } from 'vue';
 
-type Day = '1' | '2' | '3' | '4' | '5' | '6' | '7';
-type Address = { street: string; city: string; zip: string };
-type Timeframe = { date_start: string; date_end: string };
-type AvailabilityStatus = 'available' | 'locked' | 'partially-booked' | 'booked';
-type Availability = { status: AvailabilityStatus; date: string };
-type CommonsBookingItem = {
+type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
+type APIAddress = { street: string; city: string; zip: string };
+type APITimeframe = { date_start: string; date_end: string };
+type APIAvailabilityStatus = 'available' | 'locked' | 'partially-booked' | 'booked';
+type APIAvailability = { status: APIAvailabilityStatus; date: string };
+type APIItem = {
   id: number;
   name: string;
   short_desc: string;
@@ -19,24 +19,24 @@ type CommonsBookingItem = {
   thumbnail: string | null;
   status: 'publish';
   terms: number[];
-  timeframes: Timeframe[];
-  availability: Availability[];
+  timeframes: APITimeframe[];
+  availability: APIAvailability[];
 };
-export type Location = {
+export type APILocation = {
   lat: number;
   lon: number;
   location_name: string;
   location_link: string;
-  address: Address;
-  closed_days: Day[];
-  items: CommonsBookingItem[];
+  address: APIAddress;
+  closed_days: APIDay[];
+  items: APIItem[];
 };
 
 type APIConfiguration = { url: string; nonce: string; mapId: number };
 
 async function fetchLocationData(
   configuration: APIConfiguration,
-): Promise<CamelCasedPropertiesDeep<Location[]>> {
+): Promise<CamelCasedPropertiesDeep<APILocation[]>> {
   const res = await fetch(configuration.url, {
     method: 'POST',
     headers: {
@@ -60,7 +60,7 @@ async function fetchLocationData(
 }
 
 export function useAdminAjaxData(locationData: Ref<CamelCasedPropertiesDeep<Location[]>>) {
-  const locations = computed(() => {
+  const locations = computed<CommonLocation[]>(() => {
     return locationData.value.map((item) => {
       return {
         id: `${item.lat}-${item.lon}-${item.locationName}`,
@@ -79,7 +79,7 @@ export function useAdminAjaxData(locationData: Ref<CamelCasedPropertiesDeep<Loca
 }
 
 export function API(configuration: APIConfiguration): LocationSearchAPI {
-  const locationData = ref<CamelCasedPropertiesDeep<Location[]>>([]);
+  const locationData = ref<CamelCasedPropertiesDeep<APILocation[]>>([]);
 
   async function init() {
     const maxRetries = 10;
