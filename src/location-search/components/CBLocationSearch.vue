@@ -12,14 +12,14 @@
   </div>
 
   <div v-else-if="api" class="location-search">
-    <CBCommonFilter style="grid-area: filter" :api="api" />
+    <CBCommonFilter v-model="filter" style="grid-area: filter" :api="api" />
     <CBCommonList style="grid-area: results" :api="api" />
-    <CBMap style="grid-area: map" :api="api" :config="config" />
+    <CBMap style="grid-area: map" :locations="filteredLocations" :config="config" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { watchEffect } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import { ParsedLocationSearchConfiguration } from '../types';
 import { useLocationSearchAPI } from '../apis';
@@ -27,13 +27,18 @@ import { useI18n } from '../locales';
 import CBCommonFilter from './CBCommonFilter.vue';
 import CBCommonList from './CBCommonList.vue';
 import CBMap from './CBMap.vue';
+import { CommonFilterSet, useFilteredData } from '../filter';
 
 const props = defineProps<{
   config: ParsedLocationSearchConfiguration;
 }>();
 
-// map data
+// API data
+const filter = ref<CommonFilterSet>({
+  categories: new Set<number>(),
+});
 const { api, apiError, retryAPI } = useLocationSearchAPI(props.config);
+const { filteredLocations } = useFilteredData(api, filter);
 
 // i18n config
 const { locale } = useI18n();
@@ -48,17 +53,17 @@ watchEffect(() => {
   padding: 2rem;
   display: grid;
   gap: 1.5rem;
-  grid-template-areas: 'filter' 'map' 'results';
-  grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr 1fr;
+  grid-template-areas: 'filter' 'results' 'map';
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: min-content 1fr 1fr;
   height: 100%;
 }
 
 @media (min-width: 800px) {
   .location-search {
     grid-template-areas: 'filter filter' 'results map';
-    grid-template-columns: minmax(320px, max-content) 1fr;
-    grid-template-rows: 100px 1fr;
+    grid-template-columns: 320px minmax(0, 1fr);
+    grid-template-rows: min-content 1fr;
   }
 }
 </style>

@@ -26,15 +26,15 @@ export default {
       ],
     },
     'g1610805862646-605141': {
-      name: '',
+      name: 'Antrieb',
       elements: [
         {
           cat_id: 29,
-          markup: 'mit Elektro',
+          markup: 'Elektro',
         },
         {
           cat_id: 30,
-          markup: 'reine Muskelkraft',
+          markup: 'Muskelkraft',
         },
       ],
     },

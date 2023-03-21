@@ -13,7 +13,7 @@
       :min-zoom="config.zoomMin"
       :detect-retina="true"
     />
-    <template v-for="location in api.locations" :key="location.id">
+    <template v-for="location in locations" :key="location.id">
       <LMarker :lat-lng="location.coordinates" :name="location.name">
         <LIcon
           v-if="config.customMarkerIcon"
@@ -30,11 +30,11 @@
 import { computed } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
 import { createPoint, getAttribution, getTileServerUrl } from './map';
-import { LocationSearchAPI, ParsedLocationSearchConfiguration } from '../types';
+import { CommonLocation, ParsedLocationSearchConfiguration } from '../types';
 
 const props = defineProps<{
   config: ParsedLocationSearchConfiguration;
-  api: LocationSearchAPI;
+  locations: CommonLocation[];
 }>();
 
 // map config
