@@ -1,7 +1,7 @@
 import type { CamelCasedPropertiesDeep } from 'type-fest';
 import type { ComputedRef, UnwrapNestedRefs } from 'vue';
 
-export type LocationSearchConfiguration = {
+export type CommonsSearchConfiguration = {
   data_source?: 'admin-ajax' | 'fixtures';
   data_url: string;
   nonce: string;
@@ -51,8 +51,7 @@ export type LocationSearchConfiguration = {
   label_item_category_filter: string;
 };
 
-export type ParsedLocationSearchConfiguration =
-  CamelCasedPropertiesDeep<LocationSearchConfiguration>;
+export type ParsedCommonsSearchConfiguration = CamelCasedPropertiesDeep<CommonsSearchConfiguration>;
 
 export type Common = {
   id: number;
@@ -86,7 +85,7 @@ export type CommonLocation = {
   };
 };
 
-interface _LocationSearchAPI {
+interface _CommonsSearchAPI {
   init(): Promise<void>;
   type: string;
   commons: ComputedRef<Common[]>;
@@ -95,4 +94,4 @@ interface _LocationSearchAPI {
   locations: ComputedRef<CommonLocation[]>;
 }
 
-export type LocationSearchAPI = UnwrapNestedRefs<_LocationSearchAPI>;
+export type CommonsSearchAPI = UnwrapNestedRefs<_CommonsSearchAPI>;

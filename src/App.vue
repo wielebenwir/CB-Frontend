@@ -3,16 +3,16 @@
 </template>
 
 <script lang="ts" setup>
-import createLocationSearch from './location-search';
+import createCommonsSearch from './commons-search';
 import { ref, watchEffect } from 'vue';
 import 'leaflet/dist/leaflet.css';
 
-import configuration from './location-search/fixtures/settings';
+import configuration from './commons-search/fixtures/settings';
 const rootEl = ref<HTMLElement>();
 
 watchEffect(() => {
   if (rootEl.value) {
-    createLocationSearch(rootEl.value, configuration);
+    createCommonsSearch(rootEl.value, configuration);
   }
 });
 </script>

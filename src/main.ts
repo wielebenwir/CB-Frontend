@@ -3,4 +3,4 @@
  * Apart from CSS, no imports should have any side effects when being loaded.
  */
 
-export { default as createLocationSearch } from './location-search';
+export { default as createCommonsSearch } from './commons-search';

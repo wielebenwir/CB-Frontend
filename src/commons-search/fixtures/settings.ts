@@ -1,4 +1,4 @@
-import { LocationSearchConfiguration } from '../types';
+import { CommonsSearchConfiguration } from '../types';
 
 export default {
   data_source: 'fixtures',
@@ -93,4 +93,4 @@ export default {
   show_item_availability_filter: false,
   label_item_availability_filter: 'Verfügbarkeit',
   label_item_category_filter: 'Merkmale',
-} as LocationSearchConfiguration;
+} as CommonsSearchConfiguration;

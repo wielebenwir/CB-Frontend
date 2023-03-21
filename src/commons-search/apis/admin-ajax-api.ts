@@ -9,8 +9,8 @@ import type {
   CommonCategory,
   CommonCategoryGroup,
   CommonLocation,
-  LocationSearchAPI,
-  ParsedLocationSearchConfiguration,
+  CommonsSearchAPI,
+  ParsedCommonsSearchConfiguration,
 } from '../types';
 
 type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
@@ -40,7 +40,7 @@ export type APILocation = {
 };
 
 async function fetchLocationData(
-  configuration: ParsedLocationSearchConfiguration,
+  configuration: ParsedCommonsSearchConfiguration,
 ): Promise<CamelCasedPropertiesDeep<APILocation[]>> {
   const res = await fetch(configuration.dataUrl, {
     method: 'POST',
@@ -65,7 +65,7 @@ async function fetchLocationData(
 }
 
 export function useAdminAjaxData(
-  config: ParsedLocationSearchConfiguration,
+  config: ParsedCommonsSearchConfiguration,
   locationData: Ref<CamelCasedPropertiesDeep<APILocation[]>>,
 ) {
   function createLocationId(location: CamelCasedPropertiesDeep<APILocation>) {
@@ -127,7 +127,7 @@ export function useAdminAjaxData(
   return { categories, categoryGroups, commons, locations };
 }
 
-export function API(config: ParsedLocationSearchConfiguration): LocationSearchAPI {
+export function API(config: ParsedCommonsSearchConfiguration): CommonsSearchAPI {
   const locationData = ref<CamelCasedPropertiesDeep<APILocation[]>>([]);
 
   async function init() {

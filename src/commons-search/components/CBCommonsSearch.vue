@@ -11,7 +11,7 @@
     </p>
   </div>
 
-  <div v-else-if="api" class="location-search">
+  <div v-else-if="api" class="cb-commons-search">
     <CBCommonFilter v-model="filter" style="grid-area: filter" :api="api" />
     <CBCommonList style="grid-area: results" :api="api" />
     <CBMap style="grid-area: map" :locations="filteredLocations" :config="config" />
@@ -21,8 +21,8 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue';
 
-import { ParsedLocationSearchConfiguration } from '../types';
-import { useLocationSearchAPI } from '../apis';
+import { ParsedCommonsSearchConfiguration } from '../types';
+import { useCommonsSearchAPI } from '../apis';
 import { useI18n } from '../locales';
 import CBCommonFilter from './CBCommonFilter.vue';
 import CBCommonList from './CBCommonList.vue';
@@ -30,14 +30,14 @@ import CBMap from './CBMap.vue';
 import { CommonFilterSet, useFilteredData } from '../filter';
 
 const props = defineProps<{
-  config: ParsedLocationSearchConfiguration;
+  config: ParsedCommonsSearchConfiguration;
 }>();
 
 // API data
 const filter = ref<CommonFilterSet>({
   categories: new Set<number>(),
 });
-const { api, apiError, retryAPI } = useLocationSearchAPI(props.config);
+const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
 const { filteredLocations } = useFilteredData(api, filter);
 
 // i18n config
@@ -48,7 +48,7 @@ watchEffect(() => {
 </script>
 
 <style scoped>
-.location-search {
+.cb-commons-search {
   box-sizing: border-box;
   padding: 2rem;
   display: grid;
@@ -60,7 +60,7 @@ watchEffect(() => {
 }
 
 @media (min-width: 800px) {
-  .location-search {
+  .cb-commons-search {
     grid-template-areas: 'filter filter' 'results map';
     grid-template-columns: 320px minmax(0, 1fr);
     grid-template-rows: min-content 1fr;

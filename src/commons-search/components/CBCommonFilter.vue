@@ -6,11 +6,12 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { CommonFilterSet, LocationSearchAPI } from '../types';
+import { CommonsSearchAPI } from '../types';
+import { CommonFilterSet } from '../filter';
 import CBCategoryGroupList from './CBCategoryGroupList.vue';
 
 const props = defineProps<{
-  api: LocationSearchAPI;
+  api: CommonsSearchAPI;
   modelValue: CommonFilterSet;
 }>();
 const emit = defineEmits<{

@@ -1,5 +1,5 @@
 import { computed, Ref } from 'vue';
-import { Common, CommonLocation, LocationSearchAPI } from './types';
+import { Common, CommonLocation, CommonsSearchAPI } from './types';
 
 export interface CommonFilterSet {
   categories: Set<number>;
@@ -15,7 +15,7 @@ function filterByRelevantLocations(relevantLocationIds: Set<string>) {
 }
 
 export function useFilteredData(
-  api: Ref<LocationSearchAPI | undefined>,
+  api: Ref<CommonsSearchAPI | undefined>,
   filter: Ref<CommonFilterSet>,
 ) {
   const filteredCommons = computed(() => {

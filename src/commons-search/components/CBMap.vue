@@ -30,10 +30,10 @@
 import { computed } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
 import { createPoint, getAttribution, getTileServerUrl } from './map';
-import { CommonLocation, ParsedLocationSearchConfiguration } from '../types';
+import { CommonLocation, ParsedCommonsSearchConfiguration } from '../types';
 
 const props = defineProps<{
-  config: ParsedLocationSearchConfiguration;
+  config: ParsedCommonsSearchConfiguration;
   locations: CommonLocation[];
 }>();
 

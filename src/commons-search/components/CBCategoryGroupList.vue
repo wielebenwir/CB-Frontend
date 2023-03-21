@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-2">
     <template v-if="groupedCategoriesWithNamedGroup.size > 0">
-      <div v-for="[group, categories] in groupedCategoriesWithNamedGroup" :key="group.id">
+      <div v-for="[group, categories] in groupedCategoriesWithNamedGroup" :key="group?.id">
         <CBFilterLabel :label="group?.name" />
         <div class="flex flex-wrap gap-2">
           <CBCategoryGroup v-model="value" :categories="categories" />
@@ -21,14 +21,14 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { CommonCategory, LocationSearchAPI } from '../types';
+import { CommonCategory, CommonsSearchAPI } from '../types';
 import { useGroupBy } from '../../util';
 import CBFilterLabel from './CBFilterLabel.vue';
 import CBCategoryGroup from './CBCategoryGroup.vue';
 import { useI18n } from '../locales';
 
 const props = defineProps<{
-  api: LocationSearchAPI;
+  api: CommonsSearchAPI;
   modelValue: Set<number>;
 }>();
 const emit = defineEmits<{

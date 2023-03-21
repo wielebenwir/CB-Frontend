@@ -1,7 +1,7 @@
-import { LocationSearchAPI, ParsedLocationSearchConfiguration } from '../types';
+import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';
 import { ref, watchEffect } from 'vue';
 
-type Fields = [keyof ParsedLocationSearchConfiguration, string][];
+type Fields = [keyof ParsedCommonsSearchConfiguration, string][];
 
 export class HTTPAPIError extends Error {
   response: Response;
@@ -12,20 +12,20 @@ export class HTTPAPIError extends Error {
   }
 }
 
-class LocationSearchConfigurationError extends Error {
+class CommonsSearchConfigurationError extends Error {
   missingOrMisconfiguredFields: Fields;
   constructor(missingOrMisconfiguredFields: Fields) {
     const fieldString = missingOrMisconfiguredFields
       .map(([name, _type]) => `${name} (of type: ${_type})`)
       .join('\n');
     super(
-      'The map configuration is missing some required fields or some of the fields have an invalid type.\n\n' +
+      'The commons search configuration is missing some required fields or some of the fields have an invalid type.\n\n' +
         fieldString,
     );
     this.missingOrMisconfiguredFields = missingOrMisconfiguredFields;
   }
 
-  static checkFields(configuration: ParsedLocationSearchConfiguration, fields: Fields) {
+  static checkFields(configuration: ParsedCommonsSearchConfiguration, fields: Fields) {
     const missingOrMisconfiguredFields = [];
     for (const field of fields) {
       const [fieldName, fieldType] = field;
@@ -34,16 +34,18 @@ class LocationSearchConfigurationError extends Error {
       }
     }
     if (missingOrMisconfiguredFields.length > 0) {
-      throw new LocationSearchConfigurationError(missingOrMisconfiguredFields);
+      throw new CommonsSearchConfigurationError(missingOrMisconfiguredFields);
     }
   }
 }
 
-async function createMapAPI(config: ParsedLocationSearchConfiguration): Promise<LocationSearchAPI> {
+async function createCommonsSearchAPI(
+  config: ParsedCommonsSearchConfiguration,
+): Promise<CommonsSearchAPI> {
   const dataSource = config.dataSource ?? 'admin-ajax';
 
   if (dataSource === 'admin-ajax') {
-    LocationSearchConfigurationError.checkFields(config, [
+    CommonsSearchConfigurationError.checkFields(config, [
       ['dataUrl', 'string'],
       ['nonce', 'string'],
       ['cbMapId', 'number'],
@@ -61,16 +63,18 @@ async function createMapAPI(config: ParsedLocationSearchConfiguration): Promise<
     }
   }
 
-  throw new TypeError('You’ve specified an unknown map data source configuration.');
+  throw new TypeError(
+    'You’ve specified an unknown data source in your commons search configuration.',
+  );
 }
 
-export function useLocationSearchAPI(config: ParsedLocationSearchConfiguration) {
+export function useCommonsSearchAPI(config: ParsedCommonsSearchConfiguration) {
   const apiError = ref<Error>();
-  const api = ref<LocationSearchAPI>();
+  const api = ref<CommonsSearchAPI>();
   async function initAPI() {
     api.value = undefined;
     apiError.value = undefined;
-    const _api = await createMapAPI(config);
+    const _api = await createCommonsSearchAPI(config);
     try {
       await _api.init();
       api.value = _api;
