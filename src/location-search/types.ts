@@ -54,6 +54,27 @@ export type LocationSearchConfiguration = {
 export type ParsedLocationSearchConfiguration =
   CamelCasedPropertiesDeep<LocationSearchConfiguration>;
 
+export type Common = {
+  id: number;
+  locationId: string;
+  categoryIds: number[];
+  name: string;
+  description: string;
+  url: string;
+  thumbnailURL: string | null;
+};
+
+export type CommonCategory = {
+  id: number;
+  name: string;
+  groupId: string;
+};
+
+export type CommonCategoryGroup = {
+  id: string;
+  name: string;
+};
+
 export type CommonLocation = {
   id: string;
   name: string;
@@ -68,7 +89,9 @@ export type CommonLocation = {
 interface _LocationSearchAPI {
   init(): Promise<void>;
   type: string;
-
+  commons: ComputedRef<Common[]>;
+  categories: ComputedRef<CommonCategory[]>;
+  categoryGroups: ComputedRef<CommonCategoryGroup[]>;
   locations: ComputedRef<CommonLocation[]>;
 }
 

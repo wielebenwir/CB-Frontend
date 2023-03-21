@@ -3,7 +3,14 @@ import type { CamelCasedPropertiesDeep } from 'type-fest';
 
 import { HTTPAPIError } from './index';
 import { delay } from '../../util';
-import type { LocationSearchAPI } from '../types';
+import type {
+  Common,
+  CommonCategory,
+  CommonCategoryGroup,
+  CommonLocation,
+  LocationSearchAPI,
+  ParsedLocationSearchConfiguration,
+} from '../types';
 import { computed, reactive, Ref, ref } from 'vue';
 
 type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
@@ -32,12 +39,10 @@ export type APILocation = {
   items: APIItem[];
 };
 
-type APIConfiguration = { url: string; nonce: string; mapId: number };
-
 async function fetchLocationData(
-  configuration: APIConfiguration,
+  configuration: ParsedLocationSearchConfiguration,
 ): Promise<CamelCasedPropertiesDeep<APILocation[]>> {
-  const res = await fetch(configuration.url, {
+  const res = await fetch(configuration.dataUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -45,7 +50,7 @@ async function fetchLocationData(
     body: new URLSearchParams({
       action: 'cb_map_locations',
       nonce: configuration.nonce,
-      cb_map_id: configuration.mapId.toString(),
+      cb_map_id: configuration.cbMapId.toString(),
     }),
   });
 
@@ -54,31 +59,75 @@ async function fetchLocationData(
   } else {
     throw new HTTPAPIError(
       res,
-      `Could not load data from admin-ajax endpoint at '${configuration.url}'.`,
+      `Could not load data from admin-ajax endpoint at '${configuration.dataUrl}'.`,
     );
   }
 }
 
-export function useAdminAjaxData(locationData: Ref<CamelCasedPropertiesDeep<Location[]>>) {
+export function useAdminAjaxData(
+  config: ParsedLocationSearchConfiguration,
+  locationData: Ref<CamelCasedPropertiesDeep<APILocation[]>>,
+) {
+  function createLocationId(location: CamelCasedPropertiesDeep<APILocation>) {
+    return `${location.lat}-${location.lon}-${location.locationName}`;
+  }
+
   const locations = computed<CommonLocation[]>(() => {
-    return locationData.value.map((item) => {
+    return locationData.value.map((location) => {
       return {
-        id: `${item.lat}-${item.lon}-${item.locationName}`,
-        name: item.locationName,
-        coordinates: { lat: item.lat, lng: item.lon },
+        id: createLocationId(location),
+        name: location.locationName,
+        coordinates: { lat: location.lat, lng: location.lon },
         address: {
-          street: item.address.street,
-          postalCode: item.address.zip,
-          city: item.address.city,
+          street: location.address.street,
+          postalCode: location.address.zip,
+          city: location.address.city,
         },
       };
     });
   });
 
-  return { locations };
+  const commons = computed<Common[]>(() => {
+    return locationData.value.flatMap((location) => {
+      return location.items.map((item) => ({
+        id: item.id,
+        locationId: createLocationId(location),
+        categoryIds: item.terms,
+        name: item.name,
+        description: item.shortDesc,
+        url: item.link,
+        thumbnailURL: item.thumbnail,
+      }));
+    });
+  });
+
+  const usedCategoryIds = computed(() => {
+    return new Set(commons.value.flatMap((common) => common.categoryIds));
+  });
+
+  const categories = computed<CommonCategory[]>(() => {
+    return Object.entries(config.filterCbItemCategories).flatMap(([key, filter]) => {
+      return filter.elements
+        .map((category) => ({
+          id: category.catId,
+          name: category.markup,
+          groupId: key,
+        }))
+        .filter((category) => usedCategoryIds.value.has(category.id));
+    });
+  });
+
+  const categoryGroups = computed<CommonCategoryGroup[]>(() => {
+    return Object.entries(config.filterCbItemCategories).map(([key, filter]) => ({
+      id: key,
+      name: filter.name.trim(),
+    }));
+  });
+
+  return { categories, categoryGroups, commons, locations };
 }
 
-export function API(configuration: APIConfiguration): LocationSearchAPI {
+export function API(config: ParsedLocationSearchConfiguration): LocationSearchAPI {
   const locationData = ref<CamelCasedPropertiesDeep<APILocation[]>>([]);
 
   async function init() {
@@ -88,7 +137,7 @@ export function API(configuration: APIConfiguration): LocationSearchAPI {
 
     while (retry++ > maxRetries) {
       try {
-        locationData.value = await fetchLocationData(configuration);
+        locationData.value = await fetchLocationData(config);
         break;
       } catch (error) {
         const waitTime = retry * retryWaitTime;
@@ -101,6 +150,6 @@ export function API(configuration: APIConfiguration): LocationSearchAPI {
   return reactive({
     init,
     type: 'admin-ajax',
-    ...useAdminAjaxData(locationData),
+    ...useAdminAjaxData(config, locationData),
   });
 }

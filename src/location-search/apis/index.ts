@@ -50,18 +50,14 @@ async function createMapAPI(config: ParsedLocationSearchConfiguration): Promise<
     ]);
 
     const { API } = await import('./admin-ajax-api');
-    return API({
-      url: config.dataUrl,
-      nonce: config.nonce,
-      mapId: config.cbMapId,
-    });
+    return API(config);
   }
 
   // TODO: test tree shaking of fixtures in library builds
   if (import.meta.env.DEV || import.meta.env.VITE_BUILD_MODE !== 'lib') {
     if (config.dataSource === 'fixtures') {
       const { API } = await import('./fixtures-api');
-      return API();
+      return API(config);
     }
   }
 
