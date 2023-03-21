@@ -1,5 +1,6 @@
 import camelcaseKeys from 'camelcase-keys';
 import type { CamelCasedPropertiesDeep } from 'type-fest';
+import { computed, reactive, Ref, ref } from 'vue';
 
 import { HTTPAPIError } from './index';
 import { delay } from '../../util';
@@ -11,7 +12,6 @@ import type {
   LocationSearchAPI,
   ParsedLocationSearchConfiguration,
 } from '../types';
-import { computed, reactive, Ref, ref } from 'vue';
 
 type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
 type APIAddress = { street: string; city: string; zip: string };
