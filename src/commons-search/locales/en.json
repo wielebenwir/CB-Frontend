@@ -2,6 +2,15 @@
   "filter": {
     "categoryGroup": {
       "unlabelled": "Features"
+    },
+    "location": {
+      "label": "Location",
+      "getPosition": "Determine your current location",
+      "waitGeoCoder": "Please wait while relevant locations are being loaded...",
+      "reset": "Reset location"
     }
+  },
+  "geo": {
+    "currentPosition": "Your current location"
   }
 }

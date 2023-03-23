@@ -13,7 +13,9 @@
     "timeframe",
     "timeframes",
     "HTTPAPI",
-    "tailwindcss"
+    "tailwindcss",
+    "vueuse",
+    "headlessui"
   ],
   "flagWords": ["hte"],
   "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "dist-app/**", "*.svg", "*.json"]

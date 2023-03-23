@@ -2,6 +2,15 @@
   "filter": {
     "categoryGroup": {
       "unlabelled": "Merkmale"
+    },
+    "location": {
+      "label": "Ort",
+      "getPosition": "Bestimme deine aktuelle Position",
+      "waitGeoCoder": "Es werden relevante Orte für deine Eingabe geladen...",
+      "reset": "Ort zurücksetzen"
     }
+  },
+  "geo": {
+    "currentPosition": "Deine aktueller Aufenthaltsort"
   }
 }

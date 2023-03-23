@@ -1,8 +1,10 @@
 import { computed, Ref } from 'vue';
 import { Common, CommonLocation, CommonsSearchAPI } from './types';
+import { GeoLocation } from './geo';
 
 export interface CommonFilterSet {
   categories: Set<number>;
+  location: GeoLocation | null;
 }
 
 function filterByCategories(relevantCategoryIds: Set<number>) {

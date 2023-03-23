@@ -49,6 +49,17 @@ export type CommonsSearchConfiguration = {
   show_item_availability_filter: boolean;
   label_item_availability_filter: string;
   label_item_category_filter: string;
+  geocode?: {
+    nominatim_endpoint?: string;
+    remove_neighboring_locations_within_meters?: number | false;
+    region?: {
+      city?: string;
+      postalCode?: string;
+      county?: string;
+      state?: string;
+      countryCodes?: string[];
+    };
+  };
 };
 
 export type ParsedCommonsSearchConfiguration = CamelCasedPropertiesDeep<CommonsSearchConfiguration>;
@@ -74,10 +85,15 @@ export type CommonCategoryGroup = {
   name: string;
 };
 
+export type GeoCoordinate = {
+  lat: number;
+  lng: number;
+};
+
 export type CommonLocation = {
   id: string;
   name: string;
-  coordinates: { lat: number; lng: number };
+  coordinates: GeoCoordinate;
   address: {
     postalCode: string;
     street: string;

@@ -12,9 +12,21 @@
   </div>
 
   <div v-else-if="api" class="cb-commons-search">
-    <CBCommonFilter v-model="filter" style="grid-area: filter" :api="api" />
+    <CBCommonFilter
+      v-model="filter"
+      class="isolate z-10"
+      style="grid-area: filter"
+      :api="api"
+      :config="config"
+    />
     <CBCommonList style="grid-area: results" :api="api" />
-    <CBMap style="grid-area: map" :locations="filteredLocations" :config="config" />
+    <CBMap
+      class="isolate z-0"
+      style="grid-area: map"
+      :locations="filteredLocations"
+      :user-location="filter.location"
+      :config="config"
+    />
   </div>
 </template>
 
@@ -36,6 +48,7 @@ const props = defineProps<{
 // API data
 const filter = ref<CommonFilterSet>({
   categories: new Set<number>(),
+  location: null,
 });
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
 const { filteredLocations } = useFilteredData(api, filter);

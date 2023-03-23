@@ -1,5 +1,6 @@
 <template>
   <LMap
+    ref="map"
     :center="[config.latStart, config.lonStart]"
     :max-zoom="config.zoomMax"
     :min-zoom="config.zoomMin"
@@ -23,22 +24,32 @@
         />
       </LMarker>
     </template>
+    <LMarker v-if="userLocation" :lat-lng="userLocation" :name="userLocation.name" />
   </LMap>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
 import { createPoint, getAttribution, getTileServerUrl } from './map';
 import { CommonLocation, ParsedCommonsSearchConfiguration } from '../types';
+import { GeoLocation } from '../geo';
 
 const props = defineProps<{
   config: ParsedCommonsSearchConfiguration;
   locations: CommonLocation[];
+  userLocation: GeoLocation | null;
 }>();
 
-// map config
+const map = ref();
 const useGlobalLeaflet = Object.hasOwn(globalThis, 'Leaflet');
 const attribution = computed(() => getAttribution(props.config));
 const tileServerUrl = computed(() => getTileServerUrl(props.config.baseMap));
+
+watchEffect(() => {
+  if (props.userLocation && map.value?.leafletObject?.setView) {
+    // Set focus on user location once it has been set.
+    map.value.leafletObject?.setView?.(props.userLocation, Math.min(15, props.config.zoomMax));
+  }
+});
 </script>

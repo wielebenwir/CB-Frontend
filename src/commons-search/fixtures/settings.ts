@@ -88,9 +88,12 @@ export default {
   show_location_contact: false,
   show_location_opening_hours: false,
   show_item_availability: true,
-  show_location_distance_filter: false,
+  show_location_distance_filter: true,
   label_location_distance_filter: '',
   show_item_availability_filter: false,
   label_item_availability_filter: 'Verfügbarkeit',
   label_item_category_filter: 'Merkmale',
+  geocode: {
+    region: { countryCodes: ['de'] },
+  },
 } as CommonsSearchConfiguration;
