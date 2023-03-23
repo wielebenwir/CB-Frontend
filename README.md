@@ -24,6 +24,6 @@ npm run lint
 # auto-fix some formatting issues
 npm run format
 
-# execute automated tests
+# execute tests
 npm run test
 ```
