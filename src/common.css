@@ -1,0 +1,23 @@
+.cb-button {
+  @apply flex
+         items-center
+         justify-center
+         gap-1
+         px-4 py-2
+         rounded
+         cursor-pointer
+         hover:brightness-95
+         focus-visible:ring-2
+         ring-black
+         select-none
+         transition;
+}
+
+.cb-input {
+  @apply rounded
+         px-4 py-2;
+}
+
+.tw-c-flex-center {
+  @apply flex items-center justify-center;
+}

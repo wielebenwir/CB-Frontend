@@ -1,6 +1,6 @@
 <template>
   <label
-    class="cb-category px-4 py-2 bg-gray-200 rounded cursor-pointer truncate outline-transparent select-none hover:brightness-95 transition transition-colors"
+    class="cb-category cb-button bg-gray-200 truncate"
     :class="{ 'cb-category--active bg-teal-200': modelValue }"
     tabindex="0"
   >
