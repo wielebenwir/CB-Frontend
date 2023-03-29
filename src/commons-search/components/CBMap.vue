@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watchEffect } from 'vue';
+import { computed, nextTick, ref, watchEffect } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
 import { createPoint, getAttribution, getTileServerUrl } from './map';
 import { CommonLocation, ParsedCommonsSearchConfiguration } from '../types';
@@ -46,8 +46,11 @@ const useGlobalLeaflet = Object.hasOwn(globalThis, 'Leaflet');
 const attribution = computed(() => getAttribution(props.config));
 const tileServerUrl = computed(() => getTileServerUrl(props.config.baseMap));
 
-watchEffect(() => {
+watchEffect(async () => {
   if (props.userLocation && map.value?.leafletObject?.setView) {
+    // Leaflet repeatedly moved to the wrong location if we didn’t
+    // wait for the nextTick. It’s unclear why.
+    await nextTick();
     // Set focus on user location once it has been set.
     map.value.leafletObject?.setView?.(props.userLocation, Math.min(15, props.config.zoomMax));
   }
