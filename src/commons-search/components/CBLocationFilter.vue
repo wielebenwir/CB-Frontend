@@ -3,7 +3,7 @@
     <CBFilterLabel :label="t('filter.location.label')" />
 
     <template v-if="!currentLocation">
-      <div class="grid relative">
+      <div class="tw-grid tw-relative">
         <Combobox v-if="!currentLocation" @update:model-value="setLocation">
           <ComboboxInput
             class="cb-input"
@@ -12,7 +12,7 @@
           />
           <ComboboxOptions
             v-if="locations.length > 0"
-            class="absolute top-full z-20 mt-1 bg-white p-6 shadow-lg rounded-lg max-w-md"
+            class="tw-absolute tw-top-full tw-z-20 tw-mt-1 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg tw-max-w-md"
           >
             <ComboboxOption
               v-for="location in locations.slice(0, 5)"
@@ -21,24 +21,26 @@
               as="template"
               :value="location"
             >
-              <li class="cb-button justify-start gap-3" :class="{ 'bg-gray-100': active }">
-                <div class="w-12 h-12 flex-none tw-c-flex-center bg-gray-200 rounded-lg">
-                  <img class="h-8" src="../../assets/map-marker.svg" alt="" />
+              <li class="cb-button tw-justify-start tw-gap-3" :class="{ 'tw-bg-gray-100': active }">
+                <div
+                  class="tw-w-12 tw-h-12 tw-flex-none tw-cb-flex-center tw-bg-gray-200 tw-rounded-lg"
+                >
+                  <img class="tw-h-8" src="../../assets/map-marker.svg" alt="" />
                 </div>
                 <span>{{ location.name }}</span>
               </li>
             </ComboboxOption>
           </ComboboxOptions>
         </Combobox>
-        <div class="self-center place-self-end mr-2" style="grid-area: 1 / 1">
+        <div class="tw-self-center tw-place-self-end tw-mr-2" style="grid-area: 1 / 1">
           <button
             v-if="canGetUserPosition && !isLoadingLocations"
             type="button"
-            class="tw-c-flex-center w-9 h-9"
+            class="tw-cb-flex-center tw-w-9 tw-h-9"
             :aria-label="t('filter.location.getPosition')"
             @click="locateUser"
           >
-            <img class="w-6 h-6" src="../../assets/crosshair.svg" alt="" />
+            <img class="tw-w-6 tw-h-6" src="../../assets/crosshair.svg" alt="" />
           </button>
           <CBLoader v-else-if="isLoadingLocations" :label="t('filter.location.waitGeoCoder')" />
         </div>
@@ -46,9 +48,9 @@
     </template>
 
     <template v-else>
-      <div class="lg:flex items-center gap-3">
-        <p class="mb-2 lg:mb-0">{{ currentLocation.name }}</p>
-        <button class="cb-button bg-gray-200" @click="currentLocation = null">
+      <div class="lg:tw-flex tw-items-center tw-gap-3">
+        <p class="tw-mb-2 lg:tw-mb-0">{{ currentLocation.name }}</p>
+        <button class="cb-button tw-bg-gray-200" @click="currentLocation = null">
           <img src="../../assets/cross.svg" alt="" />
           <span>{{ t('filter.location.reset') }}</span>
         </button>

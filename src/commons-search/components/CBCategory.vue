@@ -1,10 +1,10 @@
 <template>
   <label
-    class="cb-category cb-button bg-gray-200 truncate"
-    :class="{ 'cb-category--active bg-teal-200': modelValue }"
+    class="cb-category cb-button tw-bg-gray-200 tw-truncate"
+    :class="{ 'cb-category--active tw-bg-teal-200': modelValue }"
     tabindex="0"
   >
-    <input v-model="value" type="checkbox" class="hidden" />
+    <input v-model="value" type="checkbox" class="tw-hidden" />
     <span>{{ category.name }}</span>
   </label>
 </template>

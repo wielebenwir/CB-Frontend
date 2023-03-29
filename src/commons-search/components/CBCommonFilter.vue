@@ -1,9 +1,9 @@
 <template>
-  <div class="p-6 bg-gray-100">
+  <div class="tw-p-6 tw-bg-gray-100">
     <CBLocationFilter
       v-if="config.showLocationDistanceFilter"
       v-model="locationFilter"
-      class="mb-4"
+      class="tw-mb-4"
       :config="config.geocode"
     />
     <CBCategoryGroupList v-model="activeCategories" :api="api" />

@@ -1,5 +1,5 @@
 <template>
-  <p v-if="label" class="font-bold mb-1">{{ label }}</p>
+  <p v-if="label" class="tw-font-bold tw-mb-1">{{ label }}</p>
 </template>
 
 <script lang="ts" setup>

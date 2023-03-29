@@ -1,23 +1,25 @@
 .cb-button {
-  @apply flex
-         items-center
-         justify-center
-         gap-1
-         px-4 py-2
-         rounded
-         cursor-pointer
-         hover:brightness-95
-         focus-visible:ring-2
-         ring-black
-         select-none
-         transition;
+  @apply tw-flex
+         tw-items-center
+         tw-justify-center
+         tw-gap-1
+         tw-px-4 tw-py-2
+         tw-rounded
+         tw-cursor-pointer
+         hover:tw-brightness-95
+         focus-visible:tw-ring-2
+         tw-ring-black
+         tw-select-none
+         tw-transition;
 }
 
 .cb-input {
-  @apply rounded
-         px-4 py-2;
+  @apply tw-rounded
+         tw-px-4 tw-py-2;
 }
 
-.tw-c-flex-center {
-  @apply flex items-center justify-center;
+.tw-cb-flex-center {
+  @apply tw-flex
+         tw-items-center
+         tw-justify-center;
 }

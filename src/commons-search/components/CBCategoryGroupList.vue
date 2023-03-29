@@ -1,16 +1,16 @@
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="tw-flex tw-flex-col tw-gap-2">
     <template v-if="groupedCategoriesWithNamedGroup.size > 0">
       <div v-for="[group, categories] in groupedCategoriesWithNamedGroup" :key="group?.id">
         <CBFilterLabel :label="group?.name" />
-        <div class="flex flex-wrap gap-2">
+        <div class="tw-flex tw-flex-wrap tw-gap-2">
           <CBCategoryGroup v-model="value" :categories="categories" />
         </div>
       </div>
     </template>
     <div v-if="groupedCategoriesWithoutNamedGroup.size > 0">
       <CBFilterLabel :label="t('filter.categoryGroup.unlabelled')" />
-      <div class="flex flex-wrap gap-2">
+      <div class="tw-flex tw-flex-wrap tw-gap-2">
         <template v-for="[group, categories] in groupedCategoriesWithoutNamedGroup" :key="group.id">
           <CBCategoryGroup v-model="value" :categories="categories" />
         </template>
