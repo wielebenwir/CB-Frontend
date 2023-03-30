@@ -12,25 +12,23 @@
   </div>
 
   <div v-else-if="api" class="cb-commons-search">
-    <CBCommonFilter
-      v-model="filter"
-      class="tw-isolate tw-z-20"
-      style="grid-area: filter"
-      :api="api"
-      :config="config"
-    />
-    <CBCommonList
-      class="tw-isolate tw-z-10"
-      style="grid-area: results"
-      :categories="api.categories"
-      :commons="filteredCommons"
-      :locations="filteredLocations"
-      :selected-location="filter.location"
-      :user-location="filter.userLocation"
-      @deselect-location="filter.location = null"
-    />
+    <CBSidebar
+      class="tw-isolate tw-z-10 tw-flex tw-flex-col md:tw-rounded-l"
+      style="grid-area: sidebar"
+    >
+      <CBCommonFilter class="tw-flex-none" v-model="filter" :api="api" :config="config" />
+      <CBCommonList
+        class="tw-isolate tw-z-10"
+        :categories="api.categories"
+        :commons="filteredCommons"
+        :locations="filteredLocations"
+        :selected-location="filter.location"
+        :user-location="filter.userLocation"
+        @deselect-location="filter.location = null"
+      />
+    </CBSidebar>
     <CBMap
-      class="tw-isolate tw-z-0"
+      class="tw-isolate tw-z-0 md:tw-rounded-r"
       style="grid-area: map"
       :locations="filteredLocations"
       :user-location="filter.userLocation"
@@ -50,6 +48,7 @@ import CBCommonFilter from './CBCommonFilter.vue';
 import CBCommonList from './CBCommonList.vue';
 import CBMap from './CBMap.vue';
 import { CommonFilterSet, useFilteredData } from '../filter';
+import CBSidebar from './CBSidebar.vue';
 
 const props = defineProps<{
   config: ParsedCommonsSearchConfiguration;
@@ -76,18 +75,19 @@ watchEffect(() => {
   box-sizing: border-box;
   padding: 2rem;
   display: grid;
-  gap: 1.5rem;
-  grid-template-areas: 'filter' 'results' 'map';
+  grid-template-areas: 'sidebar' 'map';
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: min-content 1fr 1fr;
+  grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 1.5rem;
   height: 100%;
 }
 
 @media (min-width: 800px) {
   .cb-commons-search {
-    grid-template-areas: 'filter filter' 'results map';
+    grid-template-areas: 'sidebar map';
     grid-template-columns: minmax(320px, 400px) minmax(0, 1fr);
-    grid-template-rows: min-content 1fr;
+    grid-template-rows: minmax(0, 1fr);
+    gap: 0;
   }
 }
 </style>

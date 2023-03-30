@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-p-6 tw-bg-gray-100">
+  <div class="tw-p-6">
     <CBLocationFilter
       v-if="config.showLocationDistanceFilter"
       v-model="userLocationFilter"

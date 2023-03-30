@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-bg-gray-100 tw-overflow-y-scroll tw-max-h-full tw-rounded">
+  <div class="tw-overflow-y-scroll">
     <CBLocation
       v-if="selectedLocation"
       :location="selectedLocation"
