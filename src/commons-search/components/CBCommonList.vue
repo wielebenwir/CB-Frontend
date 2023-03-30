@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-overflow-y-scroll">
+  <div class="tw-overflow-y-scroll" ref="rootEl">
     <CBLocation
       v-if="selectedLocation"
       :location="selectedLocation"
@@ -60,11 +60,11 @@ const { t } = useI18n();
 const { categories, locations } = toRefs(props);
 const locationMap = useMap(locations, 'id');
 const categoryMap = useMap(categories, 'id');
-const commonsListEl = ref<HTMLElement>();
+const rootEl = ref<HTMLElement>();
 
 watch(locations, () => {
-  if (commonsListEl.value instanceof HTMLElement) {
-    commonsListEl.value.scrollTo({ top: 0, behavior: 'smooth' });
+  if (rootEl.value instanceof HTMLElement) {
+    rootEl.value.scrollTo({ top: 0, behavior: 'smooth' });
   }
 });
 </script>
