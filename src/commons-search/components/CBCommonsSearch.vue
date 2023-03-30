@@ -11,7 +11,7 @@
     </p>
   </div>
 
-  <div v-else-if="api" class="cb-commons-search tw-rounded tw-overflow-hidden">
+  <div v-else-if="api" class="cb-commons-search md:tw-rounded tw-overflow-hidden">
     <CBCommonFilter
       v-model="filter"
       class="tw-flex-none tw-bg-gray-100"
@@ -75,11 +75,10 @@ watchEffect(() => {
 <style scoped>
 .cb-commons-search {
   box-sizing: border-box;
-  padding: 2rem;
   display: grid;
-  grid-template-areas: 'filter' 'list' 'map';
+  grid-template-areas: 'map' 'filter' 'list';
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: min-content minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) min-content minmax(0, 2fr);
   height: 100%;
 }
 
