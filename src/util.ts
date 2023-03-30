@@ -31,3 +31,16 @@ export function useGroupBy<KeyType, ItemType>(
     return result;
   });
 }
+
+export function useMap<KeyType extends keyof ItemType, ItemType>(
+  iterable: Ref<Iterable<ItemType>>,
+  key: KeyType,
+): ComputedRef<Map<ItemType[KeyType], ItemType>> {
+  return computed(() => {
+    const result = new Map<ItemType[KeyType], ItemType>();
+    for (const item of iterable.value) {
+      result.set(item[key], item);
+    }
+    return result;
+  });
+}
