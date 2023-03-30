@@ -15,7 +15,11 @@
       :detect-retina="true"
     />
     <template v-for="location in locations" :key="location.id">
-      <LMarker :lat-lng="location.coordinates" :name="location.name">
+      <LMarker
+        :lat-lng="location.coordinates"
+        :name="location.name"
+        @click="emit('select', location)"
+      >
         <LIcon
           v-if="config.customMarkerIcon"
           :icon-url="config.customMarkerIcon.iconUrl"
@@ -39,6 +43,9 @@ const props = defineProps<{
   config: ParsedCommonsSearchConfiguration;
   locations: CommonLocation[];
   userLocation: GeoLocation | null;
+}>();
+const emit = defineEmits<{
+  (e: 'select', location: CommonLocation): void;
 }>();
 
 const map = ref();

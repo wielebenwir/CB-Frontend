@@ -14,18 +14,28 @@
   <div v-else-if="api" class="cb-commons-search">
     <CBCommonFilter
       v-model="filter"
-      class="tw-isolate tw-z-10"
+      class="tw-isolate tw-z-20"
       style="grid-area: filter"
       :api="api"
       :config="config"
     />
-    <CBCommonList style="grid-area: results" :api="api" />
+    <CBCommonList
+      class="tw-isolate tw-z-10"
+      style="grid-area: results"
+      :categories="api.categories"
+      :commons="filteredCommons"
+      :locations="filteredLocations"
+      :selected-location="filter.location"
+      :user-location="filter.userLocation"
+      @deselect-location="filter.location = null"
+    />
     <CBMap
       class="tw-isolate tw-z-0"
       style="grid-area: map"
       :locations="filteredLocations"
       :user-location="filter.userLocation"
       :config="config"
+      @select="filter.location = $event"
     />
   </div>
 </template>
@@ -49,9 +59,10 @@ const props = defineProps<{
 const filter = ref<CommonFilterSet>({
   categories: new Set<number>(),
   userLocation: null,
+  location: null,
 });
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
-const { filteredLocations } = useFilteredData(api, filter);
+const { filteredLocations, filteredCommons } = useFilteredData(api, filter);
 
 // i18n config
 const { locale } = useI18n();
@@ -75,7 +86,7 @@ watchEffect(() => {
 @media (min-width: 800px) {
   .cb-commons-search {
     grid-template-areas: 'filter filter' 'results map';
-    grid-template-columns: 320px minmax(0, 1fr);
+    grid-template-columns: minmax(320px, 400px) minmax(0, 1fr);
     grid-template-rows: min-content 1fr;
   }
 }

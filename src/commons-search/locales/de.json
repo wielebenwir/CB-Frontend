@@ -12,5 +12,14 @@
   },
   "geo": {
     "currentPosition": "Deine aktueller Aufenthaltsort"
+  },
+  "list": {
+    "commonsAtLocation": "Commons an diesem Standort"
+  },
+  "availability": {
+    "available": "An diesem Tag verfügbar.",
+    "booked": "An diesem Tag bereits gebucht.",
+    "partially-booked": "An diesem Tag bereits teilweise gebucht.",
+    "locked": "An diesem Tag nicht ausleihbar."
   }
 }

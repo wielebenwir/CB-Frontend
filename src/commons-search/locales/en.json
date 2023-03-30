@@ -12,5 +12,14 @@
   },
   "geo": {
     "currentPosition": "Your current location"
+  },
+  "list": {
+    "commonsAtLocation": "Commons at this location"
+  },
+  "availability": {
+    "available": "Available on this day.",
+    "booked": "Already booked on this day.",
+    "partially-booked": "Partially booked on this day.",
+    "locked": "Cannot be borrowed on this day."
   }
 }
