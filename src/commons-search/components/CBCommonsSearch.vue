@@ -17,6 +17,7 @@
       class="tw-flex-none tw-bg-gray-100"
       :api="api"
       :config="config"
+      :expanded="config?.layout?.expandFilter"
       style="grid-area: filter"
     />
     <CBCommonList

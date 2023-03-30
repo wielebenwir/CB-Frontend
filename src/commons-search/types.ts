@@ -49,6 +49,9 @@ export type CommonsSearchConfiguration = {
   show_item_availability_filter: boolean;
   label_item_availability_filter: string;
   label_item_category_filter: string;
+  layout?: {
+    expand_filter?: boolean;
+  };
   geocode?: {
     nominatim_endpoint?: string;
     remove_neighboring_locations_within_meters?: number | false;
