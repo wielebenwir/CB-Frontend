@@ -2,7 +2,7 @@
   <div class="tw-p-6 tw-bg-gray-100">
     <CBLocationFilter
       v-if="config.showLocationDistanceFilter"
-      v-model="locationFilter"
+      v-model="userLocationFilter"
       class="tw-mb-4"
       :config="config.geocode"
     />
@@ -35,12 +35,12 @@ const activeCategories = computed({
   },
 });
 
-const locationFilter = computed({
+const userLocationFilter = computed({
   get() {
-    return props.modelValue.location;
+    return props.modelValue.userLocation;
   },
-  set(location: CommonFilterSet['location']) {
-    emit('update:modelValue', { ...props.modelValue, location });
+  set(userLocation: CommonFilterSet['userLocation']) {
+    emit('update:modelValue', { ...props.modelValue, userLocation });
   },
 });
 </script>

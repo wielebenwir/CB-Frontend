@@ -24,7 +24,7 @@
       class="tw-isolate tw-z-0"
       style="grid-area: map"
       :locations="filteredLocations"
-      :user-location="filter.location"
+      :user-location="filter.userLocation"
       :config="config"
     />
   </div>
@@ -48,7 +48,7 @@ const props = defineProps<{
 // API data
 const filter = ref<CommonFilterSet>({
   categories: new Set<number>(),
-  location: null,
+  userLocation: null,
 });
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
 const { filteredLocations } = useFilteredData(api, filter);
