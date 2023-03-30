@@ -16,7 +16,7 @@ import type {
 type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
 type APIAddress = { street: string; city: string; zip: string };
 type APITimeframe = { date_start: string; date_end: string };
-type APIAvailabilityStatus = 'available' | 'locked' | 'partially-booked' | 'booked';
+export type APIAvailabilityStatus = 'available' | 'locked' | 'partially-booked' | 'booked';
 type APIAvailability = { status: APIAvailabilityStatus; date: string };
 type APIItem = {
   id: number;

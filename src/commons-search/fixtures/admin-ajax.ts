@@ -1,4 +1,39 @@
-import { APILocation } from '../apis/admin-ajax-api';
+import { add } from 'date-fns';
+import { APIAvailabilityStatus, APILocation } from '../apis/admin-ajax-api';
+
+function* generateAvailability(
+  firstSlotState?: APIAvailabilityStatus,
+  choices: { status: APIAvailabilityStatus; probability: number }[] = [
+    { status: 'available', probability: 0.5 },
+    { status: 'booked', probability: 0.3 },
+    { status: 'partially-booked', probability: 0.15 },
+    { status: 'locked', probability: 0.1 },
+  ],
+  days = 31,
+) {
+  function pickStatus() {
+    let _status: APIAvailabilityStatus = 'available';
+    let _chance = 0;
+    for (const { status, probability } of choices) {
+      const chance = Math.random() * probability;
+      if (chance > _chance) {
+        _chance = chance;
+        _status = status;
+      }
+    }
+    return _status;
+  }
+
+  let today = new Date();
+  for (const [index] of Array(days).entries()) {
+    const state = index === 0 ? firstSlotState ?? pickStatus() : pickStatus();
+    yield {
+      date: today.toISOString().split('T')[0],
+      status: state,
+    };
+    today = add(today, { days: 1 });
+  }
+}
 
 export default [
   {
@@ -29,56 +64,7 @@ export default [
             date_end: '2999-01-01',
           },
         ],
-        availability: [
-          {
-            date: '2023-03-20',
-            status: 'available',
-          },
-          {
-            date: '2023-03-21',
-            status: 'available',
-          },
-          {
-            date: '2023-03-22',
-            status: 'available',
-          },
-          {
-            date: '2023-03-23',
-            status: 'available',
-          },
-          {
-            date: '2023-03-24',
-            status: 'available',
-          },
-          {
-            date: '2023-03-25',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-26',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-27',
-            status: 'available',
-          },
-          {
-            date: '2023-03-28',
-            status: 'available',
-          },
-          {
-            date: '2023-03-29',
-            status: 'available',
-          },
-          {
-            date: '2023-03-30',
-            status: 'available',
-          },
-          {
-            date: '2023-03-31',
-            status: 'available',
-          },
-        ],
+        availability: Array.from(generateAvailability()),
       },
     ],
   },
@@ -116,56 +102,7 @@ export default [
             date_end: '2999-01-01',
           },
         ],
-        availability: [
-          {
-            date: '2023-03-20',
-            status: 'partially-booked',
-          },
-          {
-            date: '2023-03-21',
-            status: 'available',
-          },
-          {
-            date: '2023-03-22',
-            status: 'available',
-          },
-          {
-            date: '2023-03-23',
-            status: 'available',
-          },
-          {
-            date: '2023-03-24',
-            status: 'available',
-          },
-          {
-            date: '2023-03-25',
-            status: 'available',
-          },
-          {
-            date: '2023-03-26',
-            status: 'available',
-          },
-          {
-            date: '2023-03-27',
-            status: 'partially-booked',
-          },
-          {
-            date: '2023-03-28',
-            status: 'available',
-          },
-          {
-            date: '2023-03-29',
-            status: 'available',
-          },
-          {
-            date: '2023-03-30',
-            status: 'available',
-          },
-          {
-            date: '2023-03-31',
-            status: 'available',
-          },
-        ],
+        availability: Array.from(generateAvailability()),
       },
     ],
   },
@@ -200,56 +137,7 @@ export default [
             date_end: '2999-01-01',
           },
         ],
-        availability: [
-          {
-            date: '2023-03-20',
-            status: 'available',
-          },
-          {
-            date: '2023-03-21',
-            status: 'booked',
-          },
-          {
-            date: '2023-03-22',
-            status: 'available',
-          },
-          {
-            date: '2023-03-23',
-            status: 'available',
-          },
-          {
-            date: '2023-03-24',
-            status: 'partially-booked',
-          },
-          {
-            date: '2023-03-25',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-26',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-27',
-            status: 'available',
-          },
-          {
-            date: '2023-03-28',
-            status: 'booked',
-          },
-          {
-            date: '2023-03-29',
-            status: 'available',
-          },
-          {
-            date: '2023-03-30',
-            status: 'available',
-          },
-          {
-            date: '2023-03-31',
-            status: 'partially-booked',
-          },
-        ],
+        availability: Array.from(generateAvailability()),
       },
     ],
   },
@@ -290,56 +178,7 @@ export default [
             date_end: '2999-01-01',
           },
         ],
-        availability: [
-          {
-            date: '2023-03-20',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-21',
-            status: 'available',
-          },
-          {
-            date: '2023-03-22',
-            status: 'available',
-          },
-          {
-            date: '2023-03-23',
-            status: 'available',
-          },
-          {
-            date: '2023-03-24',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-25',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-26',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-27',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-28',
-            status: 'available',
-          },
-          {
-            date: '2023-03-29',
-            status: 'available',
-          },
-          {
-            date: '2023-03-30',
-            status: 'available',
-          },
-          {
-            date: '2023-03-31',
-            status: 'locked',
-          },
-        ],
+        availability: Array.from(generateAvailability()),
       },
     ],
   },
@@ -375,56 +214,7 @@ export default [
             date_end: '2999-01-01',
           },
         ],
-        availability: [
-          {
-            date: '2023-03-20',
-            status: 'available',
-          },
-          {
-            date: '2023-03-21',
-            status: 'available',
-          },
-          {
-            date: '2023-03-22',
-            status: 'available',
-          },
-          {
-            date: '2023-03-23',
-            status: 'available',
-          },
-          {
-            date: '2023-03-24',
-            status: 'available',
-          },
-          {
-            date: '2023-03-25',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-26',
-            status: 'locked',
-          },
-          {
-            date: '2023-03-27',
-            status: 'available',
-          },
-          {
-            date: '2023-03-28',
-            status: 'available',
-          },
-          {
-            date: '2023-03-29',
-            status: 'available',
-          },
-          {
-            date: '2023-03-30',
-            status: 'available',
-          },
-          {
-            date: '2023-03-31',
-            status: 'available',
-          },
-        ],
+        availability: Array.from(generateAvailability()),
       },
     ],
   },
@@ -460,56 +250,7 @@ export default [
             date_end: '2999-01-01',
           },
         ],
-        availability: [
-          {
-            date: '2023-03-20',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-21',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-22',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-23',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-24',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-25',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-26',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-27',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-28',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-29',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-30',
-            status: 'location-holiday',
-          },
-          {
-            date: '2023-03-31',
-            status: 'location-holiday',
-          },
-        ],
+        availability: Array.from(generateAvailability()),
       },
     ],
   },
