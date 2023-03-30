@@ -18,8 +18,3 @@ export function getAttribution(config: ParsedCommonsSearchConfiguration) {
   }
   return attribution;
 }
-
-export function createPoint(data: number[]): [number, number] {
-  const [x, y] = data;
-  return [x, y];
-}
