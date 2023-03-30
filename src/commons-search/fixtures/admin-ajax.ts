@@ -66,6 +66,24 @@ export default [
         ],
         availability: Array.from(generateAvailability()),
       },
+      {
+        id: 10227123,
+        name: 'Fuchur',
+        short_desc:
+          'Dieser abschließbare fliegende Hund ist ideal geeignet um lange Strecken in hoher Geschwindigkeit zu überbrücken.',
+        status: 'publish',
+        terms: [28, 34, 30],
+        link: 'https://stage3.commons-booking.org/rundedinge/by-2/?cb-location=10510',
+        thumbnail:
+          'https://stage3.commons-booking.org/wp-content/uploads/2021/12/PXL_20211119_121529302-scaled-e1641854883763-150x150.jpg',
+        timeframes: [
+          {
+            date_start: '2021-12-19',
+            date_end: '2999-01-01',
+          },
+        ],
+        availability: Array.from(generateAvailability()),
+      },
     ],
   },
   {
