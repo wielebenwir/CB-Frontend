@@ -64,6 +64,13 @@ export type CommonsSearchConfiguration = {
 
 export type ParsedCommonsSearchConfiguration = CamelCasedPropertiesDeep<CommonsSearchConfiguration>;
 
+export type Image = {
+  url: string;
+  width?: number;
+  height?: number;
+  description?: string;
+};
+
 export type Common = {
   id: number;
   locationId: string;
@@ -71,7 +78,7 @@ export type Common = {
   name: string;
   description: string;
   url: string;
-  thumbnailURL: string | null;
+  image: Image | null;
 };
 
 export type CommonCategory = {

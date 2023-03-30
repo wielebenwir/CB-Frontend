@@ -96,7 +96,11 @@ export function useAdminAjaxData(
         name: item.name,
         description: item.shortDesc,
         url: item.link,
-        thumbnailURL: item.thumbnail,
+        image: item.thumbnail
+          ? {
+              url: item.thumbnail,
+            }
+          : null,
       }));
     });
   });
