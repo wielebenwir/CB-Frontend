@@ -1,4 +1,5 @@
 import camelcaseKeys from 'camelcase-keys';
+import { parseISO } from 'date-fns';
 import type { CamelCasedPropertiesDeep } from 'type-fest';
 import { computed, reactive, Ref, ref } from 'vue';
 
@@ -101,6 +102,10 @@ export function useAdminAjaxData(
               url: item.thumbnail,
             }
           : null,
+        availabilities: item.availability.map((a) => ({
+          status: a.status,
+          date: parseISO(a.date),
+        })),
       }));
     });
   });

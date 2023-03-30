@@ -71,6 +71,9 @@ export type Image = {
   description?: string;
 };
 
+export type CommonAvailabilityStatus = 'available' | 'booked' | 'partially-booked' | 'locked';
+export type CommonAvailability = { status: CommonAvailabilityStatus; date: Date };
+
 export type Common = {
   id: number;
   locationId: string;
@@ -79,6 +82,7 @@ export type Common = {
   description: string;
   url: string;
   image: Image | null;
+  availabilities: CommonAvailability[];
 };
 
 export type CommonCategory = {
