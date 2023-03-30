@@ -10,7 +10,7 @@
         <p class="tw-font-bold">{{ t('list.commonsAtLocation') }}</p>
         <button
           type="button"
-          class="cb-button tw-bg-gray-200 !tw-p-1"
+          class="cb-button tw-bg-gray-200 tw-p-1"
           @click="emit('deselectLocation')"
         >
           <img src="../../assets/cross.svg" alt="" />

@@ -37,7 +37,7 @@
           <button
             v-if="canGetUserPosition && !isLoadingLocations"
             type="button"
-            class="cb-button !tw-p-1 tw-bg-gray-100"
+            class="cb-button tw-p-1 tw-bg-gray-100"
             :aria-label="t('filter.location.getPosition')"
             @click="locateUser"
           >
@@ -58,7 +58,7 @@
         </p>
         <button
           type="button"
-          class="cb-button !tw-p-1 tw-bg-gray-100 cb-grid-cover tw-self-center tw-place-self-end tw-mr-1"
+          class="cb-button tw-p-1 tw-bg-gray-100 cb-grid-cover tw-self-center tw-place-self-end tw-mr-1"
           :title="t('filter.location.reset')"
           @click="currentLocation = null"
         >

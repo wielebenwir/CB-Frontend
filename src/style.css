@@ -1,5 +1,103 @@
-@import './common.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .tw-cb-flex-center {
+    @apply tw-flex
+        tw-items-center
+        tw-justify-center;
+  }
+
+  .cb-pattern-lines {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 0.25em,
+      rgba(0, 0, 0, 0.1) 0.25em,
+      rgba(0, 0, 0, 0.1) 0.35em
+    );
+  }
+
+  .cb-pattern-cross {
+    background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 0.25em,
+        rgba(0, 0, 0, 0.1) 0.25em,
+        rgba(0, 0, 0, 0.1) 0.35em
+      ),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 0.25em,
+        rgba(0, 0, 0, 0.1) 0.25em,
+        rgba(0, 0, 0, 0.1) 0.35em
+      );
+  }
+
+  .cb-grid-cover {
+    grid-area: 1 / 1;
+  }
+
+  .cb-text-wrap-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .cb-button {
+    @apply tw-flex
+        tw-items-center
+        tw-justify-center
+        tw-gap-1
+        tw-px-4 tw-py-2
+        tw-flex-none
+        tw-rounded
+        tw-cursor-pointer
+        hover:tw-brightness-95
+        focus-visible:tw-ring-2
+        tw-ring-black
+        tw-select-none
+        tw-transition;
+  }
+
+  .cb-input {
+    @apply tw-rounded
+        tw-px-4 tw-py-2;
+  }
+}
+
+.cb-animate-list-move,
+.cb-animate-list-enter-active,
+.cb-animate-list-leave-active,
+.cb-animate-panel-move,
+.cb-animate-panel-enter-active,
+.cb-animate-panel-leave-active {
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: opacity, transform;
+}
+
+.cb-animate-list-enter-from,
+.cb-animate-list-leave-to {
+  opacity: 0;
+  transform-origin: 50% 0;
+}
+
+.cb-animate-list-leave-active {
+  position: absolute;
+}
+
+.cb-animate-panel-enter-from,
+.cb-animate-panel-leave-to {
+  opacity: 0;
+  @apply tw-translate-y-2;
+}
+
+@media (prefers-reduced-motion) {
+  .cb-animate-list-move,
+  .cb-animate-list-enter-active,
+  .cb-animate-list-leave-active {
+    transition-duration: 0s;
+  }
+}
