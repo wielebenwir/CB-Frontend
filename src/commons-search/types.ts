@@ -108,6 +108,11 @@ export type CommonLocation = {
   };
 };
 
+export type ValueWithUnit<T> = {
+  value: T;
+  unit: string;
+};
+
 interface _CommonsSearchAPI {
   init(): Promise<void>;
   type: string;

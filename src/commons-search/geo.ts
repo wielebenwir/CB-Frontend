@@ -1,7 +1,7 @@
 import haversine from 'haversine-distance';
 import { ref, Ref } from 'vue';
 import { watchDebounced } from '@vueuse/core';
-import { GeoCoordinate, ParsedCommonsSearchConfiguration } from './types';
+import { GeoCoordinate, ParsedCommonsSearchConfiguration, ValueWithUnit } from './types';
 import { HTTPAPIError } from './apis';
 import { delay } from '../util';
 import { useI18n } from './locales';
@@ -40,6 +40,18 @@ function getDistanceInMeters(a: PoorlyTypedGeoCoordinate, b: PoorlyTypedGeoCoord
     { lat: ensureFloat(a.lat), lon: ensureFloat(a.lon) },
     { lat: ensureFloat(b.lat), lon: ensureFloat(b.lon) },
   );
+}
+
+export function calculateDistance(
+  a: GeoCoordinate,
+  b: GeoCoordinate,
+  approximateToMeters = 50,
+): ValueWithUnit<number> {
+  const distance = haversine(a, b);
+  const approximateDistance = Math.ceil(distance / approximateToMeters) * approximateToMeters;
+  return approximateDistance >= 1000
+    ? { value: approximateDistance / 1000, unit: 'km' }
+    : { value: approximateDistance, unit: 'm' };
 }
 
 function scoreNominatimResult(location: NominatimResult) {
