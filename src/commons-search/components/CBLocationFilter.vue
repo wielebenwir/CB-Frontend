@@ -22,11 +22,7 @@
               :value="location"
             >
               <li class="cb-button tw-justify-start tw-gap-3" :class="{ 'tw-bg-gray-100': active }">
-                <div
-                  class="tw-w-12 tw-h-12 tw-flex-none tw-cb-flex-center tw-bg-gray-200 tw-rounded-lg"
-                >
-                  <img class="tw-h-8" src="../../assets/map-marker.svg" alt="" />
-                </div>
+                <CBLocationIcon />
                 <span>{{ location.name }}</span>
               </li>
             </ComboboxOption>
@@ -67,6 +63,7 @@ import { ParsedCommonsSearchConfiguration } from '../types';
 import CBLoader from '../../components/CBLoader.vue';
 import CBFilterLabel from './CBFilterLabel.vue';
 import { useI18n } from '../locales';
+import CBLocationIcon from './CBLocationIcon.vue';
 
 const props = defineProps<{
   config: ParsedCommonsSearchConfiguration['geocode'];
