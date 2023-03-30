@@ -19,7 +19,7 @@
   "lint-staged": {
     "*": "prettier --check --ignore-path .gitignore --ignore-path .prettierignore",
     "*.{js,cjs,ts,vue}": "eslint --color --ignore-path .gitignore --ignore-path .eslintignore",
-    "*.{txt,js,cjs,ts,vue,md}": "cspell"
+    "*.{txt,js,cjs,ts,vue,md}": "cspell --no-must-find-files"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.3",
