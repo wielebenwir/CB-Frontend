@@ -4,6 +4,7 @@
          tw-justify-center
          tw-gap-1
          tw-px-4 tw-py-2
+         tw-flex-none
          tw-rounded
          tw-cursor-pointer
          hover:tw-brightness-95
@@ -22,6 +23,10 @@
   @apply tw-flex
          tw-items-center
          tw-justify-center;
+}
+
+.cb-grid-cover {
+  grid-area: 1 / 1;
 }
 
 .cb-text-wrap-balance {
@@ -57,7 +62,10 @@
 
 .cb-animate-list-move,
 .cb-animate-list-enter-active,
-.cb-animate-list-leave-active {
+.cb-animate-list-leave-active,
+.cb-animate-panel-move,
+.cb-animate-panel-enter-active,
+.cb-animate-panel-leave-active {
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: opacity, transform;
 }
@@ -70,6 +78,12 @@
 
 .cb-animate-list-leave-active {
   position: absolute;
+}
+
+.cb-animate-panel-enter-from,
+.cb-animate-panel-leave-to {
+  opacity: 0;
+  @apply tw-translate-y-2;
 }
 
 @media (prefers-reduced-motion) {

@@ -1,6 +1,6 @@
 <template>
   <label
-    class="cb-category cb-button tw-bg-gray-200 tw-truncate"
+    class="cb-category cb-button tw-bg-gray-100 tw-truncate"
     :class="{ 'cb-category--active tw-bg-teal-200': modelValue }"
     tabindex="0"
   >

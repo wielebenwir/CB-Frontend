@@ -4,13 +4,13 @@
       v-if="selectedLocation"
       :location="selectedLocation"
       :user-location="userLocation"
-      class="tw-sticky tw-top-0 tw-bg-gray-100 tw-z-10 tw-border-b tw-border-gray-300"
+      class="tw-sticky tw-top-0 tw-bg-gray-100 tw-z-10 tw-border-b tw-border-gray-200"
     >
       <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
         <p class="tw-font-bold">{{ t('list.commonsAtLocation') }}</p>
         <button
           type="button"
-          class="cb-button tw-bg-gray-200 !tw-p-1 tw-rounded-full"
+          class="cb-button tw-bg-gray-200 !tw-p-1"
           @click="emit('deselectLocation')"
         >
           <img src="../../assets/cross.svg" alt="" />
@@ -19,6 +19,7 @@
     </CBLocation>
 
     <TransitionGroup
+      ref="commonsListEl"
       :tag="userLocation ? 'ol' : 'ul'"
       class="cb-common-list tw-relative tw-flex tw-flex-col tw-m-6 tw-gap-6"
       name="cb-animate-list"
@@ -37,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue';
+import { ref, toRefs, watch } from 'vue';
 import { useMap } from '../../util';
 import { GeoLocation } from '../geo';
 import { useI18n } from '../locales';
@@ -60,6 +61,11 @@ const { t } = useI18n();
 const { categories, locations } = toRefs(props);
 const locationMap = useMap(locations, 'id');
 const categoryMap = useMap(categories, 'id');
-</script>
+const commonsListEl = ref<HTMLElement>();
 
-<style></style>
+watch(locations, () => {
+  if (commonsListEl.value instanceof HTMLElement) {
+    commonsListEl.value.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+</script>

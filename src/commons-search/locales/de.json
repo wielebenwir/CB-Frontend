@@ -1,10 +1,12 @@
 {
   "filter": {
+    "label": "Filtern",
     "categoryGroup": {
       "unlabelled": "Merkmale"
     },
     "location": {
       "label": "Ort",
+      "placeholder": "Straße oder Ort",
       "getPosition": "Bestimme deine aktuelle Position",
       "waitGeoCoder": "Es werden relevante Orte für deine Eingabe geladen...",
       "reset": "Ort zurücksetzen"

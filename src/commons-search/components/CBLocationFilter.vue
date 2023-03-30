@@ -1,38 +1,43 @@
 <template>
   <div class="cb-location-filter">
-    <CBFilterLabel :label="t('filter.location.label')" />
-
     <template v-if="!currentLocation">
-      <div class="tw-grid tw-relative">
+      <div class="tw-grid" style="grid-template-columns: minmax(0, 1fr)">
         <Combobox v-if="!currentLocation" @update:model-value="setLocation">
           <ComboboxInput
-            class="cb-input"
-            style="grid-area: 1 / 1"
+            class="cb-input cb-grid-cover"
+            autocomplete="off"
+            :aria-label="t('filter.location.label')"
+            :placeholder="t('filter.location.placeholder')"
             @change="address = $event.target.value"
           />
-          <ComboboxOptions
-            v-if="locations.length > 0"
-            class="tw-absolute tw-top-full tw-z-20 tw-mt-1 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg tw-max-w-md"
-          >
-            <ComboboxOption
-              v-for="location in locations.slice(0, 5)"
-              :key="location.id"
-              v-slot="{ active }"
-              as="template"
-              :value="location"
+          <transition name="cb-animate-panel">
+            <ComboboxOptions
+              v-if="locations.length > 0"
+              class="tw-absolute tw-top-full tw-inset-x-6 tw-z-20 -tw-mt-3 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg"
             >
-              <li class="cb-button tw-justify-start tw-gap-3" :class="{ 'tw-bg-gray-100': active }">
-                <CBLocationIcon />
-                <span>{{ location.name }}</span>
-              </li>
-            </ComboboxOption>
-          </ComboboxOptions>
+              <ComboboxOption
+                v-for="location in locations.slice(0, 5)"
+                :key="location.id"
+                v-slot="{ active }"
+                as="template"
+                :value="location"
+              >
+                <li
+                  class="cb-button tw-justify-start tw-gap-3"
+                  :class="{ 'tw-bg-gray-100': active }"
+                >
+                  <CBLocationIcon />
+                  <span>{{ location.name }}</span>
+                </li>
+              </ComboboxOption>
+            </ComboboxOptions>
+          </transition>
         </Combobox>
-        <div class="tw-self-center tw-place-self-end tw-mr-2" style="grid-area: 1 / 1">
+        <div class="tw-self-center tw-place-self-end tw-mr-1 cb-grid-cover">
           <button
             v-if="canGetUserPosition && !isLoadingLocations"
             type="button"
-            class="tw-cb-flex-center tw-w-9 tw-h-9"
+            class="cb-button !tw-p-1 tw-bg-gray-100"
             :aria-label="t('filter.location.getPosition')"
             @click="locateUser"
           >
@@ -44,11 +49,20 @@
     </template>
 
     <template v-else>
-      <div class="lg:tw-flex tw-items-center tw-gap-3">
-        <p class="tw-mb-2 lg:tw-mb-0">{{ currentLocation.name }}</p>
-        <button class="cb-button tw-bg-gray-200" @click="currentLocation = null">
-          <img src="../../assets/cross.svg" alt="" />
-          <span>{{ t('filter.location.reset') }}</span>
+      <div class="tw-grid">
+        <p
+          class="tw-mb-0 tw-min-w-0 cb-grid-cover cb-input tw-bg-white"
+          :title="currentLocation.name"
+        >
+          <span class="tw-truncate tw-w-10/12 tw-block">{{ currentLocation.name }}</span>
+        </p>
+        <button
+          type="button"
+          class="cb-button !tw-p-1 tw-bg-gray-100 cb-grid-cover tw-self-center tw-place-self-end tw-mr-1"
+          :title="t('filter.location.reset')"
+          @click="currentLocation = null"
+        >
+          <img class="tw-w-6 tw-h-6" src="../../assets/cross.svg" alt="" />
         </button>
       </div>
     </template>
@@ -61,7 +75,6 @@ import { computed, ref } from 'vue';
 import { GeoLocation, useCurrentLocation, useGeoCoder } from '../geo';
 import { ParsedCommonsSearchConfiguration } from '../types';
 import CBLoader from '../../components/CBLoader.vue';
-import CBFilterLabel from './CBFilterLabel.vue';
 import { useI18n } from '../locales';
 import CBLocationIcon from './CBLocationIcon.vue';
 

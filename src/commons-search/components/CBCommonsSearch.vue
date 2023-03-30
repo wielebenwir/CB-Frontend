@@ -16,7 +16,7 @@
       class="tw-isolate tw-z-10 tw-flex tw-flex-col md:tw-rounded-l"
       style="grid-area: sidebar"
     >
-      <CBCommonFilter class="tw-flex-none" v-model="filter" :api="api" :config="config" />
+      <CBCommonFilter v-model="filter" class="tw-flex-none" :api="api" :config="config" />
       <CBCommonList
         class="tw-isolate tw-z-10"
         :categories="api.categories"
