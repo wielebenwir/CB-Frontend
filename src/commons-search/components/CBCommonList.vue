@@ -19,8 +19,7 @@
     </CBLocation>
 
     <TransitionGroup
-      ref="commonsListEl"
-      :tag="userLocation ? 'ol' : 'ul'"
+      tag="ol"
       class="cb-common-list tw-relative tw-flex tw-flex-col tw-m-6 tw-gap-6"
       name="cb-animate-list"
     >
