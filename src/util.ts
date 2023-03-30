@@ -44,3 +44,14 @@ export function useMap<KeyType extends keyof ItemType, ItemType>(
     return result;
   });
 }
+
+export function isDateInDayRange(startDate: Date, endDate: Date, dateToCheck: Date): boolean {
+  startDate = new Date(startDate.getTime());
+  endDate = new Date(endDate.getTime());
+  // Set the start and end dates to the beginning of their respective day
+  // so that we actually compare days and not date-times.
+  startDate.setHours(0, 0, 0, 0);
+  endDate.setHours(0, 0, 0, 0);
+
+  return startDate <= dateToCheck && dateToCheck < endDate;
+}
