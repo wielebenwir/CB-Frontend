@@ -1,4 +1,5 @@
 import { computed, ComputedRef, Ref } from 'vue';
+import { useElementBounding } from '@vueuse/core';
 
 export function delay(timeInSeconds: number) {
   return new Promise((resolve) => {
@@ -54,4 +55,19 @@ export function isDateInDayRange(startDate: Date, endDate: Date, dateToCheck: Da
   endDate.setHours(0, 0, 0, 0);
 
   return startDate <= dateToCheck && dateToCheck < endDate;
+}
+
+export function useBottom(element: Ref<undefined | HTMLElement | { $el: HTMLElement }>) {
+  const realElement = computed<HTMLElement | undefined>(() => {
+    if (!element.value) return;
+    if (element.value instanceof HTMLElement) {
+      return element.value;
+    }
+    return element.value.$el;
+  });
+  const { height } = useElementBounding(realElement);
+  return computed<number | undefined>(() => {
+    if (!realElement.value) return;
+    return height.value + realElement.value.offsetTop;
+  });
 }

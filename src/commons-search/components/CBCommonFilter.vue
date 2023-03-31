@@ -13,14 +13,15 @@
       </div>
 
       <Popover v-else class="tw-flex-none">
-        <PopoverButton class="cb-button tw-bg-gray-200">
+        <PopoverButton ref="filterButtonEl" class="cb-button tw-bg-gray-200">
           <img src="../../assets/filter.svg" class="tw-flex-none" />
           {{ t('filter.label') }}
         </PopoverButton>
 
         <transition name="cb-animate-panel">
           <PopoverPanel
-            class="cb-common-filter-panel tw-absolute tw-top-full tw-inset-x-6 tw-z-20 -tw-mt-3 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg"
+            class="cb-common-filter-panel tw-absolute tw-mt-3 tw-inset-x-6 tw-z-20 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg"
+            :style="{ top: `${filterButtonBottom}px` }"
           >
             <CBCategoryGroupList v-model="activeCategories" :api="api" />
           </PopoverPanel>
@@ -31,13 +32,14 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';
 import { CommonFilterSet } from '../filter';
 import CBCategoryGroupList from './CBCategoryGroupList.vue';
 import CBLocationFilter from './CBLocationFilter.vue';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useI18n } from '../locales';
+import { useBottom } from '../../util';
 
 const props = defineProps<{
   api: CommonsSearchAPI;
@@ -49,6 +51,8 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: CommonFilterSet): void;
 }>();
 const { t } = useI18n();
+const filterButtonEl = ref();
+const filterButtonBottom = useBottom(filterButtonEl);
 
 const activeCategories = computed({
   get() {

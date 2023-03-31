@@ -4,6 +4,7 @@
       <div class="tw-grid" style="grid-template-columns: minmax(0, 1fr)">
         <Combobox v-if="!currentLocation" @update:model-value="setLocation">
           <ComboboxInput
+            ref="inputEl"
             class="cb-input cb-grid-cover"
             autocomplete="off"
             :aria-label="t('filter.location.label')"
@@ -13,7 +14,8 @@
           <transition name="cb-animate-panel">
             <ComboboxOptions
               v-if="locations.length > 0"
-              class="tw-absolute tw-top-full tw-inset-x-6 tw-z-20 -tw-mt-3 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg"
+              class="tw-absolute tw-inset-x-6 tw-z-20 tw-mt-3 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg"
+              :style="{ top: `${inputBottom}px` }"
             >
               <ComboboxOption
                 v-for="location in locations.slice(0, 5)"
@@ -77,6 +79,7 @@ import { ParsedCommonsSearchConfiguration } from '../types';
 import CBLoader from '../../components/CBLoader.vue';
 import { useI18n } from '../locales';
 import CBLocationIcon from './CBLocationIcon.vue';
+import { useBottom } from '../../util';
 
 const props = defineProps<{
   config: ParsedCommonsSearchConfiguration['geocode'];
@@ -88,6 +91,8 @@ const emit = defineEmits<{
 const { t } = useI18n();
 
 const address = ref('');
+const inputEl = ref();
+const inputBottom = useBottom(inputEl);
 const { locations, isLoading: isLoadingLocations } = useGeoCoder(address, props.config);
 const { isSupported: canGetUserPosition, getCurrentLocation } = useCurrentLocation();
 const currentLocation = computed({
