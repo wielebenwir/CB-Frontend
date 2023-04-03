@@ -25,6 +25,7 @@ type APIItem = {
   short_desc: string;
   link: string;
   thumbnail: string | null;
+  images: Record<string, [string, number, number, boolean] | false>;
   status: 'publish';
   terms: number[];
   timeframes: APITimeframe[];

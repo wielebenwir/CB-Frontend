@@ -1,5 +1,6 @@
 import { add } from 'date-fns';
-import { APIAvailabilityStatus, APILocation } from '../apis/admin-ajax-api';
+import { APIAvailabilityStatus, APILocation } from '../../apis/admin-ajax-api';
+import assets from './assets';
 
 function* generateAvailability(
   firstSlotState?: APIAvailabilityStatus,
@@ -56,8 +57,13 @@ export default [
         status: 'publish',
         terms: [28, 34, 30],
         link: 'https://stage3.commons-booking.org/rundedinge/bubi-2/?cb-location=10510',
-        thumbnail:
-          'https://stage3.commons-booking.org/wp-content/uploads/2021/12/PXL_20211119_121529302-scaled-e1641854883763-150x150.jpg',
+        thumbnail: assets['bubi-150x150.jpg'],
+        images: {
+          thumbnail: [assets['bubi-150x150.jpg'], 150, 150, true],
+          medium: [assets['bubi-300x216.jpg'], 300, 216, true],
+          large: [assets['bubi-1024x737.jpg'], 640, 461, true],
+          full: [assets['bubi-1920x1382.jpg'], 1920, 1382, false],
+        },
         timeframes: [
           {
             date_start: '2021-12-19',
@@ -74,8 +80,13 @@ export default [
         status: 'publish',
         terms: [28, 34, 30],
         link: 'https://stage3.commons-booking.org/rundedinge/by-2/?cb-location=10510',
-        thumbnail:
-          'https://stage3.commons-booking.org/wp-content/uploads/2021/12/PXL_20211119_121529302-scaled-e1641854883763-150x150.jpg',
+        thumbnail: assets['fuchur-150x150.jpg'],
+        images: {
+          thumbnail: [assets['fuchur-150x150.jpg'], 150, 150, true],
+          medium: [assets['fuchur-300x200.jpg'], 300, 200, true],
+          large: [assets['fuchur-640x427.jpg'], 640, 427, true],
+          full: [assets['fuchur-1600x1067.jpg'], 1600, 1067, true],
+        },
         timeframes: [
           {
             date_start: '2021-12-19',
@@ -106,6 +117,7 @@ export default [
         terms: [],
         link: 'https://stage3.commons-booking.org/rundedinge/artikel-mit-zwei-slots/?cb-location=10220',
         thumbnail: null,
+        images: { thumbnail: false, medium: false, large: false, full: false },
         timeframes: [
           {
             date_start: '2022-04-01',
@@ -143,8 +155,13 @@ export default [
         status: 'publish',
         terms: [28, 29],
         link: 'https://stage3.commons-booking.org/rundedinge/tafelino/?cb-location=7658',
-        thumbnail:
-          'https://stage3.commons-booking.org/wp-content/uploads/2021/01/IMG_20210127_122104-150x150.jpg',
+        thumbnail: assets['tafelino-150x150.jpg'],
+        images: {
+          thumbnail: [assets['tafelino-150x150.jpg'], 150, 150, true],
+          medium: [assets['tafelino-300x169.jpg'], 300, 169, true],
+          large: [assets['tafelino-1024x577.jpg'], 640, 361, true],
+          full: [assets['tafelino-800x451.jpg'], 800, 451, false],
+        },
         timeframes: [
           {
             date_start: '2021-02-01',
@@ -180,8 +197,13 @@ export default [
         status: 'publish',
         terms: [27, 31, 29],
         link: 'https://stage3.commons-booking.org/rundedinge/koelner-elf-nn-1/?cb-location=3596',
-        thumbnail:
-          'https://stage3.commons-booking.org/wp-content/uploads/2020/08/E-Lastenrad-BSH-Bocklemünd-1-150x150.jpg',
+        thumbnail: assets['bockes-bike-150x150.jpg'],
+        images: {
+          thumbnail: [assets['bockes-bike-150x150.jpg'], 150, 150, true],
+          medium: [assets['bockes-bike-300x194.jpg'], 300, 194, true],
+          large: [assets['bockes-bike-1024x661.jpg'], 640, 413, true],
+          full: [assets['bockes-bike-2560x1654.jpg'], 2560, 1654, false],
+        },
         timeframes: [
           {
             date_start: '2020-08-14',
@@ -220,8 +242,13 @@ export default [
         status: 'publish',
         terms: [27, 34, 29],
         link: 'https://stage3.commons-booking.org/rundedinge/e-lastenrad-buergerzentrum-vingst/?cb-location=3619',
-        thumbnail:
-          'https://stage3.commons-booking.org/wp-content/uploads/2020/08/E-Lastenrad-BZ-Vingst-1-150x150.jpg',
+        thumbnail: assets['ayline-150x150.jpg'],
+        images: {
+          thumbnail: [assets['ayline-150x150.jpg'], 150, 150, true],
+          medium: [assets['ayline-300x192.jpg'], 300, 192, true],
+          large: [assets['ayline-1024x654.jpg'], 640, 409, true],
+          full: [assets['ayline-2560x1635.jpg'], 2560, 1635, false],
+        },
         timeframes: [
           {
             date_start: '2022-04-10',
@@ -256,8 +283,13 @@ export default [
         status: 'publish',
         terms: [28, 34, 32, 30],
         link: 'https://stage3.commons-booking.org/rundedinge/madomobil/?cb-location=3625',
-        thumbnail:
-          'https://stage3.commons-booking.org/wp-content/uploads/2017/02/Madomobil-150x150.jpg',
+        thumbnail: assets['madomobil-150x150.jpg'],
+        images: {
+          thumbnail: [assets['madomobil-150x150.jpg'], 150, 150, true],
+          medium: [assets['madomobil-300x200.jpg'], 300, 200, true],
+          large: [assets['madomobil-1024x683.jpg'], 640, 427, true],
+          full: [assets['madomobil-1024x683.jpg'], 1024, 683, false],
+        },
         timeframes: [
           {
             date_start: '2021-01-16',
