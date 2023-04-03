@@ -1,5 +1,6 @@
 import { computed, ComputedRef, Ref } from 'vue';
-import { useElementBounding } from '@vueuse/core';
+import { useDevicePixelRatio, useElementBounding, useElementSize } from '@vueuse/core';
+import { Image } from './commons-search/types';
 
 export function delay(timeInSeconds: number) {
   return new Promise((resolve) => {
@@ -69,5 +70,26 @@ export function useBottom(element: Ref<undefined | HTMLElement | { $el: HTMLElem
   return computed<number | undefined>(() => {
     if (!realElement.value) return;
     return height.value + realElement.value.offsetTop;
+  });
+}
+
+export function useImage(
+  container: Ref<HTMLElement>,
+  images: Ref<Image[]>,
+  minWidthRatio = 0.85,
+): ComputedRef<Image | undefined> {
+  const { width } = useElementSize(container);
+  const { pixelRatio } = useDevicePixelRatio();
+  return computed(() => {
+    const minWidth = Math.max(150, width.value * pixelRatio.value);
+    // try to find an image that fit’s the minimum pixel ratio
+    for (const image of images.value) {
+      if (image.width / minWidth >= minWidthRatio) return image;
+    }
+    // fallback to the image with the largest resolution
+    const sortedImages = [...images.value].sort((a, b) => {
+      return a.width === b.width ? 0 : a.width > b.width ? 1 : -1;
+    });
+    return sortedImages.at(-1);
   });
 }

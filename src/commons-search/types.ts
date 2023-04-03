@@ -69,8 +69,8 @@ export type ParsedCommonsSearchConfiguration = CamelCasedPropertiesDeep<CommonsS
 
 export type Image = {
   url: string;
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
   description?: string;
 };
 
@@ -84,7 +84,7 @@ export type Common = {
   name: string;
   description: string;
   url: string;
-  image: Image | null;
+  images: Image[];
   availabilities: CommonAvailability[];
 };
 

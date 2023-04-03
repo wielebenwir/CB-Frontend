@@ -98,11 +98,25 @@ export function useAdminAjaxData(
         name: item.name,
         description: item.shortDesc,
         url: item.link,
-        image: item.thumbnail
-          ? {
-              url: item.thumbnail,
-            }
-          : null,
+        images: Object.values(item.images)
+          .filter((item) => item !== false)
+          .map((image) => {
+            const [url, _width, _height] = image as [string, number, number, boolean];
+
+            // The API does not specify the correct width and height for some images,
+            // but the URL may contain their actual values.
+            const dimensions = /-(\d+)x(\d+).(?:webp|avif|jpe?g|png|gif)$/i;
+            const dimensionsMatch = url.match(dimensions);
+            const [width, height] = dimensionsMatch
+              ? [parseInt(dimensionsMatch[1]), parseInt(dimensionsMatch[2])]
+              : [_width, _height];
+
+            return {
+              url,
+              width,
+              height,
+            };
+          }),
         availabilities: item.availability.map((a) => ({
           status: a.status,
           date: parseISO(a.date),

@@ -1,14 +1,14 @@
 <template>
   <div class="cb-common tw-rounded tw-overflow-hidden tw-bg-white tw-group">
-    <figure class="cb-common-header tw-relative tw-aspect-video">
+    <figure ref="imgContainerEl" class="cb-common-header tw-relative tw-aspect-video">
       <img
-        v-if="common.image"
+        v-if="image"
         loading="lazy"
         class="cb-common--image tw-object-cover tw-object-center tw-bg-gray-700 tw-w-full tw-h-full"
-        :src="common.image.url"
-        :width="common.image.width"
-        :height="common.image.height"
-        :alt="common.image.description ?? ''"
+        :src="image.url"
+        :width="image.width"
+        :height="image.height"
+        :alt="image.description ?? ''"
       />
       <div v-else class="cb-common--image-fallback tw-h-full tw-bg-gray-700" />
       <figcaption
@@ -63,7 +63,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
+import { useImage } from '../../util';
 import { Common, CommonCategory, CommonLocation } from '../types';
 import { GeoLocation, calculateDistance } from '../geo';
 import { useI18n } from '../locales';
@@ -79,6 +80,7 @@ const props = defineProps<{
 }>();
 const { locale } = useI18n();
 
+const imgContainerEl = ref();
 const distanceToUserLocation = computed(() => {
   return props.userLocation
     ? calculateDistance(props.location.coordinates, props.userLocation)
@@ -86,5 +88,9 @@ const distanceToUserLocation = computed(() => {
 });
 const commonCategories = computed(() =>
   props.common.categoryIds.map((id) => props.categoryMap.get(id)),
+);
+const image = useImage(
+  imgContainerEl,
+  computed(() => props.common.images),
 );
 </script>
