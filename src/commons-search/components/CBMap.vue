@@ -1,7 +1,7 @@
 <template>
   <LMap
-    class="cb-map"
     ref="map"
+    class="cb-map"
     :center="[config.latStart, config.lonStart]"
     :max-zoom="config.zoomMax"
     :min-zoom="config.zoomMin"

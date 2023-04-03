@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-overflow-y-scroll" ref="rootEl">
+  <div ref="rootEl" class="tw-overflow-y-scroll">
     <CBLocation
       v-if="selectedLocation"
       :location="selectedLocation"
