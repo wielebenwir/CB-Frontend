@@ -50,8 +50,7 @@
 
 <script lang="ts" setup>
 import { parseISO } from 'date-fns';
-import { useI18n } from 'petite-vue-i18n';
-import { ref, watchEffect } from 'vue';
+import { ref } from 'vue';
 
 import { ParsedCommonsSearchConfiguration } from '../types';
 import { useCommonsSearchAPI } from '../apis';
@@ -74,12 +73,6 @@ const filter = ref<CommonFilterSet>({
 });
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
 const { filteredLocations, filteredCommons } = useFilteredData(api, filter);
-
-// i18n config
-const { locale } = useI18n();
-watchEffect(() => {
-  locale.value = props.config.locale;
-});
 </script>
 
 <style scoped>
