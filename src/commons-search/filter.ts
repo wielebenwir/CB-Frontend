@@ -4,12 +4,28 @@ import { isDateInDayRange, toDateString, useMap } from '../util';
 import { Common, CommonAvailabilityStatus, CommonLocation, CommonsSearchAPI } from './types';
 import { GeoLocation } from './geo';
 
+const AVAILABLE_STATES: CommonAvailabilityStatus[] = ['available'];
+
 export interface CommonFilterSet {
   categories: Set<number>;
   userLocation: GeoLocation | null;
   location: CommonLocation | null;
   availableToday: boolean;
   availableBetween: { start: Date | null; end: Date | null };
+}
+
+type FilterFunction<T> = (obj: T, index?: number, iterable?: T[]) => boolean;
+
+function filterIterable<T>(iterable: T[], filters: (FilterFunction<T> | unknown)[]): T[] {
+  const _filters = filters.filter((f) => typeof f === 'function') as FilterFunction<T>[];
+  return _filters.length > 0
+    ? iterable.filter((obj, index, iterable) => {
+        for (const shouldKeep of _filters) {
+          if (!shouldKeep(obj, index, iterable)) return false;
+        }
+        return true;
+      })
+    : iterable;
 }
 
 function filterByCategories(relevantCategoryIds: Set<number>) {
@@ -21,29 +37,24 @@ function filterByRelevantLocations(relevantLocationIds: Set<string>) {
   return (location: CommonLocation) => relevantLocationIds.has(location.id);
 }
 
-function filterByLocation(location: CommonLocation | null) {
-  return (common: Common) => (location ? common.locationId === location.id : true);
+function filterByLocation(location: CommonLocation) {
+  return (common: Common) => common.locationId === location.id;
 }
 
-function filterByDateAvailability(date: Date | null, validStates: CommonAvailabilityStatus[]) {
-  const dateString = date ? toDateString(date) : null;
+function filterByDateAvailability(date: Date, validStates: CommonAvailabilityStatus[]) {
+  const dateString = toDateString(date);
   return (common: Common) => {
-    if (!dateString) return true;
     const dayAvailability = common.availabilities.find((a) => toDateString(a.date) === dateString);
-
-    return dayAvailability && validStates.includes(dayAvailability.status);
+    return !!dayAvailability && validStates.includes(dayAvailability.status);
   };
 }
 
 function filterByAvailabilityRange(
-  start: Date | null,
-  end: Date | null,
+  start: Date,
+  end: Date,
   validStates: CommonAvailabilityStatus[],
 ) {
   return (common: Common) => {
-    if (start === null) return true;
-    if (end === null) return filterByDateAvailability(start, validStates)(common);
-
     const relevantAvailabilities = common.availabilities.filter((a) =>
       isDateInDayRange(start, end, a.date, true),
     );
@@ -51,9 +62,8 @@ function filterByAvailabilityRange(
   };
 }
 
-function sortByDistance(location: GeoLocation | null, locationMap: Map<string, CommonLocation>) {
+function sortByDistance(location: GeoLocation, locationMap: Map<string, CommonLocation>) {
   return function (a: Common, b: Common) {
-    if (!location) return 0;
     const locationA = locationMap.get(a.locationId)?.coordinates;
     const locationB = locationMap.get(b.locationId)?.coordinates;
     if (!locationA || !locationB) return 0;
@@ -74,12 +84,16 @@ export function useFilteredData(
     const commons = api.value?.commons ?? [];
     const today = filter.value.availableToday ? new Date() : null;
     const { start, end } = filter.value.availableBetween;
-    return commons
-      .filter(filterByDateAvailability(today, ['available']))
-      .filter(filterByAvailabilityRange(start, end, ['available']))
-      .filter(filterByCategories(filter.value.categories))
-      .filter(filterByLocation(filter.value.location))
-      .sort(sortByDistance(filter.value.userLocation, locationMap.value));
+    const filteredCommons = filterIterable(commons, [
+      today && filterByDateAvailability(today, AVAILABLE_STATES),
+      start && end === null && filterByDateAvailability(start, AVAILABLE_STATES),
+      start && end && filterByAvailabilityRange(start, end, AVAILABLE_STATES),
+      filter.value.categories.size > 0 && filterByCategories(filter.value.categories),
+      filter.value.location && filterByLocation(filter.value.location),
+    ]);
+    return filter.value.userLocation
+      ? filteredCommons.sort(sortByDistance(filter.value.userLocation, locationMap.value))
+      : filteredCommons;
   });
 
   const relevantLocationIds = computed(
