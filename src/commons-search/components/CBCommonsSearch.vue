@@ -81,7 +81,7 @@ const { filteredLocations, filteredCommons } = useFilteredData(api, filter);
   display: grid;
   grid-template-areas: 'map' 'filter' 'list';
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: minmax(0, 1fr) min-content minmax(0, 2fr);
+  grid-template-rows: minmax(0, 33dvh) min-content minmax(0, 2fr);
   height: 100%;
 }
 

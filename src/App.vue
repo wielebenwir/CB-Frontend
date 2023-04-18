@@ -1,5 +1,5 @@
 <template>
-  <div ref="rootEl" class="md:tw-p-6" style="height: 100dvh"></div>
+  <div ref="rootEl" class="md:tw-p-6 lg:tw-h-[100dvh]"></div>
 </template>
 
 <script lang="ts" setup>
