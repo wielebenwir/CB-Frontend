@@ -13,7 +13,8 @@
 
   <div v-else-if="api" class="cb-commons-search md:tw-rounded tw-overflow-hidden">
     <CBCommonFilter
-      v-model="filter"
+      v-model:categories="filter.categories"
+      v-model:user-location="filter.userLocation"
       class="tw-flex-none tw-bg-gray-100"
       :api="api"
       :config="config"

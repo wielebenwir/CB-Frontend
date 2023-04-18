@@ -32,7 +32,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
+import { useVModel } from '@vueuse/core';
 import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';
 import { CommonFilterSet } from '../filter';
 import CBCategoryGroupList from './CBCategoryGroupList.vue';
@@ -44,33 +45,20 @@ import { useBottom } from '../../util';
 const props = defineProps<{
   api: CommonsSearchAPI;
   config: ParsedCommonsSearchConfiguration;
-  modelValue: CommonFilterSet;
+  categories: CommonFilterSet['categories'];
+  userLocation: CommonFilterSet['userLocation'];
   expanded?: boolean;
 }>();
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: CommonFilterSet): void;
+  (e: 'update:categories', value: CommonFilterSet['categories']): void;
+  (e: 'update:userLocation', value: CommonFilterSet['userLocation']): void;
 }>();
 const { t } = useI18n();
 const filterButtonEl = ref();
 const filterButtonBottom = useBottom(filterButtonEl);
 
-const activeCategories = computed({
-  get() {
-    return props.modelValue.categories;
-  },
-  set(newCategories: CommonFilterSet['categories']) {
-    emit('update:modelValue', { ...props.modelValue, categories: newCategories });
-  },
-});
-
-const userLocationFilter = computed({
-  get() {
-    return props.modelValue.userLocation;
-  },
-  set(userLocation: CommonFilterSet['userLocation']) {
-    emit('update:modelValue', { ...props.modelValue, userLocation });
-  },
-});
+const activeCategories = useVModel(props, 'categories', emit);
+const userLocationFilter = useVModel(props, 'userLocation', emit);
 </script>
 
 <style lang="postcss">
