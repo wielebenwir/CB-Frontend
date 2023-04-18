@@ -63,7 +63,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'petite-vue-i18n';
+import { useI18n } from 'vue-i18n';
 import { computed, ref } from 'vue';
 import { useImage } from '../../util';
 import { Common, CommonCategory, CommonLocation } from '../types';

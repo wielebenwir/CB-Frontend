@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'petite-vue-i18n';
+import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useVModel } from '@vueuse/core';

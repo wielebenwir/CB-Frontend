@@ -58,7 +58,7 @@
     "camelcase-keys": "^8.0.2",
     "date-fns": "^2.29.3",
     "haversine-distance": "^1.2.1",
-    "petite-vue-i18n": "^9.2.2",
-    "type-fest": "^3.8.0"
+    "type-fest": "^3.8.0",
+    "vue-i18n": "^9.2.2"
   }
 }

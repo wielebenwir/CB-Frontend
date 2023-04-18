@@ -1,6 +1,6 @@
 import camelcaseKeys from 'camelcase-keys';
 import { createApp } from 'vue';
-import { createI18n } from 'petite-vue-i18n';
+import { createI18n } from 'vue-i18n';
 
 import CBCommonsSearch from './components/CBCommonsSearch.vue';
 import type { CommonsSearchConfiguration } from './types';

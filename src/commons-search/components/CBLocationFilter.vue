@@ -73,7 +73,7 @@
 
 <script lang="ts" setup>
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/vue';
-import { useI18n } from 'petite-vue-i18n';
+import { useI18n } from 'vue-i18n';
 import { computed, ref } from 'vue';
 import { GeoLocation, useCurrentLocation, useGeoCoder } from '../geo';
 import { ParsedCommonsSearchConfiguration } from '../types';
