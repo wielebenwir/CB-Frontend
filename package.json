@@ -8,8 +8,8 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "npm run lint-eslint && npm run lint-prettier && npm run lint-spelling && npm run lint-types",
-    "lint-eslint": "eslint --color --ext .js,.cjs,.ts,.vue --ignore-path .gitignore --ignore-path .eslintignore src/ vite.config.ts",
-    "lint-prettier": "prettier --check --ignore-path .gitignore --ignore-path .prettierignore .",
+    "lint-eslint": "eslint --color --ext .js,.cjs,.ts,.vue --ignore-path .eslintignore src/ vite.config.ts",
+    "lint-prettier": "prettier --check --ignore-path .prettierignore .",
     "lint-types": "vue-tsc --noEmit",
     "lint-spelling": "cspell .",
     "format": "npm run lint-prettier -- --write && npm run lint-eslint -- --fix",
@@ -17,8 +17,8 @@
     "test": "vitest"
   },
   "lint-staged": {
-    "*": "prettier --check --ignore-path .gitignore --ignore-path .prettierignore",
-    "*.{js,cjs,ts,vue}": "eslint --color --ignore-path .gitignore --ignore-path .eslintignore",
+    "*": "prettier --check --ignore-path .prettierignore",
+    "*.{js,cjs,ts,vue}": "eslint --color --ignore-path .eslintignore",
     "*.{txt,js,cjs,ts,vue,md}": "cspell --no-must-find-files"
   },
   "devDependencies": {
