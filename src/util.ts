@@ -52,13 +52,22 @@ export function toDateString(date: Date) {
   return formatISO(date, { representation: 'date' });
 }
 
-export function isDateInDayRange(startDate: Date, endDate: Date, dateToCheck: Date): boolean {
+export function isDateInDayRange(
+  startDate: Date,
+  endDate: Date,
+  dateToCheck: Date,
+  inclusive = false,
+): boolean {
   startDate = new Date(startDate.getTime());
   endDate = new Date(endDate.getTime());
   // Set the start and end dates to the beginning of their respective day
   // so that we actually compare days and not date-times.
   startDate.setHours(0, 0, 0, 0);
-  endDate.setHours(0, 0, 0, 0);
+  if (!inclusive) {
+    endDate.setHours(0, 0, 0, 0);
+  } else {
+    endDate.setHours(23, 59, 59, 999);
+  }
 
   return startDate <= dateToCheck && dateToCheck < endDate;
 }
