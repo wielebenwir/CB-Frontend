@@ -3,19 +3,24 @@
   "languageSettings": [
     {
       "languageId": "typescript,javascript,markdown,vue",
-      "locale": ["en", "de"]
+      "locale": "en-us,de-de"
     }
   ],
+  "import": ["@cspell/dict-de-de/cspell-ext.json"],
   "words": [
     "CommonsBooking",
     "Nominatim",
+    "nominatim",
     "camelcase",
     "timeframe",
     "timeframes",
     "HTTPAPI",
     "tailwindcss",
     "vueuse",
-    "headlessui"
+    "headlessui",
+    "intlify",
+    "unplugin",
+    "ajax"
   ],
   "flagWords": ["hte"],
   "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "dist-app/**", "*.svg", "*.json"]
