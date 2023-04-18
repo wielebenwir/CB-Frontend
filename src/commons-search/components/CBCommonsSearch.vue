@@ -50,10 +50,10 @@
     <Transition name="cb-animate-panel">
       <button
         v-if="!isMapVisible"
-        class="cb-button tw-bg-gray-900 tw-text-white tw-text-3xl tw-fixed tw-z-10 tw-bottom-3 tw-right-3 tw-shadow-lg md:tw-hidden"
+        class="cb-button tw-bg-gray-900 tw-text-white tw-text-3xl tw-fixed tw-z-10 tw-bottom-3 tw-right-3 tw-shadow-lg tw-aspect-square md:tw-hidden"
         @click="scrollMapIntoView"
       >
-        ↑
+        <IconArrowUp class="tw-scale-125" />
       </button>
     </Transition>
   </div>
@@ -64,6 +64,7 @@ import { parseISO } from 'date-fns';
 import { useElementVisibility } from '@vueuse/core';
 import { ref } from 'vue';
 
+import IconArrowUp from '../../assets/arrow-up.svg?component';
 import { ParsedCommonsSearchConfiguration } from '../types';
 import { useCommonsSearchAPI } from '../apis';
 import CBCommonFilter from './CBCommonFilter.vue';
