@@ -61,6 +61,7 @@
 
 <script lang="ts" setup>
 import { parseISO } from 'date-fns';
+import { useElementVisibility } from '@vueuse/core';
 import { ref } from 'vue';
 
 import { ParsedCommonsSearchConfiguration } from '../types';
@@ -69,7 +70,6 @@ import CBCommonFilter from './CBCommonFilter.vue';
 import CBCommonList from './CBCommonList.vue';
 import CBMap from './CBMap.vue';
 import { CommonFilterSet, useFilteredData } from '../filter';
-import { useElementVisibility } from '@vueuse/core';
 
 const props = defineProps<{
   config: ParsedCommonsSearchConfiguration;
