@@ -23,7 +23,7 @@
       class="cb-common-list tw-relative tw-flex tw-flex-col tw-m-6 tw-gap-6"
       name="cb-animate-list"
     >
-      <li v-for="common in commons" :key="common.id" class="tw-shadow">
+      <li v-for="common in commons" :key="common.id" class="tw-shadow tw-relative tw-z-10">
         <CBCommon
           :common="common"
           :location="locationMap.get(common.locationId) as CommonLocation"

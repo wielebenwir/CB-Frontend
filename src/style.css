@@ -94,6 +94,7 @@
 
 .cb-animate-list-leave-active {
   position: absolute;
+  z-index: 0;
 }
 
 .cb-animate-panel-enter-from,
