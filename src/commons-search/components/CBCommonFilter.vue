@@ -10,7 +10,7 @@
         :config="config.geocode"
       />
 
-      <div v-if="expanded" class="cb-common-filter-panel--expanded">
+      <div v-if="expanded" class="cb-common-filter-panel cb-common-filter-panel--expanded">
         <CBCategoryGroupList v-model="activeCategories" :api="api" />
       </div>
 
