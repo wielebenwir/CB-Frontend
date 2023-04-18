@@ -1,3 +1,5 @@
+import { addDays } from 'date-fns';
+import { toDateString } from '../../util';
 import { CommonsSearchConfiguration } from '../types';
 
 export default {
@@ -66,8 +68,8 @@ export default {
     },
   },
   filter_availability: {
-    date_min: '2023-03-20',
-    date_max: '2023-03-31',
+    date_min: toDateString(new Date()),
+    date_max: toDateString(addDays(new Date(), 31)),
     day_count_max: '20',
   },
   cb_map_id: 7561,

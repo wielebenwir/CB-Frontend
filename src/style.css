@@ -71,6 +71,7 @@
 
   .cb-input {
     @apply tw-rounded
+        tw-max-w-full
         tw-px-4 tw-py-2;
   }
 }

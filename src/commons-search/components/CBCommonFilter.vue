@@ -12,6 +12,10 @@
 
       <div v-if="expanded" class="cb-common-filter-panel cb-common-filter-panel--expanded">
         <CBCategoryGroupList v-model="activeCategories" :api="api" />
+        <CBAvailabilityRangeFilter
+          v-model="isAvailableBetween"
+          :availability-range="availabilityRange"
+        />
       </div>
 
       <Popover v-else class="tw-flex-none">
@@ -26,6 +30,10 @@
             :style="{ top: `${filterButtonBottom}px` }"
           >
             <CBCategoryGroupList v-model="activeCategories" :api="api" />
+            <CBAvailabilityRangeFilter
+              v-model="isAvailableBetween"
+              :availability-range="availabilityRange"
+            />
           </PopoverPanel>
         </transition>
       </Popover>
@@ -46,18 +54,22 @@ import { useBottom } from '../../util';
 import CBCategoryGroupList from './CBCategoryGroupList.vue';
 import CBLocationFilter from './CBLocationFilter.vue';
 import CBSwitch from './CBSwitch.vue';
+import CBAvailabilityRangeFilter from './CBAvailabilityRangeFilter.vue';
 
 const props = defineProps<{
   api: CommonsSearchAPI;
   config: ParsedCommonsSearchConfiguration;
   categories: CommonFilterSet['categories'];
   userLocation: CommonFilterSet['userLocation'];
+  availableBetween: CommonFilterSet['availableBetween'];
   availableToday: CommonFilterSet['availableToday'];
+  availabilityRange: { start: Date; end: Date };
   expanded?: boolean;
 }>();
 const emit = defineEmits<{
   (e: 'update:categories', value: CommonFilterSet['categories']): void;
   (e: 'update:userLocation', value: CommonFilterSet['userLocation']): void;
+  (e: 'update:availableBetween', value: CommonFilterSet['availableBetween']): void;
   (e: 'update:availableToday', value: CommonFilterSet['availableToday']): void;
 }>();
 const { t } = useI18n();
@@ -66,11 +78,16 @@ const filterButtonBottom = useBottom(filterButtonEl);
 
 const activeCategories = useVModel(props, 'categories', emit);
 const userLocationFilter = useVModel(props, 'userLocation', emit);
+const isAvailableBetween = useVModel(props, 'availableBetween', emit);
 const isAvailableToday = useVModel(props, 'availableToday', emit);
 </script>
 
 <style lang="postcss">
 .cb-common-filter-panel--expanded .cb-button {
   @apply tw-bg-gray-200;
+}
+
+.cb-common-filter-panel {
+  @apply tw-flex tw-flex-col tw-gap-4;
 }
 </style>

@@ -12,7 +12,12 @@
       "reset": "Ort zurücksetzen"
     },
     "availability": {
-      "availableToday": "Heute verfügbar"
+      "title": "Verfügbar",
+      "availableToday": "Heute verfügbar",
+      "from": "Vom",
+      "until": "Bis einschließlich",
+      "addUntil": "+ Enddatum",
+      "on": "Am"
     }
   },
   "geo": {

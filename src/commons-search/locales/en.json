@@ -12,7 +12,12 @@
       "reset": "Reset location"
     },
     "availability": {
-      "availableToday": "Available today"
+      "title": "Available",
+      "availableToday": "Available today",
+      "from": "From",
+      "until": "Through",
+      "addUntil": "+ End Date",
+      "on": "On"
     }
   },
   "geo": {

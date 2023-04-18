@@ -1,6 +1,6 @@
 import haversine from 'haversine-distance';
 import { computed, Ref } from 'vue';
-import { toDateString, useMap } from '../util';
+import { isDateInDayRange, toDateString, useMap } from '../util';
 import { Common, CommonAvailabilityStatus, CommonLocation, CommonsSearchAPI } from './types';
 import { GeoLocation } from './geo';
 
@@ -9,6 +9,7 @@ export interface CommonFilterSet {
   userLocation: GeoLocation | null;
   location: CommonLocation | null;
   availableToday: boolean;
+  availableBetween: { start: Date | null; end: Date | null };
 }
 
 function filterByCategories(relevantCategoryIds: Set<number>) {
@@ -34,6 +35,22 @@ function filterByDateAvailability(date: Date | null, validStates: CommonAvailabi
   };
 }
 
+function filterByAvailabilityRange(
+  start: Date | null,
+  end: Date | null,
+  validStates: CommonAvailabilityStatus[],
+) {
+  return (common: Common) => {
+    if (start === null) return true;
+    if (end === null) return filterByDateAvailability(start, validStates)(common);
+
+    const relevantAvailabilities = common.availabilities.filter((a) =>
+      isDateInDayRange(start, end, a.date, true),
+    );
+    return relevantAvailabilities.every(({ status }) => validStates.includes(status));
+  };
+}
+
 function sortByDistance(location: GeoLocation | null, locationMap: Map<string, CommonLocation>) {
   return function (a: Common, b: Common) {
     if (!location) return 0;
@@ -56,8 +73,10 @@ export function useFilteredData(
   const filteredCommons = computed(() => {
     const commons = api.value?.commons ?? [];
     const today = filter.value.availableToday ? new Date() : null;
+    const { start, end } = filter.value.availableBetween;
     return commons
       .filter(filterByDateAvailability(today, ['available']))
+      .filter(filterByAvailabilityRange(start, end, ['available']))
       .filter(filterByCategories(filter.value.categories))
       .filter(filterByLocation(filter.value.location))
       .sort(sortByDistance(filter.value.userLocation, locationMap.value));

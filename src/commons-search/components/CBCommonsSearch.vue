@@ -15,11 +15,16 @@
     <CBCommonFilter
       v-model:categories="filter.categories"
       v-model:user-location="filter.userLocation"
+      v-model:available-between="filter.availableBetween"
       v-model:available-today="filter.availableToday"
       class="tw-flex-none tw-bg-gray-100"
       :api="api"
       :config="config"
       :expanded="config?.layout?.expandFilter"
+      :availability-range="{
+        start: parseISO(config.filterAvailability.dateMin),
+        end: parseISO(config.filterAvailability.dateMax),
+      }"
       style="grid-area: filter"
     />
     <CBCommonList
@@ -44,6 +49,7 @@
 </template>
 
 <script lang="ts" setup>
+import { parseISO } from 'date-fns';
 import { ref, watchEffect } from 'vue';
 
 import { ParsedCommonsSearchConfiguration } from '../types';
@@ -64,6 +70,7 @@ const filter = ref<CommonFilterSet>({
   userLocation: null,
   location: null,
   availableToday: false,
+  availableBetween: { start: null, end: null },
 });
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
 const { filteredLocations, filteredCommons } = useFilteredData(api, filter);
