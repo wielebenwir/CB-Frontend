@@ -10,6 +10,9 @@
       "getPosition": "Determine your current location",
       "waitGeoCoder": "Please wait while relevant locations are being loaded...",
       "reset": "Reset location"
+    },
+    "availability": {
+      "availableToday": "Available today"
     }
   },
   "geo": {

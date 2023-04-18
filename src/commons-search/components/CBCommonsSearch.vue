@@ -15,6 +15,7 @@
     <CBCommonFilter
       v-model:categories="filter.categories"
       v-model:user-location="filter.userLocation"
+      v-model:available-today="filter.availableToday"
       class="tw-flex-none tw-bg-gray-100"
       :api="api"
       :config="config"
@@ -62,6 +63,7 @@ const filter = ref<CommonFilterSet>({
   categories: new Set<number>(),
   userLocation: null,
   location: null,
+  availableToday: false,
 });
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
 const { filteredLocations, filteredCommons } = useFilteredData(api, filter);

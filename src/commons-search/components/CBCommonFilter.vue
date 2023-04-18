@@ -1,5 +1,7 @@
 <template>
-  <div class="cb-common-filter tw-p-6 tw-relative tw-border-b tw-border-gray-300">
+  <div
+    class="cb-common-filter tw-p-6 tw-relative tw-border-b tw-border-gray-300 tw-flex tw-flex-col tw-gap-3"
+  >
     <div class="tw-flex tw-gap-3 tw-max-w-full" :class="{ 'tw-flex-col': expanded }">
       <CBLocationFilter
         v-if="config.showLocationDistanceFilter"
@@ -28,30 +30,35 @@
         </transition>
       </Popover>
     </div>
+
+    <CBSwitch v-model="isAvailableToday" :label="t('filter.availability.availableToday')" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useVModel } from '@vueuse/core';
 import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';
 import { CommonFilterSet } from '../filter';
-import CBCategoryGroupList from './CBCategoryGroupList.vue';
-import CBLocationFilter from './CBLocationFilter.vue';
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useI18n } from '../locales';
 import { useBottom } from '../../util';
+import CBCategoryGroupList from './CBCategoryGroupList.vue';
+import CBLocationFilter from './CBLocationFilter.vue';
+import CBSwitch from './CBSwitch.vue';
 
 const props = defineProps<{
   api: CommonsSearchAPI;
   config: ParsedCommonsSearchConfiguration;
   categories: CommonFilterSet['categories'];
   userLocation: CommonFilterSet['userLocation'];
+  availableToday: CommonFilterSet['availableToday'];
   expanded?: boolean;
 }>();
 const emit = defineEmits<{
   (e: 'update:categories', value: CommonFilterSet['categories']): void;
   (e: 'update:userLocation', value: CommonFilterSet['userLocation']): void;
+  (e: 'update:availableToday', value: CommonFilterSet['availableToday']): void;
 }>();
 const { t } = useI18n();
 const filterButtonEl = ref();
@@ -59,6 +66,7 @@ const filterButtonBottom = useBottom(filterButtonEl);
 
 const activeCategories = useVModel(props, 'categories', emit);
 const userLocationFilter = useVModel(props, 'userLocation', emit);
+const isAvailableToday = useVModel(props, 'availableToday', emit);
 </script>
 
 <style lang="postcss">

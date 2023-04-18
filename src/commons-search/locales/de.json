@@ -10,6 +10,9 @@
       "getPosition": "Bestimme deine aktuelle Position",
       "waitGeoCoder": "Es werden relevante Orte für deine Eingabe geladen...",
       "reset": "Ort zurücksetzen"
+    },
+    "availability": {
+      "availableToday": "Heute verfügbar"
     }
   },
   "geo": {

@@ -1,13 +1,14 @@
 import haversine from 'haversine-distance';
 import { computed, Ref } from 'vue';
-import { useMap } from '../util';
-import { Common, CommonLocation, CommonsSearchAPI } from './types';
+import { toDateString, useMap } from '../util';
+import { Common, CommonAvailabilityStatus, CommonLocation, CommonsSearchAPI } from './types';
 import { GeoLocation } from './geo';
 
 export interface CommonFilterSet {
   categories: Set<number>;
   userLocation: GeoLocation | null;
   location: CommonLocation | null;
+  availableToday: boolean;
 }
 
 function filterByCategories(relevantCategoryIds: Set<number>) {
@@ -21,6 +22,16 @@ function filterByRelevantLocations(relevantLocationIds: Set<string>) {
 
 function filterByLocation(location: CommonLocation | null) {
   return (common: Common) => (location ? common.locationId === location.id : true);
+}
+
+function filterByDateAvailability(date: Date | null, validStates: CommonAvailabilityStatus[]) {
+  const dateString = date ? toDateString(date) : null;
+  return (common: Common) => {
+    if (!dateString) return true;
+    const dayAvailability = common.availabilities.find((a) => toDateString(a.date) === dateString);
+
+    return dayAvailability && validStates.includes(dayAvailability.status);
+  };
 }
 
 function sortByDistance(location: GeoLocation | null, locationMap: Map<string, CommonLocation>) {
@@ -44,7 +55,9 @@ export function useFilteredData(
 
   const filteredCommons = computed(() => {
     const commons = api.value?.commons ?? [];
+    const today = filter.value.availableToday ? new Date() : null;
     return commons
+      .filter(filterByDateAvailability(today, ['available']))
       .filter(filterByCategories(filter.value.categories))
       .filter(filterByLocation(filter.value.location))
       .sort(sortByDistance(filter.value.userLocation, locationMap.value));

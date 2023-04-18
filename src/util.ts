@@ -1,3 +1,4 @@
+import { formatISO } from 'date-fns';
 import { computed, ComputedRef, Ref } from 'vue';
 import { useDevicePixelRatio, useElementBounding, useElementSize } from '@vueuse/core';
 import { Image } from './commons-search/types';
@@ -45,6 +46,10 @@ export function useMap<KeyType extends keyof ItemType, ItemType>(
     }
     return result;
   });
+}
+
+export function toDateString(date: Date) {
+  return formatISO(date, { representation: 'date' });
 }
 
 export function isDateInDayRange(startDate: Date, endDate: Date, dateToCheck: Date): boolean {
