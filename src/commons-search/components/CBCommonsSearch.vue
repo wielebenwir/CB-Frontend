@@ -38,6 +38,7 @@
       @deselect-location="filter.location = null"
     />
     <CBMap
+      ref="map"
       class="tw-isolate tw-z-0"
       style="grid-area: map"
       :locations="filteredLocations"
@@ -45,6 +46,16 @@
       :config="config"
       @select="filter.location = $event"
     />
+
+    <Transition name="cb-animate-panel">
+      <button
+        v-if="!isMapVisible"
+        class="cb-button tw-bg-gray-900 tw-text-white tw-text-3xl tw-fixed tw-z-10 tw-bottom-3 tw-right-3 tw-shadow-lg md:tw-hidden"
+        @click="scrollMapIntoView"
+      >
+        ↑
+      </button>
+    </Transition>
   </div>
 </template>
 
@@ -58,6 +69,7 @@ import CBCommonFilter from './CBCommonFilter.vue';
 import CBCommonList from './CBCommonList.vue';
 import CBMap from './CBMap.vue';
 import { CommonFilterSet, useFilteredData } from '../filter';
+import { useElementVisibility } from '@vueuse/core';
 
 const props = defineProps<{
   config: ParsedCommonsSearchConfiguration;
@@ -73,6 +85,15 @@ const filter = ref<CommonFilterSet>({
 });
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
 const { filteredLocations, filteredCommons } = useFilteredData(api, filter);
+
+const map = ref();
+const isMapVisible = useElementVisibility(map);
+
+function scrollMapIntoView() {
+  if (map.value) {
+    map.value.$el.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 </script>
 
 <style scoped>
