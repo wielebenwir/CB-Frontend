@@ -1,7 +1,7 @@
 <template>
   <span
     class="cb-availability tw-text-sm tw-font-bold tw-p-1 tw-text-center tw-select-none tw-leading-none"
-    :title="t(`availability.${availability.status}`)"
+    :title="t(availability.status)"
     :class="[
       `cb-availability-${availability.status}`,
       {
@@ -17,9 +17,9 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'petite-vue-i18n';
 import { computed } from 'vue';
 import { CommonAvailability } from '../types';
-import { useI18n } from '../locales';
 
 const props = defineProps<{
   availability: CommonAvailability;
@@ -31,3 +31,17 @@ const formatter = computed<Intl.DateTimeFormat>(
 );
 const weekdayName = computed(() => formatter.value.format(props.availability.date));
 </script>
+
+<i18n lang="yaml">
+en:
+  available: 'Available on this day.'
+  booked: 'Already booked on this day.'
+  partially-booked: 'Partially booked on this day.'
+  locked: 'Cannot be borrowed on this day.'
+
+de:
+  available: 'An diesem Tag verfügbar.'
+  booked: 'An diesem Tag bereits gebucht.'
+  partially-booked: 'An diesem Tag bereits teilweise gebucht.'
+  locked: 'An diesem Tag nicht ausleihbar.'
+</i18n>

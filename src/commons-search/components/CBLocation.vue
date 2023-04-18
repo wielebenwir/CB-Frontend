@@ -24,10 +24,10 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'petite-vue-i18n';
 import { computed } from 'vue';
 import { calculateDistance, GeoLocation } from '../geo';
 import { CommonLocation } from '../types';
-import { useI18n } from '../locales';
 import CBLocationIcon from './CBLocationIcon.vue';
 
 const props = defineProps<{

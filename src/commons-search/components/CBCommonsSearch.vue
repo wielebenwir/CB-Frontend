@@ -50,11 +50,11 @@
 
 <script lang="ts" setup>
 import { parseISO } from 'date-fns';
+import { useI18n } from 'petite-vue-i18n';
 import { ref, watchEffect } from 'vue';
 
 import { ParsedCommonsSearchConfiguration } from '../types';
 import { useCommonsSearchAPI } from '../apis';
-import { useI18n } from '../locales';
 import CBCommonFilter from './CBCommonFilter.vue';
 import CBCommonList from './CBCommonList.vue';
 import CBMap from './CBMap.vue';

@@ -21,7 +21,7 @@
       <Popover v-else class="tw-flex-none">
         <PopoverButton ref="filterButtonEl" class="cb-button tw-bg-gray-200">
           <img src="../../assets/filter.svg" class="tw-flex-none" />
-          {{ t('filter.label') }}
+          {{ t('buttonLabel') }}
         </PopoverButton>
 
         <transition name="cb-animate-panel">
@@ -39,17 +39,17 @@
       </Popover>
     </div>
 
-    <CBSwitch v-model="isAvailableToday" :label="t('filter.availability.availableToday')" />
+    <CBSwitch v-model="isAvailableToday" :label="t('availableToday')" />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'petite-vue-i18n';
 import { ref } from 'vue';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useVModel } from '@vueuse/core';
 import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';
 import { CommonFilterSet } from '../filter';
-import { useI18n } from '../locales';
 import { useBottom } from '../../util';
 import CBCategoryGroupList from './CBCategoryGroupList.vue';
 import CBLocationFilter from './CBLocationFilter.vue';
@@ -91,3 +91,13 @@ const isAvailableToday = useVModel(props, 'availableToday', emit);
   @apply tw-flex tw-flex-col tw-gap-4;
 }
 </style>
+
+<i18n lang="yaml">
+en:
+  buttonLabel: Filter
+  availableToday: 'Available today'
+
+de:
+  buttonLabel: Filtern
+  availableToday: 'Heute verfügbar'
+</i18n>

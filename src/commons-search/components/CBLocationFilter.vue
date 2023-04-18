@@ -7,8 +7,8 @@
             ref="inputEl"
             class="cb-input cb-grid-cover"
             autocomplete="off"
-            :aria-label="t('filter.location.label')"
-            :placeholder="t('filter.location.placeholder')"
+            :aria-label="t('label')"
+            :placeholder="t('placeholder')"
             @change="address = $event.target.value"
           />
           <transition name="cb-animate-panel">
@@ -40,12 +40,12 @@
             v-if="canGetUserPosition && !isLoadingLocations"
             type="button"
             class="cb-button tw-p-1 tw-bg-gray-100"
-            :aria-label="t('filter.location.getPosition')"
+            :aria-label="t('getPosition')"
             @click="locateUser"
           >
             <img class="tw-w-6 tw-h-6" src="../../assets/crosshair.svg" alt="" />
           </button>
-          <CBLoader v-else-if="isLoadingLocations" :label="t('filter.location.waitGeoCoder')" />
+          <CBLoader v-else-if="isLoadingLocations" :label="t('waitGeoCoder')" />
         </div>
       </div>
     </template>
@@ -61,7 +61,7 @@
         <button
           type="button"
           class="cb-button tw-p-1 tw-bg-gray-100 cb-grid-cover tw-self-center tw-place-self-end tw-mr-1"
-          :title="t('filter.location.reset')"
+          :title="t('reset')"
           @click="currentLocation = null"
         >
           <img class="tw-w-6 tw-h-6" src="../../assets/cross.svg" alt="" />
@@ -73,11 +73,11 @@
 
 <script lang="ts" setup>
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/vue';
+import { useI18n } from 'petite-vue-i18n';
 import { computed, ref } from 'vue';
 import { GeoLocation, useCurrentLocation, useGeoCoder } from '../geo';
 import { ParsedCommonsSearchConfiguration } from '../types';
 import CBLoader from '../../components/CBLoader.vue';
-import { useI18n } from '../locales';
 import CBLocationIcon from './CBLocationIcon.vue';
 import { useBottom } from '../../util';
 
@@ -94,7 +94,9 @@ const address = ref('');
 const inputEl = ref();
 const inputBottom = useBottom(inputEl);
 const { locations, isLoading: isLoadingLocations } = useGeoCoder(address, props.config);
-const { isSupported: canGetUserPosition, getCurrentLocation } = useCurrentLocation();
+const { isSupported: canGetUserPosition, getCurrentLocation } = useCurrentLocation(
+  t('currentPosition'),
+);
 const currentLocation = computed({
   get: () => props.modelValue,
   set: (value: GeoLocation | null) => {
@@ -115,3 +117,21 @@ async function locateUser() {
   }
 }
 </script>
+
+<i18n lang="yaml">
+en:
+  label: 'Location'
+  placeholder: 'Street or place'
+  currentPosition: 'Your current location'
+  getPosition: 'Determine your current location'
+  reset: 'Reset location'
+  waitGeoCoder: 'Please wait while relevant locations are being loaded...'
+
+de:
+  label: 'Ort'
+  placeholder: 'Straße oder Ort'
+  currentPosition: 'Deine aktueller Aufenthaltsort'
+  getPosition: 'Bestimme deine aktuelle Position'
+  reset: 'Ort zurücksetzen'
+  waitGeoCoder: 'Es werden relevante Orte für deine Eingabe geladen...'
+</i18n>

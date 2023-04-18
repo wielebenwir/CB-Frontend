@@ -63,11 +63,11 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'petite-vue-i18n';
 import { computed, ref } from 'vue';
 import { useImage } from '../../util';
 import { Common, CommonCategory, CommonLocation } from '../types';
 import { GeoLocation, calculateDistance } from '../geo';
-import { useI18n } from '../locales';
 import CBBadge from './CBBadge.vue';
 import CBSevenDayAvailability from './CBSevenDayAvailability.vue';
 

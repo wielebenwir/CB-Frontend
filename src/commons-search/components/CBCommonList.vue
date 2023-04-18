@@ -7,7 +7,7 @@
       class="tw-sticky tw-top-0 tw-bg-gray-100 tw-z-10 tw-border-b tw-border-gray-200"
     >
       <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
-        <p class="tw-font-bold">{{ t('list.commonsAtLocation') }}</p>
+        <p class="tw-font-bold">{{ t('commonsAtLocation') }}</p>
         <button
           type="button"
           class="cb-button tw-bg-gray-200 tw-p-1"
@@ -37,10 +37,10 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'petite-vue-i18n';
 import { ref, toRefs, watch } from 'vue';
 import { useMap } from '../../util';
 import { GeoLocation } from '../geo';
-import { useI18n } from '../locales';
 import { Common, CommonCategory, CommonLocation } from '../types';
 import CBCommon from './CBCommon.vue';
 import CBLocation from './CBLocation.vue';
@@ -68,3 +68,11 @@ watch(locations, () => {
   }
 });
 </script>
+
+<i18n lang="yaml">
+en:
+  commonsAtLocation: 'Commons at this location'
+
+de:
+  commonsAtLocation: 'Commons an diesem Standort'
+</i18n>

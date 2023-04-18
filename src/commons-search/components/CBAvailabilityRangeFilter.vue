@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="tw-flex tw-items-center tw-justify-between">
-      <CBFilterLabel :label="t('filter.availability.title')" />
+      <CBFilterLabel :label="t('title')" />
       <button
         v-show="start || end || showEnd"
         type="button"
@@ -13,9 +13,7 @@
     </header>
     <div class="tw-flex tw-items-end tw-gap-x-2">
       <label class="tw-flex-1 tw-min-w-0">
-        <span class="tw-block tw-mb-1">
-          {{ t(showEnd ? 'filter.availability.from' : 'filter.availability.on') }}
-        </span>
+        <span class="tw-block tw-mb-1">{{ t(showEnd ? 'from' : 'on') }}</span>
         <input
           v-model="start"
           type="date"
@@ -26,7 +24,7 @@
       </label>
 
       <label v-if="showEnd" class="tw-flex-1 tw-min-w-0">
-        <span class="tw-block tw-mb-1">{{ t('filter.availability.until') }}</span>
+        <span class="tw-block tw-mb-1">{{ t('until') }}</span>
         <input
           v-model="end"
           type="date"
@@ -36,19 +34,19 @@
         />
       </label>
       <button v-else type="button" class="cb-button tw-bg-gray-100" @click="showEnd = true">
-        {{ t('filter.availability.addUntil') }}
+        {{ t('addUntil') }}
       </button>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { parseISO } from 'date-fns';
+import { useI18n } from 'petite-vue-i18n';
 import { ref, watch } from 'vue';
 import { toDateString } from '../../util';
 import { CommonFilterSet } from '../filter';
 import CBFilterLabel from './CBFilterLabel.vue';
-import { parseISO } from 'date-fns';
-import { useI18n } from '../locales';
 
 const props = defineProps<{
   modelValue: CommonFilterSet['availableBetween'];
@@ -76,3 +74,19 @@ watch([start, end], () => {
   });
 });
 </script>
+
+<i18n lang="yaml">
+en:
+  title: 'Available'
+  on: 'On'
+  from: 'From'
+  until: 'Through'
+  addUntil: '+ End Date'
+
+de:
+  title: 'Verfügbar'
+  on: 'Am'
+  from: 'Vom'
+  until: 'Bis einschließlich'
+  addUntil: '+ Enddatum'
+</i18n>

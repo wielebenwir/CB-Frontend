@@ -9,7 +9,7 @@
       </div>
     </template>
     <div v-if="groupedCategoriesWithoutNamedGroup.size > 0">
-      <CBFilterLabel :label="t('filter.categoryGroup.unlabelled')" />
+      <CBFilterLabel :label="t('unlabelled')" />
       <div class="tw-flex tw-flex-wrap tw-gap-2">
         <template v-for="[group, categories] in groupedCategoriesWithoutNamedGroup" :key="group.id">
           <CBCategoryGroup v-model="value" :categories="categories" />
@@ -20,12 +20,12 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'petite-vue-i18n';
 import { computed } from 'vue';
 import { CommonCategory, CommonsSearchAPI } from '../types';
 import { useGroupBy } from '../../util';
 import CBFilterLabel from './CBFilterLabel.vue';
 import CBCategoryGroup from './CBCategoryGroup.vue';
-import { useI18n } from '../locales';
 
 const props = defineProps<{
   api: CommonsSearchAPI;
@@ -60,3 +60,11 @@ function hasGroupName(category: CommonCategory) {
   return Boolean(groupMap.value.get(category.groupId)?.name);
 }
 </script>
+
+<i18n lang="yaml">
+en:
+  unlabelled: 'Features'
+
+de:
+  unlabelled: 'Merkmale'
+</i18n>

@@ -4,7 +4,6 @@ import { watchDebounced } from '@vueuse/core';
 import { GeoCoordinate, ParsedCommonsSearchConfiguration, ValueWithUnit } from './types';
 import { HTTPAPIError } from './apis';
 import { delay } from '../util';
-import { useI18n } from './locales';
 
 const NOMINATIM_ENDPOINT = 'https://nominatim.openstreetmap.org/search';
 const NOMINATIM_REQUEST_INTERVAL_SECONDS = 1;
@@ -223,9 +222,8 @@ export function useGeoCoder(
   return { error, locations, isLoading };
 }
 
-export function useCurrentLocation() {
+export function useCurrentLocation(currentPositionLabel: string) {
   const isSupported = 'geolocation' in navigator;
-  const { t } = useI18n();
   async function getCurrentLocation(): Promise<GeoLocation> {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
@@ -234,7 +232,7 @@ export function useCurrentLocation() {
             id: -1,
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-            name: t('geo.currentPosition'),
+            name: currentPositionLabel,
           });
         },
         (error) => {
