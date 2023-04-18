@@ -3,6 +3,9 @@
     class="cb-category cb-button tw-bg-gray-100 tw-truncate"
     :class="{ 'cb-category--active tw-bg-teal-200': modelValue }"
     tabindex="0"
+    @keydown.space.prevent
+    @keyup.space="value = !value"
+    @keyup.enter="value = !value"
   >
     <input v-model="value" type="checkbox" class="tw-hidden" />
     <span>{{ category.name }}</span>
