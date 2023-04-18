@@ -32,6 +32,9 @@
           :category-map="categoryMap"
         />
       </li>
+      <li v-if="commons.length === 0" role="none">
+        <p class="tw-text-center cb-text-wrap-balance">{{ t('noMatchingItems') }}</p>
+      </li>
     </TransitionGroup>
   </div>
 </template>
@@ -72,7 +75,9 @@ watch(locations, () => {
 <i18n lang="yaml">
 en:
   commonsAtLocation: 'Commons at this location'
+  noMatchingItems: 'Sorry, but no commons match your filter criteria.'
 
 de:
   commonsAtLocation: 'Commons an diesem Standort'
+  noMatchingItems: 'Entschuldige, aber keine Commons entsprechen deinen Filterkriterien.'
 </i18n>
