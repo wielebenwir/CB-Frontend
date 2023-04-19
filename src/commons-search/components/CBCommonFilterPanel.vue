@@ -69,7 +69,7 @@ defineProps<{
 
 const { t } = useI18n();
 
-const isSmallViewPort = useMediaQuery('(max-height: 1000px)');
+const isSmallViewPort = useMediaQuery('(max-width: 448px)');
 const isDialogOpen = ref(false);
 const filterButtonEl = ref();
 const filterButtonBottom = useBottom(filterButtonEl);
