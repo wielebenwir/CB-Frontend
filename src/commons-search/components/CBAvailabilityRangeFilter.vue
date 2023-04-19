@@ -1,17 +1,17 @@
 <template>
   <div>
-    <header class="tw-flex tw-items-center tw-justify-between">
+    <header class="tw-flex tw-items-center">
       <CBFilterLabel :label="t('title')" />
       <button
         v-show="start || end || showEnd"
         type="button"
-        class="cb-button tw-p-1 tw-bg-gray-100"
+        class="cb-button tw-p-1 tw-bg-gray-100 tw-ml-auto"
         @click="reset"
       >
         <img class="tw-w-4 tw-h-4" src="../../assets/cross.svg" alt="" />
       </button>
     </header>
-    <div class="tw-flex tw-items-end tw-gap-x-2">
+    <div class="tw-flex tw-items-end tw-justify-start tw-gap-x-2 tw-w-fit tw-max-w-full">
       <label class="tw-flex-1 tw-min-w-0">
         <span class="tw-block tw-mb-1">{{ t(showEnd ? 'from' : 'on') }}</span>
         <input
