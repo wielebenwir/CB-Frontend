@@ -45,10 +45,8 @@
           >
             <img class="tw-w-6 tw-h-6" src="../../assets/crosshair.svg" alt="" />
           </button>
-          <CBLoader
-            v-else-if="isLoadingLocations || isLoadingUserLocation"
-            :label="t('waitGeoCoder')"
-          />
+          <CBLoader v-else-if="isLoadingLocations" :label="t('waitGeoCoder')" />
+          <CBLoader v-else-if="isLoadingUserLocation" :label="t('waitGeoPositioning')" />
         </div>
       </div>
     </template>
@@ -129,6 +127,7 @@ en:
   getPosition: 'Determine your current location'
   reset: 'Reset location'
   waitGeoCoder: 'Please wait while relevant locations are being loaded...'
+  waitGeoPositioning: 'Please wait while your location is being determined...'
 
 de:
   label: 'Ort'
@@ -137,4 +136,5 @@ de:
   getPosition: 'Bestimme deine aktuelle Position'
   reset: 'Ort zurücksetzen'
   waitGeoCoder: 'Es werden relevante Orte für deine Eingabe geladen...'
+  waitGeoPositioning: 'Bitte warte, während dein aktueller Aufenthaltsort bestimmt wird...'
 </i18n>
