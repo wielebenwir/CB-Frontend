@@ -45,22 +45,9 @@
 <script lang="ts" setup>
 import { computed, nextTick, ref, watchEffect } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
-import { getAttribution, getTileServerUrl } from './map';
+import { defaultIcon, getAttribution, getTileServerUrl, MarkerIcon } from './map';
 import { CommonLocation, ParsedCommonsSearchConfiguration } from '../types';
 import { GeoLocation } from '../geo';
-import marker from '../../assets/map-marker-2.svg';
-
-type MarkerIcon = {
-  iconUrl: string;
-  iconSize: [number, number];
-  iconAnchor: [number, number];
-};
-
-const defaultIcon: MarkerIcon = {
-  iconUrl: marker,
-  iconSize: [25, 41],
-  iconAnchor: [12.5, 41],
-};
 
 const props = defineProps<{
   config: ParsedCommonsSearchConfiguration;

@@ -1,4 +1,11 @@
+import marker from '../../assets/map-marker-2.svg';
 import { ParsedCommonsSearchConfiguration } from '../types';
+
+export type MarkerIcon = {
+  iconUrl: string;
+  iconSize: [number, number];
+  iconAnchor: [number, number];
+};
 
 export function getTileServerUrl(tileServerIndex: number) {
   return [
@@ -18,3 +25,9 @@ export function getAttribution(config: ParsedCommonsSearchConfiguration) {
   }
   return attribution;
 }
+
+export const defaultIcon: MarkerIcon = {
+  iconUrl: marker,
+  iconSize: [25, 41],
+  iconAnchor: [12.5, 41],
+};
