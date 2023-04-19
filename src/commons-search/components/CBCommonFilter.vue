@@ -10,33 +10,13 @@
         :config="config.geocode"
       />
 
-      <div v-if="expanded" class="cb-common-filter-panel cb-common-filter-panel--expanded">
+      <CBCommonFilterPanel :expanded="expanded">
         <CBCategoryGroupList v-model="activeCategories" :api="api" />
         <CBAvailabilityRangeFilter
           v-model="isAvailableBetween"
           :availability-range="availabilityRange"
         />
-      </div>
-
-      <Popover v-else class="tw-flex-none">
-        <PopoverButton ref="filterButtonEl" class="cb-button tw-bg-gray-200">
-          <img src="../../assets/filter.svg" class="tw-flex-none" />
-          {{ t('buttonLabel') }}
-        </PopoverButton>
-
-        <transition name="cb-animate-panel">
-          <PopoverPanel
-            class="cb-common-filter-panel tw-absolute tw-mt-3 tw-inset-x-6 tw-z-20 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg"
-            :style="{ top: `${filterButtonBottom}px` }"
-          >
-            <CBCategoryGroupList v-model="activeCategories" :api="api" />
-            <CBAvailabilityRangeFilter
-              v-model="isAvailableBetween"
-              :availability-range="availabilityRange"
-            />
-          </PopoverPanel>
-        </transition>
-      </Popover>
+      </CBCommonFilterPanel>
     </div>
 
     <CBSwitch v-model="isAvailableToday" :label="t('availableToday')" />
@@ -45,16 +25,14 @@
 
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
-import { ref } from 'vue';
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useVModel } from '@vueuse/core';
 import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';
 import { CommonFilterSet } from '../filter';
-import { useBottom } from '../../util';
 import CBCategoryGroupList from './CBCategoryGroupList.vue';
 import CBLocationFilter from './CBLocationFilter.vue';
 import CBSwitch from './CBSwitch.vue';
 import CBAvailabilityRangeFilter from './CBAvailabilityRangeFilter.vue';
+import CBCommonFilterPanel from './CBCommonFilterPanel.vue';
 
 const props = defineProps<{
   api: CommonsSearchAPI;
@@ -73,8 +51,6 @@ const emit = defineEmits<{
   (e: 'update:availableToday', value: CommonFilterSet['availableToday']): void;
 }>();
 const { t } = useI18n();
-const filterButtonEl = ref();
-const filterButtonBottom = useBottom(filterButtonEl);
 
 const activeCategories = useVModel(props, 'categories', emit);
 const userLocationFilter = useVModel(props, 'userLocation', emit);
@@ -82,22 +58,10 @@ const isAvailableBetween = useVModel(props, 'availableBetween', emit);
 const isAvailableToday = useVModel(props, 'availableToday', emit);
 </script>
 
-<style lang="postcss">
-.cb-common-filter-panel--expanded .cb-button {
-  @apply tw-bg-gray-200;
-}
-
-.cb-common-filter-panel {
-  @apply tw-flex tw-flex-col tw-gap-4;
-}
-</style>
-
 <i18n lang="yaml">
 en:
-  buttonLabel: Filter
   availableToday: 'Available today'
 
 de:
-  buttonLabel: Filtern
   availableToday: 'Heute verfügbar'
 </i18n>
