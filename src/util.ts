@@ -1,5 +1,5 @@
 import { formatISO } from 'date-fns';
-import { computed, ComputedRef, Ref } from 'vue';
+import { computed, ComputedRef, ref, Ref } from 'vue';
 import { useDevicePixelRatio, useElementBounding, useElementSize } from '@vueuse/core';
 import { Image } from './commons-search/types';
 
@@ -106,4 +106,17 @@ export function useImage(
     });
     return sortedImages.at(-1);
   });
+}
+
+export function useAsyncFunction<F extends (...args: never[]) => Promise<unknown>>(fn: F) {
+  const isProcessing = ref(false);
+  async function wrapper(...args: Parameters<F>): Promise<Awaited<ReturnType<F>>> {
+    isProcessing.value = true;
+    try {
+      return (await fn(...args)) as Awaited<ReturnType<F>>;
+    } finally {
+      isProcessing.value = false;
+    }
+  }
+  return { fn: wrapper, isProcessing };
 }
