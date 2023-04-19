@@ -9,61 +9,32 @@
       {{ t('buttonLabel') }}
     </button>
 
-    <TransitionRoot appear :show="isDialogOpen" as="template">
-      <Dialog as="div" class="tw-relative tw-z-50" @close="isDialogOpen = false">
-        <TransitionChild
-          as="template"
-          enter="tw-duration-300 tw-ease-out"
-          enter-from="tw-opacity-0"
-          enter-to="tw-opacity-100"
-          leave="tw-duration-200 tw-ease-in"
-          leave-from="tw-opacity-100"
-          leave-to="tw-opacity-0"
+    <CBDialog v-model:is-open="isDialogOpen">
+      <header
+        class="tw-flex tw-items-center tw-justify-between tw-border-b tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
+      >
+        <DialogTitle as="h3" class="tw-text-lg tw-font-bold">
+          {{ t('dialogTitle') }}
+        </DialogTitle>
+
+        <button
+          type="button"
+          class="cb-button tw-bg-gray-100 tw-p-1"
+          :aria-label="t('closeDialog')"
+          @click="isDialogOpen = false"
         >
-          <div class="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-25 tw-backdrop-blur-sm" />
-        </TransitionChild>
+          <img src="../../assets/cross.svg" alt="" />
+        </button>
+      </header>
 
-        <div class="tw-fixed tw-inset-0 tw-max-h-full">
-          <div class="tw-h-full tw-p-4 tw-flex tw-flex-col tw-justify-center">
-            <TransitionChild
-              as="template"
-              enter="tw-duration-300 tw-ease-out"
-              enter-from="tw-opacity-0 tw-scale-95"
-              enter-to="tw-opacity-100 tw-scale-100"
-              leave="tw-duration-200 tw-ease-in"
-              leave-from="tw-opacity-100 tw-scale-100"
-              leave-to="tw-opacity-0 tw-scale-95"
-            >
-              <DialogPanel
-                class="tw-w-full tw-transform tw-rounded tw-bg-white tw-pb-4 tw-shadow-xl tw-transition-all tw-max-h-full tw-flex tw-flex-col tw-overflow-hidden"
-              >
-                <header
-                  class="tw-flex tw-items-center tw-justify-between tw-border-b tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
-                >
-                  <DialogTitle as="h3" class="tw-text-lg tw-font-bold">
-                    {{ t('dialogTitle') }}
-                  </DialogTitle>
-
-                  <button
-                    type="button"
-                    class="cb-button tw-bg-gray-100 tw-p-1"
-                    :aria-label="t('closeDialog')"
-                    @click="isDialogOpen = false"
-                  >
-                    <img src="../../assets/cross.svg" alt="" />
-                  </button>
-                </header>
-                <div class="tw-flex-1 tw-min-h-0 tw-px-4 tw-overflow-y-auto tw-max-w-full">
-                  <div class="cb-common-filter-panel cb-common-filter-panel--dialog">
-                    <slot />
-                  </div>
-                </div>
-              </DialogPanel>
-            </TransitionChild>
-          </div>
+      <div class="tw-flex-1 tw-min-h-0 tw-px-4 tw-overflow-y-auto tw-max-w-full">
+        <div class="cb-common-filter-panel cb-common-filter-panel--dialog">
+          <slot />
         </div>
-      </Dialog>
-    </TransitionRoot>
+      </div>
+
+      <footer class="tw-h-4"></footer>
+    </CBDialog>
   </template>
 
   <Popover v-else class="tw-flex-none">
@@ -86,19 +57,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import {
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-  Popover,
-  PopoverButton,
-  PopoverPanel,
-  TransitionChild,
-  TransitionRoot,
-} from '@headlessui/vue';
+import { DialogTitle, Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useMediaQuery } from '@vueuse/core';
 
 import { useBottom } from '../../util';
+import CBDialog from './CBDialog.vue';
 
 defineProps<{
   expanded?: boolean;
