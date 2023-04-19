@@ -37,7 +37,7 @@
         </Combobox>
         <div class="tw-self-center tw-place-self-end tw-mr-1 cb-grid-cover">
           <button
-            v-if="canGetUserPosition && !isLoadingLocations"
+            v-if="canGetUserPosition && !isLoadingLocations && !isLoadingUserLocation"
             type="button"
             class="cb-button tw-p-1 tw-bg-gray-100"
             :aria-label="t('getPosition')"
@@ -45,7 +45,10 @@
           >
             <img class="tw-w-6 tw-h-6" src="../../assets/crosshair.svg" alt="" />
           </button>
-          <CBLoader v-else-if="isLoadingLocations" :label="t('waitGeoCoder')" />
+          <CBLoader
+            v-else-if="isLoadingLocations || isLoadingUserLocation"
+            :label="t('waitGeoCoder')"
+          />
         </div>
       </div>
     </template>
@@ -79,7 +82,7 @@ import { GeoLocation, useCurrentLocation, useGeoCoder } from '../geo';
 import { ParsedCommonsSearchConfiguration } from '../types';
 import CBLoader from '../../components/CBLoader.vue';
 import CBLocationIcon from './CBLocationIcon.vue';
-import { useBottom } from '../../util';
+import { useAsyncFunction, useBottom } from '../../util';
 
 const props = defineProps<{
   config: ParsedCommonsSearchConfiguration['geocode'];
@@ -108,14 +111,14 @@ function setLocation(location: GeoLocation) {
   currentLocation.value = location;
 }
 
-async function locateUser() {
+const { fn: locateUser, isProcessing: isLoadingUserLocation } = useAsyncFunction(async () => {
   // TODO: do proper error handling
   try {
     currentLocation.value = await getCurrentLocation();
   } catch (err) {
     console.error(err);
   }
-}
+});
 </script>
 
 <i18n lang="yaml">
