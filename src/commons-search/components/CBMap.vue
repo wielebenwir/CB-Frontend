@@ -43,7 +43,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, ref, watchEffect } from 'vue';
+import type { LatLngTuple, Map } from 'leaflet';
+import { computed, ref, watchEffect } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
 import { defaultIcon, getAttribution, getTileServerUrl, MarkerIcon } from './map';
 import { CommonLocation, ParsedCommonsSearchConfiguration } from '../types';
@@ -59,20 +60,33 @@ const emit = defineEmits<{
 }>();
 
 const map = ref();
+const leafletMap = computed<Map>(() => map?.value?.leafletObject);
 const useGlobalLeaflet = Object.hasOwn(globalThis, 'Leaflet');
 const attribution = computed(() => getAttribution(props.config));
 const tileServerUrl = computed(() => getTileServerUrl(props.config.baseMap));
 const markerIcon = computed<MarkerIcon>(
   () => (props.config.customMarkerIcon as MarkerIcon) ?? defaultIcon,
 );
+const bounds = computed(() => {
+  const points: LatLngTuple[] = props.locations.map(({ coordinates: c }) => [c.lat, c.lng]);
+  if (props.userLocation) {
+    const { lat, lng } = props.userLocation;
+    points.push([lat, lng]);
+  }
+  if (points.length === 0) {
+    const { latStart, lonStart } = props.config;
+    if (typeof latStart === 'number' && typeof lonStart === 'number') {
+      points.push([latStart, lonStart]);
+    }
+  }
+  return points;
+});
 
 watchEffect(async () => {
-  if (props.userLocation && map.value?.leafletObject?.setView) {
-    // Leaflet repeatedly moved to the wrong location if we didn’t
-    // wait for the nextTick. It’s unclear why.
-    await nextTick();
-    // Set focus on user location once it has been set.
-    map.value.leafletObject?.setView?.(props.userLocation, Math.min(15, props.config.zoomMax));
+  if (leafletMap.value) {
+    leafletMap.value.fitBounds(bounds.value, {
+      maxZoom: props.config.zoomMax,
+    });
   }
 });
 </script>
