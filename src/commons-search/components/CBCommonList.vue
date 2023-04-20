@@ -4,7 +4,7 @@
       v-if="selectedLocation"
       :location="selectedLocation"
       :user-location="userLocation"
-      class="tw-sticky tw-top-0 tw-bg-gray-100 tw-z-10 tw-border-b tw-border-gray-200"
+      class="tw-sticky tw-top-0 tw-z-20 tw-bg-gray-100 tw-border-b tw-border-gray-200"
     >
       <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
         <p class="tw-font-bold">{{ t('commonsAtLocation') }}</p>
