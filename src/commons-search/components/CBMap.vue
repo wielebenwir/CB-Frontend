@@ -7,6 +7,7 @@
     :min-zoom="config.zoomMin"
     :use-global-leaflet="useGlobalLeaflet"
     :zoom="config.zoomStart"
+    @update:center="emit('update:center', $event)"
   >
     <LTileLayer
       :url="tileServerUrl"
@@ -47,7 +48,7 @@ import type { LatLngTuple, Map } from 'leaflet';
 import { computed, ref, watchEffect } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
 import { defaultIcon, getAttribution, getTileServerUrl, MarkerIcon } from './map';
-import { CommonLocation, ParsedCommonsSearchConfiguration } from '../types';
+import { CommonLocation, GeoCoordinate, ParsedCommonsSearchConfiguration } from '../types';
 import { GeoLocation } from '../geo';
 
 const props = defineProps<{
@@ -57,6 +58,7 @@ const props = defineProps<{
 }>();
 const emit = defineEmits<{
   (e: 'select', location: CommonLocation): void;
+  (e: 'update:center', value: GeoCoordinate): void;
 }>();
 
 const map = ref();

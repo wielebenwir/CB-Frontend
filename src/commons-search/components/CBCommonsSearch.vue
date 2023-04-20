@@ -45,6 +45,7 @@
       :user-location="filter.userLocation"
       :config="config"
       @select="filter.location = $event"
+      @update:center="filter.mapCenter = $event"
     />
 
     <Transition name="cb-animate-panel">
@@ -81,6 +82,7 @@ const filter = ref<CommonFilterSet>({
   categories: new Set<number>(),
   userLocation: null,
   location: null,
+  mapCenter: null,
   availableToday: false,
   availableBetween: { start: null, end: null },
 });

@@ -1,7 +1,13 @@
 import haversine from 'haversine-distance';
 import { computed, Ref } from 'vue';
 import { isDateInDayRange, toDateString, useMap } from '../util';
-import { Common, CommonAvailabilityStatus, CommonLocation, CommonsSearchAPI } from './types';
+import {
+  Common,
+  CommonAvailabilityStatus,
+  CommonLocation,
+  CommonsSearchAPI,
+  GeoCoordinate,
+} from './types';
 import { GeoLocation } from './geo';
 
 const AVAILABLE_STATES: CommonAvailabilityStatus[] = ['available'];
@@ -10,6 +16,7 @@ export interface CommonFilterSet {
   categories: Set<number>;
   userLocation: GeoLocation | null;
   location: CommonLocation | null;
+  mapCenter: GeoCoordinate | null;
   availableToday: boolean;
   availableBetween: { start: Date | null; end: Date | null };
 }
@@ -62,7 +69,7 @@ function filterByAvailabilityRange(
   };
 }
 
-function sortByDistance(location: GeoLocation, locationMap: Map<string, CommonLocation>) {
+function sortByDistance(location: GeoCoordinate, locationMap: Map<string, CommonLocation>) {
   return function (a: Common, b: Common) {
     const locationA = locationMap.get(a.locationId)?.coordinates;
     const locationB = locationMap.get(b.locationId)?.coordinates;
@@ -91,9 +98,14 @@ export function useFilteredData(
       filter.value.categories.size > 0 && filterByCategories(filter.value.categories),
       filter.value.location && filterByLocation(filter.value.location),
     ]);
-    return filter.value.userLocation
-      ? filteredCommons.sort(sortByDistance(filter.value.userLocation, locationMap.value))
-      : filteredCommons;
+
+    if (filter.value.userLocation) {
+      filteredCommons.sort(sortByDistance(filter.value.userLocation, locationMap.value));
+    } else if (filter.value.mapCenter) {
+      filteredCommons.sort(sortByDistance(filter.value.mapCenter, locationMap.value));
+    }
+
+    return filteredCommons;
   });
 
   const relevantLocationIds = computed(
