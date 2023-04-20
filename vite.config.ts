@@ -6,7 +6,25 @@ import svgLoader from 'vite-svg-loader';
 export default defineConfig({
   base: '',
   clearScreen: false,
-  plugins: [vue(), VueI18nPlugin({}), svgLoader({ defaultImport: 'url' })],
+  plugins: [
+    vue(),
+    VueI18nPlugin({}),
+    svgLoader({
+      defaultImport: 'url',
+      svgoConfig: {
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                removeViewBox: false,
+              },
+            },
+          },
+        ],
+      },
+    }),
+  ],
   define: {
     // TODO: We might want to remove this once this library is in production use.
     __VUE_PROD_DEVTOOLS__: true,
