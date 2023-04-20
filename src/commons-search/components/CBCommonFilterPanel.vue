@@ -5,7 +5,7 @@
 
   <template v-else-if="isSmallViewPort">
     <button type="button" class="cb-button tw-bg-gray-200" @click="isDialogOpen = true">
-      <img src="../../assets/filter.svg" class="tw-flex-none" />
+      <IconFilter class="tw-flex-none" />
       {{ t('buttonLabel') }}
     </button>
 
@@ -23,7 +23,7 @@
           :aria-label="t('closeDialog')"
           @click="isDialogOpen = false"
         >
-          <img src="../../assets/cross.svg" alt="" />
+          <IconCross />
         </button>
       </header>
 
@@ -39,7 +39,7 @@
 
   <Popover v-else class="tw-flex-none">
     <PopoverButton ref="filterButtonEl" class="cb-button tw-bg-gray-200">
-      <img src="../../assets/filter.svg" class="tw-flex-none" />
+      <IconFilter class="tw-flex-none" />
       {{ t('buttonLabel') }}
     </PopoverButton>
 
@@ -60,6 +60,7 @@ import { useI18n } from 'vue-i18n';
 import { DialogTitle, Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useMediaQuery } from '@vueuse/core';
 
+import { IconCross, IconFilter } from '../../icons';
 import { useBottom } from '../../util';
 import CBDialog from './CBDialog.vue';
 

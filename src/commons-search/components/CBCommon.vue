@@ -24,12 +24,7 @@
     </figure>
     <div class="cb-common--body tw-p-4 tw-flex tw-flex-col tw-gap-2">
       <p v-if="showLocation" class="cb-common--location tw-flex tw-items-start">
-        <img
-          src="../../assets/map-marker.svg"
-          alt=""
-          class="-tw-ml-[.1em] tw-mt-[0.15em] tw-mr-[.1em] tw-flex-none"
-          role="presentation"
-        />
+        <IconMapMarker class="tw-mt-[0.1em] tw-mr-[.1em] tw-flex-none" role="presentation" />
         <span class="cb-common--location--name cb-text-wrap-balance">{{ location.name }}</span>
         <span
           v-if="distanceToUserLocation"
@@ -65,6 +60,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { computed, ref } from 'vue';
+import { IconMapMarker } from '../../icons';
 import { useImage } from '../../util';
 import { Common, CommonCategory, CommonLocation } from '../types';
 import { GeoLocation, calculateDistance } from '../geo';

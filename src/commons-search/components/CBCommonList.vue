@@ -13,7 +13,7 @@
           class="cb-button tw-bg-gray-200 tw-p-1"
           @click="emit('deselectLocation')"
         >
-          <img src="../../assets/cross.svg" alt="" />
+          <IconCross />
         </button>
       </div>
     </CBLocation>
@@ -47,6 +47,7 @@ import { GeoLocation } from '../geo';
 import { Common, CommonCategory, CommonLocation } from '../types';
 import CBCommon from './CBCommon.vue';
 import CBLocation from './CBLocation.vue';
+import { IconCross } from '../../icons';
 
 const props = defineProps<{
   categories: CommonCategory[];

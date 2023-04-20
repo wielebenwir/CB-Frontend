@@ -43,7 +43,7 @@
             :aria-label="t('getPosition')"
             @click="locateUser"
           >
-            <img class="tw-w-6 tw-h-6" src="../../assets/crosshair.svg" alt="" />
+            <IconCrosshair class="tw-w-6 tw-h-6" />
           </button>
           <CBLoader v-else-if="isLoadingLocations" :label="t('waitGeoCoder')" />
           <CBLoader v-else-if="isLoadingUserLocation" :label="t('waitGeoPositioning')" />
@@ -65,7 +65,7 @@
           :title="t('reset')"
           @click="currentLocation = null"
         >
-          <img class="tw-w-6 tw-h-6" src="../../assets/cross.svg" alt="" />
+          <IconCross class="tw-w-6 tw-h-6" />
         </button>
       </div>
     </template>
@@ -76,9 +76,10 @@
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/vue';
 import { useI18n } from 'vue-i18n';
 import { computed, ref } from 'vue';
+import CBLoader from '../../components/CBLoader.vue';
+import { IconCross, IconCrosshair } from '../../icons';
 import { GeoLocation, useCurrentLocation, useGeoCoder } from '../geo';
 import { ParsedCommonsSearchConfiguration } from '../types';
-import CBLoader from '../../components/CBLoader.vue';
 import CBLocationIcon from './CBLocationIcon.vue';
 import { useAsyncFunction, useBottom } from '../../util';
 

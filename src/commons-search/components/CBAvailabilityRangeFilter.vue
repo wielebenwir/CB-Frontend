@@ -8,7 +8,7 @@
         class="cb-button tw-p-1 tw-bg-gray-100 tw-ml-auto"
         @click="reset"
       >
-        <img class="tw-w-4 tw-h-4" src="../../assets/cross.svg" alt="" />
+        <IconCross class="tw-w-4 tw-h-4" />
       </button>
     </header>
     <div class="tw-flex tw-items-end tw-justify-start tw-gap-x-2 tw-w-fit tw-max-w-full">
@@ -44,6 +44,7 @@
 import { parseISO } from 'date-fns';
 import { useI18n } from 'vue-i18n';
 import { ref, watch } from 'vue';
+import { IconCross } from '../../icons';
 import { toDateString } from '../../util';
 import { CommonFilterSet } from '../filter';
 import CBFilterLabel from './CBFilterLabel.vue';
