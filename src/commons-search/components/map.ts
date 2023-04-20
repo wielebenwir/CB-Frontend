@@ -1,3 +1,4 @@
+import type { LatLngTuple } from 'leaflet';
 import { computed, Ref } from 'vue';
 import { ParsedCommonsSearchConfiguration } from '../types';
 import marker from '../../assets/map-marker-2.svg';
@@ -10,7 +11,7 @@ export type MarkerIcon = {
 };
 
 export type MapSettings = Partial<{
-  center: [number, number];
+  center: LatLngTuple;
   maxZoom: number;
   minZoom: number;
   zoom: number;
@@ -52,3 +53,22 @@ export const defaultIcon: MarkerIcon = {
   iconSize: [25, 41],
   iconAnchor: [12.5, 41],
 };
+
+function arePointsEqual(a: LatLngTuple, b: LatLngTuple) {
+  return a[0] === b[0] && a[1] === b[1];
+}
+
+export function arePointSetsEqual(a: Set<LatLngTuple>, b: Set<LatLngTuple>) {
+  if (a.size !== b.size) return false;
+  const aCopy = new Set(a);
+  const bCopy = new Set(b);
+  for (const aPoint of aCopy) {
+    for (const bPoint of bCopy) {
+      if (arePointsEqual(aPoint, bPoint)) {
+        bCopy.delete(bPoint);
+        break;
+      }
+    }
+  }
+  return bCopy.size === 0;
+}

@@ -42,9 +42,16 @@
 
 <script lang="ts" setup>
 import type { LatLngTuple, Map } from 'leaflet';
-import { computed, ref, watchEffect } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
-import { defaultIcon, getAttribution, getTileServerUrl, MarkerIcon, useMapSettings } from './map';
+import {
+  arePointSetsEqual,
+  defaultIcon,
+  getAttribution,
+  getTileServerUrl,
+  MarkerIcon,
+  useMapSettings,
+} from './map';
 import { CommonLocation, GeoCoordinate, ParsedCommonsSearchConfiguration } from '../types';
 import { GeoLocation } from '../geo';
 
@@ -67,26 +74,36 @@ const tileServerUrl = computed(() => getTileServerUrl(props.config.baseMap));
 const markerIcon = computed<MarkerIcon>(
   () => (props.config.customMarkerIcon as MarkerIcon) ?? defaultIcon,
 );
-const bounds = computed(() => {
-  const points: LatLngTuple[] = props.locations.map(({ coordinates: c }) => [c.lat, c.lng]);
+const points = computed(() => {
+  const points = new Set<LatLngTuple>(props.locations.map(({ coordinates: c }) => [c.lat, c.lng]));
   if (props.userLocation) {
     const { lat, lng } = props.userLocation;
-    points.push([lat, lng]);
-  }
-  if (points.length === 0) {
-    const { latStart, lonStart } = props.config;
-    if (typeof latStart === 'number' && typeof lonStart === 'number') {
-      points.push([latStart, lonStart]);
-    }
+    points.add([lat, lng]);
   }
   return points;
 });
 
-watchEffect(async () => {
-  if (leafletMap.value) {
-    leafletMap.value.fitBounds(bounds.value, {
-      maxZoom: props.config.zoomMax,
-    });
+watch([leafletMap, points], async ([map, points], [oldMap, oldPoints]) => {
+  // Can’t do anything without a map.
+  if (!map) return;
+
+  // This map was just initialized and the center was already set through
+  // its settings. We don’t need to do anything.
+  if (map && !oldMap && mapSettings.value.center) return;
+
+  // We want this to:
+  //   * re-focus the map
+  //       if: there are points to focus on
+  //       if: the points have changed
+  //   * reset the map to its original center if no points are being displayed
+  if (points.size > 0) {
+    if (!arePointSetsEqual(points, oldPoints)) {
+      map.fitBounds([...points], {
+        maxZoom: props.config.zoomMax,
+      });
+    }
+  } else if (mapSettings.value.center) {
+    map.setView(mapSettings.value.center, mapSettings.value.zoom);
   }
 });
 </script>
