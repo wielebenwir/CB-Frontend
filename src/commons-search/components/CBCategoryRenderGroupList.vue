@@ -7,7 +7,7 @@
           v-if="renderGroupMeta.get(renderGroup.id)?.isActive"
           type="button"
           class="cb-button tw-bg-gray-100 tw-text-sm tw-p-1"
-          @click="unsetActiveCategories(renderGroup)"
+          @click="value = disableCategories(modelValue, renderGroup.groupedCategories.flat())"
         >
           <IconCross />
         </button>
@@ -25,7 +25,7 @@
 <script lang="ts" setup>
 import CBFilterLabel from './CBFilterLabel.vue';
 import CBCategoryGroup from './CBCategoryGroup.vue';
-import { CategoryRenderGroup, CategoryRenderGroupMetaMap } from './categories';
+import { CategoryRenderGroup, CategoryRenderGroupMetaMap, disableCategories } from './categories';
 import { useVModel } from '@vueuse/core';
 import { IconCross } from '../../icons';
 
@@ -39,10 +39,4 @@ const emit = defineEmits<{
 }>();
 
 const value = useVModel(props, 'modelValue', emit);
-
-function unsetActiveCategories(renderGroup: CategoryRenderGroup) {
-  for (const category of renderGroup.groupedCategories.flat()) {
-    value.value.delete(category.id);
-  }
-}
 </script>

@@ -9,12 +9,24 @@ export type CategoryRenderGroup = {
 };
 
 type CategoryRenderGroupMeta = {
+  id: string;
   label: string;
   numberOfActiveCategories: number;
   isActive: boolean;
 };
 
 export type CategoryRenderGroupMetaMap = Map<string, CategoryRenderGroupMeta>;
+
+export function disableCategories(
+  activeCategories: Set<number>,
+  categoriesToRemove: CommonCategory[],
+) {
+  const newActiveCategories = new Set(activeCategories);
+  for (const category of categoriesToRemove) {
+    newActiveCategories.delete(category.id);
+  }
+  return newActiveCategories;
+}
 
 export function useCategoryRenderGroups(
   categories: Ref<CommonCategory[]>,
