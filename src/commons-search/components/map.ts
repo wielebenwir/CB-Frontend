@@ -1,11 +1,32 @@
-import marker from '../../assets/map-marker-2.svg';
+import { computed, Ref } from 'vue';
 import { ParsedCommonsSearchConfiguration } from '../types';
+import marker from '../../assets/map-marker-2.svg';
+import { isNumber } from '../../util';
 
 export type MarkerIcon = {
   iconUrl: string;
   iconSize: [number, number];
   iconAnchor: [number, number];
 };
+
+export type MapSettings = Partial<{
+  center: [number, number];
+  maxZoom: number;
+  minZoom: number;
+  zoom: number;
+}>;
+
+export function useMapSettings(config: Ref<ParsedCommonsSearchConfiguration>) {
+  return computed<MapSettings>(() => {
+    const mapProps: MapSettings = {};
+    const { latStart, lonStart, zoomStart, zoomMin, zoomMax } = config.value;
+    if (isNumber(latStart) && isNumber(lonStart)) mapProps.center = [latStart, lonStart];
+    if (isNumber(zoomStart)) mapProps.zoom = zoomStart;
+    if (isNumber(zoomMin)) mapProps.minZoom = zoomMin;
+    if (isNumber(zoomMax)) mapProps.maxZoom = zoomMax;
+    return mapProps;
+  });
+}
 
 export function getTileServerUrl(tileServerIndex: number) {
   return [

@@ -2,11 +2,8 @@
   <LMap
     ref="map"
     class="cb-map"
-    :center="[config.latStart, config.lonStart]"
-    :max-zoom="config.zoomMax"
-    :min-zoom="config.zoomMin"
     :use-global-leaflet="useGlobalLeaflet"
-    :zoom="config.zoomStart"
+    v-bind="mapSettings"
     @update:center="emit('update:center', $event)"
   >
     <LTileLayer
@@ -47,7 +44,7 @@
 import type { LatLngTuple, Map } from 'leaflet';
 import { computed, ref, watchEffect } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
-import { defaultIcon, getAttribution, getTileServerUrl, MarkerIcon } from './map';
+import { defaultIcon, getAttribution, getTileServerUrl, MarkerIcon, useMapSettings } from './map';
 import { CommonLocation, GeoCoordinate, ParsedCommonsSearchConfiguration } from '../types';
 import { GeoLocation } from '../geo';
 
@@ -63,6 +60,7 @@ const emit = defineEmits<{
 
 const map = ref();
 const leafletMap = computed<Map>(() => map?.value?.leafletObject);
+const mapSettings = useMapSettings(computed(() => props.config));
 const useGlobalLeaflet = Object.hasOwn(globalThis, 'Leaflet');
 const attribution = computed(() => getAttribution(props.config));
 const tileServerUrl = computed(() => getTileServerUrl(props.config.baseMap));

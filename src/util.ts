@@ -128,6 +128,10 @@ export function useAsyncFunction<F extends (...args: never[]) => Promise<unknown
   return { fn: wrapper, isProcessing };
 }
 
+export function isNumber(arg: unknown) {
+  return typeof arg === 'number' && !isNaN(arg);
+}
+
 export function partition<T>(iterable: T[], predicate: FilterFunction<T>) {
   const matchList: T[] = [];
   const noMatchList: T[] = [];
