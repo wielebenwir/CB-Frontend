@@ -3,6 +3,8 @@ import { computed, ComputedRef, ref, Ref } from 'vue';
 import { useDevicePixelRatio, useElementBounding, useElementSize } from '@vueuse/core';
 import { Image } from './commons-search/types';
 
+type FilterFunction<T> = (item: T, index?: number, iterable?: T[]) => boolean;
+
 export function delay(timeInSeconds: number) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -124,4 +126,18 @@ export function useAsyncFunction<F extends (...args: never[]) => Promise<unknown
     }
   }
   return { fn: wrapper, isProcessing };
+}
+
+export function partition<T>(iterable: T[], predicate: FilterFunction<T>) {
+  const matchList: T[] = [];
+  const noMatchList: T[] = [];
+  for (const item of iterable) {
+    if (predicate(item)) {
+      matchList.push(item);
+    } else {
+      noMatchList.push(item);
+    }
+  }
+
+  return [matchList, noMatchList];
 }
