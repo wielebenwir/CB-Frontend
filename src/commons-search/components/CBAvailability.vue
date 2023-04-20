@@ -1,6 +1,6 @@
 <template>
   <span
-    class="cb-availability tw-text-sm tw-font-bold tw-p-1 tw-text-center tw-select-none tw-leading-none"
+    class="cb-availability tw-text-sm tw-p-1 tw-text-center tw-select-none tw-leading-none"
     :title="t(availability.status)"
     :class="[
       `cb-availability-${availability.status}`,
@@ -12,8 +12,10 @@
         'tw-bg-gray-500 tw-text-white cb-pattern-cross': availability.status === 'locked',
       },
     ]"
-    >{{ weekdayName }}</span
   >
+    <span class="tw-block tw-font-bold">{{ weekdayName }}</span>
+    <span>{{ availability.date.getDate() }}.</span>
+  </span>
 </template>
 
 <script lang="ts" setup>
