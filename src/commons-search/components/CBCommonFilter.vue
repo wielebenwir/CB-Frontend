@@ -11,7 +11,11 @@
       />
 
       <CBCommonFilterPanel :expanded="expanded">
-        <CBCategoryGroupList v-model="activeCategories" :api="api" />
+        <CBCategoryRenderGroupList
+          v-model="activeCategories"
+          :render-group-list="categoryRenderGroups"
+          :render-group-meta="categoryRenderGroupsMeta"
+        />
         <CBAvailabilityRangeFilter
           v-model="isAvailableBetween"
           :availability-range="availabilityRange"
@@ -24,15 +28,17 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useVModel } from '@vueuse/core';
 import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';
 import { CommonFilterSet } from '../filter';
-import CBCategoryGroupList from './CBCategoryGroupList.vue';
+import CBCategoryRenderGroupList from './CBCategoryRenderGroupList.vue';
 import CBLocationFilter from './CBLocationFilter.vue';
 import CBSwitch from './CBSwitch.vue';
 import CBAvailabilityRangeFilter from './CBAvailabilityRangeFilter.vue';
 import CBCommonFilterPanel from './CBCommonFilterPanel.vue';
+import { useCategoryRenderGroups } from './categories';
 
 const props = defineProps<{
   api: CommonsSearchAPI;
@@ -56,12 +62,21 @@ const activeCategories = useVModel(props, 'categories', emit);
 const userLocationFilter = useVModel(props, 'userLocation', emit);
 const isAvailableBetween = useVModel(props, 'availableBetween', emit);
 const isAvailableToday = useVModel(props, 'availableToday', emit);
+const { renderGroups: categoryRenderGroups, renderGroupsMeta: categoryRenderGroupsMeta } =
+  useCategoryRenderGroups(
+    computed(() => props.api.categories),
+    computed(() => props.api.categoryGroups),
+    computed(() => props.categories),
+    t('unlabelledCategoryRenderGroup'),
+  );
 </script>
 
 <i18n lang="yaml">
 en:
   availableToday: 'Available today'
+  unlabelledCategoryRenderGroup: 'Features'
 
 de:
   availableToday: 'Heute verfügbar'
+  unlabelledCategoryRenderGroup: 'Merkmale'
 </i18n>
