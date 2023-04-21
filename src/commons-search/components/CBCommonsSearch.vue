@@ -31,7 +31,7 @@
       class="tw-isolate tw-z-10 tw-bg-gray-100"
       style="grid-area: list"
       :categories="api.categories"
-      :commons="filteredCommons"
+      :commons="filteredAndSortedCommons"
       :locations="filteredLocations"
       :selected-location="filter.location"
       :user-location="filter.userLocation"
@@ -87,7 +87,10 @@ const filter = ref<CommonFilterSet>({
   availableBetween: { start: null, end: null },
 });
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
-const { filteredLocations, filteredCommons } = useFilteredData(api, filter);
+const { filteredLocations, filteredCommons, filteredAndSortedCommons } = useFilteredData(
+  api,
+  filter,
+);
 
 const map = ref();
 const isMapVisible = useElementVisibility(map);

@@ -91,21 +91,23 @@ export function useFilteredData(
     const commons = api.value?.commons ?? [];
     const today = filter.value.availableToday ? new Date() : null;
     const { start, end } = filter.value.availableBetween;
-    const filteredCommons = filterIterable(commons, [
+    return filterIterable(commons, [
       today && filterByDateAvailability(today, AVAILABLE_STATES),
       start && end === null && filterByDateAvailability(start, AVAILABLE_STATES),
       start && end && filterByAvailabilityRange(start, end, AVAILABLE_STATES),
       filter.value.categories.size > 0 && filterByCategories(filter.value.categories),
       filter.value.location && filterByLocation(filter.value.location),
     ]);
+  });
 
+  const filteredAndSortedCommons = computed(() => {
+    const sortedCommons = Array.from(filteredCommons.value);
     if (filter.value.userLocation) {
-      filteredCommons.sort(sortByDistance(filter.value.userLocation, locationMap.value));
+      sortedCommons.sort(sortByDistance(filter.value.userLocation, locationMap.value));
     } else if (filter.value.mapCenter) {
-      filteredCommons.sort(sortByDistance(filter.value.mapCenter, locationMap.value));
+      sortedCommons.sort(sortByDistance(filter.value.mapCenter, locationMap.value));
     }
-
-    return filteredCommons;
+    return sortedCommons;
   });
 
   const relevantLocationIds = computed(
@@ -115,5 +117,5 @@ export function useFilteredData(
     return locations.value.filter(filterByRelevantLocations(relevantLocationIds.value));
   });
 
-  return { filteredLocations, filteredCommons };
+  return { filteredLocations, filteredCommons, filteredAndSortedCommons };
 }

@@ -44,15 +44,8 @@
 import type { LatLngTuple, Map } from 'leaflet';
 import { computed, ref, watch } from 'vue';
 import { LIcon, LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
-import {
-  arePointSetsEqual,
-  defaultIcon,
-  getAttribution,
-  getTileServerUrl,
-  MarkerIcon,
-  useMapSettings,
-} from './map';
 import { CommonLocation, GeoCoordinate, ParsedCommonsSearchConfiguration } from '../types';
+import { defaultIcon, getAttribution, getTileServerUrl, MarkerIcon, useMapSettings } from './map';
 import { GeoLocation } from '../geo';
 
 const props = defineProps<{
@@ -83,7 +76,7 @@ const points = computed(() => {
   return points;
 });
 
-watch([leafletMap, points], async ([map, points], [oldMap, oldPoints]) => {
+watch([leafletMap, points], async ([map, points], [oldMap, _]) => {
   // Can’t do anything without a map.
   if (!map) return;
 
@@ -92,16 +85,12 @@ watch([leafletMap, points], async ([map, points], [oldMap, oldPoints]) => {
   if (map && !oldMap && mapSettings.value.center) return;
 
   // We want this to:
-  //   * re-focus the map
-  //       if: there are points to focus on
-  //       if: the points have changed
+  //   * re-focus the map if there are points to focus on
   //   * reset the map to its original center if no points are being displayed
   if (points.size > 0) {
-    if (!arePointSetsEqual(points, oldPoints)) {
-      map.fitBounds([...points], {
-        maxZoom: props.config.zoomMax,
-      });
-    }
+    map.fitBounds([...points], {
+      maxZoom: props.config.zoomMax,
+    });
   } else if (mapSettings.value.center) {
     map.setView(mapSettings.value.center, mapSettings.value.zoom);
   }
