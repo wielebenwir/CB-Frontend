@@ -198,3 +198,40 @@ export function createImageResolver(cache?: Map<string, Promise<string | undefin
     return await promise;
   };
 }
+
+export async function* iterSettled<T>(
+  promises: Promise<T>[],
+): AsyncGenerator<{ status: 'fulfilled'; value: T } | { status: 'rejected'; reason: unknown }> {
+  if (promises.length === 0) return;
+
+  const iterMap = new Map<number, Promise<{ index: number } & ({ data: T } | { error: unknown })>>(
+    promises.map((promise, index) => {
+      return [
+        index,
+        new Promise((resolve) => {
+          promise
+            .then((data) => {
+              resolve({ index, data });
+            })
+            .catch((error) => {
+              resolve({ index, error });
+            });
+        }),
+      ];
+    }),
+  );
+
+  while (iterMap.size > 0) {
+    const resolved = await Promise.race(iterMap.values());
+    iterMap.delete(resolved.index);
+    // AsyncGenerator semantics dictate that `yield` behaves as `yield await`.
+    // This means that we cannot yield rejected promises, without the generator
+    // aborting wherever it encounters the first rejected promise.
+    // So we wrap the payload in a Promise.allSettled-like object.
+    if ('data' in resolved) {
+      yield { status: 'fulfilled', value: resolved.data };
+    } else {
+      yield { status: 'rejected', reason: resolved.error };
+    }
+  }
+}
