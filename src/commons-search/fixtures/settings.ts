@@ -1,6 +1,35 @@
 import { addDays } from 'date-fns';
 import { toDateString } from '../../util';
-import { CommonsSearchConfiguration } from '../types';
+import { CommonsSearchConfiguration, CommonMarkerIconConfig, MarkerIconConfig } from '../types';
+import LightningIcon from './lightning.svg?url';
+import HandIcon from './hand.svg?url';
+
+const markerIcon: CommonMarkerIconConfig = {
+  renderers: [
+    {
+      type: 'category',
+      matchers: [
+        {
+          categories: [29],
+          renderers: { type: 'image', url: LightningIcon },
+        },
+        {
+          categories: [31],
+          renderers: {
+            type: 'color',
+            color: 'hsl(230 60% 80%)',
+          },
+        },
+      ],
+    },
+    { type: 'thumbnail' },
+  ],
+  wrapDefaults: { scale: 0.75 },
+};
+
+const userMarkerIcon: MarkerIconConfig = {
+  renderers: [{ type: 'image', url: HandIcon }],
+};
 
 export default {
   data_source: 'fixtures',
@@ -95,6 +124,10 @@ export default {
   show_item_availability_filter: false,
   label_item_availability_filter: 'Verfügbarkeit',
   label_item_category_filter: 'Merkmale',
+  map: {
+    markerIcon,
+    userMarkerIcon,
+  },
   geocode: {
     region: { countryCodes: ['de'] },
   },

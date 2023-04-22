@@ -32,7 +32,7 @@
       style="grid-area: list"
       :categories="api.categories"
       :commons="filteredAndSortedCommons"
-      :locations="filteredLocations"
+      :location-map="locationMap"
       :selected-location="filter.location"
       :user-location="filter.userLocation"
       @deselect-location="filter.location = null"
@@ -41,7 +41,8 @@
       ref="map"
       class="tw-isolate tw-z-0"
       style="grid-area: map"
-      :locations="filteredLocations"
+      :commons="filteredCommons"
+      :location-map="locationMap"
       :user-location="filter.userLocation"
       :config="config"
       @select="filter.location = $event"
@@ -87,10 +88,7 @@ const filter = ref<CommonFilterSet>({
   availableBetween: { start: null, end: null },
 });
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
-const { filteredLocations, filteredCommons, filteredAndSortedCommons } = useFilteredData(
-  api,
-  filter,
-);
+const { locationMap, filteredCommons, filteredAndSortedCommons } = useFilteredData(api, filter);
 
 const map = ref();
 const isMapVisible = useElementVisibility(map);

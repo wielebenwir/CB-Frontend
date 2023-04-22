@@ -4,8 +4,14 @@
 
 @layer base {
   :root {
-    --cb-marker-icon-hue: 0deg;
-    --cb-marker-icon-brightness: 1;
+    --commonsbooking-map-marker-default-embed-fill: var(
+      --commonsbooking-color-buttons,
+      hsl(160 60% 80%)
+    );
+    --commonsbooking-map-marker-user-embed-fill: var(
+      --commonsbooking-color-secondary,
+      hsl(240 60% 80%)
+    );
   }
 }
 

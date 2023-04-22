@@ -117,5 +117,5 @@ export function useFilteredData(
     return locations.value.filter(filterByRelevantLocations(relevantLocationIds.value));
   });
 
-  return { filteredLocations, filteredCommons, filteredAndSortedCommons };
+  return { filteredLocations, filteredCommons, filteredAndSortedCommons, locationMap };
 }

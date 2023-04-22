@@ -55,7 +55,7 @@ export default [
         short_desc:
           'Bubi hat zwar keinen Motor, aber eine große Kiste mit Platz für 4 Kinder oder jede Menge Gepäck.',
         status: 'publish',
-        terms: [28, 34, 30],
+        terms: [28, 34, 30, 31],
         link: 'https://stage3.commons-booking.org/rundedinge/bubi-2/?cb-location=10510',
         thumbnail: assets['bubi-150x150.jpg'],
         images: {
@@ -78,7 +78,7 @@ export default [
         short_desc:
           'Dieser abschließbare fliegende Hund ist ideal geeignet um lange Strecken in hoher Geschwindigkeit zu überbrücken.',
         status: 'publish',
-        terms: [28, 34, 30],
+        terms: [28, 34, 30, 31],
         link: 'https://stage3.commons-booking.org/rundedinge/by-2/?cb-location=10510',
         thumbnail: assets['fuchur-150x150.jpg'],
         images: {

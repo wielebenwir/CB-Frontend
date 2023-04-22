@@ -1,6 +1,43 @@
 import type { CamelCasedPropertiesDeep } from 'type-fest';
 import type { ComputedRef, UnwrapNestedRefs } from 'vue';
 
+type CustomIconAttributes = { width: number; height: number; anchor: { x: number; y: number } };
+export type CustomIcon = { url: string } & CustomIconAttributes;
+type IconWrapperTemplate = { source: string } & CustomIconAttributes;
+export type IconWrapper = {
+  template?: IconWrapperTemplate;
+  fill?: string;
+  embedFill?: string;
+  scale?: number;
+};
+type CategoryMatcher = {
+  categories: number[];
+  renderers: MarkerIconRenderer | MarkerIconRenderer[];
+  wrap?: IconWrapper;
+};
+type ThumbnailRenderer = { type: 'thumbnail'; wrap?: IconWrapper };
+type CategoryRenderer = { type: 'category'; matchers: CategoryMatcher[]; wrap?: IconWrapper };
+type StaticImageRenderer = { type: 'image'; url: string; wrap?: IconWrapper };
+type ColorIconRenderer = { type: 'color'; color: string; wrap?: IconWrapper };
+type IconRenderer = { type: 'icon' } & CustomIcon;
+type TraditionalIconRenderer = { type: 'traditional-icon' };
+export type MarkerIconRenderer =
+  | StaticImageRenderer
+  | IconRenderer
+  | ColorIconRenderer
+  | TraditionalIconRenderer;
+export type CommonMarkerIconRenderer = ThumbnailRenderer | CategoryRenderer | MarkerIconRenderer;
+
+export type MarkerIconConfig = {
+  renderers: MarkerIconRenderer[];
+  wrapDefaults?: IconWrapper;
+};
+
+export type CommonMarkerIconConfig = {
+  renderers: CommonMarkerIconRenderer[];
+  wrapDefaults?: IconWrapper;
+};
+
 export type CommonsSearchConfiguration = {
   data_source?: 'admin-ajax' | 'fixtures';
   data_url: string;
@@ -51,6 +88,10 @@ export type CommonsSearchConfiguration = {
   label_item_category_filter: string;
   layout?: {
     expand_filter?: boolean;
+  };
+  map?: {
+    markerIcon?: CommonMarkerIconConfig;
+    userMarkerIcon?: MarkerIconConfig;
   };
   geocode?: {
     nominatim_endpoint?: string;

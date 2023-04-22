@@ -41,7 +41,7 @@
 
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
-import { ref, toRefs, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useMap } from '../../util';
 import { GeoLocation } from '../geo';
 import { Common, CommonCategory, CommonLocation } from '../types';
@@ -52,7 +52,7 @@ import { IconCross } from '../../icons';
 const props = defineProps<{
   categories: CommonCategory[];
   commons: Common[];
-  locations: CommonLocation[];
+  locationMap: Map<CommonLocation['id'], CommonLocation>;
   selectedLocation: CommonLocation | null;
   userLocation: GeoLocation | null;
 }>();
@@ -61,16 +61,20 @@ const emit = defineEmits<{
 }>();
 const { t } = useI18n();
 
-const { categories, locations } = toRefs(props);
-const locationMap = useMap(locations, 'id');
-const categoryMap = useMap(categories, 'id');
 const rootEl = ref<HTMLElement>();
+const categoryMap = useMap(
+  computed(() => props.categories),
+  'id',
+);
 
-watch(locations, () => {
-  if (rootEl.value instanceof HTMLElement) {
-    rootEl.value.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-});
+watch(
+  computed(() => props.commons),
+  () => {
+    if (rootEl.value instanceof HTMLElement) {
+      rootEl.value.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  },
+);
 </script>
 
 <i18n lang="yaml">
