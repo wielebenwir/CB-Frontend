@@ -5,10 +5,12 @@ import { Image } from './commons-search/types';
 
 type FilterFunction<T> = (item: T, index?: number, iterable?: T[]) => boolean;
 
-export function delay(timeInSeconds: number) {
+export function delay<T>(timeInSeconds: number, resolveTo: T): Promise<T>;
+export function delay(timeInSeconds: number): Promise<undefined>;
+export function delay(timeInSeconds: number, resolveTo = undefined) {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(undefined);
+      resolve(resolveTo);
     }, timeInSeconds * 1000);
   });
 }
