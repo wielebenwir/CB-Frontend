@@ -55,8 +55,7 @@ async function createCommonsSearchAPI(
     return API(config);
   }
 
-  // TODO: test tree shaking of fixtures in library builds
-  if (import.meta.env.DEV || import.meta.env.VITE_BUILD_MODE !== 'lib') {
+  if (import.meta.env.VITE_BUILD_MODE === 'app') {
     if (config.dataSource === 'fixtures') {
       const { API } = await import('./fixtures-api');
       return API(config);

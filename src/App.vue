@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import createCommonsSearch from './commons-search';
+import { init as createCommonsSearch } from './commons-search';
 import { ref, watchEffect } from 'vue';
 import 'leaflet/dist/leaflet.css';
 
@@ -12,7 +12,7 @@ const rootEl = ref<HTMLElement>();
 
 watchEffect(() => {
   if (rootEl.value) {
-    createCommonsSearch(rootEl.value, configuration);
+    createCommonsSearch(rootEl.value as HTMLElement, configuration);
   }
 });
 </script>

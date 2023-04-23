@@ -65,7 +65,7 @@ const emit = defineEmits<{
 const map = ref();
 const leafletMap = computed<LeafletMap>(() => map?.value?.leafletObject);
 const mapSettings = useMapSettings(computed(() => props.config));
-const useGlobalLeaflet = Object.hasOwn(globalThis, 'Leaflet');
+const useGlobalLeaflet = Object.hasOwn(globalThis, 'L');
 const attribution = computed(() => getAttribution(props.config));
 const tileServerUrl = computed(() => getTileServerUrl(props.config.baseMap));
 const points = computed(() => {

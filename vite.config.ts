@@ -1,37 +1,11 @@
-import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite';
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
-import svgLoader from 'vite-svg-loader';
 
-export default defineConfig({
-  base: '',
-  clearScreen: false,
-  plugins: [
-    vue(),
-    VueI18nPlugin({}),
-    svgLoader({
-      defaultImport: 'url',
-      svgoConfig: {
-        plugins: [
-          {
-            name: 'preset-default',
-            params: {
-              overrides: {
-                removeViewBox: false,
-              },
-            },
-          },
-        ],
-      },
-    }),
-  ],
-  define: {
-    // TODO: We might want to remove this once this library is in production use.
-    __VUE_PROD_DEVTOOLS__: true,
-  },
-  build: {
-    outDir: 'dist-app',
-    sourcemap: true,
-    emptyOutDir: true,
-  },
-});
+import appConfig from './vite.cb-app-config';
+import libConfig from './vite.cb-lib-config';
+
+const VITE_BUILD_MODE = process.env.VITE_BUILD_MODE ?? 'lib';
+
+if (!['app', 'lib'].includes(VITE_BUILD_MODE)) {
+  throw new TypeError(`BUILD_MODE must be either 'app' or 'lib'.`);
+}
+export default defineConfig(VITE_BUILD_MODE === 'lib' ? libConfig : appConfig);

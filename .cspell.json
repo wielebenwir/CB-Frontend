@@ -25,5 +25,5 @@
     "rokoli"
   ],
   "flagWords": ["hte"],
-  "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "dist-app/**", "*.svg", "*.json"]
+  "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "stats/**", "*.svg", "*.json"]
 }
