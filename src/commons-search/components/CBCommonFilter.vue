@@ -4,7 +4,7 @@
   >
     <div class="tw-flex tw-gap-3 tw-max-w-full" :class="{ 'tw-flex-col': expanded }">
       <CBLocationFilter
-        v-if="config.showLocationDistanceFilter"
+        v-if="config.geocode"
         v-model="userLocationFilter"
         class="tw-min-w-0 tw-flex-1"
         :config="config.geocode"
@@ -50,7 +50,7 @@ import { computed } from 'vue';
 import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { useVModel } from '@vueuse/core';
 import { IconCross } from '../../icons';
-import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';
+import { CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
 import { CommonFilterSet } from '../filter';
 import CBCategoryRenderGroupList from './CBCategoryRenderGroupList.vue';
 import CBLocationFilter from './CBLocationFilter.vue';
@@ -68,7 +68,7 @@ type AppliedFilter = {
 
 const props = defineProps<{
   api: CommonsSearchAPI;
-  config: ParsedCommonsSearchConfiguration;
+  config: CommonsSearchConfiguration;
   categories: CommonFilterSet['categories'];
   userLocation: CommonFilterSet['userLocation'];
   availableBetween: CommonFilterSet['availableBetween'];

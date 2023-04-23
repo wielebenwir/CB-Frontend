@@ -3,14 +3,17 @@
     ref="map"
     class="cb-map"
     :use-global-leaflet="useGlobalLeaflet"
-    v-bind="mapSettings"
+    :center="coordinateToLatLngTuple(config.map.center)"
+    :zoom="config.map.zoom.start"
+    :min-zoom="config.map.zoom.min"
+    :max-zoom="config.map.zoom.max"
     @update:center="emit('update:center', $event)"
   >
     <LTileLayer
-      :url="tileServerUrl"
+      :url="config.map.tileServerApi.url"
       :attribution="attribution"
-      :max-zoom="config.zoomMax"
-      :min-zoom="config.zoomMin"
+      :min-zoom="config.map.zoom.min"
+      :max-zoom="config.map.zoom.max"
       :detect-retina="true"
     />
     <template v-if="commons">
@@ -38,21 +41,13 @@ import type { LatLngTuple, Map as LeafletMap } from 'leaflet';
 import { computed, ref, watch } from 'vue';
 import { LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
 import { computedAsync } from '@vueuse/core';
-import { GeoLocation } from '../geo';
-import { Common, CommonLocation, GeoCoordinate, ParsedCommonsSearchConfiguration } from '../types';
-import {
-  getAttribution,
-  getTileServerUrl,
-  makeMapMarkerIcon,
-  MarkerIcon,
-  resolveMarkerIcon,
-  useMapSettings,
-  usePointsOfInterest,
-} from './map';
+import { coordinateToLatLngTuple, GeoLocation } from '../geo';
+import { Common, CommonLocation, GeoCoordinate, MapConfig, GeocodeConfig } from '../types';
+import { makeMapMarkerIcon, MarkerIcon, resolveMarkerIcon, usePointsOfInterest } from './map';
 import CBMapMarkerIcon from './CBMapMarkerIcon.vue';
 
 const props = defineProps<{
-  config: ParsedCommonsSearchConfiguration;
+  config: { map: MapConfig; geocode?: GeocodeConfig };
   commons: Common[];
   locationMap: Map<CommonLocation['id'], CommonLocation>;
   userLocation: GeoLocation | null;
@@ -64,20 +59,23 @@ const emit = defineEmits<{
 
 const map = ref();
 const leafletMap = computed<LeafletMap>(() => map?.value?.leafletObject);
-const mapSettings = useMapSettings(computed(() => props.config));
 const useGlobalLeaflet = Object.hasOwn(globalThis, 'L');
-const attribution = computed(() => getAttribution(props.config));
-const tileServerUrl = computed(() => getTileServerUrl(props.config.baseMap));
+const attribution = computed(() => {
+  let result = props.config.map.tileServerApi.attribution;
+  if (props.config.geocode) {
+    result += ` | ${props.config.geocode.nominatimSearchApi.attribution}`;
+  }
+  return result;
+});
 const points = computed(() => {
   const points = new Set<LatLngTuple>(
     props.commons.map(({ locationId }) => {
       const { coordinates: c } = props.locationMap.get(locationId) as CommonLocation;
-      return [c.lat, c.lng];
+      return coordinateToLatLngTuple(c);
     }),
   );
   if (props.userLocation) {
-    const { lat, lng } = props.userLocation;
-    points.add([lat, lng]);
+    points.add(coordinateToLatLngTuple(props.userLocation));
   }
   return points;
 });
@@ -102,19 +100,19 @@ watch([leafletMap, points], async ([map, points], [oldMap, _]) => {
   // Can’t do anything without a map.
   if (!map) return;
 
-  // This map was just initialized and the center was already set through
+  // If this map was just initialized then the center was already set through
   // its settings. We don’t need to do anything.
-  if (map && !oldMap && mapSettings.value.center) return;
+  if (map && !oldMap) return;
 
   // We want this to:
   //   * re-focus the map if there are points to focus on
   //   * reset the map to its original center if no points are being displayed
   if (points.size > 0) {
     map.fitBounds([...points], {
-      maxZoom: props.config.zoomMax,
+      maxZoom: props.config.map.zoom.max,
     });
-  } else if (mapSettings.value.center) {
-    map.setView(mapSettings.value.center, mapSettings.value.zoom);
+  } else {
+    map.setView(coordinateToLatLngTuple(props.config.map.center), props.config.map.zoom.start);
   }
 });
 </script>

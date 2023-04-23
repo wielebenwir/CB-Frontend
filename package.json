@@ -57,9 +57,7 @@
     "@rokoli/vue-tiny-i18n": "^0.1.0",
     "@vue-leaflet/vue-leaflet": "^0.9.0",
     "@vueuse/core": "^10.1.0",
-    "camelcase-keys": "^8.0.2",
     "date-fns": "^2.29.3",
-    "haversine-distance": "^1.2.1",
-    "type-fest": "^3.8.0"
+    "haversine-distance": "^1.2.1"
   }
 }

@@ -22,8 +22,8 @@
       :config="config"
       :expanded="config?.layout?.expandFilter"
       :availability-range="{
-        start: parseISO(config.filterAvailability.dateMin),
-        end: parseISO(config.filterAvailability.dateMax),
+        start: parseISO(config.filter.availability.dateRange.start),
+        end: parseISO(config.filter.availability.dateRange.end),
       }"
       style="grid-area: filter"
     />
@@ -38,13 +38,14 @@
       @deselect-location="filter.location = null"
     />
     <CBMap
+      v-if="config.map !== undefined"
       ref="map"
       class="tw-isolate tw-z-0"
       style="grid-area: map"
       :commons="filteredCommons"
       :location-map="locationMap"
       :user-location="filter.userLocation"
-      :config="config"
+      :config="{ map: config.map, geocode: config.geocode }"
       @select="filter.location = $event"
       @update:center="filter.mapCenter = $event"
     />
@@ -67,7 +68,7 @@ import { useElementVisibility } from '@vueuse/core';
 import { ref } from 'vue';
 
 import IconArrowUp from '../../assets/arrow-up.svg?component';
-import { ParsedCommonsSearchConfiguration } from '../types';
+import { CommonsSearchConfiguration, Id } from '../types';
 import { useCommonsSearchAPI } from '../apis';
 import CBCommonFilter from './CBCommonFilter.vue';
 import CBCommonList from './CBCommonList.vue';
@@ -75,12 +76,12 @@ import CBMap from './CBMap.vue';
 import { CommonFilterSet, useFilteredData } from '../filter';
 
 const props = defineProps<{
-  config: ParsedCommonsSearchConfiguration;
+  config: CommonsSearchConfiguration;
 }>();
 
 // API data
 const filter = ref<CommonFilterSet>({
-  categories: new Set<number>(),
+  categories: new Set<Id>(),
   userLocation: null,
   location: null,
   mapCenter: null,

@@ -28,9 +28,10 @@ import CBCategoryGroup from './CBCategoryGroup.vue';
 import { CategoryRenderGroup, CategoryRenderGroupMetaMap, disableCategories } from './categories';
 import { useVModel } from '@vueuse/core';
 import { IconCross } from '../../icons';
+import { Id } from '../types';
 
 const props = defineProps<{
-  modelValue: Set<number>;
+  modelValue: Set<Id>;
   renderGroupList: CategoryRenderGroup[];
   renderGroupMeta: CategoryRenderGroupMetaMap;
 }>();

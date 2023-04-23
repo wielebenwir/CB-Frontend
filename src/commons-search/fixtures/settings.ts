@@ -1,6 +1,6 @@
 import { addDays } from 'date-fns';
 import { toDateString } from '../../util';
-import { CommonsSearchConfiguration, CommonMarkerIconConfig, MarkerIconConfig } from '../types';
+import { CommonMarkerIconConfig, MarkerIconConfig, ExtendedLegacyMapConfiguration } from '../types';
 import LightningIcon from './lightning.svg?url';
 import HandIcon from './hand.svg?url';
 
@@ -32,9 +32,8 @@ const userMarkerIcon: MarkerIconConfig = {
 };
 
 export default {
-  data_source: 'fixtures',
-  data_url: 'https://stage3.commons-booking.org/wp-admin/admin-ajax.php',
-  nonce: '08172e7a0d',
+  version: 1,
+  dataSource: { type: 'fixtures' },
   custom_marker_icon: null,
   item_draft_marker_icon: null,
   preferred_status_marker_icon: 'publish',
@@ -131,4 +130,4 @@ export default {
   geocode: {
     region: { countryCodes: ['de'] },
   },
-} as CommonsSearchConfiguration;
+} as ExtendedLegacyMapConfiguration;

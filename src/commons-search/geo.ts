@@ -1,11 +1,11 @@
 import haversine from 'haversine-distance';
 import { ref, Ref } from 'vue';
 import { watchDebounced } from '@vueuse/core';
-import { GeoCoordinate, ParsedCommonsSearchConfiguration, ValueWithUnit } from './types';
+import { GeocodeConfig, GeoCoordinate, ValueWithUnit } from './types';
 import { HTTPAPIError } from './apis';
 import { delay } from '../util';
+import type { LatLngTuple } from 'leaflet';
 
-const NOMINATIM_ENDPOINT = 'https://nominatim.openstreetmap.org/search';
 const NOMINATIM_REQUEST_INTERVAL_SECONDS = 1;
 const USER_AGENT = 'CommonsBooking <https://github.com/wielebenwir/commonsbooking>';
 
@@ -32,6 +32,10 @@ type NominatimResult = {
     postcode?: string;
   };
 };
+
+export function coordinateToLatLngTuple(c: GeoCoordinate): LatLngTuple {
+  return [c.lat, c.lng];
+}
 
 function getDistanceInMeters(a: PoorlyTypedGeoCoordinate, b: PoorlyTypedGeoCoordinate) {
   const ensureFloat = (v: string | number) => (typeof v === 'number' ? v : parseFloat(v));
@@ -134,9 +138,9 @@ export function processNominatimResults(data: NominatimResult[]): GeoLocation[] 
 
 export async function geocodeAddress(
   queryOrStreet: string,
-  config?: ParsedCommonsSearchConfiguration['geocode'],
+  config: GeocodeConfig,
 ): Promise<NominatimResult[]> {
-  const url = config?.nominatimEndpoint ?? NOMINATIM_ENDPOINT;
+  const url = config.nominatimSearchApi.url;
 
   const params = new URLSearchParams();
   params.set('format', 'json');
@@ -184,10 +188,7 @@ async function haltForNominatimAPIRequestLimit(lastRequestDate: Date) {
   }
 }
 
-export function useGeoCoder(
-  queryOrStreet: Ref<string>,
-  geocodeConfig?: ParsedCommonsSearchConfiguration['geocode'],
-) {
+export function useGeoCoder(queryOrStreet: Ref<string>, geocodeConfig: GeocodeConfig) {
   let lastRequestDate = new Date();
   const locations = ref<GeoLocation[]>([]);
   const error = ref<Error>();

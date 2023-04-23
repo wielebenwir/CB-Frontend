@@ -1,18 +1,16 @@
-import type { LatLngTuple } from 'leaflet';
-import { computed, ref, Ref, watchEffect } from 'vue';
+import { ref, Ref, watchEffect } from 'vue';
 import {
   Common,
   CommonLocation,
   CustomIcon,
   IconWrapper,
   CommonMarkerIconConfig,
-  ParsedCommonsSearchConfiguration,
   MarkerIconConfig,
   CommonMarkerIconRenderer,
 } from '../types';
 import marker from '../../assets/map-marker-2.svg';
 import MapMarkerTemplate from '../../assets/map-marker-template.svg?raw';
-import { createImageResolver, isNumber, iterSettled } from '../../util';
+import { createImageResolver, iterSettled } from '../../util';
 
 export type MarkerIcon = {
   iconUrl: string;
@@ -21,13 +19,6 @@ export type MarkerIcon = {
   className: string;
 };
 
-export type MapSettings = Partial<{
-  center: LatLngTuple;
-  maxZoom: number;
-  minZoom: number;
-  zoom: number;
-}>;
-
 type PointOfInterest = {
   markerIcon: MarkerIcon;
   common: Common;
@@ -35,37 +26,6 @@ type PointOfInterest = {
 };
 
 const defaultImageResolver = createImageResolver();
-
-export function useMapSettings(config: Ref<ParsedCommonsSearchConfiguration>) {
-  return computed<MapSettings>(() => {
-    const mapProps: MapSettings = {};
-    const { latStart, lonStart, zoomStart, zoomMin, zoomMax } = config.value;
-    if (isNumber(latStart) && isNumber(lonStart)) mapProps.center = [latStart, lonStart];
-    if (isNumber(zoomStart)) mapProps.zoom = zoomStart;
-    if (isNumber(zoomMin)) mapProps.minZoom = zoomMin;
-    if (isNumber(zoomMax)) mapProps.maxZoom = zoomMax;
-    return mapProps;
-  });
-}
-
-export function getTileServerUrl(tileServerIndex: number) {
-  return [
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png',
-    'https://tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png',
-    'https://tiles.lokaler.de/osmbright-20171212/{z}/{x}/{y}/tile@1x.jpeg',
-  ][tileServerIndex];
-}
-
-export function getAttribution(config: ParsedCommonsSearchConfiguration) {
-  let attribution =
-    'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors - <a href="https://www.openstreetmap.org/copyright">License</a>';
-  if (config.showLocationDistanceFilter) {
-    attribution +=
-      ' | Address search by <a href="https://nominatim.openstreetmap.org/">Nominatim</a>';
-  }
-  return attribution;
-}
 
 const traditionalIcon: MarkerIcon = {
   iconUrl: marker,
@@ -260,7 +220,7 @@ export function usePointsOfInterest(
   resolveImage: (url: string) => Promise<string | undefined> = defaultImageResolver,
 ) {
   let lastUpdate = new Date();
-  const pointsOfInterest = ref(new Map<number, PointOfInterest>());
+  const pointsOfInterest = ref(new Map<Common['id'], PointOfInterest>());
 
   async function createPointOfInterest(common: Common): Promise<PointOfInterest> {
     const location = locationMap.value.get(common.locationId) as CommonLocation;

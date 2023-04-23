@@ -79,12 +79,12 @@ import { computed, ref } from 'vue';
 import CBLoader from '../../components/CBLoader.vue';
 import { IconCross, IconCrosshair } from '../../icons';
 import { GeoLocation, useCurrentLocation, useGeoCoder } from '../geo';
-import { ParsedCommonsSearchConfiguration } from '../types';
+import { GeocodeConfig } from '../types';
 import CBLocationIcon from './CBLocationIcon.vue';
 import { useAsyncFunction, useBottom } from '../../util';
 
 const props = defineProps<{
-  config: ParsedCommonsSearchConfiguration['geocode'];
+  config: GeocodeConfig;
   modelValue: GeoLocation | null;
 }>();
 const emit = defineEmits<{

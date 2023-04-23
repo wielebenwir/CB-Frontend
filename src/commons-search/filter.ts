@@ -7,13 +7,15 @@ import {
   CommonLocation,
   CommonsSearchAPI,
   GeoCoordinate,
+  Id,
+  IdMap,
 } from './types';
 import { GeoLocation } from './geo';
 
 const AVAILABLE_STATES: CommonAvailabilityStatus[] = ['available'];
 
 export interface CommonFilterSet {
-  categories: Set<number>;
+  categories: Set<Id>;
   userLocation: GeoLocation | null;
   location: CommonLocation | null;
   mapCenter: GeoCoordinate | null;
@@ -35,12 +37,12 @@ function filterIterable<T>(iterable: T[], filters: (FilterFunction<T> | unknown)
     : iterable;
 }
 
-function filterByCategories(relevantCategoryIds: Set<number>) {
+function filterByCategories(relevantCategoryIds: Set<Id>) {
   return (common: Common) =>
     Array.from(relevantCategoryIds).every((id) => common.categoryIds.includes(id));
 }
 
-function filterByRelevantLocations(relevantLocationIds: Set<string>) {
+function filterByRelevantLocations(relevantLocationIds: Set<Id>) {
   return (location: CommonLocation) => relevantLocationIds.has(location.id);
 }
 
@@ -69,7 +71,7 @@ function filterByAvailabilityRange(
   };
 }
 
-function sortByDistance(location: GeoCoordinate, locationMap: Map<string, CommonLocation>) {
+function sortByDistance(location: GeoCoordinate, locationMap: IdMap<CommonLocation>) {
   return function (a: Common, b: Common) {
     const locationA = locationMap.get(a.locationId)?.coordinates;
     const locationB = locationMap.get(b.locationId)?.coordinates;

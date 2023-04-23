@@ -9,15 +9,15 @@
 </template>
 
 <script lang="ts" setup>
-import { CommonCategory } from '../types';
+import { CommonCategory, Id } from '../types';
 import CBCategory from './CBCategory.vue';
 
 const props = defineProps<{
   categories: CommonCategory[];
-  modelValue: Set<number>;
+  modelValue: Set<Id>;
 }>();
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: Set<number>): void;
+  (e: 'update:modelValue', value: Set<Id>): void;
 }>();
 
 function updateState(toggledCategory: CommonCategory, newState: boolean) {

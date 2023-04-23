@@ -1,4 +1,3 @@
-import type { CamelCasedPropertiesDeep } from 'type-fest';
 import type { ComputedRef, UnwrapNestedRefs } from 'vue';
 
 type CustomIconAttributes = { width: number; height: number; anchor: { x: number; y: number } };
@@ -38,11 +37,9 @@ export type CommonMarkerIconConfig = {
   wrapDefaults?: IconWrapper;
 };
 
-export type CommonsSearchConfiguration = {
-  data_source?: 'admin-ajax' | 'fixtures';
-  data_url: string;
-  nonce: string;
-  cb_map_id: number;
+export type ExtendedLegacyMapConfiguration = {
+  version: 1;
+  dataSource: DataSource;
   custom_marker_icon: {
     iconUrl: string;
     iconSize: [number, number];
@@ -87,26 +84,69 @@ export type CommonsSearchConfiguration = {
   label_item_availability_filter: string;
   label_item_category_filter: string;
   layout?: {
-    expand_filter?: boolean;
+    expandFilter?: boolean;
   };
-  map?: {
-    markerIcon?: CommonMarkerIconConfig;
-    userMarkerIcon?: MarkerIconConfig;
+  map?: Pick<MapConfig, 'markerIcon' | 'userMarkerIcon'>;
+  geocode?: Partial<GeocodeConfig>;
+};
+
+export type FixturesDataSource = { type: 'fixtures' };
+export type AdminAjaxDataSource = { type: 'admin-ajax'; url: string; nonce: string; mapId: number };
+export type DataSource = FixturesDataSource | AdminAjaxDataSource;
+
+export type GeocodeConfig = {
+  nominatimSearchApi: {
+    url: string;
+    attribution: string;
   };
-  geocode?: {
-    nominatim_endpoint?: string;
-    remove_neighboring_locations_within_meters?: number | false;
-    region?: {
-      city?: string;
-      postalCode?: string;
-      county?: string;
-      state?: string;
-      countryCodes?: string[];
-    };
+  removeNeighboringLocationsWithinMeters?: number | false;
+  region?: {
+    city?: string;
+    postalCode?: string;
+    county?: string;
+    state?: string;
+    countryCodes?: string[];
   };
 };
 
-export type ParsedCommonsSearchConfiguration = CamelCasedPropertiesDeep<CommonsSearchConfiguration>;
+export type MapConfig = {
+  tileServerApi: {
+    url: string;
+    attribution: string;
+  };
+  zoom: { min: number; max: number; start: number };
+  center: GeoCoordinate;
+  cluster?: { radiusMeter: number };
+  markerIcon?: CommonMarkerIconConfig;
+  userMarkerIcon?: MarkerIconConfig;
+};
+
+type MessageMap = Record<string, Messages>;
+interface Messages {
+  [k: string]: string | Messages;
+}
+
+export type CommonsSearchConfiguration = {
+  version: 2;
+  dataSource: DataSource;
+  filter: {
+    availability: {
+      dateRange: { start: string; end: string };
+    };
+    categoryGroups: CommonCategoryGroup[];
+    categories: CommonCategory[];
+  };
+  i18n: {
+    locale: string;
+    fallbackLocales?: string[];
+    messages?: Record<string, MessageMap>;
+  };
+  map?: MapConfig;
+  geocode?: GeocodeConfig;
+  layout?: {
+    expandFilter?: boolean;
+  };
+};
 
 export type Image = {
   url: string;
@@ -115,13 +155,15 @@ export type Image = {
   description?: string;
 };
 
+export type Id = number | string;
+export type IdMap<T extends { id: Id }> = Map<T['id'], T>;
 export type CommonAvailabilityStatus = 'available' | 'booked' | 'partially-booked' | 'locked';
 export type CommonAvailability = { status: CommonAvailabilityStatus; date: Date };
 
 export type Common = {
-  id: number;
-  locationId: string;
-  categoryIds: number[];
+  id: Id;
+  locationId: Id;
+  categoryIds: Id[];
   name: string;
   description: string;
   url: string;
@@ -130,13 +172,13 @@ export type Common = {
 };
 
 export type CommonCategory = {
-  id: number;
+  id: Id;
   name: string;
-  groupId: string;
+  groupId: Id;
 };
 
 export type CommonCategoryGroup = {
-  id: string;
+  id: Id;
   name: string;
 };
 
@@ -146,7 +188,7 @@ export type GeoCoordinate = {
 };
 
 export type CommonLocation = {
-  id: string;
+  id: Id;
   name: string;
   coordinates: GeoCoordinate;
   address: {

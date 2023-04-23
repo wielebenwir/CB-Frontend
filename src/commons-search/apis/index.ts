@@ -1,7 +1,7 @@
-import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';
+import { AdminAjaxDataSource, CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
 import { ref, watchEffect } from 'vue';
 
-type Fields = [keyof ParsedCommonsSearchConfiguration, string][];
+type Fields<T = Record<string, unknown>> = [keyof T, string][];
 
 export class HTTPAPIError extends Error {
   response: Response;
@@ -12,11 +12,11 @@ export class HTTPAPIError extends Error {
   }
 }
 
-class CommonsSearchConfigurationError extends Error {
-  missingOrMisconfiguredFields: Fields;
-  constructor(missingOrMisconfiguredFields: Fields) {
+class CommonsSearchConfigurationError<T> extends Error {
+  missingOrMisconfiguredFields: Fields<T>;
+  constructor(missingOrMisconfiguredFields: Fields<T>) {
     const fieldString = missingOrMisconfiguredFields
-      .map(([name, _type]) => `${name} (of type: ${_type})`)
+      .map(([name, _type]) => `${String(name)} (of type: ${_type})`)
       .join('\n');
     super(
       'The commons search configuration is missing some required fields or some of the fields have an invalid type.\n\n' +
@@ -25,7 +25,7 @@ class CommonsSearchConfigurationError extends Error {
     this.missingOrMisconfiguredFields = missingOrMisconfiguredFields;
   }
 
-  static checkFields(configuration: ParsedCommonsSearchConfiguration, fields: Fields) {
+  static checkFields<T>(configuration: T, fields: Fields<T>) {
     const missingOrMisconfiguredFields = [];
     for (const field of fields) {
       const [fieldName, fieldType] = field;
@@ -40,23 +40,23 @@ class CommonsSearchConfigurationError extends Error {
 }
 
 async function createCommonsSearchAPI(
-  config: ParsedCommonsSearchConfiguration,
+  config: CommonsSearchConfiguration,
 ): Promise<CommonsSearchAPI> {
-  const dataSource = config.dataSource ?? 'admin-ajax';
+  const dataSource = config.dataSource;
 
-  if (dataSource === 'admin-ajax') {
-    CommonsSearchConfigurationError.checkFields(config, [
-      ['dataUrl', 'string'],
+  if (dataSource.type === 'admin-ajax') {
+    CommonsSearchConfigurationError.checkFields<AdminAjaxDataSource>(dataSource, [
+      ['url', 'string'],
       ['nonce', 'string'],
-      ['cbMapId', 'number'],
+      ['mapId', 'number'],
     ]);
 
     const { API } = await import('./admin-ajax-api');
-    return API(config);
+    return API(dataSource, config);
   }
 
   if (import.meta.env.VITE_BUILD_MODE === 'app') {
-    if (config.dataSource === 'fixtures') {
+    if (dataSource.type === 'fixtures') {
       const { API } = await import('./fixtures-api');
       return API(config);
     }
@@ -67,7 +67,7 @@ async function createCommonsSearchAPI(
   );
 }
 
-export function useCommonsSearchAPI(config: ParsedCommonsSearchConfiguration) {
+export function useCommonsSearchAPI(config: CommonsSearchConfiguration) {
   const apiError = ref<Error>();
   const api = ref<CommonsSearchAPI>();
   async function initAPI() {

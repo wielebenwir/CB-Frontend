@@ -1,17 +1,14 @@
-import camelcaseKeys from 'camelcase-keys';
 import { parseISO } from 'date-fns';
-import type { CamelCasedPropertiesDeep } from 'type-fest';
 import { computed, reactive, Ref, ref } from 'vue';
 
 import { HTTPAPIError } from './index';
 import { delay } from '../../util';
 import type {
+  AdminAjaxDataSource,
   Common,
-  CommonCategory,
-  CommonCategoryGroup,
   CommonLocation,
   CommonsSearchAPI,
-  ParsedCommonsSearchConfiguration,
+  CommonsSearchConfiguration,
 } from '../types';
 
 type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
@@ -41,44 +38,39 @@ export type APILocation = {
   items: APIItem[];
 };
 
-async function fetchLocationData(
-  configuration: ParsedCommonsSearchConfiguration,
-): Promise<CamelCasedPropertiesDeep<APILocation[]>> {
-  const res = await fetch(configuration.dataUrl, {
+async function fetchLocationData(source: AdminAjaxDataSource): Promise<APILocation[]> {
+  const res = await fetch(source.url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: new URLSearchParams({
       action: 'cb_map_locations',
-      nonce: configuration.nonce,
-      cb_map_id: configuration.cbMapId.toString(),
+      nonce: source.nonce,
+      cb_map_id: source.mapId.toString(),
     }),
   });
 
   if (res.ok) {
-    return camelcaseKeys(await res.json(), { deep: true });
+    return await res.json();
   } else {
-    throw new HTTPAPIError(
-      res,
-      `Could not load data from admin-ajax endpoint at '${configuration.dataUrl}'.`,
-    );
+    throw new HTTPAPIError(res, `Could not load data from admin-ajax endpoint at '${source.url}'.`);
   }
 }
 
 export function useAdminAjaxData(
-  config: ParsedCommonsSearchConfiguration,
-  locationData: Ref<CamelCasedPropertiesDeep<APILocation[]>>,
+  config: CommonsSearchConfiguration,
+  locationData: Ref<APILocation[]>,
 ) {
-  function createLocationId(location: CamelCasedPropertiesDeep<APILocation>) {
-    return `${location.lat}-${location.lon}-${location.locationName}`;
+  function createLocationId(location: APILocation) {
+    return `${location.lat}-${location.lon}-${location.location_name}`;
   }
 
   const locations = computed<CommonLocation[]>(() => {
     return locationData.value.map((location) => {
       return {
         id: createLocationId(location),
-        name: location.locationName,
+        name: location.location_name,
         coordinates: { lat: location.lat, lng: location.lon },
         address: {
           street: location.address.street,
@@ -96,7 +88,7 @@ export function useAdminAjaxData(
         locationId: createLocationId(location),
         categoryIds: item.terms,
         name: item.name,
-        description: item.shortDesc,
+        description: item.short_desc,
         url: item.link,
         images: Object.values(item.images)
           .filter((item) => item !== false)
@@ -129,30 +121,22 @@ export function useAdminAjaxData(
     return new Set(commons.value.flatMap((common) => common.categoryIds));
   });
 
-  const categories = computed<CommonCategory[]>(() => {
-    return Object.entries(config.filterCbItemCategories).flatMap(([key, filter]) => {
-      return filter.elements
-        .map((category) => ({
-          id: category.catId,
-          name: category.markup,
-          groupId: key,
-        }))
-        .filter((category) => usedCategoryIds.value.has(category.id));
-    });
+  const categories = computed(() => {
+    return config.filter.categories.filter((category) => usedCategoryIds.value.has(category.id));
   });
 
-  const categoryGroups = computed<CommonCategoryGroup[]>(() => {
-    return Object.entries(config.filterCbItemCategories).map(([key, filter]) => ({
-      id: key,
-      name: filter.name.trim(),
-    }));
+  const categoryGroups = computed(() => {
+    return config.filter.categoryGroups;
   });
 
   return { categories, categoryGroups, commons, locations };
 }
 
-export function API(config: ParsedCommonsSearchConfiguration): CommonsSearchAPI {
-  const locationData = ref<CamelCasedPropertiesDeep<APILocation[]>>([]);
+export function API(
+  dataSource: AdminAjaxDataSource,
+  config: CommonsSearchConfiguration,
+): CommonsSearchAPI {
+  const locationData = ref<APILocation[]>([]);
 
   async function init() {
     const maxRetries = 10;
@@ -161,7 +145,7 @@ export function API(config: ParsedCommonsSearchConfiguration): CommonsSearchAPI 
 
     while (retry++ > maxRetries) {
       try {
-        locationData.value = await fetchLocationData(config);
+        locationData.value = await fetchLocationData(dataSource);
         break;
       } catch (error) {
         const waitTime = retry * retryWaitTime;

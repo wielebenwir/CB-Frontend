@@ -62,7 +62,7 @@ import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { computed, ref } from 'vue';
 import { IconMapMarker } from '../../icons';
 import { useImage } from '../../util';
-import { Common, CommonCategory, CommonLocation } from '../types';
+import { Common, CommonCategory, CommonLocation, IdMap } from '../types';
 import { GeoLocation, calculateDistance } from '../geo';
 import CBBadge from './CBBadge.vue';
 import CBSevenDayAvailability from './CBSevenDayAvailability.vue';
@@ -72,7 +72,7 @@ const props = defineProps<{
   location: CommonLocation;
   showLocation: boolean;
   userLocation: GeoLocation | null;
-  categoryMap: Map<number, CommonCategory>;
+  categoryMap: IdMap<CommonCategory>;
 }>();
 const { locale } = useI18n();
 

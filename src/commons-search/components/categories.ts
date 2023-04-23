@@ -1,26 +1,23 @@
-import { CommonCategory, CommonCategoryGroup } from '../types';
+import { CommonCategory, CommonCategoryGroup, Id, IdMap } from '../types';
 import { computed, Ref } from 'vue';
 import { groupBy, partition, useMap } from '../../util';
 
 export type CategoryRenderGroup = {
-  id: string;
+  id: Id;
   label: string;
   groupedCategories: CommonCategory[][];
 };
 
 type CategoryRenderGroupMeta = {
-  id: string;
+  id: Id;
   label: string;
   numberOfActiveCategories: number;
   isActive: boolean;
 };
 
-export type CategoryRenderGroupMetaMap = Map<string, CategoryRenderGroupMeta>;
+export type CategoryRenderGroupMetaMap = IdMap<CategoryRenderGroupMeta>;
 
-export function disableCategories(
-  activeCategories: Set<number>,
-  categoriesToRemove: CommonCategory[],
-) {
+export function disableCategories(activeCategories: Set<Id>, categoriesToRemove: CommonCategory[]) {
   const newActiveCategories = new Set(activeCategories);
   for (const category of categoriesToRemove) {
     newActiveCategories.delete(category.id);
@@ -31,7 +28,7 @@ export function disableCategories(
 export function useCategoryRenderGroups(
   categories: Ref<CommonCategory[]>,
   categoryGroups: Ref<CommonCategoryGroup[]>,
-  activeCategoryIds: Ref<Set<number>>,
+  activeCategoryIds: Ref<Set<Id>>,
   ungroupedLabel: string,
 ) {
   function getGroup(category: CommonCategory) {
