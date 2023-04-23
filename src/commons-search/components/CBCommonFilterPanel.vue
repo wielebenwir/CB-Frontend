@@ -11,9 +11,9 @@
 
     <CBDialog v-model:is-open="isDialogOpen">
       <header
-        class="tw-flex tw-items-center tw-justify-between tw-border-b tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
+        class="tw-flex tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-gray-200 tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
       >
-        <DialogTitle as="h3" class="tw-text-lg tw-font-bold">
+        <DialogTitle as="h3" class="tw-text-lg tw-font-bold tw-m-0">
           {{ t('dialogTitle') }}
         </DialogTitle>
 

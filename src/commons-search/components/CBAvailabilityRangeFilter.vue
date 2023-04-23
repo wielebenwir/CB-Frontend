@@ -17,7 +17,7 @@
         <input
           v-model="start"
           type="date"
-          class="cb-input tw-border"
+          class="cb-input tw-border tw-border-solid tw-border-gray-200"
           :min="toDateString(availabilityRange.start)"
           :max="toDateString(availabilityRange.end)"
         />
@@ -28,7 +28,7 @@
         <input
           v-model="end"
           type="date"
-          class="cb-input tw-border"
+          class="cb-input tw-border tw-border-solid tw-border-gray-200"
           :min="start ? start : toDateString(availabilityRange.start)"
           :max="toDateString(availabilityRange.end)"
         />

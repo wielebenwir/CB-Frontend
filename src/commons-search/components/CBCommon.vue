@@ -1,10 +1,10 @@
 <template>
   <div class="cb-common tw-rounded tw-overflow-hidden tw-bg-white tw-group">
-    <figure ref="imgContainerEl" class="cb-common-header tw-relative tw-aspect-video">
+    <figure ref="imgContainerEl" class="cb-common-header tw-relative tw-aspect-video tw-m-0">
       <img
         v-if="image"
         loading="lazy"
-        class="cb-common--image tw-object-cover tw-object-center tw-bg-gray-700 tw-w-full tw-h-full"
+        class="cb-common--image tw-block tw-object-cover tw-object-center tw-bg-gray-700 tw-w-full tw-h-full"
         :src="image.url"
         :width="image.width"
         :height="image.height"
@@ -23,7 +23,7 @@
       </figcaption>
     </figure>
     <div class="cb-common--body tw-p-4 tw-flex tw-flex-col tw-gap-2">
-      <p v-if="showLocation" class="cb-common--location tw-flex tw-items-start">
+      <p v-if="showLocation" class="cb-common--location tw-flex tw-items-start tw-m-0">
         <IconMapMarker class="tw-mt-[0.1em] tw-mr-[.1em] tw-flex-none" role="presentation" />
         <span class="cb-common--location--name cb-text-wrap-balance">{{ location.name }}</span>
         <span

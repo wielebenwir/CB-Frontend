@@ -54,7 +54,7 @@
     <template v-else>
       <div class="tw-grid">
         <p
-          class="tw-mb-0 tw-min-w-0 cb-grid-cover cb-input tw-bg-white"
+          class="tw-my-0 tw-min-w-0 cb-grid-cover cb-input tw-bg-white"
           :title="currentLocation.name"
         >
           <span class="tw-truncate tw-w-10/12 tw-block">{{ currentLocation.name }}</span>

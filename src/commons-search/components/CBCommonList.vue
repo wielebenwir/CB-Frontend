@@ -4,10 +4,10 @@
       v-if="selectedLocation"
       :location="selectedLocation"
       :user-location="userLocation"
-      class="tw-sticky tw-top-0 tw-z-20 tw-bg-gray-100 tw-border-b tw-border-gray-200"
+      class="tw-sticky tw-top-0 tw-z-20 tw-bg-gray-100 tw-border-0 tw-border-b tw-border-solid tw-border-gray-200"
     >
       <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
-        <p class="tw-font-bold">{{ t('commonsAtLocation') }}</p>
+        <p class="tw-font-bold tw-m-0">{{ t('commonsAtLocation') }}</p>
         <button
           type="button"
           class="cb-button tw-bg-gray-200 tw-p-1"
@@ -20,10 +20,10 @@
 
     <TransitionGroup
       tag="ol"
-      class="cb-common-list tw-relative tw-flex tw-flex-col tw-m-6 tw-gap-6"
+      class="cb-common-list tw-relative tw-flex tw-flex-col tw-p-0 tw-m-6 tw-gap-6"
       name="cb-animate-list"
     >
-      <li v-for="common in commons" :key="common.id" class="tw-shadow tw-relative tw-z-10">
+      <li v-for="common in commons" :key="common.id" class="tw-block tw-relative tw-z-10 tw-shadow">
         <CBCommon
           :common="common"
           :location="locationMap.get(common.locationId) as CommonLocation"
@@ -32,8 +32,8 @@
           :category-map="categoryMap"
         />
       </li>
-      <li v-if="commons.length === 0" role="none">
-        <p class="tw-text-center cb-text-wrap-balance">{{ t('noMatchingItems') }}</p>
+      <li v-if="commons.length === 0" role="none" class="tw-block">
+        <p class="tw-m-0 tw-text-center cb-text-wrap-balance">{{ t('noMatchingItems') }}</p>
       </li>
     </TransitionGroup>
   </div>

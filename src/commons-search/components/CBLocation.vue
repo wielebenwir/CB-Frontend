@@ -4,7 +4,7 @@
     <div class="tw-flex tw-gap-3">
       <CBLocationIcon />
       <div class="tw-grow">
-        <p class="tw-flex">
+        <p class="tw-flex tw-m-0">
           <span>{{ location.name }}</span>
           <span
             v-if="distanceToUserLocation"

@@ -4,7 +4,7 @@
       <Switch
         v-model="enabled"
         :class="enabled ? 'tw-bg-teal-300' : 'tw-bg-gray-200'"
-        class="tw-relative tw-inline-flex tw-h-6 tw-w-11 tw-items-center tw-rounded-full tw-transition-colors focus-visible:tw-outline-none focus-visible:tw-ring-2"
+        class="tw-relative tw-inline-flex tw-cursor-pointer tw-border-0 tw-p-0 tw-h-6 tw-w-11 tw-items-center tw-rounded-full tw-transition-colors focus-visible:tw-outline-none focus-visible:tw-ring-2"
       >
         <span
           :class="enabled ? 'tw-translate-x-6' : 'tw-translate-x-1'"

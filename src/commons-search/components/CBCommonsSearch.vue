@@ -11,7 +11,7 @@
     </p>
   </div>
 
-  <div v-else-if="api" class="cb-commons-search md:tw-rounded tw-overflow-hidden">
+  <div v-else-if="api" class="cb-app cb-commons-search md:tw-rounded tw-overflow-hidden">
     <CBCommonFilter
       v-model:categories="filter.categories"
       v-model:user-location="filter.userLocation"

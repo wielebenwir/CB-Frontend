@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cb-common-filter tw-p-6 tw-relative tw-border-b tw-border-gray-300 tw-flex tw-flex-col tw-gap-3"
+    class="cb-common-filter tw-p-6 tw-relative tw-border-0 tw-border-b tw-border-solid tw-border-gray-300 tw-flex tw-flex-col tw-gap-3"
   >
     <div class="tw-flex tw-gap-3 tw-max-w-full" :class="{ 'tw-flex-col': expanded }">
       <CBLocationFilter
