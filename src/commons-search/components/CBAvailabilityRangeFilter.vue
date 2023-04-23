@@ -42,7 +42,7 @@
 
 <script lang="ts" setup>
 import { parseISO } from 'date-fns';
-import { useI18n } from 'vue-i18n';
+import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { ref, watch } from 'vue';
 import { IconCross } from '../../icons';
 import { toDateString } from '../../util';

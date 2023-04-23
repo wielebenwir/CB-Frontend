@@ -74,7 +74,7 @@
 
 <script lang="ts" setup>
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/vue';
-import { useI18n } from 'vue-i18n';
+import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { computed, ref } from 'vue';
 import CBLoader from '../../components/CBLoader.vue';
 import { IconCross, IconCrosshair } from '../../icons';

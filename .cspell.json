@@ -21,7 +21,8 @@
     "headlessui",
     "intlify",
     "unplugin",
-    "ajax"
+    "ajax",
+    "rokoli"
   ],
   "flagWords": ["hte"],
   "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "dist-app/**", "*.svg", "*.json"]

@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n';
+import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { computed, ref, watch } from 'vue';
 import { useMap } from '../../util';
 import { GeoLocation } from '../geo';

@@ -47,7 +47,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { useVModel } from '@vueuse/core';
 import { IconCross } from '../../icons';
 import { CommonsSearchAPI, ParsedCommonsSearchConfiguration } from '../types';

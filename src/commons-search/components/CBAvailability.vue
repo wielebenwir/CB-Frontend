@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n';
+import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { computed } from 'vue';
 import { CommonAvailability } from '../types';
 
