@@ -18,7 +18,6 @@ export function init(
 ) {
   if (config.version === 1 || typeof config.version === 'undefined') {
     config = parseLegacyConfig(config as ExtendedLegacyMapConfiguration);
-    console.log('parsed', config);
   }
 
   const i18n = createI18n({
