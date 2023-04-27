@@ -2,7 +2,7 @@ import { resolve } from 'path';
 
 // @ts-expect-error this is a bug in vue-tiny-18n
 import TinyI18nPlugin from '@rokoli/vue-tiny-i18n/plugin';
-import { defineConfig } from 'vite';
+import { UserConfig } from 'vite';
 import svgLoader from 'vite-svg-loader';
 import vue from '@vitejs/plugin-vue';
 
@@ -10,7 +10,7 @@ export function resolvePath(...paths: string[]) {
   return resolve(__dirname, ...paths);
 }
 
-export default defineConfig({
+const config: UserConfig = {
   base: '',
   clearScreen: false,
   resolve: {
@@ -37,4 +37,6 @@ export default defineConfig({
       },
     }),
   ],
-});
+};
+
+export default config;
