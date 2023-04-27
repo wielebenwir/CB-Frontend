@@ -54,13 +54,13 @@ export function parseLegacyConfig(
     });
   }
 
-  function parseCustomMarkerIcon(): { markerConfig?: CommonMarkerIconConfig } {
+  function parseCustomMarkerIcon(): { markerIcon?: CommonMarkerIconConfig } {
     if (!config.custom_marker_icon) return {};
     const { iconUrl, iconSize, iconAnchor } = config.custom_marker_icon;
     const [width, height] = iconSize;
     const [x, y] = iconAnchor;
     return {
-      markerConfig: {
+      markerIcon: {
         renderers: [
           { type: 'icon', url: iconUrl, width, height, anchor: { x: x / width, y: y / height } },
         ],
