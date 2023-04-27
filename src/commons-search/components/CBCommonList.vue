@@ -7,7 +7,9 @@
       class="tw-sticky tw-top-0 tw-z-20 tw-bg-gray-100 tw-border-0 tw-border-b tw-border-solid tw-border-gray-200"
     >
       <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
-        <p class="tw-font-bold tw-m-0">{{ t('commonsAtLocation') }}</p>
+        <p class="tw-font-bold tw-m-0">
+          {{ t('commonsAtLocation', { commons: t('common', commons.length) }) }}
+        </p>
         <button
           type="button"
           class="cb-button tw-bg-gray-200 tw-p-1"
@@ -33,7 +35,9 @@
         />
       </li>
       <li v-if="commons.length === 0" role="none" class="tw-block">
-        <p class="tw-m-0 tw-text-center cb-text-wrap-balance">{{ t('noMatchingItems') }}</p>
+        <p class="tw-m-0 tw-text-center cb-text-wrap-balance">
+          {{ t('noMatchingItems', { common: t('commons', 0) }) }}
+        </p>
       </li>
     </TransitionGroup>
   </div>
@@ -79,10 +83,10 @@ watch(
 
 <i18n lang="yaml">
 en:
-  commonsAtLocation: 'Commons at this location'
-  noMatchingItems: 'Sorry, but no commons match your filter criteria.'
+  commonsAtLocation: '{commons} at this location'
+  noMatchingItems: 'Sorry, but no {commons} match your filter criteria.'
 
 de:
-  commonsAtLocation: 'Commons an diesem Standort'
-  noMatchingItems: 'Entschuldige, aber keine Commons entsprechen deinen Filterkriterien.'
+  commonsAtLocation: '{commons} an diesem Standort'
+  noMatchingItems: 'Entschuldige, aber keine {commons} entsprechen deinen Filterkriterien.'
 </i18n>

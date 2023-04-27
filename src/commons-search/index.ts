@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import { createI18n } from '@rokoli/vue-tiny-i18n';
 import '../style.css';
+import translations from './translations';
 
 import CBCommonsSearch from './components/CBCommonsSearch.vue';
 import type {
@@ -23,7 +24,7 @@ export function init(
   const i18n = createI18n({
     locale: config.i18n.locale,
     fallbackLocales: ['en'],
-    messages: config.i18n.messages,
+    messages: config.i18n.messages ? [translations, config.i18n.messages] : [translations],
   });
   const app = createApp(CBCommonsSearch, { config });
   app.use(i18n);

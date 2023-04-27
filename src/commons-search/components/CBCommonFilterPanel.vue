@@ -14,7 +14,7 @@
         class="tw-flex tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-gray-200 tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
       >
         <DialogTitle as="h3" class="tw-text-lg tw-font-bold tw-m-0">
-          {{ t('dialogTitle') }}
+          {{ t('dialogTitle', { commons: t('common', 0) }) }}
         </DialogTitle>
 
         <button
@@ -89,11 +89,11 @@ const filterButtonBottom = useBottom(filterButtonEl);
 <i18n lang="yaml">
 en:
   buttonLabel: Filter
-  dialogTitle: Filter commons
+  dialogTitle: 'Filter {commons}'
   closeDialog: Close filter dialog
 
 de:
   buttonLabel: Filtern
-  dialogTitle: Commons filtern
+  dialogTitle: '{commons} filtern'
   closeDialog: Filterdialog schließen
 </i18n>
