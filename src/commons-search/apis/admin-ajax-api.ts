@@ -149,7 +149,7 @@ export function createAdminAjaxAPI(
     const retryWaitTime = 1.5;
     let retry = 0;
 
-    while (retry++ > maxRetries) {
+    while (retry++ < maxRetries) {
       try {
         locationData.value = await fetchLocationData(dataSource);
         break;
