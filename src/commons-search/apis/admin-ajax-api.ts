@@ -22,11 +22,11 @@ type APIItem = {
   short_desc: string;
   link: string;
   thumbnail: string | null;
-  images: Record<string, [string, number, number, boolean] | false>;
+  images?: Record<string, [string, number, number, boolean] | false>;
   status: 'publish';
   terms: number[];
   timeframes: APITimeframe[];
-  availability: APIAvailability[];
+  availability?: APIAvailability[];
 };
 export type APILocation = {
   lat: number;
@@ -90,7 +90,7 @@ export function useAdminAjaxData(
         name: item.name,
         description: item.short_desc,
         url: item.link,
-        images: Object.values(item.images)
+        images: Object.values(item.images ?? {})
           .filter((item) => item !== false)
           .map((image) => {
             const [url, _width, _height] = image as [string, number, number, boolean];
@@ -109,7 +109,7 @@ export function useAdminAjaxData(
               height,
             };
           }),
-        availabilities: item.availability.map((a) => ({
+        availabilities: (item.availability ?? []).map((a) => ({
           status: a.status,
           date: parseISO(a.date),
         })),
