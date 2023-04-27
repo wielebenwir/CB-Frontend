@@ -148,7 +148,7 @@ The first match wins. Does not work as user marker icon.
 }
 ```
 
-### Icon Wrapper
+### Icon Envelope
 
 The _color_, _image_, and _thumbnail_ renderer all use the same "envelope" icon.
 This envelope is also configurable. All the mentioned renderer types, as well as the
