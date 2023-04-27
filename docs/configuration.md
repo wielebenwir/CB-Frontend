@@ -161,6 +161,10 @@ This object looks like this (all keys are optional):
 {
   // The color of the envelope itself.
   fill: '#fff',
+  // The background color of the circle that embeds the content.
+  // You might want to change this, if you want to use an image renderer
+  // with a transparent image background.
+  embedFill: 'yellow',
   // A number that scales the icon proportionally.
   scale: 0.5,
   // An SVG image string is used for creating icons.
