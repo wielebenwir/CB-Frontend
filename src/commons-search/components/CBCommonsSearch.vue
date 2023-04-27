@@ -53,7 +53,7 @@
     <Transition name="cb-animate-panel">
       <button
         v-if="!isMapVisible"
-        class="cb-button tw-bg-gray-900 tw-text-white tw-text-3xl tw-fixed tw-z-10 tw-bottom-3 tw-right-3 tw-shadow-lg tw-aspect-square md:tw-hidden"
+        class="cb-btn tw-bg-gray-900 tw-text-white tw-text-3xl tw-fixed tw-z-10 tw-bottom-3 tw-right-3 tw-shadow-lg tw-aspect-square md:tw-hidden"
         @click="scrollMapIntoView"
       >
         <IconArrowUp class="tw-scale-125" />

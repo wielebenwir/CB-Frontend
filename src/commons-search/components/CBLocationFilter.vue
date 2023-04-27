@@ -24,10 +24,7 @@
                 as="template"
                 :value="location"
               >
-                <li
-                  class="cb-button tw-justify-start tw-gap-3"
-                  :class="{ 'tw-bg-gray-100': active }"
-                >
+                <li class="cb-btn tw-justify-start tw-gap-3" :class="{ 'tw-bg-gray-100': active }">
                   <CBLocationIcon />
                   <span>{{ location.name }}</span>
                 </li>
@@ -39,7 +36,7 @@
           <button
             v-if="canGetUserPosition && !isLoadingLocations && !isLoadingUserLocation"
             type="button"
-            class="cb-button tw-p-1 tw-bg-gray-100"
+            class="cb-btn tw-p-1 tw-bg-gray-100"
             :aria-label="t('getPosition')"
             @click="locateUser"
           >
@@ -61,7 +58,7 @@
         </p>
         <button
           type="button"
-          class="cb-button tw-p-1 tw-bg-gray-100 cb-grid-cover tw-self-center tw-place-self-end tw-mr-1"
+          class="cb-btn tw-p-1 tw-bg-gray-100 cb-grid-cover tw-self-center tw-place-self-end tw-mr-1"
           :title="t('reset')"
           @click="currentLocation = null"
         >

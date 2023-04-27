@@ -4,7 +4,7 @@
   </div>
 
   <template v-else-if="isSmallViewPort">
-    <button type="button" class="cb-button tw-bg-gray-200" @click="isDialogOpen = true">
+    <button type="button" class="cb-btn tw-bg-gray-200" @click="isDialogOpen = true">
       <IconFilter class="tw-flex-none" />
       {{ t('buttonLabel') }}
     </button>
@@ -19,7 +19,7 @@
 
         <button
           type="button"
-          class="cb-button tw-bg-gray-100 tw-p-1"
+          class="cb-btn tw-bg-gray-100 tw-p-1"
           :aria-label="t('closeDialog')"
           @click="isDialogOpen = false"
         >
@@ -38,7 +38,7 @@
   </template>
 
   <Popover v-else class="tw-flex-none">
-    <PopoverButton ref="filterButtonEl" class="cb-button tw-bg-gray-200">
+    <PopoverButton ref="filterButtonEl" class="cb-btn tw-bg-gray-200">
       <IconFilter class="tw-flex-none" />
       {{ t('buttonLabel') }}
     </PopoverButton>
@@ -77,7 +77,7 @@ const filterButtonBottom = useBottom(filterButtonEl);
 </script>
 
 <style lang="postcss">
-.cb-common-filter-panel--expanded .cb-button {
+.cb-common-filter-panel--expanded .cb-btn {
   @apply tw-bg-gray-200;
 }
 

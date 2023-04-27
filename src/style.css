@@ -63,7 +63,7 @@
 }
 
 @layer components {
-  .cb-button {
+  .cb-btn {
     @apply tw-flex
         tw-items-center
         tw-justify-center

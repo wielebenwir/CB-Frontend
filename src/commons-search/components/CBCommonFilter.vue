@@ -28,7 +28,7 @@
       <template v-for="filter in appliedFilters" :key="filter.key">
         <button
           type="button"
-          class="cb-button tw-bg-gray-200 tw-p-0 tw-gap-0 tw-h-6 tw-items-stretch tw-text-sm"
+          class="cb-btn tw-bg-gray-200 tw-p-0 tw-gap-0 tw-h-6 tw-items-stretch tw-text-sm"
           :title="t('resetActiveFilter')"
           @click="filter.reset"
         >

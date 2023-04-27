@@ -12,7 +12,7 @@
         </p>
         <button
           type="button"
-          class="cb-button tw-bg-gray-200 tw-p-1"
+          class="cb-btn tw-bg-gray-200 tw-p-1"
           @click="emit('deselectLocation')"
         >
           <IconCross />
