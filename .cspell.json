@@ -22,7 +22,8 @@
     "intlify",
     "unplugin",
     "ajax",
-    "rokoli"
+    "rokoli",
+    "kasten"
   ],
   "flagWords": ["hte"],
   "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "stats/**", "*.svg", "*.json"]

@@ -2,6 +2,10 @@
 
 This repository contains standalone components for use in the [_CommonsBooking_ WordPress plugin](https://github.com/wielebenwir/commonsbooking).
 
+## Documentation
+
+See [./docs/configuration.md] for configuration examples.
+
 ## Development
 
 The CommonsBooking Vue component library uses the Vite build tool.
