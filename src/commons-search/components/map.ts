@@ -195,7 +195,7 @@ async function resolveCommonMarkerIcon(
     }
 
     if (renderer.type === 'category') {
-      for (const matcher of renderer.matchers) {
+      for (const matcher of renderer.match) {
         if (!matcher.categories.every((id) => common.categoryIds.includes(id))) continue;
         return await _resolveMarkerIcon(
           {

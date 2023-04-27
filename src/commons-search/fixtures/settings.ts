@@ -8,7 +8,7 @@ const markerIcon: CommonMarkerIconConfig = {
   renderers: [
     {
       type: 'category',
-      matchers: [
+      match: [
         {
           categories: [29],
           renderers: { type: 'image', url: LightningIcon },

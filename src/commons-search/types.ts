@@ -15,7 +15,7 @@ type CategoryMatcher = {
   wrap?: IconWrapper;
 };
 type ThumbnailRenderer = { type: 'thumbnail'; wrap?: IconWrapper };
-type CategoryRenderer = { type: 'category'; matchers: CategoryMatcher[]; wrap?: IconWrapper };
+type CategoryRenderer = { type: 'category'; match: CategoryMatcher[]; wrap?: IconWrapper };
 type StaticImageRenderer = { type: 'image'; url: string; wrap?: IconWrapper };
 type ColorIconRenderer = { type: 'color'; color: string; wrap?: IconWrapper };
 type IconRenderer = { type: 'icon' } & CustomIcon;
