@@ -68,7 +68,7 @@ import { useElementVisibility } from '@vueuse/core';
 import { ref } from 'vue';
 
 import IconArrowUp from '../../assets/arrow-up.svg?component';
-import { CommonsSearchConfiguration, Id } from '../types';
+import { CommonsSearchAPI, CommonsSearchConfiguration, Id } from '../types';
 import { useCommonsSearchAPI } from '../apis';
 import CBCommonFilter from './CBCommonFilter.vue';
 import CBCommonList from './CBCommonList.vue';
@@ -76,6 +76,7 @@ import CBMap from './CBMap.vue';
 import { CommonFilterSet, useFilteredData } from '../filter';
 
 const props = defineProps<{
+  api: CommonsSearchAPI;
   config: CommonsSearchConfiguration;
 }>();
 
@@ -88,7 +89,7 @@ const filter = ref<CommonFilterSet>({
   availableToday: false,
   availableBetween: { start: null, end: null },
 });
-const { api, apiError, retryAPI } = useCommonsSearchAPI(props.config);
+const { api, apiError, retryAPI } = useCommonsSearchAPI(props.api);
 const { locationMap, filteredCommons, filteredAndSortedCommons } = useFilteredData(api, filter);
 
 const map = ref();

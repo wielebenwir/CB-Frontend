@@ -7,26 +7,26 @@ import CBCommonsSearch from './components/CBCommonsSearch.vue';
 import type {
   CommonCategory,
   CommonCategoryGroup,
+  CommonsSearchAPI,
   CommonsSearchConfiguration,
   ExtendedLegacyMapConfiguration,
   GeocodeConfig,
 } from './types';
 import { CommonMarkerIconConfig } from './types';
 
+export { createAdminAjaxAPI } from './apis/admin-ajax-api';
+
 export function init(
   element: HTMLElement,
-  config: CommonsSearchConfiguration | ExtendedLegacyMapConfiguration,
+  api: CommonsSearchAPI,
+  config: CommonsSearchConfiguration,
 ) {
-  if (config.version === 1 || typeof config.version === 'undefined') {
-    config = parseLegacyConfig(config as ExtendedLegacyMapConfiguration);
-  }
-
   const i18n = createI18n({
     locale: config.i18n.locale,
     fallbackLocales: ['en'],
     messages: config.i18n.messages ? [translations, config.i18n.messages] : [translations],
   });
-  const app = createApp(CBCommonsSearch, { config });
+  const app = createApp(CBCommonsSearch, { api, config });
   app.use(i18n);
   app.mount(element);
 }
@@ -34,7 +34,9 @@ export function init(
 // The value of this is replaced at build-time.
 export const version = '__CB_FRONTEND_VERSION__';
 
-function parseLegacyConfig(config: ExtendedLegacyMapConfiguration): CommonsSearchConfiguration {
+export function parseLegacyConfig(
+  config: ExtendedLegacyMapConfiguration,
+): CommonsSearchConfiguration {
   function parseCategoryGroups(): CommonCategoryGroup[] {
     return Object.entries(config.filter_cb_item_categories).map(([id, { name }]) => ({
       id,
@@ -117,7 +119,6 @@ function parseLegacyConfig(config: ExtendedLegacyMapConfiguration): CommonsSearc
 
   return {
     version: 2,
-    dataSource: config.dataSource,
     i18n: {
       locale: config.locale,
       messages: {

@@ -1,4 +1,4 @@
-import { AdminAjaxDataSource, CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
+import { CommonsSearchAPI } from '../types';
 import { ref, watchEffect } from 'vue';
 
 type Fields<T = Record<string, unknown>> = [keyof T, string][];
@@ -12,7 +12,7 @@ export class HTTPAPIError extends Error {
   }
 }
 
-class CommonsSearchConfigurationError<T> extends Error {
+export class ConfigurationError<T> extends Error {
   missingOrMisconfiguredFields: Fields<T>;
   constructor(missingOrMisconfiguredFields: Fields<T>) {
     const fieldString = missingOrMisconfiguredFields
@@ -34,49 +34,19 @@ class CommonsSearchConfigurationError<T> extends Error {
       }
     }
     if (missingOrMisconfiguredFields.length > 0) {
-      throw new CommonsSearchConfigurationError(missingOrMisconfiguredFields);
+      throw new ConfigurationError(missingOrMisconfiguredFields);
     }
   }
 }
 
-async function createCommonsSearchAPI(
-  config: CommonsSearchConfiguration,
-): Promise<CommonsSearchAPI> {
-  const dataSource = config.dataSource;
-
-  if (dataSource.type === 'admin-ajax') {
-    CommonsSearchConfigurationError.checkFields<AdminAjaxDataSource>(dataSource, [
-      ['url', 'string'],
-      ['nonce', 'string'],
-      ['mapId', 'number'],
-    ]);
-
-    const { API } = await import('./admin-ajax-api');
-    return API(dataSource, config);
-  }
-
-  if (import.meta.env.VITE_BUILD_MODE === 'app') {
-    if (dataSource.type === 'fixtures') {
-      const { API } = await import('./fixtures-api');
-      return API(config);
-    }
-  }
-
-  throw new TypeError(
-    'You’ve specified an unknown data source in your commons search configuration.',
-  );
-}
-
-export function useCommonsSearchAPI(config: CommonsSearchConfiguration) {
+export function useCommonsSearchAPI(api_: CommonsSearchAPI) {
   const apiError = ref<Error>();
   const api = ref<CommonsSearchAPI>();
   async function initAPI() {
-    api.value = undefined;
     apiError.value = undefined;
-    const _api = await createCommonsSearchAPI(config);
     try {
-      await _api.init();
-      api.value = _api;
+      await api_.init();
+      api.value = api_;
     } catch (error) {
       apiError.value = error as Error;
     }

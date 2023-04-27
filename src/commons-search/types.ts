@@ -39,7 +39,6 @@ export type CommonMarkerIconConfig = {
 
 export type ExtendedLegacyMapConfiguration = {
   version: 1;
-  dataSource: DataSource;
   custom_marker_icon: {
     iconUrl: string;
     iconSize: [number, number];
@@ -90,9 +89,7 @@ export type ExtendedLegacyMapConfiguration = {
   geocode?: Partial<GeocodeConfig>;
 };
 
-export type FixturesDataSource = { type: 'fixtures' };
-export type AdminAjaxDataSource = { type: 'admin-ajax'; url: string; nonce: string; mapId: number };
-export type DataSource = FixturesDataSource | AdminAjaxDataSource;
+export type AdminAjaxDataSource = { url: string; nonce: string; mapId: number };
 
 export type GeocodeConfig = {
   nominatimSearchApi: {
@@ -128,7 +125,6 @@ interface Messages {
 
 export type CommonsSearchConfiguration = {
   version: 2;
-  dataSource: DataSource;
   filter: {
     availability: {
       dateRange: { start: string; end: string };

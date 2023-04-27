@@ -3,7 +3,8 @@
 </template>
 
 <script lang="ts" setup>
-import { init as createCommonsSearch } from './commons-search';
+import { init as createCommonsSearch, parseLegacyConfig } from './commons-search';
+import { createFixturesAPI } from './commons-search/apis/fixtures-api';
 import { ref, watchEffect } from 'vue';
 import 'leaflet/dist/leaflet.css';
 
@@ -12,7 +13,8 @@ const rootEl = ref<HTMLElement>();
 
 watchEffect(() => {
   if (rootEl.value) {
-    createCommonsSearch(rootEl.value as HTMLElement, configuration);
+    const config = parseLegacyConfig(configuration);
+    createCommonsSearch(rootEl.value as HTMLElement, createFixturesAPI(config), config);
   }
 });
 </script>

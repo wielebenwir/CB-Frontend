@@ -1,7 +1,7 @@
 import { parseISO } from 'date-fns';
 import { computed, reactive, Ref, ref } from 'vue';
 
-import { HTTPAPIError } from './index';
+import { ConfigurationError, HTTPAPIError } from './index';
 import { delay } from '../../util';
 import type {
   AdminAjaxDataSource,
@@ -132,10 +132,16 @@ export function useAdminAjaxData(
   return { categories, categoryGroups, commons, locations };
 }
 
-export function API(
+export function createAdminAjaxAPI(
   dataSource: AdminAjaxDataSource,
   config: CommonsSearchConfiguration,
 ): CommonsSearchAPI {
+  ConfigurationError.checkFields<AdminAjaxDataSource>(dataSource, [
+    ['url', 'string'],
+    ['nonce', 'string'],
+    ['mapId', 'number'],
+  ]);
+
   const locationData = ref<APILocation[]>([]);
 
   async function init() {
