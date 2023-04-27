@@ -36,7 +36,7 @@
       </li>
       <li v-if="commons.length === 0" role="none" class="tw-block">
         <p class="tw-m-0 tw-text-center cb-text-wrap-balance">
-          {{ t('noMatchingItems', { common: t('commons', 0) }) }}
+          {{ t('noMatchingItems', { commons: t('common', 0) }) }}
         </p>
       </li>
     </TransitionGroup>
