@@ -1,6 +1,6 @@
 # CommonsBooking Vue Component Library
 
-This repository contains standalone components for use in the _CommonsBooking_ WordPress plugin.
+This repository contains standalone components for use in the [_CommonsBooking_ WordPress plugin](https://github.com/wielebenwir/commonsbooking).
 
 ## Development
 
