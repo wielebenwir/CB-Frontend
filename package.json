@@ -1,8 +1,18 @@
 {
-  "name": "cb-map",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@commonsbooking/frontend",
+  "version": "0.1.0-alpha.1",
   "type": "module",
+  "exports": {
+    "commons-search": {
+      "import": "./dist/lib/commons-search/commons-search.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/commons-search/fixtures",
+    "!src/commons-search/apis/fixtures-api.ts"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
@@ -14,6 +24,7 @@
     "lint-spelling": "cspell --locale en-us,de-de .",
     "format": "npm run lint-prettier -- --write && npm run lint-eslint -- --fix",
     "prepare": "husky install",
+    "prepublishOnly": "cross-env VITE_BUILD_MODE=lib npm run build",
     "test": "vitest"
   },
   "lint-staged": {
@@ -31,6 +42,7 @@
     "@vitejs/plugin-vue": "^4.2.1",
     "@vue/eslint-config-typescript": "^11.0.3",
     "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
     "cspell": "^6.31.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.8.0",
