@@ -5,6 +5,9 @@ import { defineConfig } from 'vite';
 import viteBaseConfig, { resolvePath } from './vite.base-config';
 import pkg from './package.json';
 
+const NAME = 'commons-search';
+const NAME_CAMELCASE = 'CommonsSearch';
+
 export default defineConfig({
   ...viteBaseConfig,
   plugins: [
@@ -23,19 +26,19 @@ export default defineConfig({
       preventAssignment: true,
     }),
     visualizer({
-      filename: resolvePath('stats', 'stats.lib.commons-booking-search.html'),
+      filename: resolvePath('stats', `stats.lib.${NAME}.html`),
     }),
   ],
   build: {
     lib: {
-      entry: resolvePath('src', 'commons-search', 'index.ts'),
-      name: 'CommonsBookingSearch',
-      fileName: 'commons-booking-search',
+      entry: resolvePath('src', NAME, 'index.ts'),
+      name: NAME_CAMELCASE,
+      fileName: NAME,
       formats: ['umd', 'es'],
     },
     manifest: true,
     sourcemap: true,
-    outDir: resolvePath('dist', 'lib', 'commons-booking-search'),
+    outDir: resolvePath('dist', 'lib', NAME),
     rollupOptions: {
       external(id) {
         if (id === 'vue') {
