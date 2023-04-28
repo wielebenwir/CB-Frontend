@@ -11,6 +11,7 @@ import type {
   CommonsSearchConfiguration,
   ExtendedLegacyMapConfiguration,
   GeocodeConfig,
+  MarkerIconConfig,
 } from './types';
 import { CommonMarkerIconConfig } from './types';
 
@@ -68,6 +69,17 @@ export function parseLegacyConfig(
     };
   }
 
+  function parseMapMarker() {
+    const result: { markerIcon?: CommonMarkerIconConfig; userMarkerIcon?: MarkerIconConfig } = {};
+    if (config.map?.markerIcon) {
+      result.markerIcon = config.map.markerIcon;
+    }
+    if (config.map?.userMarkerIcon) {
+      result.userMarkerIcon = config.map.userMarkerIcon;
+    }
+    return result;
+  }
+
   function parseMapConfig(): CommonsSearchConfiguration['map'] {
     return {
       tileServerApi: {
@@ -88,6 +100,7 @@ export function parseLegacyConfig(
       center: { lat: config.lat_start, lng: config.lon_start },
       cluster: { radiusMeter: config.max_cluster_radius },
       ...parseCustomMarkerIcon(),
+      ...parseMapMarker(),
     };
   }
 
