@@ -28,6 +28,24 @@
               class="tw-w-full tw-transform tw-rounded tw-bg-white tw-shadow-xl tw-transition-all tw-max-h-full tw-flex tw-flex-col tw-overflow-hidden"
               v-bind="attrs"
             >
+              <slot name="header">
+                <header
+                  class="tw-flex tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-gray-200 tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
+                >
+                  <DialogTitle as="h3" class="tw-text-lg tw-font-bold tw-m-0">
+                    {{ title }}
+                  </DialogTitle>
+
+                  <button
+                    type="button"
+                    class="cb-btn tw-bg-gray-100 tw-p-1"
+                    @click="emit('update:isOpen', false)"
+                  >
+                    <IconCross />
+                  </button>
+                </header>
+              </slot>
+
               <slot />
             </DialogPanel>
           </TransitionChild>
@@ -38,12 +56,14 @@
 </template>
 
 <script lang="ts" setup>
-import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue';
+import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
 import { useVModel } from '@vueuse/core';
 import { useAttrs } from 'vue';
+import { IconCross } from '../../icons';
 
 const props = defineProps<{
   isOpen: boolean;
+  title?: string;
 }>();
 const emit = defineEmits<{
   (e: 'update:isOpen', value: boolean): void;

@@ -9,31 +9,12 @@
       {{ t('buttonLabel') }}
     </button>
 
-    <CBDialog v-model:is-open="isDialogOpen">
-      <header
-        class="tw-flex tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-gray-200 tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
-      >
-        <DialogTitle as="h3" class="tw-text-lg tw-font-bold tw-m-0">
-          {{ t('dialogTitle', { commons: t('common', 0) }) }}
-        </DialogTitle>
-
-        <button
-          type="button"
-          class="cb-btn tw-bg-gray-100 tw-p-1"
-          :aria-label="t('closeDialog')"
-          @click="isDialogOpen = false"
-        >
-          <IconCross />
-        </button>
-      </header>
-
-      <div class="tw-flex-1 tw-min-h-0 tw-px-4 tw-overflow-y-auto tw-max-w-full">
+    <CBDialog v-model:is-open="isDialogOpen" :title="t('dialogTitle', { commons: t('common', 0) })">
+      <div class="tw-flex-1 tw-min-h-0 tw-px-4 tw-overflow-y-auto tw-max-w-full tw-mb-4">
         <div class="cb-common-filter-panel cb-common-filter-panel--dialog">
           <slot />
         </div>
       </div>
-
-      <footer class="tw-h-4"></footer>
     </CBDialog>
   </template>
 
@@ -57,10 +38,10 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { useI18n } from '@rokoli/vue-tiny-i18n';
-import { DialogTitle, Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useMediaQuery } from '@vueuse/core';
 
-import { IconCross, IconFilter } from '../../icons';
+import { IconFilter } from '../../icons';
 import { useBottom } from '../../util';
 import CBDialog from './CBDialog.vue';
 
