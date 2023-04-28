@@ -30,6 +30,7 @@ export function init(
   const app = createApp(CBCommonsSearch, { api, config });
   app.use(i18n);
   app.mount(element);
+  return app;
 }
 
 // The value of this is replaced at build-time.
