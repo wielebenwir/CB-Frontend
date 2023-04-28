@@ -2,13 +2,16 @@
 
 ## Map Marker Icons
 
-The CB-Frontend library comes with a powerful map marker icon generation utility
-which makes it easy to create custom icons for your map.
+The CB-Frontend library comes with a map marker icon generation utility
+which makes it relatively easy to configure custom icons for your map.
 
 These marker icon generation utilities are called renderers. You can define multiple renderers
 in your configuration. If a renderer cannot yield an icon for a common, the next renderer in
-your configuration is used as a fallback. For instance the _thumbnail_ renderer can only yield
-an icon if an image has been assigned to a common.
+your configuration is used as a fallback.
+
+For instance the _thumbnail_ renderer can only yield an icon if an image has been assigned
+to a common. If the common has no image, the _thumbnail_ renderer does not yield an icon
+and the next renderer in the configuration is used.
 
 See the examples and the reference below.
 
