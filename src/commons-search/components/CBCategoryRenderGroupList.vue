@@ -6,7 +6,7 @@
         <button
           v-if="renderGroupMeta.get(renderGroup.id)?.isActive"
           type="button"
-          class="cb-button tw-bg-gray-100 tw-text-sm tw-p-1"
+          class="cb-btn tw-bg-gray-100 tw-text-sm tw-p-1"
           @click="value = disableCategories(modelValue, renderGroup.groupedCategories.flat())"
         >
           <IconCross />
