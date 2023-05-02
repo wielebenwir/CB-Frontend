@@ -9,7 +9,7 @@
           class="cb-btn tw-bg-gray-100 tw-text-sm tw-p-1"
           @click="value = disableCategories(modelValue, renderGroup.groupedCategories.flat())"
         >
-          <IconCross />
+          <IconCross class="tw-w-4 tw-h-4" />
         </button>
       </header>
 
