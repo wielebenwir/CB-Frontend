@@ -23,7 +23,9 @@
     "unplugin",
     "ajax",
     "rokoli",
-    "kasten"
+    "kasten",
+    "markercluster",
+    "spiderfy"
   ],
   "flagWords": ["hte"],
   "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "stats/**", "*.svg", "*.json"]

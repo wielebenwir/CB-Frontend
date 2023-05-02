@@ -99,7 +99,7 @@ export function parseLegacyConfig(
         max: config.zoom_max,
       },
       center: { lat: config.lat_start, lng: config.lon_start },
-      cluster: { radiusMeter: config.max_cluster_radius },
+      cluster: { radiusPixels: config.max_cluster_radius },
       ...parseCustomMarkerIcon(),
       ...parseMapMarker(),
     };

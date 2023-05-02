@@ -9,12 +9,19 @@ import type {
   TileLayer as TileLayerType,
   Marker as MarkerType,
   Icon as IconType,
+  MarkerClusterGroup as MarkerClusterGroupType,
 } from 'leaflet';
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch, watchEffect } from 'vue';
 import { computedAsync } from '@vueuse/core';
 import { coordinateToLatLngTuple, GeoLocation } from '../geo';
 import { Common, CommonLocation, GeoCoordinate, MapConfig, GeocodeConfig, Id } from '../types';
-import { makeMapMarkerIcon, MarkerIcon, resolveMarkerIcon, usePointsOfInterest } from './map';
+import {
+  makeMapMarkerIcon,
+  MarkerIcon,
+  resolveClusterMarkerIcon,
+  resolveMarkerIcon,
+  usePointsOfInterest,
+} from './map';
 
 const props = defineProps<{
   config: { map: MapConfig; geocode?: GeocodeConfig };
@@ -30,6 +37,7 @@ const emit = defineEmits<{
 const mapEl = ref<HTMLElement>();
 const map = shallowRef<MapType>();
 const tileLayer = shallowRef<TileLayerType>();
+const commonMarkersLayer = shallowRef<MarkerClusterGroupType>();
 const commonMarkers = shallowRef(new Map<Id, MarkerType>());
 const userMarker = shallowRef<MarkerType | undefined>();
 const attribution = computed(() => {
@@ -91,7 +99,13 @@ function addCommonMarker(id: Id) {
     emit('select', poi.location);
   });
   commonMarkers.value.set(id, marker);
-  if (map.value) {
+  renderCommonMarker(marker);
+}
+
+function renderCommonMarker(marker: MarkerType) {
+  if (commonMarkersLayer.value) {
+    commonMarkersLayer.value.addLayer(marker);
+  } else if (map.value) {
     marker.addTo(map.value);
   }
 }
@@ -102,10 +116,11 @@ function removeCommonMarker(id: Id) {
   commonMarkers.value.delete(id);
   marker.clearAllEventListeners();
   marker.remove();
+  commonMarkersLayer.value?.removeLayer(marker);
 }
 
 onMounted(() => {
-  const { Map, TileLayer } = globalThis.L;
+  const { MarkerClusterGroup, Map, TileLayer } = globalThis.L;
   const _map = new Map(mapEl.value as HTMLElement, {
     center: coordinateToLatLngTuple(props.config.map.center),
     zoom: props.config.map.zoom.start,
@@ -119,9 +134,26 @@ onMounted(() => {
     detectRetina: true,
   });
   _tileLayer.addTo(_map);
-  for (const marker of commonMarkers.value.values()) {
-    marker.addTo(_map);
+
+  const maxClusterRadius = props.config.map.cluster?.radiusPixels;
+  // if the cluster radius is undefined or zero clustering should be disabled
+  if (maxClusterRadius) {
+    const _commonMarkersLayer = new MarkerClusterGroup({
+      maxClusterRadius,
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+      iconCreateFunction(cluster) {
+        return createIcon(resolveClusterMarkerIcon(props.config.map.cluster?.markerIcon, cluster));
+      },
+    });
+    _commonMarkersLayer.addTo(_map);
+    commonMarkersLayer.value = _commonMarkersLayer;
   }
+
+  for (const marker of commonMarkers.value.values()) {
+    renderCommonMarker(marker);
+  }
+
   // cspell:disable-next-line
   _map.on('moveend', () => {
     emit('update:center', _map.getCenter());
@@ -134,6 +166,10 @@ onBeforeUnmount(() => {
   for (const id of commonMarkers.value.keys()) {
     removeCommonMarker(id);
   }
+  commonMarkersLayer.value?.clearAllEventListeners();
+  commonMarkersLayer.value?.clearLayers();
+  commonMarkersLayer.value?.remove();
+  commonMarkersLayer.value = undefined;
   tileLayer.value?.clearAllEventListeners();
   tileLayer.value?.remove();
   tileLayer.value = undefined;

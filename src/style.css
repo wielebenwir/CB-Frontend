@@ -12,6 +12,11 @@
       --commonsbooking-color-secondary,
       hsl(240 60% 80%)
     );
+    --commonsbooking-map-marker-cluster-embed-fill: var(
+      --commonsbooking-color-buttons,
+      hsl(90 60% 80%)
+    );
+    --commonsbooking-map-marker-default-embed-label-stroke: hsl(90 60% 20%);
   }
 
   .cb-app * {

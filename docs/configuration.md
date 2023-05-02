@@ -164,16 +164,22 @@ This object looks like this (all keys are optional):
 {
   // The color of the envelope itself.
   fill: '#fff',
-  // The background color of the circle that embeds the content.
-  // You might want to change this, if you want to use an image renderer
-  // with a transparent image background.
-  embedFill: 'yellow',
   // A number that scales the icon proportionally.
   scale: 0.5,
   // An SVG image string is used for creating icons.
   // This must NOT be a path, but the actual SVG string.
   // See: /src/assets/map-marker-template.svg
   template: '...',
+  // The background color of the circle that embeds the content.
+  // You might want to change this, if you want to use an image renderer
+  // with a transparent image background.
+  embedFill: 'yellow',
+  // A label that is displayed at the center of the circle.
+  // Only relevant for cluster icon.
+  embedLabel: '...',
+  // The text color of the label at the center of the circle.
+  // Only relevant for cluster icon.
+  embedLabelStroke: 'red',
 }
 ```
 
@@ -196,9 +202,32 @@ but increase the size by a factor of 5, if a thumbnail is rendered.
 }
 ```
 
-#### User location icon
+### User location icon
 
-The `markerIcon` property is only used for the commons on the map.
+The `map.markerIcon` property is only used for the commons on the map.
 If you want to change the icon for the user’s location on the map you
-must set the `userMarkerIcon` property instead. All renderer types are supported
+must set the `map.userMarkerIcon` property instead. All renderer types are supported
 except for _thumbnail_ and _category_.
+
+### Cluster icon
+
+If you have enabled icon clustering by setting the `map.cluster.radiusPixels` option
+a cluster icon will be shown if commons are too close to each other.
+
+You can modify the default icon by setting the `map.cluster.markerIcon` option.
+Only the `color` renderer type is supported, but the icon envelope can be modified as well.
+
+Example:
+
+```json5
+{
+  map: {
+    cluster: {
+      radiusPixels: 60,
+      markerIcon: {
+        renderers: [{ type: 'color', color: 'crimson', labelColor: 'white' }],
+      },
+    },
+  },
+}
+```

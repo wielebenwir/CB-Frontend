@@ -30,6 +30,8 @@ import { init as createCommonsSearch, parseLegacyConfig } from './commons-search
 import { createFixturesAPI } from './commons-search/apis/fixtures-api';
 import { App, ref, watchEffect } from 'vue';
 import 'leaflet/dist/leaflet.css';
+import 'leaflet.markercluster/dist/MarkerCluster.css';
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 
 import _configuration from './commons-search/fixtures/settings';
 import { CommonsSearchConfiguration } from './commons-search/types';

@@ -7,6 +7,8 @@ export type IconWrapper = {
   template?: IconWrapperTemplate;
   fill?: string;
   embedFill?: string;
+  embedLabel?: string;
+  embedLabelStroke?: string;
   scale?: number;
 };
 type CategoryMatcher = {
@@ -17,7 +19,7 @@ type CategoryMatcher = {
 type ThumbnailRenderer = { type: 'thumbnail'; wrap?: IconWrapper };
 type CategoryRenderer = { type: 'category'; match: CategoryMatcher[]; wrap?: IconWrapper };
 type StaticImageRenderer = { type: 'image'; url: string; wrap?: IconWrapper };
-type ColorIconRenderer = { type: 'color'; color: string; wrap?: IconWrapper };
+type ColorIconRenderer = { type: 'color'; color: string; labelColor?: string; wrap?: IconWrapper };
 type IconRenderer = { type: 'icon' } & CustomIcon;
 type TraditionalIconRenderer = { type: 'traditional-icon' };
 export type MarkerIconRenderer =
@@ -34,6 +36,11 @@ export type MarkerIconConfig = {
 
 export type CommonMarkerIconConfig = {
   renderers: CommonMarkerIconRenderer[];
+  wrapDefaults?: IconWrapper;
+};
+
+export type ClusterMarkerIconConfig = {
+  renderers: ColorIconRenderer[];
   wrapDefaults?: IconWrapper;
 };
 
@@ -113,7 +120,7 @@ export type MapConfig = {
   };
   zoom: { min: number; max: number; start: number };
   center: GeoCoordinate;
-  cluster?: { radiusMeter: number };
+  cluster?: { radiusPixels: number; markerIcon?: ClusterMarkerIconConfig };
   markerIcon?: CommonMarkerIconConfig;
   userMarkerIcon?: MarkerIconConfig;
 };

@@ -1,3 +1,4 @@
+import type { MarkerCluster } from 'leaflet';
 import { ref, Ref, watchEffect } from 'vue';
 import {
   Common,
@@ -96,6 +97,7 @@ export function makeMapMarkerIcon(
   const scale = config?.scale ?? 1;
   const fill = resolveColor(config?.fill) ?? '#fff';
   const embedFill = resolveColor(config?.embedFill) ?? fill;
+  const labelColor = resolveColor(config?.embedLabelStroke) ?? '#fff';
   const width = template.width * scale;
   const height = template.height * scale;
   const x = width * template.anchor.x;
@@ -106,7 +108,9 @@ export function makeMapMarkerIcon(
     .replaceAll('__HEIGHT__', height.toString())
     .replaceAll('__FILL_COLOR__', fill)
     .replaceAll('__EMBED_FILL_COLOR__', embedFill)
-    .replaceAll('__EMBED_URL__', imageUrl ?? '');
+    .replaceAll('__EMBED_URL__', imageUrl ?? '')
+    .replaceAll('__EMBED_LABEL_COLOR__', labelColor)
+    .replaceAll('__EMBED_LABEL__', config?.embedLabel ?? '');
   return {
     iconUrl: `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`,
     iconSize: [width, height],
@@ -173,6 +177,33 @@ export async function resolveMarkerIcon(
   resolveURL: (url: string) => Promise<string | undefined> = defaultImageResolver,
 ) {
   return _resolveMarkerIcon(config, defaultValue, [], resolveURL);
+}
+
+export function resolveClusterMarkerIcon(
+  config: MarkerIconConfig | undefined,
+  cluster: MarkerCluster,
+): MarkerIcon {
+  const renderers = config?.renderers ?? [];
+  const defaultLabelColor = 'var(--commonsbooking-map-marker-default-embed-label-stroke)';
+
+  for (const renderer of renderers) {
+    if (renderer.type === 'color') {
+      const color = resolveColor(renderer.color);
+      if (!color) continue;
+      const wrapConf = defaults(config?.wrapDefaults, renderer?.wrap, {
+        embedFill: color,
+        embedLabelStroke: resolveColor(renderer.labelColor) ?? defaultLabelColor,
+        embedLabel: cluster.getChildCount().toString(),
+      });
+      return makeMapMarkerIcon(undefined, ['cluster', 'color'], wrapConf);
+    }
+  }
+
+  return makeMapMarkerIcon(undefined, ['cluster', 'color'], {
+    embedFill: 'var(--commonsbooking-map-marker-cluster-embed-fill)',
+    embedLabelStroke: defaultLabelColor,
+    embedLabel: cluster.getChildCount().toString(),
+  });
 }
 
 async function resolveCommonMarkerIcon(
