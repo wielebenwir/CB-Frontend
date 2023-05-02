@@ -90,6 +90,13 @@
         tw-font-[inherit]
         tw-px-4 tw-py-2;
   }
+
+  .cb-input-date {
+    @apply tw-border
+        tw-border-solid
+        tw-border-gray-200
+        tw-w-full;
+  }
 }
 
 .cb-animate-list-move,

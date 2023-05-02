@@ -11,24 +11,24 @@
         <IconCross class="tw-w-4 tw-h-4" />
       </button>
     </header>
-    <div class="tw-flex tw-items-end tw-justify-start tw-gap-x-2 tw-w-fit tw-max-w-full">
-      <label class="tw-flex-1 tw-min-w-0">
+    <div class="tw-flex tw-flex-wrap tw-items-end tw-justify-start tw-gap-2 tw-max-w-full">
+      <label class="tw-flex-1 md:tw-min-w-0">
         <span class="tw-block tw-mb-1">{{ t(showEnd ? 'from' : 'on') }}</span>
         <input
           v-model="start"
           type="date"
-          class="cb-input tw-border tw-border-solid tw-border-gray-200"
+          class="cb-input cb-input-date"
           :min="toDateString(availabilityRange.start)"
           :max="toDateString(availabilityRange.end)"
         />
       </label>
 
-      <label v-if="showEnd" class="tw-flex-1 tw-min-w-0">
+      <label v-if="showEnd" class="tw-flex-1 md:tw-min-w-0">
         <span class="tw-block tw-mb-1">{{ t('until') }}</span>
         <input
           v-model="end"
           type="date"
-          class="cb-input tw-border tw-border-solid tw-border-gray-200"
+          class="cb-input cb-input-date"
           :min="start ? start : toDateString(availabilityRange.start)"
           :max="toDateString(availabilityRange.end)"
         />
