@@ -213,9 +213,15 @@ async function resolveCommonMarkerIcon(
   return await resolveMarkerIcon(config as MarkerIconConfig, undefined, resolveURL);
 }
 
+type POIEventHandlers = {
+  onDelete?: (id: Common['id']) => void;
+  onSet?: (id: Common['id']) => void;
+};
+
 export function usePointsOfInterest(
   commons: Ref<Common[]>,
   locationMap: Ref<Map<CommonLocation['id'], CommonLocation>>,
+  { onDelete, onSet }: POIEventHandlers = {},
   markerIconConfig: CommonMarkerIconConfig | undefined,
   resolveImage: (url: string) => Promise<string | undefined> = defaultImageResolver,
 ) {
@@ -237,6 +243,7 @@ export function usePointsOfInterest(
     for (const commonId of pointsOfInterest.value.keys()) {
       if (!newCommonIds.has(commonId)) {
         pointsOfInterest.value.delete(commonId);
+        onDelete?.(commonId);
       }
     }
 
@@ -256,7 +263,9 @@ export function usePointsOfInterest(
       if (lastUpdate.getTime() !== updateInitiatedAt.getTime()) {
         break;
       }
-      pointsOfInterest.value.set(data.value.common.id, data.value);
+      const id = data.value.common.id;
+      pointsOfInterest.value.set(id, data.value);
+      onSet?.(id);
     }
   });
 

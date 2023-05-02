@@ -1,50 +1,20 @@
 <template>
-  <LMap
-    ref="map"
-    class="cb-map"
-    :use-global-leaflet="useGlobalLeaflet"
-    :center="coordinateToLatLngTuple(config.map.center)"
-    :zoom="config.map.zoom.start"
-    :min-zoom="config.map.zoom.min"
-    :max-zoom="config.map.zoom.max"
-    @update:center="emit('update:center', $event)"
-  >
-    <LTileLayer
-      :url="config.map.tileServerApi.url"
-      :attribution="attribution"
-      :min-zoom="config.map.zoom.min"
-      :max-zoom="config.map.zoom.max"
-      :detect-retina="true"
-    />
-    <template v-if="commons">
-      <template
-        v-for="[key, { common, location, markerIcon }] in pointsOfInterest.entries()"
-        :key="key"
-      >
-        <LMarker
-          :lat-lng="location.coordinates"
-          :name="common.name"
-          @click="emit('select', location)"
-        >
-          <CBMapMarkerIcon :icon="markerIcon" />
-        </LMarker>
-      </template>
-    </template>
-    <LMarker v-if="userLocation" :lat-lng="userLocation" :name="userLocation.name">
-      <CBMapMarkerIcon :icon="userMarkerIcon" />
-    </LMarker>
-  </LMap>
+  <div ref="mapEl" class="cb-map"></div>
 </template>
 
 <script lang="ts" setup>
-import type { LatLngTuple, Map as LeafletMap } from 'leaflet';
-import { computed, ref, watch } from 'vue';
-import { LMap, LMarker, LTileLayer } from '@vue-leaflet/vue-leaflet';
+import type {
+  LatLngTuple,
+  Map as MapType,
+  TileLayer as TileLayerType,
+  Marker as MarkerType,
+  Icon as IconType,
+} from 'leaflet';
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch, watchEffect } from 'vue';
 import { computedAsync } from '@vueuse/core';
 import { coordinateToLatLngTuple, GeoLocation } from '../geo';
-import { Common, CommonLocation, GeoCoordinate, MapConfig, GeocodeConfig } from '../types';
+import { Common, CommonLocation, GeoCoordinate, MapConfig, GeocodeConfig, Id } from '../types';
 import { makeMapMarkerIcon, MarkerIcon, resolveMarkerIcon, usePointsOfInterest } from './map';
-import CBMapMarkerIcon from './CBMapMarkerIcon.vue';
 
 const props = defineProps<{
   config: { map: MapConfig; geocode?: GeocodeConfig };
@@ -57,9 +27,11 @@ const emit = defineEmits<{
   (e: 'update:center', value: GeoCoordinate): void;
 }>();
 
-const map = ref();
-const leafletMap = computed<LeafletMap>(() => map?.value?.leafletObject);
-const useGlobalLeaflet = Object.hasOwn(globalThis, 'L');
+const mapEl = ref<HTMLElement>();
+const map = shallowRef<MapType>();
+const tileLayer = shallowRef<TileLayerType>();
+const commonMarkers = shallowRef(new Map<Id, MarkerType>());
+const userMarker = shallowRef<MarkerType | undefined>();
 const attribution = computed(() => {
   let result = props.config.map.tileServerApi.attribution;
   if (props.config.geocode) {
@@ -82,6 +54,7 @@ const points = computed(() => {
 const pointsOfInterest = usePointsOfInterest(
   computed(() => props.commons),
   computed(() => props.locationMap),
+  { onSet: addCommonMarker, onDelete: removeCommonMarker },
   props.config?.map?.markerIcon,
 );
 const defaultUserMarkerIcon = makeMapMarkerIcon(undefined, ['color'], {
@@ -92,11 +65,108 @@ const userMarkerIcon = computedAsync<MarkerIcon>(
   defaultUserMarkerIcon,
 );
 
+function createIcon(markerIcon: MarkerIcon, ...types: string[]): IconType {
+  const { Icon } = globalThis.L;
+  const markerTypes = types.map((type) => `cb-map-marker--${type}`).join(' ');
+  return new Icon({
+    ...markerIcon,
+    iconRetinaUrl: markerIcon.iconUrl,
+    className: `cb-map-marker ${markerTypes} ${markerIcon.className}`,
+  });
+}
+
+function addCommonMarker(id: Id) {
+  if (commonMarkers.value.has(id)) {
+    // cleanup existing marker for this id
+    removeCommonMarker(id);
+  }
+  const { Marker } = globalThis.L;
+  const poi = pointsOfInterest.value.get(id);
+  if (!poi) return;
+  const marker = new Marker(poi.location.coordinates, {
+    title: poi.common.name,
+    icon: createIcon(poi.markerIcon),
+  });
+  marker.on('click', () => {
+    emit('select', poi.location);
+  });
+  commonMarkers.value.set(id, marker);
+  if (map.value) {
+    marker.addTo(map.value);
+  }
+}
+
+function removeCommonMarker(id: Id) {
+  const marker = commonMarkers.value.get(id);
+  if (!marker) return;
+  commonMarkers.value.delete(id);
+  marker.clearAllEventListeners();
+  marker.remove();
+}
+
+onMounted(() => {
+  const { Map, TileLayer } = globalThis.L;
+  const _map = new Map(mapEl.value as HTMLElement, {
+    center: coordinateToLatLngTuple(props.config.map.center),
+    zoom: props.config.map.zoom.start,
+    minZoom: props.config.map.zoom.min,
+    maxZoom: props.config.map.zoom.max,
+  });
+  const _tileLayer = new TileLayer(props.config.map.tileServerApi.url, {
+    attribution: attribution.value,
+    minZoom: props.config.map.zoom.min,
+    maxZoom: props.config.map.zoom.max,
+    detectRetina: true,
+  });
+  _tileLayer.addTo(_map);
+  for (const marker of commonMarkers.value.values()) {
+    marker.addTo(_map);
+  }
+  // cspell:disable-next-line
+  _map.on('moveend', () => {
+    emit('update:center', _map.getCenter());
+  });
+  map.value = _map;
+  tileLayer.value = _tileLayer;
+});
+
+onBeforeUnmount(() => {
+  for (const id of commonMarkers.value.keys()) {
+    removeCommonMarker(id);
+  }
+  tileLayer.value?.clearAllEventListeners();
+  tileLayer.value?.remove();
+  tileLayer.value = undefined;
+  map.value?.clearAllEventListeners();
+  map.value?.remove();
+  map.value = undefined;
+});
+
+watchEffect(() => {
+  if (map.value) {
+    if (userMarker.value && !props.userLocation) {
+      userMarker.value.remove();
+      userMarker.value = undefined;
+    } else if (props.userLocation && !userMarker.value) {
+      const { Marker } = globalThis.L;
+      const marker = new Marker(props.userLocation, {
+        title: props.userLocation.name,
+        icon: createIcon(userMarkerIcon.value, 'user'),
+      });
+      marker.addTo(map.value as MapType);
+      userMarker.value = marker;
+    } else if (props.userLocation && userMarker.value) {
+      userMarker.value.setLatLng(props.userLocation);
+      userMarker.value.setIcon(createIcon(userMarkerIcon.value, 'user'));
+    }
+  }
+});
+
 // TypeScript is very unhappy if we remove the second parameter (_),
 // prettier wants to delete it, if we use a comma (which is reasonable),
 // and eslint doesn’t want unused variables. Oh, well…
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-watch([leafletMap, points], async ([map, points], [oldMap, _]) => {
+watch([map, points], async ([map, points], [oldMap, _]) => {
   // Can’t do anything without a map.
   if (!map) return;
 
