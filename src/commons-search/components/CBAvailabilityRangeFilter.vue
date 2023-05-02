@@ -43,7 +43,7 @@
 <script lang="ts" setup>
 import { parseISO } from 'date-fns';
 import { useI18n } from '@rokoli/vue-tiny-i18n';
-import { ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { IconCross } from '../../icons';
 import { toDateString } from '../../util';
 import { CommonFilterSet } from '../filter';
@@ -67,6 +67,17 @@ function reset() {
   end.value = '';
   showEnd.value = false;
 }
+
+watch(
+  computed(() => props.modelValue),
+  ({ start, end }) => {
+    if (start === null && end === null) {
+      // if start and end have been reset
+      // we should reset our internal component state as well
+      reset();
+    }
+  },
+);
 
 watch([start, end], () => {
   emit('update:modelValue', {

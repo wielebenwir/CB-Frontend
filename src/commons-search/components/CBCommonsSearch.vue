@@ -26,6 +26,7 @@
         end: parseISO(config.filter.availability.dateRange.end),
       }"
       style="grid-area: filter"
+      @reset="resetFilters"
     />
     <CBCommonList
       class="tw-isolate tw-z-10 tw-bg-gray-100"
@@ -81,19 +82,27 @@ const props = defineProps<{
 }>();
 
 // API data
-const filter = ref<CommonFilterSet>({
-  categories: new Set<Id>(),
-  userLocation: null,
-  location: null,
-  mapCenter: null,
-  availableToday: false,
-  availableBetween: { start: null, end: null },
-});
+const filter = ref<CommonFilterSet>(getFreshFilterData());
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.api);
 const { locationMap, filteredCommons, filteredAndSortedCommons } = useFilteredData(api, filter);
 
 const map = ref();
 const isMapVisible = useElementVisibility(map);
+
+function getFreshFilterData() {
+  return {
+    categories: new Set<Id>(),
+    userLocation: null,
+    location: null,
+    mapCenter: null,
+    availableToday: false,
+    availableBetween: { start: null, end: null },
+  };
+}
+
+function resetFilters() {
+  filter.value = getFreshFilterData();
+}
 
 function scrollMapIntoView() {
   if (map.value) {

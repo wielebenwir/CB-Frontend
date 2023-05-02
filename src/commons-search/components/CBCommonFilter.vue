@@ -20,6 +20,9 @@
           v-model="isAvailableBetween"
           :availability-range="availabilityRange"
         />
+        <button type="button" class="cb-btn tw-gray-100" @click="emit('reset')">
+          {{ t('resetFilters') }}
+        </button>
       </CBCommonFilterPanel>
     </div>
 
@@ -81,6 +84,7 @@ const emit = defineEmits<{
   (e: 'update:userLocation', value: CommonFilterSet['userLocation']): void;
   (e: 'update:availableBetween', value: CommonFilterSet['availableBetween']): void;
   (e: 'update:availableToday', value: CommonFilterSet['availableToday']): void;
+  (e: 'reset'): void;
 }>();
 const { t, locale } = useI18n();
 
@@ -144,10 +148,12 @@ en:
   available: 'Available'
   unlabelledCategoryRenderGroup: 'Features'
   resetActiveFilter: Remove this filter
+  resetFilters: Reset all filters
 
 de:
   availableToday: 'Heute verfügbar'
   available: 'Verfügbar'
   unlabelledCategoryRenderGroup: 'Merkmale'
   resetActiveFilter: Entferne diesen Filter
+  resetFilters: Alle Filter zurücksetzen
 </i18n>
