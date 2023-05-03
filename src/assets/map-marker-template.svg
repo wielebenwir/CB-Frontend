@@ -21,6 +21,8 @@
     d="m59.998 0c-33.078 0-59.998 27.009-59.998 60.195 0 23.6 14.78 43.444 29.012 57.418 14.126 13.869 30.653 22.232 30.9 22.357-.0032.002-.060546.02735-.060547.02735l.10547-.00782s-.038435-.02001-.042969-.02148c.33658-.1675 16.929-8.4805 31.037-22.297 14.253-13.958 29.047-33.812 29.047-57.477 0-33.186-26.922-60.195-60-60.195z"
     fill="__FILL_COLOR__"
   />
-  <circle cx="60" cy="60.6" r="52" fill="url(#embed-fill)" />
-  <text x="60" y="60.6" text-anchor="middle" dominant-baseline="middle" stroke="__EMBED_LABEL_COLOR__" font-size="2.5em" font-family="sans-serif">__EMBED_LABEL__</text>
+  <g transform="translate(60 60.6)">
+    <circle r="52" fill="url(#embed-fill)" />
+    <text text-anchor="middle" dominant-baseline="middle" stroke="__EMBED_LABEL_COLOR__" font-size="2.5em" font-family="sans-serif">__EMBED_LABEL__</text>
+  </g>
 </svg>
