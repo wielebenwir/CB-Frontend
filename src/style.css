@@ -100,6 +100,7 @@
     @apply tw-border
         tw-border-solid
         tw-border-gray-200
+        tw-leading-none
         tw-w-full;
   }
 }
