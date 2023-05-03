@@ -1,4 +1,4 @@
-import { formatISO } from 'date-fns';
+import { formatISO, parseISO } from 'date-fns';
 import { computed, ComputedRef, ref, Ref } from 'vue';
 import { useDevicePixelRatio, useElementBounding, useElementSize } from '@vueuse/core';
 import { Image } from './commons-search/types';
@@ -59,6 +59,12 @@ export function useMap<KeyType extends keyof ItemType, ItemType>(
 
 export function toDateString(date: Date) {
   return formatISO(date, { representation: 'date' });
+}
+
+export function parseDate(date: string | undefined | null) {
+  if (!date) return null;
+  const _date = parseISO(date);
+  return isNaN(_date.getTime()) ? null : _date;
 }
 
 export function isDateInDayRange(

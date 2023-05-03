@@ -41,11 +41,10 @@
 </template>
 
 <script lang="ts" setup>
-import { parseISO } from 'date-fns';
 import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { computed, ref, watch } from 'vue';
 import { IconCross } from '../../icons';
-import { toDateString } from '../../util';
+import { parseDate, toDateString } from '../../util';
 import { CommonFilterSet } from '../filter';
 import CBFilterLabel from './CBFilterLabel.vue';
 
@@ -81,8 +80,8 @@ watch(
 
 watch([start, end], () => {
   emit('update:modelValue', {
-    start: start.value ? parseISO(start.value) : null,
-    end: end.value ? parseISO(end.value) : null,
+    start: parseDate(start.value),
+    end: parseDate(end.value),
   });
 });
 </script>
