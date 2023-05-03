@@ -67,6 +67,12 @@ export function parseDate(date: string | undefined | null) {
   return isNaN(_date.getTime()) ? null : _date;
 }
 
+export function enforceDateRange(date: Date | null, range: { min: Date; max: Date }) {
+  return date && date.getTime() > range.min.getTime() && date.getTime() <= range.max.getTime()
+    ? date
+    : null;
+}
+
 export function isDateInDayRange(
   startDate: Date,
   endDate: Date,

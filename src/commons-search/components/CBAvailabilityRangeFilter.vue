@@ -18,8 +18,9 @@
           v-model="start"
           type="date"
           class="cb-input cb-input-date"
-          :min="toDateString(availabilityRange.start)"
-          :max="toDateString(availabilityRange.end)"
+          :min="toDateString(startRange.min)"
+          :max="toDateString(startRange.max)"
+          @blur="checkInvalid"
         />
       </label>
 
@@ -29,8 +30,9 @@
           v-model="end"
           type="date"
           class="cb-input cb-input-date"
-          :min="start ? start : toDateString(availabilityRange.start)"
-          :max="toDateString(availabilityRange.end)"
+          :min="toDateString(endRange.min)"
+          :max="toDateString(endRange.max)"
+          @blur="checkInvalid"
         />
       </label>
       <button v-else type="button" class="cb-btn tw-bg-gray-100" @click="showEnd = true">
@@ -44,7 +46,7 @@
 import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { computed, ref, watch } from 'vue';
 import { IconCross } from '../../icons';
-import { parseDate, toDateString } from '../../util';
+import { enforceDateRange, parseDate, toDateString } from '../../util';
 import { CommonFilterSet } from '../filter';
 import CBFilterLabel from './CBFilterLabel.vue';
 
@@ -60,11 +62,27 @@ const { t } = useI18n();
 const showEnd = ref(props.modelValue.end !== null);
 const start = ref<string>(props.modelValue.start ? toDateString(props.modelValue.start) : '');
 const end = ref<string>(props.modelValue.end ? toDateString(props.modelValue.end) : '');
+const startRange = computed(() => ({
+  min: props.availabilityRange.start,
+  max: props.availabilityRange.end,
+}));
+const startSafe = computed(() => enforceDateRange(parseDate(start.value), startRange.value));
+const endRange = computed(() => ({
+  min: startSafe.value ?? props.availabilityRange.start,
+  max: props.availabilityRange.end,
+}));
+const endSafe = computed(() => enforceDateRange(parseDate(end.value), endRange.value));
 
 function reset() {
   start.value = '';
   end.value = '';
   showEnd.value = false;
+}
+
+function checkInvalid(event: Event) {
+  if (event.target instanceof HTMLInputElement && 'reportValidity' in event.target) {
+    event.target.reportValidity();
+  }
 }
 
 watch(
@@ -78,10 +96,10 @@ watch(
   },
 );
 
-watch([start, end], () => {
+watch([startSafe, endSafe], () => {
   emit('update:modelValue', {
-    start: parseDate(start.value),
-    end: parseDate(end.value),
+    start: startSafe.value,
+    end: endSafe.value,
   });
 });
 </script>
