@@ -22,5 +22,5 @@
     fill="__FILL_COLOR__"
   />
   <circle cx="60" cy="60.6" r="52" fill="url(#embed-fill)" />
-  <text x="60" y="60.6" text-anchor="middle" alignment-baseline="central" stroke="__EMBED_LABEL_COLOR__" font-size="2.5em" font-family="sans-serif">__EMBED_LABEL__</text>
+  <text x="60" y="60.6" text-anchor="middle" dominant-baseline="middle" stroke="__EMBED_LABEL_COLOR__" font-size="2.5em" font-family="sans-serif">__EMBED_LABEL__</text>
 </svg>
