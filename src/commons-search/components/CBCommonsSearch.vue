@@ -51,6 +51,10 @@
       @update:center="filter.mapCenter = $event"
     />
 
+    <div class="tw-isolate tw-z-0 tw-mt-6" style="grid-area: availability">
+      <CBAvailabilityCalendar :commons="filteredAndSortedCommons" :location-map="locationMap" />
+    </div>
+
     <Transition name="cb-animate-panel">
       <button
         v-if="!isMapVisible"
@@ -75,6 +79,7 @@ import CBCommonFilter from './CBCommonFilter.vue';
 import CBCommonList from './CBCommonList.vue';
 import CBMap from './CBMap.vue';
 import { CommonFilterSet, useFilteredData } from '../filter';
+import CBAvailabilityCalendar from './CBAvailabilityCalendar.vue';
 
 const props = defineProps<{
   api: CommonsSearchAPI;
@@ -115,17 +120,17 @@ function scrollMapIntoView() {
 .cb-commons-search {
   box-sizing: border-box;
   display: grid;
-  grid-template-areas: 'map' 'filter' 'list';
+  grid-template-areas: 'map' 'filter' 'list' 'availability';
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: minmax(0, 33dvh) min-content minmax(0, 2fr);
+  grid-template-rows: minmax(0, 33dvh) min-content minmax(0, 2fr) auto;
   height: 100%;
 }
 
 @media (min-width: 800px) {
   .cb-commons-search {
-    grid-template-areas: 'filter map' 'list map';
+    grid-template-areas: 'filter map' 'list map' 'availability availability';
     grid-template-columns: minmax(320px, 400px) minmax(0, 1fr);
-    grid-template-rows: min-content minmax(0, 1fr);
+    grid-template-rows: min-content minmax(0, 80dvh) auto;
   }
 }
 </style>

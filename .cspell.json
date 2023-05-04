@@ -25,7 +25,8 @@
     "rokoli",
     "kasten",
     "markercluster",
-    "spiderfy"
+    "spiderfy",
+    "acal"
   ],
   "flagWords": ["hte"],
   "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "stats/**", "*.svg", "*.json"]

@@ -1,4 +1,4 @@
-import { formatISO, parseISO } from 'date-fns';
+import { addDays, formatISO, parseISO } from 'date-fns';
 import { computed, ComputedRef, ref, Ref } from 'vue';
 import { useDevicePixelRatio, useElementBounding, useElementSize } from '@vueuse/core';
 import { Image } from './commons-search/types';
@@ -246,4 +246,49 @@ export async function* iterSettled<T>(
       yield { status: 'rejected', reason: resolved.error };
     }
   }
+}
+
+export function maxBy<T>(
+  iterable: Iterable<T>,
+  isAGreater: (a: T, b: T) => boolean,
+): T | undefined {
+  let maxItem;
+  let index = 0;
+  for (const item of iterable) {
+    if (index++ === 0) {
+      maxItem = item;
+      continue;
+    }
+    if (!isAGreater(maxItem as T, item)) {
+      maxItem = item;
+    }
+  }
+  return maxItem;
+}
+
+export function* iterDates(end: Date) {
+  let day = new Date();
+  do {
+    yield day;
+    day = addDays(day, 1);
+  } while (
+    day.getDate() !== end.getDate() ||
+    day.getMonth() !== end.getMonth() ||
+    day.getFullYear() !== end.getFullYear()
+  );
+  yield day;
+}
+
+export function* getDateMonths(dates: Iterable<Date>) {
+  let currentMonth: { ref: Date; numDays: number } | undefined;
+
+  for (const date of dates) {
+    if (!currentMonth || currentMonth.ref.getMonth() !== date.getMonth()) {
+      if (currentMonth) yield currentMonth;
+      currentMonth = { ref: date, numDays: 0 };
+    }
+    currentMonth.numDays++;
+  }
+
+  if (currentMonth) yield currentMonth;
 }

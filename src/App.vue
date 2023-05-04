@@ -1,5 +1,5 @@
 <template>
-  <div ref="rootEl" class="tw-box-border md:tw-p-6 md:tw-h-[100dvh]"></div>
+  <div ref="rootEl" class="tw-box-border md:tw-p-6"></div>
 
   <button
     type="button"
