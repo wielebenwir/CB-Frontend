@@ -156,7 +156,7 @@ function moveColumnHighlight(event: MouseEvent) {
   --cb-acal-highlight-color: theme('colors.amber.50');
   --cb-acal-highlight-indicator-color: currentColor;
   --cb-acal-column-weekend-color: theme('colors.teal.50');
-  --cb-acal-header-color: theme('colors.gray.100');
+  --cb-acal-header-color: var(--cb-layer-base-1-color);
 }
 
 .cb-acal-table {

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cb-common-filter tw-p-6 tw-relative tw-border-0 tw-border-b tw-border-solid tw-border-gray-300 tw-flex tw-flex-col tw-gap-3"
+    class="cb-common-filter tw-p-6 tw-relative tw-border-0 tw-border-b tw-border-solid tw-border-base-3 tw-flex tw-flex-col tw-gap-3"
   >
     <div class="tw-flex tw-gap-3 tw-max-w-full" :class="{ 'tw-flex-col': expanded }">
       <CBLocationFilter
@@ -20,7 +20,7 @@
           v-model="isAvailableBetween"
           :availability-range="availabilityRange"
         />
-        <button type="button" class="cb-btn tw-gray-100" @click="emit('reset')">
+        <button type="button" class="cb-btn tw-bg-base-1" @click="emit('reset')">
           {{ t('resetFilters') }}
         </button>
       </CBCommonFilterPanel>
@@ -31,7 +31,7 @@
       <template v-for="filter in appliedFilters" :key="filter.key">
         <button
           type="button"
-          class="cb-btn tw-bg-gray-200 tw-p-0 tw-gap-0 tw-h-6 tw-items-stretch tw-text-sm"
+          class="cb-btn tw-bg-base-2 tw-p-0 tw-gap-0 tw-h-6 tw-items-stretch tw-text-sm"
           :title="t('resetActiveFilter')"
           @click="filter.reset"
         >

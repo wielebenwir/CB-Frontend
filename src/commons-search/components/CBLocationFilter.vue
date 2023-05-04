@@ -14,7 +14,7 @@
           <transition name="cb-animate-panel">
             <ComboboxOptions
               v-if="locations.length > 0"
-              class="tw-absolute tw-inset-x-6 tw-z-20 tw-mt-3 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg"
+              class="tw-absolute tw-inset-x-6 tw-z-20 tw-mt-3 tw-bg-base-0 tw-p-6 tw-shadow-lg tw-rounded-lg"
               :style="{ top: `${inputBottom}px` }"
             >
               <ComboboxOption
@@ -24,7 +24,7 @@
                 as="template"
                 :value="location"
               >
-                <li class="cb-btn tw-justify-start tw-gap-3" :class="{ 'tw-bg-gray-100': active }">
+                <li class="cb-btn tw-justify-start tw-gap-3" :class="{ 'tw-bg-base-1': active }">
                   <CBLocationIcon />
                   <span>{{ location.name }}</span>
                 </li>
@@ -36,7 +36,7 @@
           <button
             v-if="canGetUserPosition && !isLoadingLocations && !isLoadingUserLocation"
             type="button"
-            class="cb-btn tw-p-1 tw-bg-gray-100"
+            class="cb-btn tw-p-1 tw-bg-base-1"
             :aria-label="t('getPosition')"
             @click="locateUser"
           >
@@ -51,14 +51,14 @@
     <template v-else>
       <div class="tw-grid">
         <p
-          class="tw-my-0 tw-min-w-0 cb-grid-cover cb-input tw-bg-white"
+          class="tw-my-0 tw-min-w-0 cb-grid-cover cb-input tw-bg-base-0"
           :title="currentLocation.name"
         >
           <span class="tw-truncate tw-w-10/12 tw-block">{{ currentLocation.name }}</span>
         </p>
         <button
           type="button"
-          class="cb-btn tw-p-1 tw-bg-gray-100 cb-grid-cover tw-self-center tw-place-self-end tw-mr-1"
+          class="cb-btn tw-p-1 tw-bg-base-1 cb-grid-cover tw-self-center tw-place-self-end tw-mr-1"
           :title="t('reset')"
           @click="currentLocation = null"
         >

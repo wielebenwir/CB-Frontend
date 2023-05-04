@@ -5,7 +5,7 @@
       <button
         v-show="start || end || showEnd"
         type="button"
-        class="cb-btn tw-p-1 tw-bg-gray-100 tw-ml-auto"
+        class="cb-btn tw-p-1 tw-bg-base-1 tw-ml-auto"
         @click="reset"
       >
         <IconCross class="tw-w-4 tw-h-4" />
@@ -35,7 +35,7 @@
           @blur="checkInvalid"
         />
       </label>
-      <button v-else type="button" class="cb-btn tw-bg-gray-100" @click="showEnd = true">
+      <button v-else type="button" class="cb-btn tw-bg-base-1" @click="showEnd = true">
         {{ t('addUntil') }}
       </button>
     </div>

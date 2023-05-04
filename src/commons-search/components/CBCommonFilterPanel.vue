@@ -4,7 +4,7 @@
   </div>
 
   <template v-else-if="isSmallViewPort">
-    <button type="button" class="cb-btn tw-bg-gray-200" @click="isDialogOpen = true">
+    <button type="button" class="cb-btn tw-bg-base-2" @click="isDialogOpen = true">
       <IconFilter class="tw-flex-none" />
       {{ t('buttonLabel') }}
     </button>
@@ -19,14 +19,14 @@
   </template>
 
   <Popover v-else class="tw-flex-none">
-    <PopoverButton ref="filterButtonEl" class="cb-btn tw-bg-gray-200">
+    <PopoverButton ref="filterButtonEl" class="cb-btn tw-bg-base-2">
       <IconFilter class="tw-flex-none" />
       {{ t('buttonLabel') }}
     </PopoverButton>
 
     <transition name="cb-animate-panel">
       <PopoverPanel
-        class="cb-common-filter-panel tw-absolute tw-mt-3 tw-inset-x-6 tw-z-20 tw-bg-white tw-p-6 tw-shadow-lg tw-rounded-lg"
+        class="cb-common-filter-panel tw-absolute tw-mt-3 tw-inset-x-6 tw-z-20 tw-bg-base-0 tw-p-6 tw-shadow-lg tw-rounded-lg"
         :style="{ top: `${filterButtonBottom}px` }"
       >
         <slot />
@@ -59,7 +59,7 @@ const filterButtonBottom = useBottom(filterButtonEl);
 
 <style lang="postcss">
 .cb-common-filter-panel--expanded .cb-btn {
-  @apply tw-bg-gray-200;
+  @apply tw-bg-base-2;
 }
 
 .cb-common-filter-panel {

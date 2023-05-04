@@ -66,7 +66,7 @@ const pointsOfInterest = usePointsOfInterest(
   props.config?.map?.markerIcon,
 );
 const defaultUserMarkerIcon = makeMapMarkerIcon(undefined, ['color'], {
-  embedFill: 'var(--commonsbooking-map-marker-user-embed-fill)',
+  embedFill: 'var(--cb-map-marker-user-embed-fill)',
 });
 const userMarkerIcon = computedAsync<MarkerIcon>(
   () => resolveMarkerIcon(props.config?.map?.userMarkerIcon, defaultUserMarkerIcon),

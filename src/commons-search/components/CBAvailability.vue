@@ -5,7 +5,7 @@
     :class="[
       `cb-availability--${availability.status}`,
       {
-        'tw-bg-gray-100': availability.status === 'available',
+        'tw-bg-base-1': availability.status === 'available',
         'tw-bg-amber-500 tw-text-white cb-pattern-lines':
           availability.status === 'partially-booked',
         'tw-bg-rose-500 tw-text-white cb-pattern-cross': availability.status === 'booked',

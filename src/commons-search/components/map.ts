@@ -37,7 +37,7 @@ const traditionalIcon: MarkerIcon = {
 
 const defaultCommonMarkerRenderers: CommonMarkerIconRenderer[] = [
   { type: 'thumbnail' },
-  { type: 'color', color: 'var(--commonsbooking-map-marker-default-embed-fill)' },
+  { type: 'color', color: 'var(--cb-map-marker-default-embed-fill)' },
 ];
 
 function defaults<T>(...args: (T | undefined)[]) {
@@ -166,7 +166,7 @@ async function _resolveMarkerIcon(
   return (
     defaultValue ??
     makeMapMarkerIcon(undefined, ['color'], {
-      embedFill: 'var(--commonsbooking-map-marker-default-embed-fill)',
+      embedFill: 'var(--cb-map-marker-default-embed-fill)',
     })
   );
 }
@@ -184,7 +184,7 @@ export function resolveClusterMarkerIcon(
   cluster: MarkerCluster,
 ): MarkerIcon {
   const renderers = config?.renderers ?? [];
-  const defaultLabelColor = 'var(--commonsbooking-map-marker-default-embed-label-stroke)';
+  const defaultLabelColor = 'var(--cb-map-marker-default-embed-label-stroke)';
 
   for (const renderer of renderers) {
     if (renderer.type === 'color') {
@@ -200,7 +200,7 @@ export function resolveClusterMarkerIcon(
   }
 
   return makeMapMarkerIcon(undefined, ['cluster', 'color'], {
-    embedFill: 'var(--commonsbooking-map-marker-cluster-embed-fill)',
+    embedFill: 'var(--cb-map-marker-cluster-embed-fill)',
     embedLabelStroke: defaultLabelColor,
     embedLabel: cluster.getChildCount().toString(),
   });

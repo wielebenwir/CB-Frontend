@@ -25,12 +25,12 @@
             leave-to="tw-opacity-0 tw-scale-95"
           >
             <DialogPanel
-              class="tw-w-full tw-transform tw-rounded tw-bg-white tw-shadow-xl tw-transition-all tw-max-h-full tw-flex tw-flex-col tw-overflow-hidden"
+              class="tw-w-full tw-transform tw-rounded tw-bg-base-0 tw-shadow-xl tw-transition-all tw-max-h-full tw-flex tw-flex-col tw-overflow-hidden"
               v-bind="attrs"
             >
               <slot name="header">
                 <header
-                  class="tw-flex tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-gray-200 tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
+                  class="tw-flex tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-base-2 tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
                 >
                   <DialogTitle as="h3" class="tw-text-lg tw-font-bold tw-m-0">
                     {{ title }}
@@ -38,7 +38,7 @@
 
                   <button
                     type="button"
-                    class="cb-btn tw-bg-gray-100 tw-p-1"
+                    class="cb-btn tw-bg-base-1 tw-p-1"
                     @click="emit('update:isOpen', false)"
                   >
                     <IconCross />

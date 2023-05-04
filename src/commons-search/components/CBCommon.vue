@@ -1,5 +1,5 @@
 <template>
-  <div class="cb-common tw-rounded tw-overflow-hidden tw-bg-white tw-group">
+  <div class="cb-common tw-rounded tw-overflow-hidden tw-bg-base-0 tw-group">
     <figure ref="imgContainerEl" class="cb-common-header tw-relative tw-aspect-video tw-m-0">
       <img
         v-if="image"
@@ -48,7 +48,7 @@
         class="cb-common--categories tw-flex tw-flex-wrap tw-gap-1 tw-text-gray-600"
       >
         <template v-for="category in commonCategories" :key="category.id">
-          <CBBadge v-if="category" class="tw-bg-gray-100 tw-text-sm">
+          <CBBadge v-if="category" class="tw-bg-base-1 tw-text-sm">
             {{ category.name }}
           </CBBadge>
         </template>

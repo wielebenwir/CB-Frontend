@@ -1,7 +1,7 @@
 <template>
   <label
-    class="cb-category cb-btn tw-bg-gray-100 tw-truncate"
-    :class="{ 'cb-category--active tw-bg-teal-200': modelValue }"
+    class="cb-category cb-btn tw-truncate"
+    :class="{ 'cb-category--active tw-bg-active': modelValue, 'tw-bg-base-1': !modelValue }"
     tabindex="0"
     @keydown.space.prevent
     @keyup.space="value = !value"

@@ -3,7 +3,7 @@
 
   <button
     type="button"
-    class="cb-btn tw-gray-100 tw-shadow-lg tw-fixed tw-top-3 tw-right-3 tw-bg-white md:tw-top-9 md:tw-right-9"
+    class="cb-btn tw-bg-base-0 tw-shadow-lg tw-fixed tw-top-3 tw-right-3 md:tw-top-9 md:tw-right-9"
     @click="showConfigurationDialog = true"
   >
     Edit Configuration
@@ -18,7 +18,7 @@
       <textarea
         v-model="userConfiguration"
         rows="30"
-        class="cb-input tw-border tw-border-gray-100 tw-font-mono tw-w-full tw-box-border tw-mb-4"
+        class="cb-input tw-border tw-border-base-1 tw-font-mono tw-w-full tw-box-border tw-mb-4"
         @blur="updateConfiguration"
       />
     </div>
@@ -47,11 +47,11 @@ const configuration = ref<CommonsSearchConfiguration>(
       markerIcon: {
         renderers: [
           { type: 'thumbnail' },
-          { type: 'color', color: 'var(--commonsbooking-map-marker-default-embed-fill)' },
+          { type: 'color', color: 'var(--cb-map-marker-default-embed-fill)' },
         ],
       },
       userMarkerIcon: {
-        renderers: [{ type: 'color', color: 'var(--commonsbooking-map-marker-user-embed-fill)' }],
+        renderers: [{ type: 'color', color: 'var(--cb-map-marker-user-embed-fill)' }],
       },
     },
   }),

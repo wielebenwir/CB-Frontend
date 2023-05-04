@@ -4,19 +4,15 @@
 
 @layer base {
   :root {
-    --commonsbooking-map-marker-default-embed-fill: var(
-      --commonsbooking-color-buttons,
-      hsl(160 60% 80%)
-    );
-    --commonsbooking-map-marker-user-embed-fill: var(
-      --commonsbooking-color-secondary,
-      hsl(240 60% 80%)
-    );
-    --commonsbooking-map-marker-cluster-embed-fill: var(
-      --commonsbooking-color-buttons,
-      hsl(90 60% 80%)
-    );
-    --commonsbooking-map-marker-default-embed-label-stroke: hsl(90 60% 20%);
+    --cb-map-marker-default-embed-fill: var(--commonsbooking-color-buttons, hsl(160 60% 80%));
+    --cb-map-marker-user-embed-fill: var(--commonsbooking-color-secondary, hsl(240 60% 80%));
+    --cb-map-marker-cluster-embed-fill: var(--commonsbooking-color-buttons, hsl(90 60% 80%));
+    --cb-map-marker-default-embed-label-stroke: hsl(90 60% 20%);
+    --cb-layer-base-0-color: #fff;
+    --cb-layer-base-1-color: theme('colors.gray.100');
+    --cb-layer-base-2-color: theme('colors.gray.200');
+    --cb-layer-base-3-color: theme('colors.gray.200');
+    --cb-layer-active-color: var(--commonsbooking-color-buttons, theme('colors.teal.300'));
   }
 
   .cb-app * {
@@ -84,6 +80,7 @@
         tw-select-none
         tw-text-base
         tw-font-[inherit]
+        tw-bg-transparent
         tw-transition;
   }
 
@@ -99,7 +96,7 @@
   .cb-input-date {
     @apply tw-border
         tw-border-solid
-        tw-border-gray-200
+        tw-border-base-2
         tw-leading-none
         tw-w-full;
   }

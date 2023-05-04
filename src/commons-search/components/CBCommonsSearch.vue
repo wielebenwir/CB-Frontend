@@ -17,7 +17,7 @@
       v-model:user-location="filter.userLocation"
       v-model:available-between="filter.availableBetween"
       v-model:available-today="filter.availableToday"
-      class="tw-flex-none tw-bg-gray-100"
+      class="tw-flex-none tw-bg-base-1"
       :api="api"
       :config="config"
       :expanded="config?.layout?.expandFilter"
@@ -29,7 +29,7 @@
       @reset="resetFilters"
     />
     <CBCommonList
-      class="tw-isolate tw-z-10 tw-bg-gray-100"
+      class="tw-isolate tw-z-10 tw-bg-base-1"
       style="grid-area: list"
       :categories="api.categories"
       :commons="filteredAndSortedCommons"
@@ -58,7 +58,7 @@
     <Transition name="cb-animate-panel">
       <button
         v-if="!isMapVisible"
-        class="cb-btn tw-bg-gray-900 tw-text-white tw-text-3xl tw-fixed tw-z-10 tw-bottom-3 tw-right-3 tw-shadow-lg tw-aspect-square md:tw-hidden"
+        class="cb-btn tw-bg-base-3 tw-text-3xl tw-fixed tw-z-10 tw-bottom-3 tw-right-3 tw-shadow-lg tw-aspect-square tw-invert md:tw-hidden"
         @click="scrollMapIntoView"
       >
         <IconArrowUp class="tw-scale-125" />
