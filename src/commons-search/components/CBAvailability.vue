@@ -13,8 +13,10 @@
       },
     ]"
   >
-    <span class="tw-block tw-font-bold">{{ weekdayName }}</span>
-    <span>{{ availability.date.getDate() }}.</span>
+    <slot v-if="!noLabel">
+      <span class="tw-block tw-font-bold">{{ weekdayName }}</span>
+      <span>{{ availability.date.getDate() }}.</span>
+    </slot>
   </span>
 </template>
 
@@ -25,6 +27,7 @@ import { CommonAvailability } from '../types';
 
 const props = defineProps<{
   availability: CommonAvailability;
+  noLabel?: boolean;
 }>();
 
 const { locale, t } = useI18n();
