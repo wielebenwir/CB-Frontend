@@ -184,7 +184,7 @@ function moveColumnHighlight(event: MouseEvent) {
 .cb-acal-name {
   position: sticky;
   left: 0;
-  background-color: theme('colors.gray.100');
+  background-color: var(--cb-acal-header-color);
 }
 
 .cb-acal thead tr:last-child {
