@@ -1,5 +1,5 @@
 <template>
-  <div ref="rootEl" class="cb-acal tw-overflow-auto tw-max-h-full tw-relative">
+  <div class="cb-acal tw-overflow-auto tw-max-h-full tw-relative">
     <table class="cb-acal-table tw-table-fixed tw-border-spacing-0 tw-rounded">
       <colgroup>
         <col class="cb-acal-name" />
@@ -113,7 +113,6 @@ const props = defineProps<{
 }>();
 const { locale, t } = useI18n();
 
-const rootEl = ref<Element | undefined>();
 const tableHeadEl = ref<HTMLTableSectionElement | undefined>();
 const { height: tableHeadHeight } = useElementSize(tableHeadEl);
 const tableHeadHeightPx = computed(() => `${tableHeadHeight.value}px`);
