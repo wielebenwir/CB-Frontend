@@ -3,7 +3,7 @@
     class="cb-availability tw-text-sm tw-p-1 tw-text-center tw-select-none tw-leading-none"
     :title="t(availability.status)"
     :class="[
-      `cb-availability-${availability.status}`,
+      `cb-availability--${availability.status}`,
       {
         'tw-bg-gray-100': availability.status === 'available',
         'tw-bg-amber-500 tw-text-white cb-pattern-lines':
