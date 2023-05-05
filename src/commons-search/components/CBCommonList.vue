@@ -4,7 +4,7 @@
       v-if="selectedLocation"
       :location="selectedLocation"
       :user-location="userLocation"
-      class="tw-sticky tw-top-0 tw-z-20 tw-bg-base-1 tw-border-0 tw-border-b tw-border-solid tw-border-base-2"
+      class="tw-sticky tw-top-0 tw-z-20 tw-bg-base-1 tw-border-b tw-border-base-2"
     >
       <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
         <p class="tw-font-bold tw-m-0">

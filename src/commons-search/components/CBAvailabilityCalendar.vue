@@ -51,7 +51,7 @@
           >
             <span
               v-show="activeColIndex === index + 2"
-              class="tw-absolute tw-left-1/2 -tw-translate-x-1/2 tw-top-[2px] tw-border-[6px] tw-border-solid tw-border-transparent tw-border-t-[var(--cb-acal-highlight-indicator-color)] tw-aspect-square tw-inline-flex"
+              class="tw-absolute tw-left-1/2 -tw-translate-x-1/2 tw-top-[2px] tw-border-[6px] tw-border-t-[var(--cb-acal-highlight-indicator-color)] tw-aspect-square tw-inline-flex"
             />
             <span>
               {{ date.toLocaleDateString(locale, { day: '2-digit' }) }}
