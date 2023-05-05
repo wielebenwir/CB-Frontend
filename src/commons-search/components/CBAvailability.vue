@@ -34,12 +34,14 @@ en:
   booked: 'Already booked on this day.'
   partially-booked: 'Partially booked on this day.'
   locked: 'Cannot be borrowed on this day (i.e. for maintenance or other reasons).'
+  closed: 'The lending station is closed on this day.'
 
 de:
   available: 'An diesem Tag verfügbar.'
   booked: 'An diesem Tag bereits gebucht.'
   partially-booked: 'An diesem Tag bereits teilweise gebucht.'
   locked: 'An diesem Tag nicht ausleihbar (z.B. wegen Wartung oder anderen Gründen).'
+  closed: 'Die Ausleihstation ist an diesem Tag geschlossen.'
 </i18n>
 
 <style lang="postcss">
@@ -50,6 +52,8 @@ de:
   --cb-availability-booked-text-color: white;
   --cb-availability-locked-color: var(--cb-availability-booked-color);
   --cb-availability-locked-text-color: var(--cb-availability-booked-text-color);
+  --cb-availability-closed-color: theme('colors.gray.600');
+  --cb-availability-closed-text-color: white;
 }
 
 .cb-availability--available {
@@ -76,5 +80,10 @@ de:
 .cb-availability--locked {
   background-color: var(--cb-availability-locked-color);
   color: var(--cb-availability-locked-text-color);
+}
+
+.cb-availability--closed {
+  background-color: var(--cb-availability-closed-color);
+  color: var(--cb-availability-closed-text-color);
 }
 </style>

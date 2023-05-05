@@ -160,7 +160,12 @@ export type Image = {
 
 export type Id = number | string;
 export type IdMap<T extends { id: Id }> = Map<T['id'], T>;
-export type CommonAvailabilityStatus = 'available' | 'booked' | 'partially-booked' | 'locked';
+export type CommonAvailabilityStatus =
+  | 'available'
+  | 'booked'
+  | 'partially-booked'
+  | 'locked'
+  | 'closed';
 export type CommonAvailability = { status: CommonAvailabilityStatus; date: Date };
 
 export type Common = {

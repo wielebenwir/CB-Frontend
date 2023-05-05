@@ -26,7 +26,8 @@
     "kasten",
     "markercluster",
     "spiderfy",
-    "acal"
+    "acal",
+    "Ausleihstation"
   ],
   "flagWords": ["hte"],
   "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "stats/**", "*.svg", "*.json"]

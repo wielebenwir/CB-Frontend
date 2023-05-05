@@ -6,6 +6,7 @@ import { delay } from '../../util';
 import type {
   AdminAjaxDataSource,
   Common,
+  CommonAvailabilityStatus,
   CommonLocation,
   CommonsSearchAPI,
   CommonsSearchConfiguration,
@@ -109,10 +110,19 @@ export function useAdminAjaxData(
               height,
             };
           }),
-        availabilities: (item.availability ?? []).map((a) => ({
-          status: a.status,
-          date: parseISO(a.date),
-        })),
+        availabilities: (item.availability ?? []).map((a) => {
+          const date = parseISO(a.date);
+          // date.getDay is 0-indexed starting on Sunday.
+          // closed_days is 1-indexed starting on Monday.
+          const day = (date.getDay() === 0 ? 7 : date.getDay()).toString();
+          const status: CommonAvailabilityStatus = location.closed_days.includes(day as APIDay)
+            ? ('closed' as const)
+            : a.status;
+          return {
+            status,
+            date,
+          };
+        }),
       }));
     });
   });
