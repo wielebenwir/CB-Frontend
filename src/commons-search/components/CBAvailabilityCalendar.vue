@@ -25,7 +25,7 @@
                     );
                   "
                 >
-                  <span class="cb-acal-faux-border" />
+                  <span class="cb-acal-month-border" />
                   {{ month.ref.toLocaleDateString(locale, { month: 'long' }) }}
                 </span>
               </span>
@@ -49,10 +49,12 @@
             :class="['cb-acal-day', `cb-acal-day--${days[date.getDay()]}`]"
             scope="col"
           >
-            <span
-              v-show="activeColIndex === index + 2"
-              class="tw-absolute tw-left-1/2 -tw-translate-x-1/2 tw-top-[2px] tw-border-[6px] tw-border-solid tw-border-transparent tw-border-t-[var(--cb-acal-highlight-indicator-color)] tw-aspect-square tw-inline-flex"
-            />
+            <transition name="cb-animate-panel">
+              <span
+                v-show="activeColIndex === index + 2"
+                class="tw-absolute tw-left-1/2 -tw-translate-x-1/2 tw-top-[2px] tw-border-[6px] tw-border-solid tw-border-transparent tw-border-t-[var(--cb-acal-highlight-indicator-color)] tw-aspect-square tw-inline-flex"
+              />
+            </transition>
             <span>
               {{ date.toLocaleDateString(locale, { day: '2-digit' }) }}
             </span>
@@ -141,11 +143,6 @@ function moveColumnHighlight(event: MouseEvent) {
 </script>
 
 <style lang="postcss">
-/*
-  If you apply borders to the table be advised that position:sticky breaks table borders when using
-  border-collapse:collapse in Firefox. You need to make sure that borders are only applied to
-  either top or bottom and left or right.
-*/
 .cb-acal {
   --cb-acal-column-name-width: 120px;
   --cb-acal-column-padding-x: theme('spacing.2');
@@ -159,20 +156,6 @@ function moveColumnHighlight(event: MouseEvent) {
   --cb-acal-header-color: var(--cb-layer-base-1-color);
 }
 
-.cb-acal-table {
-  border: solid var(--cb-acal-border-color-header);
-  border-width: 1px 0;
-}
-
-.cb-acal-faux-border {
-  position: absolute;
-  left: calc(var(--cb-acal-column-padding-x) * -1);
-  top: calc(var(--cb-acal-column-padding-y) * -1);
-  height: v-bind(tableHeadHeightPx);
-  background-color: var(--cb-acal-border-color-header);
-  width: 1px;
-}
-
 .cb-acal :is(th, td) {
   text-align: left;
   line-height: 1.2;
@@ -181,18 +164,34 @@ function moveColumnHighlight(event: MouseEvent) {
   transition: background-color 100ms;
 }
 
-.cb-acal-name {
-  position: sticky;
-  left: 0;
-  background-color: var(--cb-acal-header-color);
+/* Border handling is a little tricky because Firefox doesn’t like border-collapse:collapse
+ * along with sticky table cells. Thus we need to make sure to apply borders only to one side. */
+.cb-acal-table {
+  border: solid var(--cb-acal-border-color-header);
+  border-width: 1px 0;
+}
+.cb-acal-month-border {
+  /* We cant apply this border to the cell because it would vanish behind other sticky table cells.
+   * We therefore have to anchor it to the month label and reposition it so it matches up with the cell. */
+  position: absolute;
+  left: calc(var(--cb-acal-column-padding-x) * -1);
+  top: calc(var(--cb-acal-column-padding-y) * -1);
+  height: v-bind(tableHeadHeightPx);
+  background-color: var(--cb-acal-border-color-header);
+  width: 1px;
+}
+.cb-acal :is(td, th):first-child {
+  border-left-width: 1px;
+}
+.cb-acal :is(td, th):last-child {
+  border-right-width: 1px;
+}
+.cb-acal tbody tr:not(:last-child) :is(td, th) {
+  border-bottom-width: 1px;
+  border-bottom-color: var(--cb-acal-border-color-rows);
 }
 
-.cb-acal thead tr:last-child {
-  position: sticky;
-  top: 0;
-  left: 0;
-}
-
+/* force fixed width and wrapping on large data cells, so they don’t take all the horizontal space  */
 .cb-acal-name,
 .cb-acal-location {
   min-width: var(--cb-acal-column-name-width);
@@ -200,46 +199,45 @@ function moveColumnHighlight(event: MouseEvent) {
   word-wrap: break-word;
 }
 
+.cb-acal .cb-acal-day {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .cb-acal thead :is(th, td):not(.cb-acal-day):not(.cb-acal-name) {
   background-color: white;
 }
 
-.cb-acal .cb-acal-day {
-  text-align: center;
-}
-
+/* remove the padding for date-availability cells so that we get get a continuous timeline */
 .cb-acal td.cb-acal-day {
   padding-inline: 0;
 }
-
 .cb-acal td.cb-acal-day > span {
   padding-inline: var(--cb-acal-column-padding-x);
 }
 
-.cb-acal :is(td, th):first-child {
-  border-left-width: 1px;
-}
-
-.cb-acal :is(td, th):last-child {
-  border-right-width: 1px;
-}
-
-col.col-acal-day {
-  background: white;
-}
-
+/* indicate weekends for better orientation */
 col.cb-acal-day--sat,
 col.cb-acal-day--sun {
   background-color: var(--cb-acal-column-weekend-color);
 }
 
-.cb-acal tbody tr:not(:last-child) :is(td, th) {
-  border-bottom-width: 1px;
-  border-bottom-color: var(--cb-acal-border-color-rows);
-}
-
+/* highlight rows on hover */
 .cb-acal tbody tr:hover :is(td, th) {
   background-color: var(--cb-acal-highlight-color);
+}
+
+/* sticky headers */
+.cb-acal-name {
+  position: sticky;
+  left: 0;
+  background-color: var(--cb-acal-header-color);
+  z-index: 1;
+}
+.cb-acal thead tr:last-child {
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 </style>
 
