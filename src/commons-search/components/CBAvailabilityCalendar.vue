@@ -87,6 +87,7 @@
                 class="tw-w-full tw-block tw-h-3"
                 :availability="common.availabilities[index]"
                 no-label
+                show-icon
               />
             </template>
             <span v-else>-</span>

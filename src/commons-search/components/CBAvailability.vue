@@ -8,17 +8,30 @@
       <span class="tw-block tw-font-bold">{{ weekdayName }}</span>
       <span>{{ availability.date.getDate() }}.</span>
     </slot>
+    <slot name="icon" v-if="showIcon">
+      <component
+        :is="availabilityStatusIconMap[availability.status]"
+        class="tw-absolute tw-inset-0 tw-m-auto tw-h-3"
+      />
+    </slot>
   </span>
 </template>
 
 <script lang="ts" setup>
 import { useI18n } from '@rokoli/vue-tiny-i18n';
-import { computed } from 'vue';
-import { CommonAvailability } from '../types';
+import { computed, FunctionalComponent } from 'vue';
+import { CommonAvailability, CommonAvailabilityStatus } from '../types';
+import { IconHeart, IconMoon } from '../../icons';
+
+const availabilityStatusIconMap: { [s in CommonAvailabilityStatus]?: FunctionalComponent } = {
+  closed: IconMoon,
+  locked: IconHeart,
+};
 
 const props = defineProps<{
   availability: CommonAvailability;
   noLabel?: boolean;
+  showIcon?: boolean;
 }>();
 
 const { locale, t } = useI18n();
