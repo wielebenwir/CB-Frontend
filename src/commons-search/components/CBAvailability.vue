@@ -33,13 +33,13 @@ en:
   available: 'Available on this day.'
   booked: 'Already booked on this day.'
   partially-booked: 'Partially booked on this day.'
-  locked: 'Cannot be borrowed on this day.'
+  locked: 'Cannot be borrowed on this day (i.e. for maintenance or other reasons).'
 
 de:
   available: 'An diesem Tag verfügbar.'
   booked: 'An diesem Tag bereits gebucht.'
   partially-booked: 'An diesem Tag bereits teilweise gebucht.'
-  locked: 'An diesem Tag nicht ausleihbar.'
+  locked: 'An diesem Tag nicht ausleihbar (z.B. wegen Wartung oder anderen Gründen).'
 </i18n>
 
 <style lang="postcss">
