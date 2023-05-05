@@ -27,33 +27,6 @@
         tw-justify-center;
   }
 
-  .cb-pattern-lines {
-    background-image: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 0.25em,
-      rgba(0, 0, 0, 0.1) 0.25em,
-      rgba(0, 0, 0, 0.1) 0.35em
-    );
-  }
-
-  .cb-pattern-cross {
-    background-image: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 0.25em,
-        rgba(0, 0, 0, 0.1) 0.25em,
-        rgba(0, 0, 0, 0.1) 0.35em
-      ),
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 0.25em,
-        rgba(0, 0, 0, 0.1) 0.25em,
-        rgba(0, 0, 0, 0.1) 0.35em
-      );
-  }
-
   .cb-grid-cover {
     grid-area: 1 / 1;
   }
