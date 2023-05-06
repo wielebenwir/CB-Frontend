@@ -3,7 +3,7 @@
 
   <button
     type="button"
-    class="cb-btn tw-bg-base-0 tw-shadow-lg tw-fixed tw-top-3 tw-right-3 md:tw-top-9 md:tw-right-9"
+    class="cb-btn tw-bg-base-0 tw-shadow-lg tw-absolute tw-top-3 tw-right-3 md:tw-top-9 md:tw-right-9"
     @click="showConfigurationDialog = true"
   >
     {{ t('editConfiguration') }}
