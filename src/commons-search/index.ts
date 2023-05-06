@@ -28,6 +28,7 @@ export function init(
     messages: config.i18n.messages ? [translations, config.i18n.messages] : [translations],
   });
   const app = createApp(CBCommonsSearch, { api, config });
+  app.config.performance = import.meta.env.DEV;
   app.use(i18n);
   app.mount(element);
   return app;
