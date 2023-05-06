@@ -56,11 +56,16 @@ export function useCategoryRenderGroups(
         groupedCategories: [categories],
       };
     }
-    yield {
-      id: 'unlabelled-group',
-      label: ungroupedLabel,
-      groupedCategories: Array.from(groupBy(categoriesWithoutNamedGroup, getGroup).values()),
-    };
+    const unlabelledGroupedCategories = Array.from(
+      groupBy(categoriesWithoutNamedGroup, getGroup).values(),
+    );
+    if (unlabelledGroupedCategories.length > 0) {
+      yield {
+        id: 'unlabelled-group',
+        label: ungroupedLabel,
+        groupedCategories: unlabelledGroupedCategories,
+      };
+    }
   }
 
   const groupMap = useMap(categoryGroups, 'id');

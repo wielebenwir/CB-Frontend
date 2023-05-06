@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-flex tw-flex-col tw-gap-2">
+  <div v-if="renderGroupList.length > 0" class="tw-flex tw-flex-col tw-gap-2">
     <div v-for="renderGroup in renderGroupList" :key="renderGroup.id">
       <header class="tw-flex tw-items-center tw-justify-between tw-mb-1">
         <CBFilterLabel :label="renderGroup.label" class="tw-mb-0" />
