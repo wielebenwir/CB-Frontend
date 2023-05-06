@@ -30,5 +30,13 @@
     "Ausleihstation"
   ],
   "flagWords": ["hte"],
-  "ignorePaths": ["node_modules/**", "dist/**", "**/fixtures/*", "stats/**", "*.svg", "*.json"]
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    "coverage/**",
+    "**/fixtures/*",
+    "stats/**",
+    "*.svg",
+    "*.json"
+  ]
 }
