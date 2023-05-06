@@ -13,12 +13,12 @@ import type {
   Id,
 } from '../types';
 
-type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
+export type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
 type APIAddress = { street: string; city: string; zip: string };
 type APITimeframe = { date_start: string; date_end: string };
 export type APIAvailabilityStatus = 'available' | 'locked' | 'partially-booked' | 'booked';
 type APIAvailability = { status: APIAvailabilityStatus; date: string };
-type APIItem = {
+export type APIItem = {
   id: Id;
   name: string;
   short_desc: string;

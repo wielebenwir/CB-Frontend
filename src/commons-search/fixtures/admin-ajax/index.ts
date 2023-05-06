@@ -1,7 +1,181 @@
-import { add } from 'date-fns';
-import { APIAvailabilityStatus, APILocation } from '../../apis/admin-ajax-api';
+import { addDays, formatISO } from 'date-fns';
+import type {
+  APIAvailabilityStatus,
+  APIDay,
+  APIItem,
+  APILocation,
+} from '../../apis/admin-ajax-api';
 import assets from './assets';
 
+let id = 0;
+
+const images = [
+  'ArCgAeF5_Wk',
+  'thYXxn9quVw',
+  'wSoO8iNYtoU',
+  '0ClfreiNppM',
+  '6tK2Og9dEKA',
+  'uVUTQb-7idQ',
+  '9AFUBP9kIUU',
+  'hPgLl59hbqE',
+  'W5dou7Qo2D8',
+  'xG3gqmai_7k',
+  'tNTvX60SN4o',
+  'FzA40q6nDiA',
+  'cnZ9VRtJPH8',
+  'XCaOgRaGA0Q',
+  'zi8mg1ShblI',
+  'GmMTa8Mjngg',
+  '6ffbx9gM5_g',
+  'bHLU1KnjzbQ',
+  'eZJiq4IVlwY',
+  'EnKMpZcq0M4',
+  'IlR3M0BMrWQ',
+  '6FgbPqag3h8',
+  'sh0GVkpEUXk',
+  'sNW-qKWO7xk',
+  'SHU4YVhTth8',
+];
+
+const usedImages = new Set<string>();
+const usedNames = new Set<string>();
+
+export function makeList<T>(size: number, createFn: (index?: number) => T): T[] {
+  return Array.from(Array(size)).map((_, index) => createFn(index));
+}
+
+function randomFloatInRange(min: number, max: number) {
+  return Math.random() * (max - min) + min;
+}
+
+function randomIntInRange(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomChoice<T>(iterable: T[]): T {
+  const randomIndex = Math.floor(Math.random() * iterable.length);
+  return iterable[randomIndex];
+}
+
+function randomSubset<T>(list: T[], count: number): T[] {
+  const subset = new Set<T>();
+  while (subset.size < count) {
+    subset.add(randomChoice(list));
+  }
+  return Array.from(subset);
+}
+
+function cycleChoice<T>(list: T[], cache: Set<T>) {
+  if (list.length === cache.size) {
+    cache.clear();
+  }
+  const remaining = list.filter((item) => !cache.has(item));
+  const choice = randomChoice(remaining);
+  cache.add(choice);
+  return choice;
+}
+
+function joinRandomizedWords(choiceLists: string[][]) {
+  return choiceLists
+    .map((choices) => randomChoice(choices))
+    .reduce((string, token) => {
+      return ['.', '?', '!', ','].includes(token[0])
+        ? string.trim() + token.trim()
+        : `${string.trim()} ${token.trim()}`.trim();
+    }, '')
+    .trim();
+}
+
+/* cspell:disable */
+function generateRandomItemName() {
+  return cycleChoice(
+    [
+      'Helge',
+      'Buxi',
+      'Ede',
+      'Jule',
+      'Jascha',
+      'Moosmutzel',
+      'Benni',
+      'Kalle',
+      'Ingrid',
+      'Gudrun',
+      'Flunder',
+      'Jockel',
+      'Bärbel',
+      'Rakete',
+    ],
+    usedNames,
+  );
+}
+
+function generateRandomItemDescription(name: string) {
+  return joinRandomizedWords([
+    [name],
+    ['ist ein'],
+    ['robustes', 'tragfähiges', 'kompaktes', 'weichmütiges', 'elegantes', 'funkelndes'],
+    ['Provisorium', 'Dreirad', 'Zweirad', 'Einrad', 'Lastenrad'],
+    ['mit', 'ohne'],
+    ['Elektroantrieb', 'Kettenschaltung', 'Bremsen', 'Laufradklingel', 'Düsenantrieb'],
+    [', das sich'],
+    [
+      'ohne Not',
+      'mit viel Glück',
+      'in Lichtgeschwindigkeit',
+      'im Handumdrehen',
+      'bei Gelegenheit',
+      'in Zukunft',
+    ],
+    [
+      'vorwärts bewegt',
+      'im Kreis dreht',
+      'in Luft auflöst',
+      'aus dem Staub macht',
+      'reparieren lässt',
+      'einklappen lässt',
+      'tieferlegen lässt',
+      'zu einem Transformer verwandelt',
+      'zu einem Cabrio verwandelt',
+      'zur Schnecke macht',
+      'in Gedanken verliert',
+    ],
+    ['.'],
+  ]);
+}
+
+function generateLocationName() {
+  return joinRandomizedWords([
+    ['Kinder und Jugend', 'Klemmbaustein', 'Kunst', 'Hunde', 'Gurken', 'Knurrende', ''],
+    ['Post', 'Schule', 'Schwimmhalle', 'Bäckerei', 'Anstalt'],
+  ]);
+}
+
+function generateStreet() {
+  return (
+    joinRandomizedWords([
+      ['Neue', 'Alte', 'An der', ''],
+      ['Bahnhof', 'Friedhof', 'Kuckuck', 'Kirschbaum', 'Esel', 'Teich', 'Kloster'],
+      ['Gasse', 'Straße', 'Allee', 'Schule', 'Kreuzung'],
+    ]) +
+    ' ' +
+    randomIntInRange(1, 150)
+  );
+}
+/* cspell:enable */
+
+function generateRandomImages(): Record<string, [string, number, number, boolean]> {
+  const imageId = cycleChoice(images, usedImages);
+  const baseUrl = `https://source.unsplash.com/${imageId}/`;
+
+  return {
+    thumbnail: [`${baseUrl}/150x150/`, 150, 150, true],
+    medium: [`${baseUrl}/300x200/`, 300, 200, true],
+    large: [`${baseUrl}/640x426/`, 640, 426, true],
+    full: [`${baseUrl}/1200x800/`, 1200, 800, true],
+  };
+}
 function* generateAvailability(
   firstSlotState?: APIAvailabilityStatus,
   choices: { status: APIAvailabilityStatus; probability: number }[] = [
@@ -32,8 +206,55 @@ function* generateAvailability(
       date: today.toISOString().split('T')[0],
       status: state,
     };
-    today = add(today, { days: 1 });
+    today = addDays(today, 1);
   }
+}
+
+function* generateRandomDays(chance = 0.05) {
+  for (const [index] of Array(6).entries()) {
+    if (Math.random() < chance) {
+      yield (index + 1).toString() as APIDay;
+    }
+  }
+}
+
+function generateRandomItem(): APIItem {
+  const name = generateRandomItemName();
+  return {
+    name,
+    id: `fake-id-${id++}`,
+    short_desc: generateRandomItemDescription(name),
+    link: `https://example.org/items/${encodeURIComponent(name)}`,
+    status: 'publish',
+    terms: randomSubset([27, 28, 29, 30, 31, 32, 33, 34, 35], randomIntInRange(0, 4)),
+    timeframes: [
+      {
+        date_start: formatISO(new Date(), { representation: 'date' }),
+        date_end: '2999-12-31',
+      },
+    ],
+    availability: Array.from(generateAvailability()),
+    thumbnail: null,
+    images: generateRandomImages(),
+  };
+}
+
+export function generateRandomLocation(): APILocation {
+  const name = generateLocationName();
+  return {
+    // Somewhere in Cologne.
+    lat: randomFloatInRange(50.8755, 50.9885),
+    lon: randomFloatInRange(6.8572, 7.102),
+    closed_days: Array.from(generateRandomDays()),
+    location_name: name,
+    address: {
+      street: generateStreet(),
+      city: 'Köln',
+      zip: randomIntInRange(50667, 51149).toString(),
+    },
+    location_link: `https://example.org/locations/${encodeURIComponent(name)}`,
+    items: makeList(randomIntInRange(1, 3), generateRandomItem),
+  };
 }
 
 export default [

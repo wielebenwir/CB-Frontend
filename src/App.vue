@@ -15,6 +15,17 @@
     :title="t('editConfiguration')"
   >
     <div class="tw-flex-1 tw-min-h-0 tw-px-4 tw-overflow-y-auto tw-max-w-full">
+      <label class="tw-flex tw-flex-col tw-mb-3">
+        <span>Number of fake locations:</span>
+        <input
+          type="text"
+          class="cb-input tw-border tw-border-base-2"
+          inputmode="numeric"
+          pattern="[0-9]+"
+          :value="isNaN(numLocations) ? '' : numLocations"
+          @blur="numLocations = parseInt(($event.target as HTMLInputElement).value ?? '')"
+        />
+      </label>
       <textarea
         v-model="userConfiguration"
         rows="30"
@@ -42,6 +53,7 @@ let app: App;
 const { t } = useI18n();
 const rootEl = ref<HTMLElement>();
 const showConfigurationDialog = ref(false);
+const numLocations = ref<number>(30);
 const configuration = ref<CommonsSearchConfiguration>(
   parseLegacyConfig({
     ..._configuration,
@@ -72,7 +84,7 @@ watchEffect(() => {
   if (rootEl.value) {
     app = createCommonsSearch(
       rootEl.value as HTMLElement,
-      createFixturesAPI(configuration.value),
+      createFixturesAPI({ numLocations: numLocations.value }, configuration.value),
       configuration.value,
     );
   }
