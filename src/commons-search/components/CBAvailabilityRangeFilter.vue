@@ -96,11 +96,8 @@ watch(
   },
 );
 
-watch([startSafe, endSafe], () => {
-  emit('update:modelValue', {
-    start: startSafe.value,
-    end: endSafe.value,
-  });
+watch([startSafe, endSafe], ([start, end]) => {
+  emit('update:modelValue', { start, end });
 });
 </script>
 
