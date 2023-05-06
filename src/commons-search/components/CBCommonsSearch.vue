@@ -21,10 +21,7 @@
       :api="api"
       :config="config"
       :expanded="config?.layout?.expandFilter"
-      :availability-range="{
-        start: parseISO(config.filter.availability.dateRange.start),
-        end: parseISO(config.filter.availability.dateRange.end),
-      }"
+      :availability-range="availabilityRange"
       style="grid-area: filter"
       @reset="resetFilters"
     />
@@ -70,7 +67,7 @@
 <script lang="ts" setup>
 import { parseISO } from 'date-fns';
 import { useElementVisibility } from '@vueuse/core';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 import IconArrowUp from '../../assets/arrow-up.svg?component';
 import { CommonsSearchAPI, CommonsSearchConfiguration, Id } from '../types';
@@ -90,6 +87,10 @@ const props = defineProps<{
 const filter = ref<CommonFilterSet>(getFreshFilterData());
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.api);
 const { locationMap, filteredCommons, filteredAndSortedCommons } = useFilteredData(api, filter);
+const availabilityRange = computed(() => ({
+  start: parseISO(props.config.filter.availability.dateRange.start),
+  end: parseISO(props.config.filter.availability.dateRange.end),
+}));
 
 const map = ref();
 const isMapVisible = useElementVisibility(map);
