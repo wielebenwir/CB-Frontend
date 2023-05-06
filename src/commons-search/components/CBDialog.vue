@@ -32,13 +32,14 @@
                 <header
                   class="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-base-2 tw-p-4 tw-mb-4 tw-bg-inherit tw-flex-none tw-z-20"
                 >
-                  <DialogTitle as="h3" class="tw-text-lg tw-font-bold tw-m-0">
+                  <DialogTitle as="p" class="tw-text-lg tw-font-bold tw-m-0">
                     {{ title }}
                   </DialogTitle>
 
                   <button
                     type="button"
                     class="cb-btn tw-bg-base-1 tw-p-1"
+                    :aria-label="t('close')"
                     @click="emit('update:isOpen', false)"
                   >
                     <IconCross />
@@ -57,6 +58,7 @@
 
 <script lang="ts" setup>
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
+import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { useVModel } from '@vueuse/core';
 import { useAttrs } from 'vue';
 import { IconCross } from '../../icons';
@@ -69,6 +71,7 @@ const emit = defineEmits<{
   (e: 'update:isOpen', value: boolean): void;
 }>();
 
+const { t } = useI18n();
 const attrs = useAttrs();
 const isDialogOpen = useVModel(props, 'isOpen', emit);
 </script>
@@ -78,3 +81,11 @@ export default {
   inheritAttrs: false,
 };
 </script>
+
+<i18n lang="yaml">
+de:
+  close: Dialog schließen
+
+en:
+  close: Close dialog
+</i18n>
