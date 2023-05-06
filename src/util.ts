@@ -179,7 +179,7 @@ export function createImageResolver(cache?: Map<string, Promise<string | undefin
       let res: Response;
       let blob: Blob;
       try {
-        res = await fetch(url, { mode: 'no-cors', cache: 'force-cache' });
+        res = await fetch(url, { cache: 'force-cache' });
       } catch (e) {
         console.error('Could not initialize server connection while loading image', { url });
         return resolve(undefined);
