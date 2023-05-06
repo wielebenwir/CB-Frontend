@@ -10,6 +10,7 @@ import type {
   CommonLocation,
   CommonsSearchAPI,
   CommonsSearchConfiguration,
+  Id,
 } from '../types';
 
 type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
@@ -18,7 +19,7 @@ type APITimeframe = { date_start: string; date_end: string };
 export type APIAvailabilityStatus = 'available' | 'locked' | 'partially-booked' | 'booked';
 type APIAvailability = { status: APIAvailabilityStatus; date: string };
 type APIItem = {
-  id: number;
+  id: Id;
   name: string;
   short_desc: string;
   link: string;
@@ -85,7 +86,7 @@ export function useAdminAjaxData(
   const commons = computed<Common[]>(() => {
     return locationData.value.flatMap((location) => {
       return location.items.map((item) => ({
-        id: item.id,
+        id: item.id.toString(),
         locationId: createLocationId(location),
         categoryIds: item.terms,
         name: item.name,
