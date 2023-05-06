@@ -6,13 +6,13 @@
     class="cb-btn tw-bg-base-0 tw-shadow-lg tw-fixed tw-top-3 tw-right-3 md:tw-top-9 md:tw-right-9"
     @click="showConfigurationDialog = true"
   >
-    Edit Configuration
+    {{ t('editConfiguration') }}
   </button>
 
   <CBDialog
     v-model:is-open="showConfigurationDialog"
     class="tw-max-w-3xl"
-    title="Edit Configuration"
+    :title="t('editConfiguration')"
   >
     <div class="tw-flex-1 tw-min-h-0 tw-px-4 tw-overflow-y-auto tw-max-w-full">
       <textarea
@@ -36,8 +36,10 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import _configuration from './commons-search/fixtures/settings';
 import { CommonsSearchConfiguration } from './commons-search/types';
 import CBDialog from './commons-search/components/CBDialog.vue';
+import { useI18n } from '@rokoli/vue-tiny-i18n';
 
 let app: App;
+const { t } = useI18n();
 const rootEl = ref<HTMLElement>();
 const showConfigurationDialog = ref(false);
 const configuration = ref<CommonsSearchConfiguration>(
@@ -93,3 +95,11 @@ body {
   margin: 0;
 }
 </style>
+
+<i18n lang="yaml">
+de:
+  editConfiguration: Konfiguration bearbeiten
+
+en:
+  editConfiguration: Edit Configuration
+</i18n>
