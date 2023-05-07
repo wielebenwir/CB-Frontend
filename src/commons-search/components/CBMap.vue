@@ -98,6 +98,11 @@ function addCommonMarker(id: Id) {
   marker.on('click', () => {
     emit('select', poi.location);
   });
+  marker.on('keyup', ({ originalEvent: event }: { originalEvent: KeyboardEvent }) => {
+    if (event.key === 'Enter') {
+      emit('select', poi.location);
+    }
+  });
   commonMarkers.value.set(id, marker);
   renderCommonMarker(marker);
 }
