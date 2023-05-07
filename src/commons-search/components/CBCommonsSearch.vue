@@ -84,10 +84,9 @@ const props = defineProps<{
   config: CommonsSearchConfiguration;
 }>();
 
-// API data
 const filter = ref<CommonFilterSet>(getFreshFilterData());
 const { api, apiError, retryAPI } = useCommonsSearchAPI(props.api);
-const { locationMap, filteredCommons, filteredAndSortedCommons } = useFilteredData(api, filter);
+const { filteredCommons, filteredAndSortedCommons, locationMap } = useFilteredData(api, filter);
 const availabilityRange = computed(() => ({
   start: parseISO(props.config.filter.availability.dateRange.start),
   end: parseISO(props.config.filter.availability.dateRange.end),
