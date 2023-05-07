@@ -57,6 +57,8 @@
         tw-text-base
         tw-font-[inherit]
         tw-bg-transparent
+        tw-text-inherit
+        tw-no-underline
         tw-transition;
   }
 

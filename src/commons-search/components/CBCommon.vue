@@ -46,7 +46,7 @@
         :aria-label="t('availability', { common: common.name })"
       />
 
-      <p v-if="common.description" class="cb-common-description tw-text-gray-600 tw-my-2">
+      <p v-if="common.description" class="cb-common-description tw-text-gray-600 tw-m-0">
         {{ common.description }}
       </p>
       <ul
@@ -60,6 +60,10 @@
           </CBBadge>
         </li>
       </ul>
+
+      <a :href="common.url" class="cb-btn tw-bg-base-1 tw-mt-2" :target="linkTarget">
+        {{ t('bookCommon', { common: common.name }) }}
+      </a>
     </div>
   </div>
 </template>
@@ -106,6 +110,9 @@ const image = useImage(
   imgContainerEl,
   computed(() => props.common.images),
 );
+const linkTarget = computed(() =>
+  new URL(props.common.url).hostname !== location.hostname ? '_blank' : undefined,
+);
 </script>
 
 <i18n lang="yaml">
@@ -114,10 +121,12 @@ en:
   availability: 'Availability of {common} in the next seven days'
   distance: '{common} is {distance} away from your current location.'
   location: 'You’ll find {common} at'
+  bookCommon: 'Book {common}'
 
 de:
   features: '{common} hat die folgenden Eigenschaften'
   availability: 'Verfügbarkeit von {common} in den nächsten sieben Tagen'
   distance: '{common} ist {distance} von deiner jetzigen Position entfernt.'
   location: 'Du findest {common} bei'
+  bookCommon: '{common} buchen'
 </i18n>
