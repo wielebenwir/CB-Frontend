@@ -268,14 +268,14 @@ export function maxBy<T>(
 
 export function* iterDates(end: Date) {
   let day = new Date();
-  do {
-    yield day;
-    day = addDays(day, 1);
-  } while (
+  while (
     day.getDate() !== end.getDate() ||
     day.getMonth() !== end.getMonth() ||
     day.getFullYear() !== end.getFullYear()
-  );
+  ) {
+    yield day;
+    day = addDays(day, 1);
+  }
   yield day;
 }
 
