@@ -6,7 +6,7 @@
   >
     <slot v-if="!noLabel">
       <span class="tw-block tw-font-bold">{{ weekdayName }}</span>
-      <span>{{ availability.date.getDate() }}.</span>
+      <span>{{ availability.date.getDate() }}</span>
     </slot>
     <slot name="icon" v-if="showIcon">
       <component
