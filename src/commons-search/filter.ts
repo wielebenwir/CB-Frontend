@@ -42,10 +42,6 @@ function filterByCategories(relevantCategoryIds: Set<Id>) {
     Array.from(relevantCategoryIds).every((id) => common.categoryIds.includes(id));
 }
 
-function filterByRelevantLocations(relevantLocationIds: Set<Id>) {
-  return (location: CommonLocation) => relevantLocationIds.has(location.id);
-}
-
 function filterByLocation(location: CommonLocation) {
   return (common: Common) => common.locationId === location.id;
 }
@@ -112,12 +108,5 @@ export function useFilteredData(
     return sortedCommons;
   });
 
-  const relevantLocationIds = computed(
-    () => new Set(filteredCommons.value.map((common) => common.locationId)),
-  );
-  const filteredLocations = computed(() => {
-    return locations.value.filter(filterByRelevantLocations(relevantLocationIds.value));
-  });
-
-  return { filteredLocations, filteredCommons, filteredAndSortedCommons, locationMap };
+  return { filteredAndSortedCommons, filteredCommons, locationMap };
 }
