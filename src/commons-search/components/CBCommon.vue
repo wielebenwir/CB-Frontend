@@ -104,7 +104,7 @@ const formattedDistanceToUserLocation = computed(() => {
   }
 });
 const commonCategories = computed(() =>
-  props.common.categoryIds.map((id) => props.categoryMap.get(id)),
+  props.common.categoryIds.map((id) => props.categoryMap.get(id) as CommonCategory),
 );
 const image = useImage(
   imgContainerEl,
