@@ -16,7 +16,7 @@
   >
     <div class="tw-flex-1 tw-min-h-0 tw-px-4 tw-overflow-y-auto tw-max-w-full">
       <label class="tw-flex tw-flex-col tw-mb-3">
-        <span>Number of fake locations:</span>
+        <span>{{ t('numberLocations') }}</span>
         <input
           type="text"
           class="cb-input tw-border tw-border-base-2"
@@ -140,7 +140,9 @@ body {
 <i18n lang="yaml">
 de:
   editConfiguration: Konfiguration bearbeiten
+  numberLocations: Anzahl der Ausleihstationen
 
 en:
   editConfiguration: Edit Configuration
+  numberLocations: Number of lending stations
 </i18n>
