@@ -8,7 +8,7 @@
       <span class="tw-block tw-font-bold">{{ weekdayName }}</span>
       <span>{{ availability.date.getDate() }}</span>
     </slot>
-    <slot name="icon" v-if="showIcon">
+    <slot v-if="showIcon" name="icon">
       <component
         :is="availabilityStatusIconMap[availability.status]"
         class="tw-absolute tw-inset-0 tw-m-auto tw-h-3"
