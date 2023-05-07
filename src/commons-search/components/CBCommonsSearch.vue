@@ -39,6 +39,7 @@
     <CBMap
       v-if="config.map !== undefined"
       ref="map"
+      v-model:center="filter.mapCenter"
       class="tw-isolate tw-z-0"
       style="grid-area: map"
       :commons="filteredCommons"
@@ -46,9 +47,7 @@
       :user-location="filter.userLocation"
       :config="{ map: config.map, geocode: config.geocode }"
       @select="filter.location = $event"
-      @update:center="filter.mapCenter = $event"
     />
-
     <div class="tw-isolate tw-z-0 tw-mt-6" style="grid-area: availability">
       <CBAvailabilityCalendar :commons="filteredAndSortedCommons" :location-map="locationMap" />
     </div>
@@ -68,7 +67,7 @@
 <script lang="ts" setup>
 import { parseISO } from 'date-fns';
 import { useElementVisibility } from '@vueuse/core';
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 import IconArrowUp from '../../assets/arrow-up.svg?component';
 import { CommonsSearchAPI, CommonsSearchConfiguration, Id } from '../types';
@@ -78,6 +77,7 @@ import CBCommonList from './CBCommonList.vue';
 import CBMap from './CBMap.vue';
 import { CommonFilterSet, useFilteredData } from '../filter';
 import CBAvailabilityCalendar from './CBAvailabilityCalendar.vue';
+import { getCoordinates, getCoordinatesCenter } from '../geo';
 
 const props = defineProps<{
   api: CommonsSearchAPI;
@@ -94,6 +94,14 @@ const availabilityRange = computed(() => ({
 
 const map = ref();
 const isMapVisible = useElementVisibility(map);
+
+watch(filteredCommons, (newCommons) => {
+  // We also update the mapCenter through the CBMap component,
+  // but we must calculate it as early as possible, so we can avoid multiple sorting runs.
+  filter.value.mapCenter = getCoordinatesCenter(
+    getCoordinates(newCommons, locationMap.value, filter.value.userLocation),
+  );
+});
 
 function getFreshFilterData() {
   return {

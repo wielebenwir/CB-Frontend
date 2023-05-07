@@ -3,8 +3,8 @@
 </template>
 
 <script lang="ts" setup>
+import haversine from 'haversine-distance';
 import type {
-  LatLngTuple,
   Map as MapType,
   TileLayer as TileLayerType,
   Marker as MarkerType,
@@ -13,7 +13,7 @@ import type {
 } from 'leaflet';
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch, watchEffect } from 'vue';
 import { computedAsync } from '@vueuse/core';
-import { coordinateToLatLngTuple, GeoLocation } from '../geo';
+import { coordinateToLatLngTuple, GeoLocation, getCoordinates } from '../geo';
 import { Common, CommonLocation, GeoCoordinate, MapConfig, GeocodeConfig, Id } from '../types';
 import {
   makeMapMarkerIcon,
@@ -28,6 +28,7 @@ const props = defineProps<{
   commons: Common[];
   locationMap: Map<CommonLocation['id'], CommonLocation>;
   userLocation: GeoLocation | null;
+  center: null | GeoCoordinate;
 }>();
 const emit = defineEmits<{
   (e: 'select', location: CommonLocation): void;
@@ -47,18 +48,7 @@ const attribution = computed(() => {
   }
   return result;
 });
-const points = computed(() => {
-  const points = new Set<LatLngTuple>(
-    props.commons.map(({ locationId }) => {
-      const { coordinates: c } = props.locationMap.get(locationId) as CommonLocation;
-      return coordinateToLatLngTuple(c);
-    }),
-  );
-  if (props.userLocation) {
-    points.add(coordinateToLatLngTuple(props.userLocation));
-  }
-  return points;
-});
+const points = computed(() => getCoordinates(props.commons, props.locationMap, props.userLocation));
 const pointsOfInterest = usePointsOfInterest(
   computed(() => props.commons),
   computed(() => props.locationMap),
@@ -161,7 +151,16 @@ onMounted(() => {
 
   // cspell:disable-next-line
   _map.on('moveend', () => {
-    emit('update:center', _map.getCenter());
+    // We only want to update the map center if it is a meaningful change to the
+    // value that is already set. This is because this event handler may run
+    // after the number of points on the map has changed and fitBounds has
+    // been called. In these cases it’s likely that the pre-calculated map center
+    // (see CBCommonsSearch.vue) is close enough to the center reported by the map
+    // and emitting a new value for it would not have a meaningful impact on the
+    // sort order of the data, but it would trigger a costly render-cycle nonetheless.
+    if (!props.center || haversine(props.center, _map.getCenter()) > 75) {
+      emit('update:center', _map.getCenter());
+    }
   });
   map.value = _map;
   tileLayer.value = _tileLayer;
@@ -218,7 +217,7 @@ watch([map, points], async ([map, points], [oldMap, _]) => {
   // We want this to:
   //   * re-focus the map if there are points to focus on
   //   * reset the map to its original center if no points are being displayed
-  if (points.size > 0) {
+  if (points.length > 0) {
     map.fitBounds([...points], {
       maxZoom: props.config.map.zoom.max,
     });

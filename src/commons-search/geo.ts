@@ -1,7 +1,15 @@
 import haversine from 'haversine-distance';
+import type { LatLngBounds as LatLngBoundsType } from 'leaflet';
 import { ref, Ref } from 'vue';
 import { watchDebounced } from '@vueuse/core';
-import { GeocodeConfig, GeoCoordinate, ValueWithUnit } from './types';
+import {
+  Common,
+  CommonLocation,
+  GeocodeConfig,
+  GeoCoordinate,
+  IdMap,
+  ValueWithUnit,
+} from './types';
 import { HTTPAPIError } from './apis';
 import { delay } from '../util';
 import type { LatLngTuple } from 'leaflet';
@@ -244,4 +252,28 @@ export function useCurrentLocation(currentPositionLabel: string) {
   }
 
   return { isSupported, getCurrentLocation };
+}
+
+export function getCoordinates(
+  commons: Common[],
+  locationMap: IdMap<CommonLocation>,
+  userLocation?: GeoCoordinate | null,
+) {
+  const points: LatLngTuple[] = commons.map(({ locationId }) => {
+    const { coordinates: c } = locationMap.get(locationId) as CommonLocation;
+    return coordinateToLatLngTuple(c);
+  });
+  if (userLocation) {
+    points.push(coordinateToLatLngTuple(userLocation));
+  }
+  return points;
+}
+
+export function getCoordinatesCenter(coords: LatLngTuple[]) {
+  if ('L' in globalThis && globalThis.L.LatLngBounds) {
+    const LatLngBounds = globalThis.L.LatLngBounds as typeof LatLngBoundsType;
+    const bounds = new LatLngBounds(coords);
+    return bounds.getCenter() as GeoCoordinate;
+  }
+  return null;
 }
