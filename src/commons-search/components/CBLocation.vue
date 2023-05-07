@@ -2,7 +2,7 @@
   <div class="cb-location tw-p-6">
     <slot />
     <div class="tw-flex tw-gap-3">
-      <CBLocationIcon />
+      <CBLocationIcon class="tw-mix-blend-multiply" />
       <div class="tw-grow">
         <p class="tw-flex tw-m-0">
           <span>{{ location.name }}</span>
@@ -14,7 +14,7 @@
             {{ distanceToUserLocation.unit }}
           </span>
         </p>
-        <address class="tw-not-italic tw-text-gray-600 tw-mt-1">
+        <address class="tw-not-italic tw-text-black/70 tw-mt-1">
           {{ location.address.street }}<br />
           {{ location.address.postalCode }} {{ location.address.city }}
         </address>
