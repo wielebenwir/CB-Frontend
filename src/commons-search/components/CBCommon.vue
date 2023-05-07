@@ -3,7 +3,7 @@
     <figure ref="imgContainerEl" class="cb-common-header tw-relative tw-aspect-video tw-m-0">
       <img
         v-if="image"
-        loading="lazy"
+        :loading="lazy ? 'lazy' : undefined"
         class="cb-common--image tw-block tw-object-cover tw-object-center tw-bg-gray-700 tw-w-full tw-h-full"
         :src="image.url"
         :width="image.width"
@@ -73,6 +73,7 @@ const props = defineProps<{
   showLocation: boolean;
   userLocation: GeoLocation | null;
   categoryMap: IdMap<CommonCategory>;
+  lazy?: boolean;
 }>();
 const { locale } = useI18n();
 

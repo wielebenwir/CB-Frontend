@@ -21,13 +21,18 @@
       class="cb-common-list tw-relative tw-flex tw-flex-col tw-p-0 tw-m-6 tw-gap-6"
       name="cb-animate-list"
     >
-      <li v-for="common in commons" :key="common.id" class="tw-block tw-relative tw-z-10 tw-shadow">
+      <li
+        v-for="(common, index) in displayedItems"
+        :key="common.id"
+        class="tw-block tw-relative tw-z-10 tw-shadow"
+      >
         <CBCommon
           :common="common"
           :location="locationMap.get(common.locationId) as CommonLocation"
           :show-location="!selectedLocation"
           :user-location="userLocation"
           :category-map="categoryMap"
+          :lazy="index > 2"
         />
       </li>
       <li v-if="commons.length === 0" role="none" class="tw-block">
