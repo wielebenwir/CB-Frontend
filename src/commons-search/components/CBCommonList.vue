@@ -4,13 +4,17 @@
       v-if="selectedLocation"
       :location="selectedLocation"
       :user-location="userLocation"
-      class="tw-sticky tw-top-0 tw-z-20 tw-bg-base-1 tw-border-b tw-border-base-2"
+      class="tw-bg-gradient-to-b tw-from-base-1 tw-to-base-0 tw-border-b tw-border-base-2 tw-shadow-lg"
     >
       <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
         <p class="tw-font-bold tw-m-0">
           {{ t('commonsAtLocation', { commons: t('common', commons.length) }) }}
         </p>
-        <button type="button" class="cb-btn tw-bg-base-2 tw-p-1" @click="emit('deselectLocation')">
+        <button
+          type="button"
+          class="cb-btn tw-bg-base-1 tw-mix-blend-multiply tw-p-1"
+          @click="emit('deselectLocation')"
+        >
           <IconCross />
         </button>
       </div>
