@@ -226,6 +226,8 @@ function moveColumnHighlight(event: MouseEvent) {
 .cb-acal .cb-acal-day {
   text-align: center;
   vertical-align: middle;
+  min-width: 35px;
+  max-width: 35px;
 }
 
 .cb-acal thead :is(th, td):not(.cb-acal-day):not(.cb-acal-name) {
