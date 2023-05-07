@@ -27,7 +27,9 @@
     "markercluster",
     "spiderfy",
     "acal",
-    "Ausleihstation"
+    "Ausleihstation",
+    "Verfügbarkeitskalender",
+    "Seitenummerierung"
   ],
   "flagWords": ["hte"],
   "ignorePaths": [

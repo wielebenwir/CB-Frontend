@@ -59,13 +59,8 @@
           </th>
         </tr>
       </thead>
-      <TransitionGroup
-        name="cb-animate-list"
-        tag="tbody"
-        @mouseover="moveColumnHighlight"
-        @mouseleave="activeColIndex = 0"
-      >
-        <tr v-for="common in commons" :key="common.id">
+      <tbody @mouseover="moveColumnHighlight" @mouseleave="activeColIndex = 0">
+        <tr v-for="common in pageItems" :key="common.id">
           <th class="cb-acal-name tw-font-semibold !tw-border-r" scope="row">
             <span class="tw-line-clamp-2">{{ common.name }}</span>
           </th>
@@ -93,19 +88,29 @@
             <span v-else>-</span>
           </td>
         </tr>
-      </TransitionGroup>
+      </tbody>
     </table>
   </div>
+
+  <CBPagination
+    v-if="commons.length > paginateThreshold"
+    v-model="currentPage"
+    :aria-label="t('pagination')"
+    :page-count="pageCount"
+  />
 </template>
 
 <script lang="ts" setup>
 import { useI18n } from '@rokoli/vue-tiny-i18n';
-import { useElementSize } from '@vueuse/core';
-import { computed, ref } from 'vue';
+import { useElementSize, useOffsetPagination } from '@vueuse/core';
+import { computed, ref, watch } from 'vue';
 import { getDateMonths, iterDates, maxBy } from '../../util';
 import { Common, CommonLocation, IdMap } from '../types';
 import CBAvailability from './CBAvailability.vue';
+import CBPagination from '../../components/CBPagination.vue';
 
+const pageSize = 15;
+const paginateThreshold = pageSize * 2;
 const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
 const props = defineProps<{
@@ -117,6 +122,16 @@ const { locale, t } = useI18n();
 const tableHeadEl = ref<HTMLTableSectionElement | undefined>();
 const { height: tableHeadHeight } = useElementSize(tableHeadEl);
 const tableHeadHeightPx = computed(() => `${tableHeadHeight.value}px`);
+const { currentPage, pageCount } = useOffsetPagination({
+  total: () => props.commons.length,
+  pageSize,
+});
+const pageItems = computed(() => {
+  // only paginate if we’ve passed the pagination threshold
+  if (props.commons.length < paginateThreshold) return props.commons;
+  const start = (currentPage.value - 1) * pageSize;
+  return props.commons.slice(start, start + pageSize);
+});
 const activeColIndex = ref<number>(0);
 const latestAvailability = computed(() => {
   return (
@@ -128,6 +143,16 @@ const latestAvailability = computed(() => {
 });
 const calendarDates = computed(() => Array.from(iterDates(latestAvailability.value)));
 const calendarMonths = computed(() => Array.from(getDateMonths(calendarDates.value)));
+
+watch(
+  () => props.commons,
+  () => {
+    // Reset page if the commons have been changed
+    if (currentPage.value !== 1) {
+      currentPage.value = 1;
+    }
+  },
+);
 
 function moveColumnHighlight(event: MouseEvent) {
   if (!event.target || !(event.target instanceof HTMLElement)) return;
@@ -244,8 +269,10 @@ col.cb-acal-day--sun {
 de:
   name: Name
   location: Ort
+  pagination: Seitenummerierung für Verfügbarkeitskalender
 
 en:
   name: Name
   location: Location
+  pagination: Pagination für availability calendar
 </i18n>
