@@ -33,6 +33,7 @@
       :location-map="locationMap"
       :selected-location="filter.location"
       :user-location="filter.userLocation"
+      :page-size="10"
       @deselect-location="filter.location = null"
     />
     <CBMap
