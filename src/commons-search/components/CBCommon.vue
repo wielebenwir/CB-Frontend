@@ -24,35 +24,42 @@
     </figure>
     <div class="cb-common-body tw-p-4 tw-flex tw-flex-col tw-gap-2">
       <p v-if="showLocation" class="cb-common-location tw-flex tw-items-start tw-m-0">
-        <IconMapMarker class="tw-mt-[0.1em] tw-mr-[.1em] tw-flex-none" role="presentation" />
-        <span class="cb-common-location-name cb-text-wrap-balance">{{ location.name }}</span>
+        <span class="tw-cb-flex-center">
+          <span class="tw-sr-only">{{ t('location', { common: common.name }) }}</span>
+          <IconMapMarker class="tw-mt-[0.1em] tw-mr-[.1em] tw-flex-none" role="presentation" />
+          <span class="cb-common-location-name cb-text-wrap-balance">{{ location.name }}</span>
+        </span>
         <span
           v-if="distanceToUserLocation"
           class="cb-common-location-distance tw-text-teal-600 tw-font-bold tw-inline-flex tw-pl-1 tw-ml-auto tw-whitespace-nowrap"
+          :aria-label="
+            t('distance', { common: common.name, distance: formattedDistanceToUserLocation })
+          "
         >
-          {{ distanceToUserLocation.value.toLocaleString(locale, { maximumFractionDigits: 1 }) }}
-          {{ distanceToUserLocation.unit }}
+          {{ formattedDistanceToUserLocation }}
         </span>
       </p>
 
       <CBSevenDayAvailability
         class="cb-common-availabilities tw-grayscale group-hover:tw-grayscale-0"
         :availabilities="common.availabilities"
+        :aria-label="t('availability', { common: common.name })"
       />
 
       <p v-if="common.description" class="cb-common-description tw-text-gray-600 tw-my-2">
         {{ common.description }}
       </p>
-      <div
+      <ul
         v-if="commonCategories.length > 0"
-        class="cb-common-categories tw-flex tw-flex-wrap tw-gap-1 tw-text-gray-600"
+        class="cb-common-categories tw-flex tw-flex-wrap tw-gap-1 tw-text-gray-600 tw-m-0 tw-p-0"
+        :aria-label="t('features', { common: common.name })"
       >
-        <template v-for="category in commonCategories" :key="category.id">
+        <li v-for="category in commonCategories" :key="category.id" class="tw-block tw-m-0 tw-p-0">
           <CBBadge v-if="category" class="tw-bg-base-1 tw-text-sm">
             {{ category.name }}
           </CBBadge>
-        </template>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -75,13 +82,22 @@ const props = defineProps<{
   categoryMap: IdMap<CommonCategory>;
   lazy?: boolean;
 }>();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 const imgContainerEl = ref();
 const distanceToUserLocation = computed(() => {
   return props.userLocation
     ? calculateDistance(props.location.coordinates, props.userLocation)
     : null;
+});
+const formattedDistanceToUserLocation = computed(() => {
+  if (distanceToUserLocation.value !== null) {
+    const { value, unit } = distanceToUserLocation.value;
+    const distance = value.toLocaleString(locale.value, { maximumFractionDigits: 1 });
+    return `${distance} ${unit}`;
+  } else {
+    return '';
+  }
 });
 const commonCategories = computed(() =>
   props.common.categoryIds.map((id) => props.categoryMap.get(id)),
@@ -91,3 +107,17 @@ const image = useImage(
   computed(() => props.common.images),
 );
 </script>
+
+<i18n lang="yaml">
+en:
+  features: '{common} has the following features'
+  availability: 'Availability of {common} in the next seven days'
+  distance: '{common} is {distance} away from your current location.'
+  location: 'You’ll find {common} at'
+
+de:
+  features: '{common} hat die folgenden Eigenschaften'
+  availability: 'Verfügbarkeit von {common} in den nächsten sieben Tagen'
+  distance: '{common} ist {distance} von deiner jetzigen Position entfernt.'
+  location: 'Du findest {common} bei'
+</i18n>

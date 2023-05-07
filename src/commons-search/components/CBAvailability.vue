@@ -1,12 +1,16 @@
 <template>
   <span
     class="cb-availability tw-relative tw-text-sm tw-p-1 tw-text-center tw-select-none tw-leading-none tw-min-h-[1rem]"
-    :title="t(availability.status)"
+    :title="t(availability.status, { date: localeDate })"
     :class="`cb-availability--${availability.status}`"
   >
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <span class="tw-sr-only" v-html="t(availability.status, { date: localeDateHTML })" />
     <slot v-if="!noLabel">
-      <span class="tw-block tw-font-bold">{{ weekdayName }}</span>
-      <span>{{ availability.date.getDate() }}</span>
+      <span role="presentation">
+        <span class="tw-block tw-font-bold">{{ weekdayName }}</span>
+        <span>{{ availability.date.getDate() }}</span>
+      </span>
     </slot>
     <slot v-if="showIcon" name="icon">
       <component
@@ -19,6 +23,7 @@
 </template>
 
 <script lang="ts" setup>
+import { formatISO } from 'date-fns';
 import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { computed, FunctionalComponent } from 'vue';
 import { CommonAvailability, CommonAvailabilityStatus } from '../types';
@@ -40,22 +45,27 @@ const formatter = computed<Intl.DateTimeFormat>(
   () => new Intl.DateTimeFormat(locale.value, { weekday: 'short' }),
 );
 const weekdayName = computed(() => formatter.value.format(props.availability.date));
+const isoDate = computed(() => formatISO(props.availability.date, { representation: 'date' }));
+const localeDate = computed(() => props.availability.date.toLocaleDateString());
+const localeDateHTML = computed(
+  () => `<time datetime="${isoDate.value}">${localeDate.value}</time>`,
+);
 </script>
 
 <i18n lang="yaml">
 en:
-  available: 'Available on this day.'
-  booked: 'Already booked on this day.'
-  partially-booked: 'Partially booked on this day.'
-  locked: 'Cannot be borrowed on this day (i.e. for maintenance or other reasons).'
-  closed: 'The lending station is closed on this day.'
+  available: 'Available on {date}.'
+  booked: 'Already booked on {date}.'
+  partially-booked: 'Partially booked on {date}.'
+  locked: 'Cannot be borrowed on {date} (i.e. for maintenance or other reasons).'
+  closed: 'The lending station is closed on {date}.'
 
 de:
-  available: 'An diesem Tag verfügbar.'
-  booked: 'An diesem Tag bereits gebucht.'
-  partially-booked: 'An diesem Tag bereits teilweise gebucht.'
-  locked: 'An diesem Tag nicht ausleihbar (z.B. wegen Wartung oder anderen Gründen).'
-  closed: 'Die Ausleihstation ist an diesem Tag geschlossen.'
+  available: 'Am {date} verfügbar.'
+  booked: 'Am {date} bereits gebucht.'
+  partially-booked: 'Am {date} bereits teilweise gebucht.'
+  locked: 'Am {date} nicht ausleihbar (z.B. wegen Wartung oder anderen Gründen).'
+  closed: 'Am {date} ist die Ausleihstation geschlossen.'
 </i18n>
 
 <style lang="postcss">
