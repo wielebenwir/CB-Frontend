@@ -11,6 +11,7 @@
     <slot v-if="showIcon" name="icon">
       <component
         :is="availabilityStatusIconMap[availability.status]"
+        v-if="availability.status in availabilityStatusIconMap"
         class="tw-absolute tw-inset-0 tw-m-auto tw-h-3"
       />
     </slot>
