@@ -4,15 +4,15 @@
       <img
         v-if="image"
         :loading="lazy ? 'lazy' : undefined"
-        class="cb-common--image tw-block tw-object-cover tw-object-center tw-bg-gray-700 tw-w-full tw-h-full"
+        class="cb-common-image tw-block tw-object-cover tw-object-center tw-bg-gray-700 tw-w-full tw-h-full"
         :src="image.url"
         :width="image.width"
         :height="image.height"
         :alt="image.description ?? ''"
       />
-      <div v-else class="cb-common--image-fallback tw-h-full tw-bg-gray-700" />
+      <div v-else class="cb-common-image cb-common-image--fallback tw-h-full tw-bg-gray-700" />
       <figcaption
-        class="cb-common--title tw-absolute tw-inset-0 tw-px-4 tw-py-2 tw-w-full tw-flex tw-flex-col tw-bg-gradient-to-b tw-from-transparent tw-from-20% tw-to-black/75"
+        class="cb-common-title tw-absolute tw-inset-0 tw-px-4 tw-py-2 tw-m-0 tw-w-full tw-flex tw-flex-col tw-bg-gradient-to-b tw-from-transparent tw-from-20% tw-to-black/75"
       >
         <span
           class="tw-text-xl md:tw-text-2xl tw-font-bold tw-line-clamp-2 tw-text-white tw-block tw-mt-auto cb-text-wrap-balance"
@@ -22,13 +22,13 @@
         </span>
       </figcaption>
     </figure>
-    <div class="cb-common--body tw-p-4 tw-flex tw-flex-col tw-gap-2">
-      <p v-if="showLocation" class="cb-common--location tw-flex tw-items-start tw-m-0">
+    <div class="cb-common-body tw-p-4 tw-flex tw-flex-col tw-gap-2">
+      <p v-if="showLocation" class="cb-common-location tw-flex tw-items-start tw-m-0">
         <IconMapMarker class="tw-mt-[0.1em] tw-mr-[.1em] tw-flex-none" role="presentation" />
-        <span class="cb-common--location--name cb-text-wrap-balance">{{ location.name }}</span>
+        <span class="cb-common-location-name cb-text-wrap-balance">{{ location.name }}</span>
         <span
           v-if="distanceToUserLocation"
-          class="cb-common--location--distance tw-text-teal-600 tw-font-bold tw-inline-flex tw-pl-1 tw-ml-auto tw-whitespace-nowrap"
+          class="cb-common-location-distance tw-text-teal-600 tw-font-bold tw-inline-flex tw-pl-1 tw-ml-auto tw-whitespace-nowrap"
         >
           {{ distanceToUserLocation.value.toLocaleString(locale, { maximumFractionDigits: 1 }) }}
           {{ distanceToUserLocation.unit }}
@@ -40,12 +40,12 @@
         :availabilities="common.availabilities"
       />
 
-      <p v-if="common.description" class="cb-common--description tw-text-gray-600 tw-my-2">
+      <p v-if="common.description" class="cb-common-description tw-text-gray-600 tw-my-2">
         {{ common.description }}
       </p>
       <div
         v-if="commonCategories.length > 0"
-        class="cb-common--categories tw-flex tw-flex-wrap tw-gap-1 tw-text-gray-600"
+        class="cb-common-categories tw-flex tw-flex-wrap tw-gap-1 tw-text-gray-600"
       >
         <template v-for="category in commonCategories" :key="category.id">
           <CBBadge v-if="category" class="tw-bg-base-1 tw-text-sm">
