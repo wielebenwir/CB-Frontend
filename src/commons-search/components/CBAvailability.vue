@@ -46,7 +46,7 @@ const formatter = computed<Intl.DateTimeFormat>(
 );
 const weekdayName = computed(() => formatter.value.format(props.availability.date));
 const isoDate = computed(() => formatISO(props.availability.date, { representation: 'date' }));
-const localeDate = computed(() => props.availability.date.toLocaleDateString());
+const localeDate = computed(() => props.availability.date.toLocaleDateString(locale.value));
 const localeDateHTML = computed(
   () => `<time datetime="${isoDate.value}">${localeDate.value}</time>`,
 );
