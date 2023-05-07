@@ -1,5 +1,5 @@
 import type { MarkerCluster } from 'leaflet';
-import { ref, Ref, watchEffect } from 'vue';
+import { Ref, shallowRef, watch } from 'vue';
 import {
   Common,
   CommonLocation,
@@ -257,7 +257,7 @@ export function usePointsOfInterest(
   resolveImage: (url: string) => Promise<string | undefined> = defaultImageResolver,
 ) {
   let lastUpdate = new Date();
-  const pointsOfInterest = ref(new Map<Common['id'], PointOfInterest>());
+  const pointsOfInterest = shallowRef(new Map<Common['id'], PointOfInterest>());
 
   async function createPointOfInterest(common: Common): Promise<PointOfInterest> {
     const location = locationMap.value.get(common.locationId) as CommonLocation;
@@ -265,7 +265,7 @@ export function usePointsOfInterest(
     return { common, location, markerIcon };
   }
 
-  watchEffect(async () => {
+  async function updatePointsOfInterest() {
     const updateInitiatedAt = new Date();
     lastUpdate = updateInitiatedAt;
 
@@ -298,7 +298,9 @@ export function usePointsOfInterest(
       pointsOfInterest.value.set(id, data.value);
       onSet?.(id);
     }
-  });
+  }
+
+  watch([commons, locationMap], updatePointsOfInterest, { immediate: true });
 
   return pointsOfInterest;
 }
