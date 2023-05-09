@@ -27,4 +27,4 @@ export function init(
 }
 
 // The value of this is replaced at build-time.
-export const version = '__CB_FRONTEND_VERSION__';
+export const version = '__CB_FRONTEND_VERSION__' as string;
