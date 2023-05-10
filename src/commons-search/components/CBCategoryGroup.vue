@@ -4,6 +4,7 @@
     :key="category.id"
     :category="category"
     :model-value="modelValue.has(category.id)"
+    v-bind="attrs"
     @update:model-value="updateState(category, $event)"
   />
 </template>
@@ -11,11 +12,13 @@
 <script lang="ts" setup>
 import { CommonCategory, Id } from '../types';
 import CBCategory from './CBCategory.vue';
+import { useAttrs } from 'vue';
 
 const props = defineProps<{
   categories: CommonCategory[];
   modelValue: Set<Id>;
 }>();
+const attrs = useAttrs();
 const emit = defineEmits<{
   (e: 'update:modelValue', value: Set<Id>): void;
 }>();
