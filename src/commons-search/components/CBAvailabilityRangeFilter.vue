@@ -7,13 +7,17 @@
         type="button"
         class="cb-btn tw-p-1 tw-bg-base-1 tw-ml-auto"
         @click="reset"
+        :aria-label="t('reset')"
       >
         <IconCross class="tw-w-4 tw-h-4" />
       </button>
     </header>
     <div class="tw-flex tw-flex-wrap tw-items-end tw-justify-start tw-gap-2 tw-max-w-full">
       <label class="tw-flex-1 md:tw-min-w-0">
-        <span class="tw-block tw-mb-1">{{ t(showEnd ? 'from' : 'on') }}</span>
+        <span class="tw-block tw-mb-1">
+          <span class="tw-sr-only">{{ t('title') }}</span>
+          {{ t(showEnd ? 'from' : 'on') }}
+        </span>
         <input
           v-model="start"
           type="date"
@@ -25,7 +29,10 @@
       </label>
 
       <label v-if="showEnd" class="tw-flex-1 md:tw-min-w-0">
-        <span class="tw-block tw-mb-1">{{ t('until') }}</span>
+        <span class="tw-block tw-mb-1">
+          <span class="tw-sr-only">{{ t('title') }}</span>
+          {{ t('until') }}
+        </span>
         <input
           v-model="end"
           type="date"
@@ -35,7 +42,13 @@
           @blur="checkInvalid"
         />
       </label>
-      <button v-else type="button" class="cb-btn tw-bg-base-1" @click="showEnd = true">
+      <button
+        v-else
+        type="button"
+        class="cb-btn tw-bg-base-1"
+        @click="showEnd = true"
+        :aria-description="t('addUntilDescription')"
+      >
         {{ t('addUntil') }}
       </button>
     </div>
@@ -108,6 +121,8 @@ en:
   from: 'From'
   until: 'Through'
   addUntil: '+ End Date'
+  addUntilDescription: 'Add last day for multi-day rental.'
+  reset: 'Reset availability filter.'
 
 de:
   title: 'Verfügbar'
@@ -115,4 +130,6 @@ de:
   from: 'Vom'
   until: 'Bis einschließlich'
   addUntil: '+ Enddatum'
+  addUntilDescription: 'Letzten Tag einer mehrtägigen Ausleihe hinzufügen.'
+  reset: 'Verfügbarkeitsfilter zurücksetzen.'
 </i18n>
