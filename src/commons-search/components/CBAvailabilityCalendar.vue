@@ -104,7 +104,7 @@
 import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { useElementSize, useOffsetPagination } from '@vueuse/core';
 import { computed, ref, watch } from 'vue';
-import { getDateMonths, iterDates, maxBy } from '../../util';
+import { getDateMonths, iterDates, maxBy, useDateCache } from '../../util';
 import { Common, CommonLocation, IdMap } from '../types';
 import CBAvailability from './CBAvailability.vue';
 import CBPagination from '../../components/CBPagination.vue';
@@ -133,14 +133,16 @@ const pageItems = computed(() => {
   return props.commons.slice(start, start + pageSize);
 });
 const activeColIndex = ref<number>(0);
-const latestAvailability = computed(() => {
-  return (
-    maxBy(
-      new Set(props.commons.flatMap((common) => common.availabilities).map((a) => a.date)),
-      (a, b) => a.getTime() > b.getTime(),
-    ) ?? new Date()
-  );
-});
+const latestAvailability = useDateCache(
+  computed(() => {
+    return (
+      maxBy(
+        new Set(props.commons.flatMap((common) => common.availabilities).map((a) => a.date)),
+        (a, b) => a.getTime() > b.getTime(),
+      ) ?? new Date()
+    );
+  }),
+);
 const calendarDates = computed(() => Array.from(iterDates(latestAvailability.value)));
 const calendarMonths = computed(() => Array.from(getDateMonths(calendarDates.value)));
 
