@@ -60,7 +60,7 @@
         </tr>
       </thead>
       <tbody @mouseover="moveColumnHighlight" @mouseleave="activeColIndex = 0">
-        <tr v-for="common in pageItems" :key="common.id">
+        <tr v-for="common in pageItems" :key="common.id" v-memo="[common]">
           <th class="cb-acal-name tw-font-semibold !tw-border-r" scope="row">
             <span class="tw-line-clamp-2">{{ common.name }}</span>
           </th>
