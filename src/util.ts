@@ -1,5 +1,5 @@
 import { addDays, formatISO, parseISO } from 'date-fns';
-import { computed, ComputedRef, ref, Ref } from 'vue';
+import { computed, ComputedRef, readonly, ref, Ref, watch } from 'vue';
 import { useDevicePixelRatio, useElementBounding, useElementSize } from '@vueuse/core';
 import { Image } from './commons-search/types';
 
@@ -291,4 +291,16 @@ export function* getDateMonths(dates: Iterable<Date>) {
   }
 
   if (currentMonth) yield currentMonth;
+}
+
+export function useDateCache(date: Ref<Date>) {
+  const result = ref(date.value);
+
+  watch(date, (newDate, oldDate) => {
+    if (newDate.getTime() !== oldDate.getTime()) {
+      result.value = newDate;
+    }
+  });
+
+  return readonly(result);
 }
