@@ -60,34 +60,9 @@
         </tr>
       </thead>
       <tbody @mouseover="moveColumnHighlight" @mouseleave="activeColIndex = 0">
-        <tr v-for="common in pageItems" :key="common.id" v-memo="[common]">
-          <th class="cb-acal-name tw-font-semibold !tw-border-r" scope="row">
-            <span class="tw-line-clamp-2">{{ common.name }}</span>
-          </th>
-          <td class="cb-acal-location">
-            <span class="tw-line-clamp-2">{{ locationMap.get(common.locationId)?.name }}</span>
-          </td>
-          <td
-            v-for="(date, index) in calendarDates"
-            :key="date.getTime()"
-            :class="[
-              'cb-acal-day',
-              `cb-acal-day--${days[date.getDay()]}`,
-              { '!tw-border-l': index === 0 },
-            ]"
-          >
-            <template v-if="common.availabilities[index]">
-              <CBAvailability
-                v-if="common.availabilities[index]"
-                class="tw-w-full tw-block tw-h-3"
-                :availability="common.availabilities[index]"
-                no-label
-                show-icon
-              />
-            </template>
-            <span v-else>-</span>
-          </td>
-        </tr>
+        <template v-for="common in pageItems" :key="common.id">
+          <CBAvailabilityCalendarRow :common="common" :calendar-dates="calendarDates" />
+        </template>
       </tbody>
     </table>
   </div>
@@ -104,14 +79,13 @@
 import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { useElementSize, useOffsetPagination } from '@vueuse/core';
 import { computed, ref, watch } from 'vue';
-import { getDateMonths, iterDates, maxBy, useDateCache } from '../../util';
+import { days, getDateMonths, iterDates, maxBy, useDateCache } from '../../util';
 import { Common, CommonLocation, IdMap } from '../types';
-import CBAvailability from './CBAvailability.vue';
 import CBPagination from '../../components/CBPagination.vue';
+import CBAvailabilityCalendarRow from './CBAvailabilityCalendarRow.vue';
 
 const pageSize = 15;
 const paginateThreshold = pageSize * 2;
-const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
 const props = defineProps<{
   commons: Common[];

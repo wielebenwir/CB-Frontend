@@ -5,6 +5,7 @@ import { Image } from './commons-search/types';
 
 type FilterFunction<T> = (item: T, index?: number, iterable?: T[]) => boolean;
 
+export const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 export function delay<T>(timeInSeconds: number, resolveTo: T): Promise<T>;
 export function delay(timeInSeconds: number): Promise<undefined>;
 export function delay(timeInSeconds: number, resolveTo = undefined) {
