@@ -10,9 +10,10 @@ import type {
   Marker as MarkerType,
   Icon as IconType,
   MarkerClusterGroup as MarkerClusterGroupType,
+  LatLngTuple,
 } from 'leaflet';
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch, watchEffect } from 'vue';
-import { computedAsync } from '@vueuse/core';
+import { computedAsync, useResizeObserver } from '@vueuse/core';
 import { coordinateToLatLngTuple, GeoLocation, getCoordinates } from '../geo';
 import { Common, CommonLocation, GeoCoordinate, MapConfig, GeocodeConfig, Id } from '../types';
 import {
@@ -114,6 +115,24 @@ function removeCommonMarker(id: Id) {
   commonMarkersLayer.value?.removeLayer(marker);
 }
 
+function setBounds(points: LatLngTuple[]) {
+  if (!map.value) return;
+
+  // We want this to:
+  //   * re-focus the map if there are points to focus on
+  //   * reset the map to its original center if no points are being displayed
+  if (points.length > 0) {
+    map.value.fitBounds([...points], {
+      maxZoom: props.config.map.zoom.max,
+    });
+  } else {
+    map.value.setView(
+      coordinateToLatLngTuple(props.config.map.center),
+      props.config.map.zoom.start,
+    );
+  }
+}
+
 onMounted(() => {
   const { MarkerClusterGroup, Map, TileLayer } = globalThis.L;
   const _map = new Map(mapEl.value as HTMLElement, {
@@ -202,6 +221,13 @@ watchEffect(() => {
   }
 });
 
+useResizeObserver(mapEl, () => {
+  requestAnimationFrame(() => {
+    map.value?.invalidateSize?.();
+    setBounds(points.value);
+  });
+});
+
 // TypeScript is very unhappy if we remove the second parameter (_),
 // prettier wants to delete it, if we use a comma (which is reasonable),
 // and eslint doesn’t want unused variables. Oh, well…
@@ -214,16 +240,7 @@ watch([map, points], async ([map, points], [oldMap, _]) => {
   // its settings. We don’t need to do anything.
   if (map && !oldMap) return;
 
-  // We want this to:
-  //   * re-focus the map if there are points to focus on
-  //   * reset the map to its original center if no points are being displayed
-  if (points.length > 0) {
-    map.fitBounds([...points], {
-      maxZoom: props.config.map.zoom.max,
-    });
-  } else {
-    map.setView(coordinateToLatLngTuple(props.config.map.center), props.config.map.zoom.start);
-  }
+  setBounds(points);
 });
 </script>
 
