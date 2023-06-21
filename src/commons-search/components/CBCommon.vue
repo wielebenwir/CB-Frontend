@@ -61,7 +61,7 @@
         </li>
       </ul>
 
-      <a :href="common.url" class="cb-btn tw-bg-base-1 tw-mt-2" :target="linkTarget">
+      <a class="cb-btn tw-bg-base-1 tw-mt-2" v-bind="anchorAttrs">
         {{ t('bookCommon', { common: common.name }) }}
       </a>
     </div>
@@ -72,7 +72,7 @@
 import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { computed, ref } from 'vue';
 import { IconMapMarker } from '../../icons';
-import { useImage } from '../../util';
+import { useAnchorAttributes, useImage } from '../../util';
 import { Common, CommonCategory, CommonLocation, IdMap } from '../types';
 import { GeoLocation, calculateDistance } from '../geo';
 import CBBadge from './CBBadge.vue';
@@ -110,9 +110,7 @@ const image = useImage(
   imgContainerEl,
   computed(() => props.common.images),
 );
-const linkTarget = computed(() =>
-  new URL(props.common.url).hostname !== location.hostname ? '_blank' : undefined,
-);
+const anchorAttrs = useAnchorAttributes(computed(() => props.common.url));
 </script>
 
 <i18n lang="yaml">

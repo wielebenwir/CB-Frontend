@@ -305,3 +305,10 @@ export function useDateCache(date: Ref<Date>) {
 
   return readonly(result);
 }
+
+export function useAnchorAttributes(url: Ref<string>) {
+  return computed(() => ({
+    href: url.value,
+    target: new URL(url.value).hostname !== location.hostname ? '_blank' : undefined,
+  }));
+}
