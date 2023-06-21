@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-import { formatISO } from 'date-fns';
 import { useI18n } from '@rokoli/vue-tiny-i18n';
+import { formatISO } from 'date-fns';
 import { computed, FunctionalComponent } from 'vue';
 import { CommonAvailability, CommonAvailabilityStatus } from '../types';
 import { IconHeart, IconMoon } from '../../icons';
@@ -70,14 +70,14 @@ de:
 
 <style lang="postcss">
 .cb-availability {
-  --cb-availability-available-color: theme('colors.base-1');
+  --cb-availability-available-color: var(--commonsbooking-color-success, theme('colors.green.500'));
   --cb-availability-available-text-color: currentColor;
-  --cb-availability-booked-color: var(--commonsbooking-color-error, #d5425c);
-  --cb-availability-booked-text-color: white;
+  --cb-availability-booked-color: theme('colors.gray.100');
+  --cb-availability-booked-text-color: theme('colors.gray.600');
   --cb-availability-locked-color: var(--cb-availability-booked-color);
   --cb-availability-locked-text-color: var(--cb-availability-booked-text-color);
-  --cb-availability-closed-color: theme('colors.gray.600');
-  --cb-availability-closed-text-color: white;
+  --cb-availability-closed-color: var(--cb-availability-booked-color);
+  --cb-availability-closed-text-color: var(--cb-availability-booked-text-color);
 }
 
 .cb-availability--available {
