@@ -103,6 +103,13 @@ export function parseLegacyConfig(
     };
   }
 
+  function parseLayoutConfig(): { layout?: CommonsSearchConfiguration['layout'] } {
+    if (config.layout) {
+      return { layout: config.layout };
+    }
+    return {};
+  }
+
   return {
     version: 2,
     i18n: {
@@ -127,5 +134,6 @@ export function parseLegacyConfig(
     },
     map: parseMapConfig(),
     ...parseGeocodeConfig(),
+    ...parseLayoutConfig(),
   };
 }

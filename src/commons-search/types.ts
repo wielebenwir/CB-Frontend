@@ -1,4 +1,6 @@
 import type { ComputedRef, UnwrapNestedRefs } from 'vue';
+import * as layouts from './layouts/_layouts';
+import { LayoutType } from './layouts';
 
 type CustomIconAttributes = { width: number; height: number; anchor: { x: number; y: number } };
 export type CustomIcon = { url: string } & CustomIconAttributes;
@@ -89,9 +91,7 @@ export type ExtendedLegacyMapConfiguration = {
   show_item_availability_filter: boolean;
   label_item_availability_filter: string;
   label_item_category_filter: string;
-  layout?: {
-    expandFilter?: boolean;
-  };
+  layout?: LayoutConfig;
   map?: Pick<MapConfig, 'markerIcon' | 'userMarkerIcon'>;
   geocode?: Partial<GeocodeConfig>;
 };
@@ -130,6 +130,10 @@ interface Messages {
   [k: string]: string | Messages;
 }
 
+type LayoutConfig = {
+  type: LayoutType;
+};
+
 export type CommonsSearchConfiguration = {
   version: 2;
   filter: {
@@ -146,9 +150,7 @@ export type CommonsSearchConfiguration = {
   };
   map?: MapConfig;
   geocode?: GeocodeConfig;
-  layout?: {
-    expandFilter?: boolean;
-  };
+  layout?: LayoutConfig;
 };
 
 export type Image = {

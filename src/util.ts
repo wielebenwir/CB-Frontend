@@ -1,11 +1,18 @@
 import { addDays, formatISO, parseISO } from 'date-fns';
 import { computed, ComputedRef, readonly, ref, Ref, watch } from 'vue';
-import { useDevicePixelRatio, useElementBounding, useElementSize } from '@vueuse/core';
+import {
+  useDevicePixelRatio,
+  useElementBounding,
+  useElementSize,
+  useMediaQuery,
+} from '@vueuse/core';
 import { Image } from './commons-search/types';
 
 type FilterFunction<T> = (item: T, index?: number, iterable?: T[]) => boolean;
 
 export const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+export const isSmallViewport = useMediaQuery('(max-width: 799px)');
+
 export function delay<T>(timeInSeconds: number, resolveTo: T): Promise<T>;
 export function delay(timeInSeconds: number): Promise<undefined>;
 export function delay(timeInSeconds: number, resolveTo = undefined) {

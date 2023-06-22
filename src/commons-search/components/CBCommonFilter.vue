@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="cb-common-filter tw-p-6 tw-relative tw-border-b tw-border-base-3 tw-flex tw-flex-col tw-gap-3"
-  >
+  <div class="cb-common-filter tw-p-6 tw-relative tw-flex tw-flex-col tw-gap-3">
     <div class="tw-flex tw-gap-3 tw-max-w-full" :class="{ 'tw-flex-col': expanded }">
       <CBLocationFilter
         v-if="config.geocode"
@@ -9,6 +7,8 @@
         class="tw-min-w-0 tw-flex-1"
         :config="config.geocode"
       />
+
+      <slot />
 
       <CBCommonFilterPanel :expanded="expanded">
         <CBCategoryRenderGroupList
@@ -61,6 +61,7 @@ import CBSwitch from './CBSwitch.vue';
 import CBAvailabilityRangeFilter from './CBAvailabilityRangeFilter.vue';
 import CBCommonFilterPanel from './CBCommonFilterPanel.vue';
 import { disableCategories, useCategoryRenderGroups } from './categories';
+import { parseISO } from 'date-fns';
 
 type AppliedFilter = {
   key: string;
@@ -76,7 +77,6 @@ const props = defineProps<{
   userLocation: CommonFilterSet['userLocation'];
   availableBetween: CommonFilterSet['availableBetween'];
   availableToday: CommonFilterSet['availableToday'];
-  availabilityRange: { start: Date; end: Date };
   expanded?: boolean;
 }>();
 const emit = defineEmits<{
@@ -87,6 +87,10 @@ const emit = defineEmits<{
   (e: 'reset'): void;
 }>();
 const { t, locale } = useI18n();
+const availabilityRange = computed(() => ({
+  start: parseISO(props.config.filter.availability.dateRange.start),
+  end: parseISO(props.config.filter.availability.dateRange.end),
+}));
 
 const activeCategories = useVModel(props, 'categories', emit);
 const userLocationFilter = useVModel(props, 'userLocation', emit);

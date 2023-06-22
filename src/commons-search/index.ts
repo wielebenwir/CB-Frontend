@@ -3,8 +3,9 @@ import { createI18n } from '@rokoli/vue-tiny-i18n';
 import '../style.css';
 import translations from './translations';
 
-import CBCommonsSearch from './components/CBCommonsSearch.vue';
+import CommonsSearch from './CommonsSearch.vue';
 import type { CommonsSearchAPI, CommonsSearchConfiguration } from './types';
+import { API } from './state';
 
 export { createAdminAjaxAPI } from './apis/admin-ajax-api';
 export { parseLegacyConfig } from './legacy';
@@ -19,9 +20,10 @@ export function init(
     fallbackLocales: ['en'],
     messages: config.i18n.messages ? [translations, config.i18n.messages] : [translations],
   });
-  const app = createApp(CBCommonsSearch, { api, config });
+  const app = createApp(CommonsSearch, { config });
   app.config.performance = import.meta.env.DEV;
   app.use(i18n);
+  app.provide(API, api);
   app.mount(element);
   return app;
 }

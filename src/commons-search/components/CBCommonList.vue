@@ -23,14 +23,30 @@
     <TransitionGroup
       ref="transitionGroup"
       tag="ol"
-      class="cb-common-list tw-relative tw-scroll-smooth tw-m-0 tw-p-0 tw-pb-6 tw-scroll-pt-6 tw-overflow-y-scroll tw-h-full"
-      name="cb-animate-list"
-      :aria-label="t('listOfCommons', { commons: t('common', 0) })"
+      class="cb-common-list tw-items-stretch tw-relative tw-scroll-smooth tw-m-0 tw-pb-6 tw-scroll-pt-6 tw-h-full"
+      :class="{
+        'tw-common-list--multi-column tw-overflow-hidden tw-grid tw-gap-6 tw-p-6':
+          useMultipleColumns,
+        'tw-common-list--single-column tw-overflow-y-scroll tw-p-0': !useMultipleColumns,
+      }"
+      :style="
+        useMultipleColumns
+          ? { 'grid-template-columns': 'repeat(auto-fill, minmax(280px, 1fr))' }
+          : undefined
+      "
+      :name="useMultipleColumns ? undefined : 'cb-animate-list'"
+      :aria-label="
+        t(selectedLocation ? 'listOfCommonsAtLocation' : 'listOfCommons', {
+          commons: t('common', 0),
+          location: selectedLocation?.name,
+        })
+      "
     >
       <li
         v-for="(common, index) in displayedItems"
         :key="common.id"
-        class="tw-block tw-relative tw-z-10 tw-mt-6 tw-mx-6 tw-w-auto"
+        class="tw-relative tw-z-10 tw-w-auto"
+        :class="itemClasses"
       >
         <CBCommon
           :common="common"
@@ -39,17 +55,18 @@
           :user-location="userLocation"
           :category-map="categoryMap"
           :lazy="index > 2"
-          class="tw-border tw-border-black/10"
+          class="tw-border tw-border-black/10 tw-h-full"
         />
       </li>
-      <li v-if="commons.length === 0" class="tw-block tw-mt-6 tw-mx-6">
+      <li v-if="commons.length === 0" class="tw-col-span-full" :class="itemClasses">
         <p class="tw-m-0 tw-text-center cb-text-wrap-balance">
           {{ t('noMatchingItems', { commons: t('common', 0) }) }}
         </p>
       </li>
       <li
         v-if="isSmallViewport && commons.length > displayedItems.length"
-        class="tw-block tw-mt-6 tw-mx-6"
+        class="tw-col-span-full"
+        :class="itemClasses"
       >
         <button type="button" class="cb-btn tw-bg-base-2 tw-w-full" @click="loadMoreCommons">
           {{ t('loadMore', { commons: t('common', commons.length) }) }}
@@ -61,9 +78,9 @@
 
 <script lang="ts" setup>
 import { useI18n } from '@rokoli/vue-tiny-i18n';
-import { useInfiniteScroll, useMediaQuery } from '@vueuse/core';
+import { useInfiniteScroll } from '@vueuse/core';
 import { computed, ref, watch } from 'vue';
-import { useMap } from '../../util';
+import { isSmallViewport, useMap } from '../../util';
 import { IconCross } from '../../icons';
 import { GeoLocation } from '../geo';
 import { Common, CommonCategory, CommonLocation } from '../types';
@@ -77,6 +94,7 @@ const props = defineProps<{
   selectedLocation: CommonLocation | null;
   userLocation: GeoLocation | null;
   pageSize: number;
+  useMultipleColumns?: boolean;
 }>();
 const emit = defineEmits<{
   (e: 'deselectLocation'): void;
@@ -90,7 +108,10 @@ const categoryMap = useMap(
   'id',
 );
 const displayedItems = ref(props.commons.slice(0, props.pageSize));
-const isSmallViewport = useMediaQuery('(max-width: 799px)');
+const itemClasses = computed(() => [
+  'tw-block',
+  !props.useMultipleColumns ? 'tw-mt-6 tw-mx-6' : undefined,
+]);
 
 watch(
   () => props.commons,
@@ -138,10 +159,24 @@ en:
   noMatchingItems: 'Sorry, but no {commons} match your filter criteria.'
   loadMore: 'Show more {commons}'
   listOfCommons: 'List of {commons}'
+  listOfCommonsAtLocation: 'List of {commons} at {location}'
 
 de:
   commonsAtLocation: '{commons} an diesem Standort'
   noMatchingItems: 'Entschuldige, aber keine {commons} entsprechen deinen Filterkriterien.'
   loadMore: 'Weitere {commons} anzeigen'
   listOfCommons: 'Liste der {commons}'
+  listOfCommonsAtLocation: 'Liste der {commons} bei {location}'
 </i18n>
+
+<style scoped>
+@supports (grid-template-rows: masonry) {
+  /**
+   * masonry layout for grid is behind a flag in Firefox and likely to be
+   * supported in Safari 17. It’s a nice little addon, when it’s available.
+   */
+  .tw-common-list--multi-column {
+    grid-template-rows: masonry;
+  }
+}
+</style>
