@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --cb-map-marker-default-embed-fill: var(--commonsbooking-color-buttons, hsl(160 60% 80%));
-    --cb-map-marker-user-embed-fill: var(--commonsbooking-color-secondary, hsl(240 60% 80%));
-    --cb-map-marker-cluster-embed-fill: var(--commonsbooking-color-buttons, hsl(90 60% 80%));
+    --cb-map-marker-default-embed-fill: hsl(160 60% 80%);
+    --cb-map-marker-user-embed-fill: hsl(240 60% 80%);
+    --cb-map-marker-cluster-embed-fill: hsl(90 60% 80%);
     --cb-map-marker-default-embed-label-stroke: hsl(90 60% 20%);
     --cb-layer-base-0-color: #fff;
     --cb-layer-base-1-color: theme('colors.gray.100');

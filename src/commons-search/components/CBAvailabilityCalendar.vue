@@ -180,9 +180,6 @@ function moveColumnHighlight(event: MouseEvent) {
   background-color: var(--cb-acal-border-color-header);
   width: 1px;
 }
-.cb-acal :is(td, th):first-child {
-  border-left-width: 1px;
-}
 .cb-acal :is(td, th):last-child {
   border-right-width: 1px;
 }

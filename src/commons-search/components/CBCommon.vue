@@ -1,6 +1,12 @@
 <template>
-  <div class="cb-common tw-rounded tw-overflow-hidden tw-bg-base-0 tw-group">
-    <figure ref="imgContainerEl" class="cb-common-header tw-relative tw-aspect-video tw-m-0">
+  <div
+    class="cb-common tw-flex tw-flex-col tw-rounded tw-overflow-hidden tw-bg-base-0 tw-group tw-w-full"
+  >
+    <figure
+      ref="imgContainerEl"
+      class="cb-common-header tw-relative tw-aspect-video -tw-mx-px tw-my-0"
+      style="width: calc(100% + 2px)"
+    >
       <img
         v-if="image"
         :loading="lazy ? 'lazy' : undefined"
@@ -22,12 +28,14 @@
         </span>
       </figcaption>
     </figure>
-    <div class="cb-common-body tw-p-4 tw-flex tw-flex-col tw-gap-2">
+    <div class="cb-common-body tw-p-4 tw-flex-1 tw-flex tw-flex-col tw-gap-2">
       <p v-if="showLocation" class="cb-common-location tw-flex tw-items-start tw-m-0">
         <span class="tw-cb-flex-center">
           <span class="tw-sr-only">{{ t('location', { common: common.name }) }}</span>
           <IconMapMarker class="tw-mt-[0.1em] tw-mr-[.1em] tw-flex-none" role="presentation" />
-          <span class="cb-common-location-name cb-text-wrap-balance">{{ location.name }}</span>
+          <span class="cb-common-location-name cb-text-wrap-balance tw-leading-tight">
+            {{ location.name }}
+          </span>
         </span>
         <span
           v-if="distanceToUserLocation"
@@ -61,9 +69,11 @@
         </li>
       </ul>
 
-      <a class="cb-btn tw-bg-base-1 tw-mt-2" v-bind="anchorAttrs">
-        {{ t('bookCommon', { common: common.name }) }}
-      </a>
+      <div class="tw-mt-auto">
+        <a class="cb-btn tw-bg-base-1 tw-mt-2" v-bind="anchorAttrs">
+          {{ t('bookCommon', { common: common.name }) }}
+        </a>
+      </div>
     </div>
   </div>
 </template>

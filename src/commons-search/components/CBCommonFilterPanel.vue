@@ -26,7 +26,7 @@
 
     <transition name="cb-animate-panel">
       <PopoverPanel
-        class="cb-common-filter-panel tw-absolute tw-mt-3 tw-inset-x-6 tw-z-20 tw-bg-base-0 tw-p-6 tw-shadow-lg tw-rounded-lg"
+        class="cb-common-filter-panel tw-absolute tw-mt-3 tw-inset-x-6 tw-z-20 tw-bg-base-0 tw-p-6 tw-shadow-lg tw-rounded-lg tw-w-96 tw-ml-auto"
         :style="{ top: `${filterButtonBottom}px` }"
       >
         <slot />
