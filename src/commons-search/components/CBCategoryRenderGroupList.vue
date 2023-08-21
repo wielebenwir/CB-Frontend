@@ -3,16 +3,16 @@
     <div v-for="renderGroup in renderGroupList" :key="renderGroup.id">
       <header class="tw-flex tw-items-center tw-justify-between tw-mb-1">
         <CBFilterLabel
-          :label="renderGroup.label"
           :id="`${labelPrefix}-${renderGroup.id}`"
+          :label="renderGroup.label"
           class="tw-mb-0"
         />
         <button
           v-if="renderGroupMeta.get(renderGroup.id)?.isActive"
           type="button"
           class="cb-btn tw-bg-base-1 tw-text-sm tw-p-1"
-          @click="value = disableCategories(modelValue, renderGroup.groupedCategories.flat())"
           :aria-label="t('reset', { attr: renderGroup.label })"
+          @click="value = disableCategories(modelValue, renderGroup.groupedCategories.flat())"
         >
           <IconCross class="tw-w-4 tw-h-4" />
         </button>

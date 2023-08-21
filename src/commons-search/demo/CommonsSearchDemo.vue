@@ -7,7 +7,7 @@
       :class="layoutType === name ? 'tw-bg-active' : 'tw-bg-base-1'"
       :title="t(`layout.${name}`)"
     >
-      <input type="radio" name="layoutType" :value="name" v-model="layoutType" class="tw-hidden" />
+      <input v-model="layoutType" type="radio" name="layoutType" :value="name" class="tw-hidden" />
       {{ t(`layout.${name}`) }}
     </label>
 

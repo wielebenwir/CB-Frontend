@@ -20,22 +20,20 @@
       :selected-location="filter.location"
       :user-location="filter.userLocation"
       :page-size="10"
-      @deselect-location="filter.location = null"
       use-multiple-columns
+      @deselect-location="filter.location = null"
     />
   </div>
 </template>
 <script lang="ts" setup>
-import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { useGlobalState } from '../state';
 import { CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
 import CBCommonFilter from '../components/CBCommonFilter.vue';
 import CBCommonList from '../components/CBCommonList.vue';
 
-const props = defineProps<{
+defineProps<{
   config: CommonsSearchConfiguration;
   api: CommonsSearchAPI;
 }>();
-const { t } = useI18n();
 const { filter, resetFilters, filteredAndSortedCommons, locationMap } = useGlobalState();
 </script>

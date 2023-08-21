@@ -1,5 +1,4 @@
 import type { ComputedRef, UnwrapNestedRefs } from 'vue';
-import * as layouts from './layouts/_layouts';
 import { LayoutType } from './layouts';
 
 type CustomIconAttributes = { width: number; height: number; anchor: { x: number; y: number } };

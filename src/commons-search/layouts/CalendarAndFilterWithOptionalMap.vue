@@ -71,7 +71,7 @@ import CBCommonList from '../components/CBCommonList.vue';
 import CBMap from '../components/CBMap.vue';
 import CBAvailabilityCalendar from '../components/CBAvailabilityCalendar.vue';
 
-const props = defineProps<{
+defineProps<{
   config: CommonsSearchConfiguration;
   api: CommonsSearchAPI;
 }>();

@@ -1,5 +1,5 @@
 <template>
-  <component v-if="api" :is="layouts[layoutType]" :api="api" :config="config" />
+  <component :is="layouts[layoutType]" v-if="api" :api="api" :config="config" />
   <div v-else-if="apiError" role="alert" aria-live="polite">
     <p>{{ t('error') }}</p>
     <pre>{{ String(apiError) }}</pre>
@@ -8,7 +8,6 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import type { Component } from 'vue';
 import { useGlobalState } from './state';
 import { CommonsSearchConfiguration } from './types';
 import * as layouts from './layouts';

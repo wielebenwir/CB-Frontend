@@ -6,8 +6,8 @@
         v-show="start || end || showEnd"
         type="button"
         class="cb-btn tw-p-1 tw-bg-base-1 tw-ml-auto"
-        @click="reset"
         :aria-label="t('reset')"
+        @click="reset"
       >
         <IconCross class="tw-w-4 tw-h-4" />
       </button>
@@ -46,8 +46,8 @@
         v-else
         type="button"
         class="cb-btn tw-bg-base-1"
-        @click="showEnd = true"
         :aria-description="t('addUntilDescription')"
+        @click="showEnd = true"
       >
         {{ t('addUntil') }}
       </button>
