@@ -23,7 +23,7 @@
     <TransitionGroup
       ref="transitionGroup"
       tag="ol"
-      class="cb-common-list tw-items-stretch tw-relative tw-scroll-smooth tw-m-0 tw-pb-6 tw-scroll-pt-6 tw-h-full"
+      class="cb-common-list tw-items-stretch tw-relative tw-scroll-smooth tw-m-0 tw-pb-6 tw-scroll-pt-6 tw-h-full tw-flex-1"
       :class="{
         'tw-common-list--multi-column tw-overflow-hidden tw-grid tw-gap-6 tw-p-6':
           useMultipleColumns,

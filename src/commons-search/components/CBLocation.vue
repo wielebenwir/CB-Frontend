@@ -14,7 +14,7 @@
             {{ distanceToUserLocation.unit }}
           </span>
         </p>
-        <address class="tw-not-italic tw-text-black/70 tw-mt-1">
+        <address class="tw-not-italic tw-text-black/70 tw-m-0 tw-mt-1">
           {{ location.address.street }}<br />
           {{ location.address.postalCode }} {{ location.address.city }}
         </address>

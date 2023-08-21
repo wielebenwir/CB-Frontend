@@ -15,11 +15,12 @@
     --cb-layer-active-color: var(--commonsbooking-color-buttons, theme('colors.teal.300'));
   }
 
-  .cb-app * {
+  .cb-app *:not([class*='leaflet']) {
     box-sizing: border-box;
     border-width: 0;
     border-style: solid;
     border-color: transparent;
+    min-height: 0;
   }
 }
 
@@ -40,7 +41,7 @@
 }
 
 @layer components {
-  .cb-btn {
+  .cb-app .cb-btn {
     @apply tw-flex
         tw-items-center
         tw-justify-center
@@ -62,7 +63,7 @@
         tw-transition;
   }
 
-  .cb-input {
+  .cb-app .cb-input {
     @apply tw-rounded
         tw-max-w-full
         tw-border-0
@@ -71,7 +72,7 @@
         tw-px-4 tw-py-2;
   }
 
-  .cb-input-date {
+  .cb-app .cb-input-date {
     @apply tw-border
         tw-border-solid
         tw-border-base-2

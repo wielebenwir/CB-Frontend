@@ -14,7 +14,9 @@
       </TransitionChild>
 
       <div class="tw-fixed tw-inset-0 tw-max-h-full">
-        <div class="tw-h-full tw-p-4 tw-flex tw-flex-col tw-items-center tw-justify-center">
+        <div
+          class="tw-h-full tw-w-screen tw-p-4 tw-flex tw-flex-col tw-items-center tw-justify-center"
+        >
           <TransitionChild
             as="template"
             enter="tw-duration-300 tw-ease-out"
@@ -25,7 +27,7 @@
             leave-to="tw-opacity-0 tw-scale-95"
           >
             <DialogPanel
-              class="tw-w-full tw-transform tw-rounded tw-bg-base-0 tw-shadow-xl tw-transition-all tw-max-h-full tw-flex tw-flex-col tw-overflow-hidden"
+              class="tw-w-full tw-max-w-[90dvw] tw-transform tw-rounded tw-bg-base-0 tw-shadow-xl tw-transition-all tw-max-h-full tw-flex tw-flex-col tw-overflow-hidden"
               v-bind="attrs"
             >
               <slot name="header">

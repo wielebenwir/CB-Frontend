@@ -1,6 +1,6 @@
 <template>
   <div v-if="commons.length > 0" class="cb-acal tw-overflow-auto tw-max-h-full tw-relative">
-    <table class="cb-acal-table tw-table-fixed tw-border-spacing-0 tw-rounded">
+    <table class="cb-acal-table tw-table-fixed tw-border-spacing-0 tw-rounded tw-border-separate">
       <colgroup>
         <col class="cb-acal-name" />
         <col class="cb-acal-location" />
@@ -145,6 +145,7 @@ function moveColumnHighlight(event: MouseEvent) {
 <style lang="postcss">
 .cb-acal {
   --cb-acal-column-name-width: 120px;
+  --cb-acal-column-date-width: 35px;
   --cb-acal-column-padding-x: theme('spacing.2');
   --cb-acal-column-padding-y: theme('spacing.2');
   --cb-acal-border-color: 0 0% 0%;
@@ -192,15 +193,14 @@ function moveColumnHighlight(event: MouseEvent) {
 .cb-acal-name,
 .cb-acal-location {
   min-width: var(--cb-acal-column-name-width);
-  max-width: var(--cb-acal-column-name-width);
+  width: var(--cb-acal-column-name-width);
   word-wrap: break-word;
 }
 
 .cb-acal .cb-acal-day {
   text-align: center;
   vertical-align: middle;
-  min-width: 35px;
-  max-width: 35px;
+  width: var(--cb-acal-column-date-width);
 }
 
 .cb-acal thead :is(th, td):not(.cb-acal-day):not(.cb-acal-name) {
