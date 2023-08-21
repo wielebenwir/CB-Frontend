@@ -125,7 +125,7 @@ export type MapConfig = {
   userMarkerIcon?: MarkerIconConfig;
 };
 
-type MessageMap = Record<string, Messages>;
+export type MessageMap = Record<string, Messages>;
 interface Messages {
   [k: string]: string | Messages;
 }

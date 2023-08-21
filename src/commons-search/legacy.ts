@@ -6,6 +6,7 @@ import {
   ExtendedLegacyMapConfiguration,
   GeocodeConfig,
   MarkerIconConfig,
+  MessageMap,
 } from './types';
 
 export function parseLegacyConfig(
@@ -110,17 +111,20 @@ export function parseLegacyConfig(
     return {};
   }
 
+  function parseTranslations(): MessageMap {
+    const messages: MessageMap = {};
+    const unlabelledCategoryRenderGroup = config.label_item_category_filter?.trim?.();
+    if (unlabelledCategoryRenderGroup) {
+      messages.CBCommonFilter = { unlabelledCategoryRenderGroup };
+    }
+    return messages;
+  }
+
   return {
     version: 2,
     i18n: {
       locale: config.locale,
-      messages: {
-        [config.locale.replace(/-/g, '_')]: {
-          CBCommonFilter: {
-            unlabelledCategoryRenderGroup: config.label_item_category_filter,
-          },
-        },
-      },
+      messages: { [config.locale.replace(/-/g, '_')]: parseTranslations() },
     },
     filter: {
       availability: {
