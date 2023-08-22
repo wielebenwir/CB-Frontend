@@ -28,9 +28,10 @@ export const useGlobalState = createGlobalState(() => {
     (newCommons) => {
       // We also update the mapCenter through the CBMap component,
       // but we must calculate it as early as possible, so we can avoid multiple sorting runs.
-      filter.value.mapCenter = getCoordinatesCenter(
-        getCoordinates(newCommons, locationMap.value, filter.value.userLocation),
-      );
+      const coords = getCoordinates(newCommons, locationMap.value, filter.value.userLocation);
+      if (coords.length > 0) {
+        filter.value.mapCenter = getCoordinatesCenter(coords);
+      }
     },
     { flush: 'sync' },
   );
