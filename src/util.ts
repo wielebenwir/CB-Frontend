@@ -116,6 +116,12 @@ export function useBottom(element: Ref<undefined | HTMLElement | { $el: HTMLElem
   });
 }
 
+export function omit<T extends object, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
+  const objCopy = { ...obj };
+  for (const key of keys) delete objCopy[key];
+  return objCopy;
+}
+
 export function useImage(
   container: Ref<HTMLElement>,
   images: Ref<Image[]>,
