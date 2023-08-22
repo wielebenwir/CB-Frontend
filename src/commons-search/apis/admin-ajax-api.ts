@@ -16,7 +16,12 @@ import type {
 export type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
 type APIAddress = { street: string; city: string; zip: string };
 type APITimeframe = { date_start: string; date_end: string };
-export type APIAvailabilityStatus = 'available' | 'locked' | 'partially-booked' | 'booked';
+export type APIAvailabilityStatus =
+  | 'available'
+  | 'locked'
+  | 'partially-booked'
+  | 'booked'
+  | 'location-holiday';
 type APIAvailability = { status: APIAvailabilityStatus; date: string };
 export type APIItem = {
   id: Id;
@@ -36,7 +41,7 @@ export type APILocation = {
   location_name: string;
   location_link: string;
   address: APIAddress;
-  closed_days: APIDay[];
+  closed_days: APIDay[] | string;
   items: APIItem[];
 };
 
@@ -58,6 +63,50 @@ async function fetchLocationData(source: AdminAjaxDataSource): Promise<APILocati
   } else {
     throw new HTTPAPIError(res, `Could not load data from admin-ajax endpoint at '${source.url}'.`);
   }
+}
+
+function parseSerializedPHPScalar<T>(serializedValue: string, defaultValue?: T): T {
+  const types: [RegExp, (v: string) => unknown][] = [
+    // booleans
+    [/^b:([01]);$/, (v: string) => v === '1'],
+    // integers
+    [/^i:(\d+);$/, (v: string) => parseInt(v)],
+    // floats
+    [/^d:(\d+(?:\.\d+)?);$/, (v: string) => parseFloat(v)],
+    // strings
+    [/^s:\d+:"(.*)";$/, (v: string) => v],
+  ];
+  for (const [format, convert] of types) {
+    const match = serializedValue.match(format);
+    if (match) {
+      return convert(match[1]) as T;
+    }
+  }
+  if (defaultValue !== undefined) return defaultValue;
+  throw new TypeError(`Unknown PHP scalar type for value: ${serializedValue}`);
+}
+
+function parseSerializedPHPArray<T>(serializedArray: string): T[] {
+  const match = serializedArray.match(/^a:(\d+):{(.*)}$/);
+  if (match === null) return [];
+  const size = parseInt(match[1]);
+  let contents = match[2];
+  const result = new Array(size);
+
+  function popSerialized() {
+    const currentValueEnd = contents.indexOf(';') + 1;
+    const value = contents.substring(0, currentValueEnd);
+    contents = contents.substring(currentValueEnd);
+    return value;
+  }
+
+  while (contents) {
+    const index = parseSerializedPHPScalar<number>(popSerialized());
+    const value = parseSerializedPHPScalar<T>(popSerialized());
+    result[index] = value;
+  }
+
+  return result;
 }
 
 export function useAdminAjaxData(
@@ -85,6 +134,12 @@ export function useAdminAjaxData(
 
   const commons = computed<Common[]>(() => {
     return locationData.value.flatMap((location) => {
+      // The API returns a serialized PHP Array sometimes
+      // TODO: remove PHP parsing code once API reliably returns arrays
+      // TODO: remove closed_days processing entirely once availability status contains location-closed info
+      const closedDays = Array.isArray(location.closed_days)
+        ? location.closed_days
+        : parseSerializedPHPArray<APIDay>(location.closed_days);
       return location.items.map((item) => ({
         id: item.id.toString(),
         locationId: createLocationId(location),
@@ -116,9 +171,10 @@ export function useAdminAjaxData(
           // date.getDay is 0-indexed starting on Sunday.
           // closed_days is 1-indexed starting on Monday.
           const day = (date.getDay() === 0 ? 7 : date.getDay()).toString();
-          const status: CommonAvailabilityStatus = location.closed_days.includes(day as APIDay)
-            ? ('closed' as const)
-            : a.status;
+          const status: CommonAvailabilityStatus =
+            a.status === 'locked' && closedDays.includes(day as APIDay)
+              ? ('location-closed' as const)
+              : a.status;
           return {
             status,
             date,

@@ -166,7 +166,8 @@ export type CommonAvailabilityStatus =
   | 'booked'
   | 'partially-booked'
   | 'locked'
-  | 'closed';
+  | 'location-closed'
+  | 'location-holiday';
 export type CommonAvailability = { status: CommonAvailabilityStatus; date: Date };
 
 export type Common = {

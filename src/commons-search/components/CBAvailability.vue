@@ -30,7 +30,7 @@ import { CommonAvailability, CommonAvailabilityStatus } from '../types';
 import { IconHeart, IconMoon } from '../../icons';
 
 const availabilityStatusIconMap: { [s in CommonAvailabilityStatus]?: FunctionalComponent } = {
-  closed: IconMoon,
+  'location-closed': IconMoon,
   locked: IconHeart,
 };
 
@@ -58,14 +58,16 @@ en:
   booked: 'Already booked on {date}.'
   partially-booked: 'Partially booked on {date}.'
   locked: 'Cannot be borrowed on {date} (i.e. for maintenance or other reasons).'
-  closed: 'The lending station is closed on {date}.'
+  location-closed: 'The lending station is closed on {date}.'
+  location-holiday: 'The lending station is closed on {date}.'
 
 de:
   available: 'Am {date} verfügbar.'
   booked: 'Am {date} bereits gebucht.'
   partially-booked: 'Am {date} bereits teilweise gebucht.'
   locked: 'Am {date} nicht ausleihbar (z.B. wegen Wartung oder anderen Gründen).'
-  closed: 'Am {date} ist die Ausleihstation geschlossen.'
+  location-closed: 'Am {date} ist die Ausleihstation geschlossen.'
+  location-holiday: 'Am {date} ist die Ausleihstation geschlossen.'
 </i18n>
 
 <style lang="postcss">
@@ -76,8 +78,10 @@ de:
   --cb-availability-booked-text-color: theme('colors.gray.600');
   --cb-availability-locked-color: var(--cb-availability-booked-color);
   --cb-availability-locked-text-color: var(--cb-availability-booked-text-color);
-  --cb-availability-closed-color: var(--cb-availability-booked-color);
-  --cb-availability-closed-text-color: var(--cb-availability-booked-text-color);
+  --cb-availability-location-closed-color: var(--cb-availability-booked-color);
+  --cb-availability-location-closed-text-color: var(--cb-availability-booked-text-color);
+  --cb-availability-location-holiday-color: var(--cb-availability-booked-color);
+  --cb-availability-location-holiday-text-color: var(--cb-availability-booked-text-color);
 }
 
 .cb-availability--available {
@@ -106,8 +110,13 @@ de:
   color: var(--cb-availability-locked-text-color);
 }
 
-.cb-availability--closed {
-  background-color: var(--cb-availability-closed-color);
-  color: var(--cb-availability-closed-text-color);
+.cb-availability--location-closed {
+  background-color: var(--cb-availability-location-closed-color);
+  color: var(--cb-availability-location-closed-text-color);
+}
+
+.cb-availability--location-holiday {
+  background-color: var(--cb-availability-location-holiday-color);
+  color: var(--cb-availability-location-holiday-text-color);
 }
 </style>
