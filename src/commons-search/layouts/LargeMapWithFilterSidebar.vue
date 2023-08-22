@@ -9,6 +9,7 @@
       :api="api"
       :config="config"
       :availability-range="availabilityRange"
+      :can-reset="canResetFilters"
       style="grid-area: filter"
       @reset="resetFilters"
     />
@@ -65,8 +66,14 @@ const props = defineProps<{
   config: CommonsSearchConfiguration;
   api: CommonsSearchAPI;
 }>();
-const { filter, resetFilters, filteredCommons, filteredAndSortedCommons, locationMap } =
-  useGlobalState();
+const {
+  filter,
+  canResetFilters,
+  resetFilters,
+  filteredCommons,
+  filteredAndSortedCommons,
+  locationMap,
+} = useGlobalState();
 const availabilityRange = computed(() => ({
   start: parseISO(props.config.filter.availability.dateRange.start),
   end: parseISO(props.config.filter.availability.dateRange.end),

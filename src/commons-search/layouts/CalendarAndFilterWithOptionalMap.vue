@@ -9,6 +9,7 @@
       :api="api"
       :config="config"
       style="grid-area: filter"
+      :can-reset="canResetFilters"
       @reset="resetFilters"
     >
       <button
@@ -79,8 +80,14 @@ const { t } = useI18n();
 
 const showMap = ref(false);
 const mapHeight = computed(() => (showMap.value ? '600px' : '0px'));
-const { filter, resetFilters, filteredCommons, filteredAndSortedCommons, locationMap } =
-  useGlobalState();
+const {
+  filter,
+  canResetFilters,
+  resetFilters,
+  filteredCommons,
+  filteredAndSortedCommons,
+  locationMap,
+} = useGlobalState();
 </script>
 
 <style scoped>

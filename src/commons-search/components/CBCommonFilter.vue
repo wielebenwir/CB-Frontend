@@ -20,7 +20,7 @@
           v-model="isAvailableBetween"
           :availability-range="availabilityRange"
         />
-        <button type="button" class="cb-btn tw-bg-base-1" @click="emit('reset')">
+        <button v-if="canReset" type="button" class="cb-btn tw-bg-base-1" @click="emit('reset')">
           {{ t('resetFilters') }}
         </button>
       </CBCommonFilterPanel>
@@ -78,6 +78,7 @@ const props = defineProps<{
   availableBetween: CommonFilterSet['availableBetween'];
   availableToday: CommonFilterSet['availableToday'];
   expanded?: boolean;
+  canReset?: boolean;
 }>();
 const emit = defineEmits<{
   (e: 'update:categories', value: CommonFilterSet['categories']): void;

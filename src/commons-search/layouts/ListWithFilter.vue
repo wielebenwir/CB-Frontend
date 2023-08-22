@@ -9,6 +9,7 @@
       :api="api"
       :config="config"
       style="grid-area: filter"
+      :can-reset="canResetFilters"
       @reset="resetFilters"
     />
 
@@ -35,5 +36,6 @@ defineProps<{
   config: CommonsSearchConfiguration;
   api: CommonsSearchAPI;
 }>();
-const { filter, resetFilters, filteredAndSortedCommons, locationMap } = useGlobalState();
+const { filter, canResetFilters, resetFilters, filteredAndSortedCommons, locationMap } =
+  useGlobalState();
 </script>
