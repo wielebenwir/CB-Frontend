@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="cb-common tw-flex tw-flex-col tw-rounded tw-overflow-hidden tw-bg-base-0 tw-group tw-w-full"
-  >
+  <div class="cb-common tw-flex tw-flex-col tw-rounded tw-overflow-hidden tw-bg-base-0 tw-w-full">
     <figure
       ref="imgContainerEl"
       class="cb-common-header tw-relative tw-aspect-video -tw-mx-px tw-my-0"
@@ -49,7 +47,7 @@
       </p>
 
       <CBSevenDayAvailability
-        class="cb-common-availabilities tw-grayscale group-hover:tw-grayscale-0"
+        class="cb-common-availabilities"
         :availabilities="common.availabilities"
         :aria-label="t('availability', { common: common.name })"
       />
