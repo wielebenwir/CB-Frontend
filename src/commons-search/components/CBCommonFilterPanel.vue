@@ -58,7 +58,7 @@ const filterButtonBottom = useBottom(filterButtonEl);
 </script>
 
 <style lang="postcss">
-.cb-common-filter-panel--expanded .cb-btn {
+.cb-common-filter-panel--expanded .cb-btn:not(.cb-category--active) {
   @apply tw-bg-base-2;
 }
 
