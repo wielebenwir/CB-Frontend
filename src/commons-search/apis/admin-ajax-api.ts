@@ -132,6 +132,8 @@ export function useAdminAjaxData(
     });
   });
 
+  const configuredCategoryIds = config.filter.categories.map((c) => c.id);
+
   const commons = computed<Common[]>(() => {
     return locationData.value.flatMap((location) => {
       // The API returns a serialized PHP Array sometimes
@@ -143,7 +145,7 @@ export function useAdminAjaxData(
       return location.items.map((item) => ({
         id: item.id.toString(),
         locationId: createLocationId(location),
-        categoryIds: item.terms,
+        categoryIds: item.terms.filter((id) => configuredCategoryIds.includes(id)),
         name: item.name,
         description: item.short_desc,
         url: item.link,
