@@ -259,10 +259,13 @@ export function getCoordinates(
   locationMap: IdMap<CommonLocation>,
   userLocation?: GeoCoordinate | null,
 ) {
-  const points: LatLngTuple[] = commons.map(({ locationId }) => {
-    const { coordinates: c } = locationMap.get(locationId) as CommonLocation;
-    return coordinateToLatLngTuple(c);
-  });
+  const points: LatLngTuple[] = commons
+    .map(({ locationId }) => {
+      const location = locationMap.get(locationId);
+      return location ? coordinateToLatLngTuple(location.coordinates) : null;
+    })
+    .filter((point): point is LatLngTuple => point !== null);
+
   if (userLocation) {
     points.push(coordinateToLatLngTuple(userLocation));
   }
