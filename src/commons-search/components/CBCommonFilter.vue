@@ -1,5 +1,5 @@
 <template>
-  <div class="cb-common-filter tw-p-6 tw-relative tw-flex tw-flex-col tw-gap-3">
+  <div class="cb-common-filter tw-p-4 md:tw-p-6 tw-relative tw-flex tw-flex-col tw-gap-2">
     <div class="tw-flex tw-gap-3 tw-max-w-full" :class="{ 'tw-flex-col': expanded }">
       <CBLocationFilter
         v-if="config.geocode"
@@ -16,18 +16,36 @@
           :render-group-list="categoryRenderGroups"
           :render-group-meta="categoryRenderGroupsMeta"
         />
+
         <CBAvailabilityRangeFilter
           v-model="isAvailableBetween"
           :availability-range="availabilityRange"
-        />
-        <button v-if="canReset" type="button" class="cb-btn tw-bg-base-1" @click="emit('reset')">
+        >
+          <CBSwitch
+            v-if="expanded"
+            v-model="isAvailableToday"
+            :label="t('availableToday')"
+            class="tw-mt-2"
+          />
+        </CBAvailabilityRangeFilter>
+
+        <button
+          v-if="!expanded && canReset"
+          type="button"
+          class="cb-btn tw-bg-base-1"
+          @click="emit('reset')"
+        >
           {{ t('resetFilters') }}
         </button>
       </CBCommonFilterPanel>
     </div>
 
-    <div class="tw-flex tw-gap-2 tw-items-center tw-flex-wrap">
-      <CBSwitch v-model="isAvailableToday" :label="t('availableToday')" />
+    <CBSwitch v-if="!expanded" v-model="isAvailableToday" :label="t('availableToday')" />
+
+    <div
+      v-if="!expanded && appliedFilters.length > 0"
+      class="tw-flex tw-gap-2 tw-items-center tw-flex-wrap"
+    >
       <template v-for="filter in appliedFilters" :key="filter.key">
         <button
           type="button"
@@ -45,6 +63,15 @@
         </button>
       </template>
     </div>
+
+    <button
+      v-if="expanded && canReset"
+      type="button"
+      class="cb-btn tw-bg-base-2 tw-mt-4"
+      @click="emit('reset')"
+    >
+      {{ t('resetFilters') }}
+    </button>
   </div>
 </template>
 

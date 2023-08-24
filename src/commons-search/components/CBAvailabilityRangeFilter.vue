@@ -8,6 +8,7 @@
         @click="reset"
       />
     </header>
+
     <div class="tw-flex tw-flex-wrap tw-items-end tw-justify-start tw-gap-2 tw-max-w-full">
       <label class="tw-flex-1 md:tw-max-w-[200px] md:tw-min-w-0">
         <span class="tw-block tw-mb-1">
@@ -48,6 +49,8 @@
         {{ t('addUntil') }}
       </button>
     </div>
+
+    <slot />
   </div>
 </template>
 
