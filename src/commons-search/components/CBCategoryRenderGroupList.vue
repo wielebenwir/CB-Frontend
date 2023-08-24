@@ -1,28 +1,26 @@
 <template>
-  <div v-if="renderGroupList.length > 0" class="tw-flex tw-flex-col tw-gap-2">
-    <div v-for="renderGroup in renderGroupList" :key="renderGroup.id">
-      <header class="tw-flex tw-items-center tw-justify-between tw-mb-1">
-        <CBFilterLabel
-          :id="`${labelPrefix}-${renderGroup.id}`"
-          :label="renderGroup.label"
-          class="tw-mb-0"
-        />
-        <CBFilterResetButton
-          :visible="renderGroupMeta.get(renderGroup.id)?.isActive"
-          :aria-label="t('reset', { attr: renderGroup.label })"
-          @click="value = disableCategories(modelValue, renderGroup.groupedCategories.flat())"
-        />
-      </header>
+  <div v-for="renderGroup in renderGroupList" :key="renderGroup.id">
+    <header class="tw-flex tw-items-center tw-mb-1">
+      <CBFilterLabel
+        :id="`${labelPrefix}-${renderGroup.id}`"
+        :label="renderGroup.label"
+        class="tw-mb-0"
+      />
+      <CBFilterResetButton
+        :visible="renderGroupMeta.get(renderGroup.id)?.isActive"
+        :aria-label="t('reset', { attr: renderGroup.label })"
+        @click="value = disableCategories(modelValue, renderGroup.groupedCategories.flat())"
+      />
+    </header>
 
-      <div class="tw-flex tw-flex-wrap tw-gap-2">
-        <template v-for="(categories, index) in renderGroup.groupedCategories" :key="index">
-          <CBCategoryGroup
-            v-model="value"
-            :categories="categories"
-            :aria-describedby="`${labelPrefix}-${renderGroup.id}`"
-          />
-        </template>
-      </div>
+    <div class="tw-flex tw-flex-wrap tw-gap-2">
+      <template v-for="(categories, index) in renderGroup.groupedCategories" :key="index">
+        <CBCategoryGroup
+          v-model="value"
+          :categories="categories"
+          :aria-describedby="`${labelPrefix}-${renderGroup.id}`"
+        />
+      </template>
     </div>
   </div>
 </template>
