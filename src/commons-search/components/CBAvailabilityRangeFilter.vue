@@ -2,15 +2,11 @@
   <div>
     <header class="tw-flex tw-items-center">
       <CBFilterLabel :label="t('title')" />
-      <button
-        v-show="start || end || showEnd"
-        type="button"
-        class="cb-btn tw-p-1 tw-bg-base-1 tw-ml-auto"
+      <CBFilterResetButton
+        :visible="start || end || showEnd || false"
         :aria-label="t('reset')"
         @click="reset"
-      >
-        <IconCross class="tw-w-4 tw-h-4" />
-      </button>
+      />
     </header>
     <div class="tw-flex tw-flex-wrap tw-items-end tw-justify-start tw-gap-2 tw-max-w-full">
       <label class="tw-flex-1 md:tw-max-w-[200px] md:tw-min-w-0">
@@ -58,10 +54,10 @@
 <script lang="ts" setup>
 import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { computed, ref, watch } from 'vue';
-import { IconCross } from '../../icons';
 import { enforceDateRange, parseDate, toDateString } from '../../util';
 import { CommonFilterSet } from '../filter';
 import CBFilterLabel from './CBFilterLabel.vue';
+import CBFilterResetButton from '@/commons-search/components/CBFilterResetButton.vue';
 
 const props = defineProps<{
   modelValue: CommonFilterSet['availableBetween'];

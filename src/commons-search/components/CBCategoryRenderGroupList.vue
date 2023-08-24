@@ -7,15 +7,11 @@
           :label="renderGroup.label"
           class="tw-mb-0"
         />
-        <button
-          v-if="renderGroupMeta.get(renderGroup.id)?.isActive"
-          type="button"
-          class="cb-btn tw-bg-base-1 tw-text-sm tw-p-1"
+        <CBFilterResetButton
+          :visible="renderGroupMeta.get(renderGroup.id)?.isActive"
           :aria-label="t('reset', { attr: renderGroup.label })"
           @click="value = disableCategories(modelValue, renderGroup.groupedCategories.flat())"
-        >
-          <IconCross class="tw-w-4 tw-h-4" />
-        </button>
+        />
       </header>
 
       <div class="tw-flex tw-flex-wrap tw-gap-2">
@@ -37,8 +33,8 @@ import { useVModel } from '@vueuse/core';
 import CBFilterLabel from './CBFilterLabel.vue';
 import CBCategoryGroup from './CBCategoryGroup.vue';
 import { CategoryRenderGroup, CategoryRenderGroupMetaMap, disableCategories } from './categories';
-import { IconCross } from '../../icons';
 import { Id } from '../types';
+import CBFilterResetButton from '@/commons-search/components/CBFilterResetButton.vue';
 
 const labelPrefix = 'category-render-group-label';
 
