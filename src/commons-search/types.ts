@@ -131,6 +131,7 @@ interface Messages {
 
 type LayoutConfig = {
   type: LayoutType;
+  options?: string[];
 };
 
 export type CommonsSearchConfiguration = {

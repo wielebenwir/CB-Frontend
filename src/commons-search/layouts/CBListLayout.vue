@@ -1,18 +1,5 @@
 <template>
-  <div class="cb-app cb-commons-search">
-    <CBCommonFilter
-      v-model:categories="filter.categories"
-      v-model:user-location="filter.userLocation"
-      v-model:available-between="filter.availableBetween"
-      v-model:available-today="filter.availableToday"
-      class="tw-bg-base-1 tw-rounded tw-mb-6"
-      :api="api"
-      :config="config"
-      style="grid-area: filter"
-      :can-reset="canResetFilters"
-      @reset="resetFilters"
-    />
-
+  <div class="cb-layout-list">
     <CBCommonList
       class="tw-isolate tw-z-10 tw-bg-base-1 md:tw-mb-6 tw-rounded"
       :categories="api.categories"
@@ -29,13 +16,11 @@
 <script lang="ts" setup>
 import { useGlobalState } from '../state';
 import { CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
-import CBCommonFilter from '../components/CBCommonFilter.vue';
 import CBCommonList from '../components/CBCommonList.vue';
 
 defineProps<{
   config: CommonsSearchConfiguration;
   api: CommonsSearchAPI;
 }>();
-const { filter, canResetFilters, resetFilters, filteredAndSortedCommons, locationMap } =
-  useGlobalState();
+const { filter, filteredAndSortedCommons, locationMap } = useGlobalState();
 </script>

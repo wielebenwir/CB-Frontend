@@ -20,9 +20,7 @@ const props = defineProps<{
 
 const { t } = useI18n();
 const { api, apiError } = useGlobalState();
-const layoutType = computed<LayoutType>(
-  () => props.config.layout?.type ?? 'CalendarAndFilterWithOptionalMap',
-);
+const layoutType = computed<LayoutType>(() => props.config.layout?.type ?? 'MapWithAutoSidebar');
 </script>
 
 <i18n lang="yaml">

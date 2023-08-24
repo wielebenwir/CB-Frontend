@@ -25,6 +25,7 @@ export function init(
   app.use(i18n);
   app.provide(API, api);
   app.mount(element);
+  element.classList.add('cb-app');
   return app;
 }
 

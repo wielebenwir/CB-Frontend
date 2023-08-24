@@ -9,7 +9,7 @@ import {
   useMediaQuery,
   useNow,
 } from '@vueuse/core';
-import { Image, PreformattedDate } from './commons-search/types';
+import { CommonsSearchConfiguration, Image, PreformattedDate } from './commons-search/types';
 
 type FilterFunction<T> = (item: T, index?: number, iterable?: T[]) => boolean;
 
@@ -366,4 +366,9 @@ export function createDateFormats(date: Date, locale: string) {
     localeDate: date.toLocaleDateString(locale),
     weekdayName: weekdayFormatter.format(date),
   };
+}
+
+export function hasLayoutOption(config: CommonsSearchConfiguration, option: string) {
+  const options = config.layout?.options ?? [];
+  return options.includes(option);
 }

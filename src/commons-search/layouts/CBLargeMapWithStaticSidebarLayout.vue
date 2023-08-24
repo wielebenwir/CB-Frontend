@@ -1,5 +1,5 @@
 <template>
-  <div class="cb-app cb-commons-search md:tw-rounded tw-overflow-hidden">
+  <div class="cb-layout-large-map-with-static-sidebar md:tw-rounded tw-overflow-hidden">
     <CBCommonFilter
       v-model:categories="filter.categories"
       v-model:user-location="filter.userLocation"
@@ -28,7 +28,7 @@
       v-if="config.map !== undefined"
       ref="map"
       v-model:center="filter.mapCenter"
-      class="tw-isolate tw-z-0"
+      class="tw-z-0"
       style="grid-area: map"
       :commons="filteredCommons"
       :location-map="locationMap"
@@ -96,7 +96,7 @@ function scrollMapIntoView() {
 </script>
 
 <style scoped>
-.cb-commons-search {
+.cb-layout-large-map-with-static-sidebar {
   box-sizing: border-box;
   display: grid;
   grid-template-areas: 'map' 'filter' 'list' 'availability';
@@ -106,7 +106,7 @@ function scrollMapIntoView() {
 }
 
 @media (min-width: 800px) {
-  .cb-commons-search {
+  .cb-layout-large-map-with-static-sidebar {
     grid-template-areas: 'filter map' 'list map' 'availability availability';
     grid-template-columns: minmax(320px, 400px) minmax(0, 1fr);
     grid-template-rows: min-content minmax(0, 80dvh) auto;
