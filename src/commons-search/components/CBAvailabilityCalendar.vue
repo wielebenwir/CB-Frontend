@@ -5,8 +5,8 @@
         <col class="cb-acal-name" />
         <col class="cb-acal-location" />
         <col
-          v-for="date in calendarDates"
-          :key="date.getTime()"
+          v-for="{ date, isoDate } in preformattedDates"
+          :key="isoDate"
           :class="['cb-acal-day', `cb-acal-day--${days[date.getDay()]}`]"
         />
       </colgroup>
@@ -43,8 +43,8 @@
             <span>{{ t('location') }}</span>
           </th>
           <th
-            v-for="(date, index) in calendarDates"
-            :key="date.getTime()"
+            v-for="({ date, isoDate }, index) in preformattedDates"
+            :key="isoDate"
             class="tw-text-sm tw-relative tw-font-semibold !tw-border-b"
             :class="['cb-acal-day', `cb-acal-day--${days[date.getDay()]}`]"
             scope="col"
@@ -61,7 +61,7 @@
       </thead>
       <tbody @mouseover="moveColumnHighlight" @mouseleave="activeColIndex = 0">
         <template v-for="common in pageItems" :key="common.id">
-          <CBAvailabilityCalendarRow :common="common" :calendar-dates="calendarDates" />
+          <CBAvailabilityCalendarRow :common="common" :calendar-dates="preformattedDates" />
         </template>
       </tbody>
     </table>
@@ -78,11 +78,12 @@
 <script lang="ts" setup>
 import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { useElementSize, useOffsetPagination } from '@vueuse/core';
-import { computed, ref, watch } from 'vue';
-import { days, getDateMonths, iterDates, maxBy, useDateCache } from '../../util';
+import { computed, ref, watch, watchEffect } from 'vue';
+import { createDateFormats, days, getDateMonths, iterDates, toDateString } from '../../util';
 import { Common, CommonLocation, IdMap } from '../types';
 import CBPagination from '../../components/CBPagination.vue';
 import CBAvailabilityCalendarRow from './CBAvailabilityCalendarRow.vue';
+import { parseISO } from 'date-fns';
 
 const pageSize = 15;
 const paginateThreshold = pageSize * 2;
@@ -107,17 +108,11 @@ const pageItems = computed(() => {
   return props.commons.slice(start, start + pageSize);
 });
 const activeColIndex = ref<number>(0);
-const latestAvailability = useDateCache(
-  computed(() => {
-    return (
-      maxBy(
-        new Set(props.commons.flatMap((common) => common.availabilities).map((a) => a.date)),
-        (a, b) => a.getTime() > b.getTime(),
-      ) ?? new Date()
-    );
-  }),
+const latestAvailability = ref(toDateString(new Date()));
+const calendarDates = computed(() => Array.from(iterDates(parseISO(latestAvailability.value))));
+const preformattedDates = computed(() =>
+  calendarDates.value.map((d) => createDateFormats(d, locale.value)),
 );
-const calendarDates = computed(() => Array.from(iterDates(latestAvailability.value)));
 const calendarMonths = computed(() => Array.from(getDateMonths(calendarDates.value)));
 
 watch(
@@ -129,6 +124,17 @@ watch(
     }
   },
 );
+
+watchEffect(() => {
+  const dateStrings = Array.from(
+    new Set(props.commons.flatMap((common) => Object.keys(common.availabilities))),
+  );
+  dateStrings.sort();
+  const lastDate = dateStrings.at(-1);
+  if (lastDate && lastDate > latestAvailability.value) {
+    latestAvailability.value = lastDate;
+  }
+});
 
 function moveColumnHighlight(event: MouseEvent) {
   if (!event.target || !(event.target instanceof HTMLElement)) return;

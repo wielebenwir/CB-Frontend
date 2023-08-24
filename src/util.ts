@@ -1,12 +1,15 @@
+import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { addDays, formatISO, parseISO } from 'date-fns';
 import { computed, ComputedRef, readonly, ref, Ref, watch } from 'vue';
 import {
+  useCached,
   useDevicePixelRatio,
   useElementBounding,
   useElementSize,
   useMediaQuery,
+  useNow,
 } from '@vueuse/core';
-import { Image } from './commons-search/types';
+import { Image, PreformattedDate } from './commons-search/types';
 
 type FilterFunction<T> = (item: T, index?: number, iterable?: T[]) => boolean;
 
@@ -99,6 +102,14 @@ export function isDateInDayRange(
   }
 
   return startDate <= dateToCheck && dateToCheck < endDate;
+}
+
+export function* generateDateRange(start: Date, end: Date): Iterable<Date> {
+  let date = new Date(start);
+  while (date < end) {
+    yield date;
+    date = addDays(date, 1);
+  }
 }
 
 export function useBottom(element: Ref<undefined | HTMLElement | { $el: HTMLElement }>) {
@@ -319,9 +330,40 @@ export function useDateCache(date: Ref<Date>) {
   return readonly(result);
 }
 
+export const useNextDays = (function () {
+  const now = useNow({ interval: 60 * 1000 });
+  const today = useCached(now, (a, b) => toDateString(a) === toDateString(b));
+  const cache = new Map<number, ComputedRef<PreformattedDate[]>>();
+
+  return function (numDays: number) {
+    if (!cache.has(numDays)) {
+      cache.set(
+        numDays,
+        computed(() => {
+          const { locale } = useI18n();
+          const days = Array.from(generateDateRange(today.value, addDays(today.value, numDays)));
+          return days.map((d) => createDateFormats(d, locale.value));
+        }),
+      );
+    }
+
+    return cache.get(numDays) as ComputedRef<PreformattedDate[]>;
+  };
+})();
+
 export function useAnchorAttributes(url: Ref<string>) {
   return computed(() => ({
     href: url.value,
     target: new URL(url.value).hostname !== location.hostname ? '_blank' : undefined,
   }));
+}
+
+export function createDateFormats(date: Date, locale: string) {
+  const weekdayFormatter = new Intl.DateTimeFormat(locale, { weekday: 'short' });
+  return {
+    date,
+    isoDate: toDateString(date),
+    localeDate: date.toLocaleDateString(locale),
+    weekdayName: weekdayFormatter.format(date),
+  };
 }

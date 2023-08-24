@@ -168,20 +168,19 @@ export function useAdminAjaxData(
               height,
             };
           }),
-        availabilities: (item.availability ?? []).map((a) => {
-          const date = parseISO(a.date);
-          // date.getDay is 0-indexed starting on Sunday.
-          // closed_days is 1-indexed starting on Monday.
-          const day = (date.getDay() === 0 ? 7 : date.getDay()).toString();
-          const status: CommonAvailabilityStatus =
-            a.status === 'locked' && closedDays.includes(day as APIDay)
-              ? ('location-closed' as const)
-              : a.status;
-          return {
-            status,
-            date,
-          };
-        }),
+        availabilities: Object.fromEntries(
+          (item.availability ?? []).map((a) => {
+            const date = parseISO(a.date);
+            // date.getDay is 0-indexed starting on Sunday.
+            // closed_days is 1-indexed starting on Monday.
+            const day = (date.getDay() === 0 ? 7 : date.getDay()).toString();
+            const status: CommonAvailabilityStatus =
+              a.status === 'locked' && closedDays.includes(day as APIDay)
+                ? ('location-closed' as const)
+                : a.status;
+            return [a.date, { status, date }];
+          }),
+        ),
       }));
     });
   });

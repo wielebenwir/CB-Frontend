@@ -162,6 +162,7 @@ export type Image = {
 export type Id = number | string;
 export type IdMap<T extends { id: Id }> = Map<T['id'], T>;
 export type CommonAvailabilityStatus =
+  | 'unknown'
   | 'available'
   | 'booked'
   | 'partially-booked'
@@ -178,7 +179,7 @@ export type Common = {
   description: string;
   url: string;
   images: Image[];
-  availabilities: CommonAvailability[];
+  availabilities: Record<string, CommonAvailability>;
 };
 
 export type CommonCategory = {
@@ -223,3 +224,10 @@ interface _CommonsSearchAPI {
 }
 
 export type CommonsSearchAPI = UnwrapNestedRefs<_CommonsSearchAPI>;
+
+export type PreformattedDate = {
+  date: Date;
+  isoDate: string;
+  localeDate: string;
+  weekdayName: string;
+};

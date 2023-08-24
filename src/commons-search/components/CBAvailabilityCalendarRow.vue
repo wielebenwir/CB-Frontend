@@ -10,22 +10,19 @@
     </td>
     <td
       v-for="(date, index) in calendarDates"
-      :key="date.getTime()"
+      :key="date.isoDate"
       :class="[
         'cb-acal-day',
-        `cb-acal-day--${days[date.getDay()]}`,
+        `cb-acal-day--${days[date.date.getDay()]}`,
         { '!tw-border-l': index === 0 },
       ]"
     >
-      <template v-if="common.availabilities[index]">
-        <CBAvailability
-          v-if="common.availabilities[index]"
-          class="tw-w-full tw-block tw-h-3"
-          :availability="common.availabilities[index]"
-          no-label
-        />
-      </template>
-      <span v-else>-</span>
+      <CBAvailability
+        class="tw-w-full tw-block tw-h-3"
+        :date="date"
+        :availability-status="common.availabilities[date.isoDate]?.status ?? 'unknown'"
+        no-label
+      />
     </td>
   </tr>
 </template>
@@ -34,12 +31,12 @@
 import { computed } from 'vue';
 import { days, useAnchorAttributes } from '../../util';
 import { useGlobalState } from '../state';
-import { Common } from '../types';
+import { Common, PreformattedDate } from '../types';
 import CBAvailability from './CBAvailability.vue';
 
 const props = defineProps<{
   common: Common;
-  calendarDates: Date[];
+  calendarDates: PreformattedDate[];
 }>();
 
 const { locationMap } = useGlobalState();

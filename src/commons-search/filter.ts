@@ -49,7 +49,7 @@ function filterByLocation(location: CommonLocation) {
 function filterByDateAvailability(date: Date, validStates: CommonAvailabilityStatus[]) {
   const dateString = toDateString(date);
   return (common: Common) => {
-    const dayAvailability = common.availabilities.find((a) => toDateString(a.date) === dateString);
+    const dayAvailability = common.availabilities[dateString];
     return !!dayAvailability && validStates.includes(dayAvailability.status);
   };
 }
@@ -60,7 +60,7 @@ function filterByAvailabilityRange(
   validStates: CommonAvailabilityStatus[],
 ) {
   return (common: Common) => {
-    const relevantAvailabilities = common.availabilities.filter((a) =>
+    const relevantAvailabilities = Object.values(common.availabilities).filter((a) =>
       isDateInDayRange(start, end, a.date, true),
     );
     return relevantAvailabilities.every(({ status }) => validStates.includes(status));
