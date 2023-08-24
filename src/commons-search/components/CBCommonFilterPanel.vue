@@ -26,10 +26,31 @@
 
     <transition name="cb-animate-panel">
       <PopoverPanel
-        class="cb-common-filter-panel tw-absolute tw-mt-3 tw-inset-x-6 tw-z-20 tw-bg-base-0 tw-p-6 tw-shadow-lg tw-rounded-lg tw-w-96 tw-ml-auto"
-        :style="{ top: `${filterButtonBottom}px` }"
+        class="tw-absolute tw-mt-3 tw-z-20 tw-bg-base-0 tw-shadow-2xl tw-rounded-lg tw-max-w-sm tw-ml-auto tw-overflow-hidden"
+        :style="{ top: `${filterButtonBottom}px`, insetInline: '1.5rem' }"
       >
-        <slot />
+        <template #default="{ close }">
+          <header
+            class="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-base-2 tw-px-4 tw-py-4 tw-bg-inherit tw-flex-none tw-z-20"
+          >
+            <p class="tw-text-lg tw-font-bold tw-m-0">
+              {{ t('dialogTitle', { commons: t('common', 0) }) }}
+            </p>
+
+            <button
+              type="button"
+              class="cb-btn tw-bg-base-1 tw-p-1"
+              :aria-label="t('close')"
+              @click="close"
+            >
+              <IconCross />
+            </button>
+          </header>
+
+          <div class="tw-p-4 cb-common-filter-panel">
+            <slot />
+          </div>
+        </template>
       </PopoverPanel>
     </transition>
   </Popover>
@@ -41,7 +62,7 @@ import { useI18n } from '@rokoli/vue-tiny-i18n';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { useMediaQuery } from '@vueuse/core';
 
-import { IconFilter } from '../../icons';
+import { IconCross, IconFilter } from '../../icons';
 import { useBottom } from '../../util';
 import CBDialog from './CBDialog.vue';
 
@@ -63,7 +84,7 @@ const filterButtonBottom = useBottom(filterButtonEl);
 }
 
 .cb-common-filter-panel {
-  @apply tw-flex tw-flex-col tw-gap-4;
+  @apply tw-flex tw-flex-col tw-gap-6;
 }
 </style>
 
