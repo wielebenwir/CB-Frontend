@@ -1,5 +1,8 @@
 <template>
-  <div class="cb-layout-filter">
+  <CBLoadingOverlay
+    class="cb-layout-filter tw-relative"
+    :require-state="['categories', 'categoryGroups']"
+  >
     <CBCommonFilter
       v-model:categories="filter.categories"
       v-model:user-location="filter.userLocation"
@@ -13,15 +16,16 @@
       :expanded="isExpanded"
       @reset="resetFilters"
     />
-  </div>
+  </CBLoadingOverlay>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
 import { useGlobalState } from '../state';
 import { CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
 import CBCommonFilter from '../components/CBCommonFilter.vue';
+import CBLoadingOverlay from '../components/CBLoadingOverlay.vue';
 import { hasLayoutOption, isSmallViewport } from '../../util';
-import { computed } from 'vue';
 
 const props = defineProps<{
   config: CommonsSearchConfiguration;

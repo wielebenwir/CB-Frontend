@@ -1,5 +1,5 @@
 <template>
-  <div v-if="commons.length > 0" class="cb-acal tw-overflow-auto tw-max-h-full tw-relative">
+  <div class="cb-acal tw-overflow-auto tw-max-h-full tw-relative">
     <table class="cb-acal-table tw-table-fixed tw-border-spacing-0 tw-rounded tw-border-separate">
       <colgroup>
         <col class="cb-acal-name" />

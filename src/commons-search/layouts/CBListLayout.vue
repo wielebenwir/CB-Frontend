@@ -1,5 +1,8 @@
 <template>
-  <div class="cb-layout-list">
+  <CBLoadingOverlay
+    class="cb-layout-list"
+    :require-state="['categories', 'categoryGroups', 'commons', 'locations']"
+  >
     <CBCommonList
       class="tw-isolate tw-z-10 tw-bg-base-1 md:tw-mb-6 tw-rounded"
       :categories="api.categories"
@@ -11,12 +14,13 @@
       use-multiple-columns
       @deselect-location="filter.location = null"
     />
-  </div>
+  </CBLoadingOverlay>
 </template>
 <script lang="ts" setup>
 import { useGlobalState } from '../state';
 import { CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
 import CBCommonList from '../components/CBCommonList.vue';
+import CBLoadingOverlay from '@/commons-search/components/CBLoadingOverlay.vue';
 
 defineProps<{
   config: CommonsSearchConfiguration;

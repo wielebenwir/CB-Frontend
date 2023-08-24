@@ -217,12 +217,15 @@ export type ValueWithUnit<T> = {
 
 interface _CommonsSearchAPI {
   init(): Promise<void>;
+  loading: Set<LoadingState>;
   type: string;
   commons: ComputedRef<Common[]>;
   categories: ComputedRef<CommonCategory[]>;
   categoryGroups: ComputedRef<CommonCategoryGroup[]>;
   locations: ComputedRef<CommonLocation[]>;
 }
+
+export type LoadingState = Exclude<keyof _CommonsSearchAPI, 'init' | 'loading' | 'type'>;
 
 export type CommonsSearchAPI = UnwrapNestedRefs<_CommonsSearchAPI>;
 

@@ -1,6 +1,7 @@
 <template>
-  <div
+  <CBLoadingOverlay
     class="cb-layout-map-with-auto-sidebar tw-flex tw-flex-col md:tw-flex-row tw-min-h-[min(600px,60dvh)] md:tw-h-[400px] tw-rounded tw-overflow-hidden"
+    :require-state="['categoryGroups', 'categories', 'commons', 'locations']"
   >
     <CBMap
       v-if="config.map !== undefined"
@@ -29,7 +30,7 @@
       :page-size="10"
       @deselect-location="filter.location = null"
     />
-  </div>
+  </CBLoadingOverlay>
 </template>
 
 <script lang="ts" setup>
@@ -37,6 +38,7 @@ import { useGlobalState } from '../state';
 import { CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
 import CBCommonList from '../components/CBCommonList.vue';
 import CBMap from '../components/CBMap.vue';
+import CBLoadingOverlay from '@/commons-search/components/CBLoadingOverlay.vue';
 
 defineProps<{
   config: CommonsSearchConfiguration;

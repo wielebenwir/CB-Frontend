@@ -41,12 +41,11 @@ export class ConfigurationError<T> extends Error {
 
 export function useCommonsSearchAPI(api_: CommonsSearchAPI) {
   const apiError = ref<Error>();
-  const api = ref<CommonsSearchAPI>();
+  const api = ref<CommonsSearchAPI>(api_);
   async function initAPI() {
     apiError.value = undefined;
     try {
       await api_.init();
-      api.value = api_;
     } catch (error) {
       apiError.value = error as Error;
     }

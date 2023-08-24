@@ -11,6 +11,7 @@ import type {
   CommonsSearchAPI,
   CommonsSearchConfiguration,
   Id,
+  LoadingState,
 } from '../types';
 
 export type APIDay = '1' | '2' | '3' | '4' | '5' | '6' | '7';
@@ -210,7 +211,15 @@ export function createAdminAjaxAPI(
     ['mapId', 'number'],
   ]);
 
+  const initialLoadingStates: LoadingState[] = [
+    'categoryGroups',
+    'categories',
+    'commons',
+    'locations',
+  ];
+
   const locationData = ref<APILocation[]>([]);
+  const loading = ref(new Set<LoadingState>(initialLoadingStates));
 
   async function init() {
     const maxRetries = 10;
@@ -218,8 +227,10 @@ export function createAdminAjaxAPI(
     let retry = 0;
 
     while (retry++ < maxRetries) {
+      loading.value = new Set(initialLoadingStates);
       try {
         locationData.value = await fetchLocationData(dataSource);
+        loading.value.clear();
         break;
       } catch (error) {
         const waitTime = retry * retryWaitTime;
@@ -232,6 +243,7 @@ export function createAdminAjaxAPI(
   return reactive({
     init,
     type: 'admin-ajax',
+    loading,
     ...useAdminAjaxData(config, locationData),
   });
 }
