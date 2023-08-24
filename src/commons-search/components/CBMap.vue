@@ -1,5 +1,7 @@
 <template>
-  <div ref="mapEl" class="cb-map"></div>
+  <div ref="containerEl" class="cb-map">
+    <div ref="mapEl" />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -36,6 +38,7 @@ const emit = defineEmits<{
   (e: 'update:center', value: GeoCoordinate): void;
 }>();
 
+const containerEl = ref<HTMLElement>();
 const mapEl = ref<HTMLElement>();
 const map = shallowRef<MapType>();
 const tileLayer = shallowRef<TileLayerType>();
@@ -221,10 +224,17 @@ watchEffect(() => {
   }
 });
 
-useResizeObserver(mapEl, () => {
+useResizeObserver(containerEl, () => {
   requestAnimationFrame(() => {
-    map.value?.invalidateSize?.();
-    setBounds(points.value);
+    const _containerEl = containerEl.value;
+    const _mapEl = mapEl.value;
+    const _map = map.value;
+    if (_containerEl && _mapEl && _map) {
+      const { height } = _containerEl.getBoundingClientRect();
+      _mapEl.style.height = `${height}px`;
+      _map.invalidateSize();
+      setBounds(points.value);
+    }
   });
 });
 
