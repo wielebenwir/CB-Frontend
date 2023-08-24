@@ -1,8 +1,5 @@
 <template>
-  <CBLoadingOverlay
-    class="cb-layout-filter tw-relative"
-    :require-state="['categories', 'categoryGroups']"
-  >
+  <div class="cb-layout-filter">
     <CBCommonFilter
       v-model:categories="filter.categories"
       v-model:user-location="filter.userLocation"
@@ -16,15 +13,19 @@
       :expanded="isExpanded"
       @reset="resetFilters"
     />
-  </CBLoadingOverlay>
+  </div>
 </template>
+
+<script lang="ts">
+import { LoadingState } from '../types';
+export const REQUIRED_STATE: LoadingState[] = ['categories', 'categoryGroups'];
+</script>
 
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useGlobalState } from '../state';
 import { CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
 import CBCommonFilter from '../components/CBCommonFilter.vue';
-import CBLoadingOverlay from '../components/CBLoadingOverlay.vue';
 import { hasLayoutOption, isSmallViewport } from '../../util';
 
 const props = defineProps<{
@@ -39,5 +40,9 @@ const isExpanded = computed(() => {
     (isSmallViewport.value && hasLayoutOption(props.config, 'filter-expanded-mobile')) ||
     (!isSmallViewport.value && hasLayoutOption(props.config, 'filter-expanded-desktop'))
   );
+});
+
+defineExpose({
+  requiresState: ['categories', 'categoryGroups'],
 });
 </script>

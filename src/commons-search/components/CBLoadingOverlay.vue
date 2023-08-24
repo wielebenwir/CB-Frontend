@@ -46,11 +46,9 @@
 
 <script lang="ts" setup>
 import { useI18n } from '@rokoli/vue-tiny-i18n';
-import { computed, inject, provide } from 'vue';
+import { computed } from 'vue';
 import { LoadingState } from '../types';
 import { useGlobalState } from '../state';
-
-const CB_HAS_OVERLAY = 'CB_HAS_OVERLAY';
 
 const props = defineProps<{
   requireState: LoadingState[];
@@ -58,11 +56,8 @@ const props = defineProps<{
 
 const { api } = useGlobalState();
 const { t } = useI18n();
-const hasParentOverlay = inject(CB_HAS_OVERLAY, false);
-provide(CB_HAS_OVERLAY, true);
 
 const shouldDisplayOverlay = computed(() => {
-  if (hasParentOverlay) return false;
   return props.requireState.some((state) => api.value.loading.has(state));
 });
 </script>

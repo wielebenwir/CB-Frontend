@@ -1,8 +1,5 @@
 <template>
-  <CBLoadingOverlay
-    class="cb-layout-large-map-with-static-sidebar md:tw-rounded tw-overflow-hidden"
-    :require-state="['categories', 'categoryGroups', 'locations', 'commons']"
-  >
+  <div class="cb-layout-large-map-with-static-sidebar md:tw-rounded tw-overflow-hidden">
     <CBCommonFilter
       v-model:categories="filter.categories"
       v-model:user-location="filter.userLocation"
@@ -49,8 +46,18 @@
         <IconArrowUp class="tw-scale-125" />
       </button>
     </Transition>
-  </CBLoadingOverlay>
+  </div>
 </template>
+
+<script lang="ts">
+import { LoadingState } from '../types';
+export const REQUIRED_STATE: LoadingState[] = [
+  'categories',
+  'categoryGroups',
+  'commons',
+  'locations',
+];
+</script>
 
 <script lang="ts" setup>
 import { parseISO } from 'date-fns';
@@ -64,7 +71,6 @@ import CBCommonFilter from '../components/CBCommonFilter.vue';
 import CBCommonList from '../components/CBCommonList.vue';
 import CBMap from '../components/CBMap.vue';
 import { useGlobalState } from '../state';
-import CBLoadingOverlay from '@/commons-search/components/CBLoadingOverlay.vue';
 
 const props = defineProps<{
   config: CommonsSearchConfiguration;

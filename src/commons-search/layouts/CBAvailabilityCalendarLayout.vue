@@ -1,17 +1,18 @@
 <template>
-  <CBLoadingOverlay
-    class="cb-layout-availability-calendar"
-    :require-state="['commons', 'locations']"
-  >
+  <div class="cb-layout-availability-calendar">
     <CBAvailabilityCalendar :commons="filteredCommons" :location-map="locationMap" />
-  </CBLoadingOverlay>
+  </div>
 </template>
+
+<script lang="ts">
+import { LoadingState } from '../types';
+export const REQUIRED_STATE: LoadingState[] = ['commons', 'locations'];
+</script>
 
 <script lang="ts" setup>
 import { useGlobalState } from '../state';
 import { CommonsSearchAPI, CommonsSearchConfiguration } from '../types';
 import CBAvailabilityCalendar from '../components/CBAvailabilityCalendar.vue';
-import CBLoadingOverlay from '@/commons-search/components/CBLoadingOverlay.vue';
 
 defineProps<{
   config: CommonsSearchConfiguration;

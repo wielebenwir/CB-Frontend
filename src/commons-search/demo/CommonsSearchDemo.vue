@@ -31,9 +31,15 @@
     <div class="tw-flex-1 tw-min-h-0 tw-px-4 tw-overflow-y-auto tw-max-w-full">
       <label class="tw-flex tw-flex-col tw-mb-3">
         <span>{{ t('layoutLabel') }}</span>
-        <select v-model="layoutType" class="cb-input tw-border tw-bg-base-1 tw-border-base-2">
-          <option v-for="name in layoutNames" :key="name" :value="name">{{ name }}</option>
-        </select>
+        <input
+          type="text"
+          class="cb-input tw-border tw-bg-base-1 tw-border-base-2"
+          :value="layoutType"
+          @blur="layoutType = ($event.target as HTMLInputElement).value ?? 'FilterableMap'"
+        />
+        <span class="tw-text-xs tw-mt-1">
+          {{ t('layoutHelp', { availableLayouts: layoutNames.join(', ') }) }}
+        </span>
       </label>
 
       <label class="tw-flex tw-flex-col tw-mb-3">
@@ -76,7 +82,7 @@ const { t } = useI18n();
 const initEl = ref<HTMLDivElement>();
 const showConfigurationDialog = ref(false);
 const numLocations = ref<number>(30);
-const layoutType = ref<LayoutType>('FilterableMap');
+const layoutType = ref<string>('FilterableMap');
 const parsedConfiguration = ref<CommonsSearchConfiguration>(
   parseLegacyConfig({
     ..._configuration,
@@ -110,7 +116,10 @@ const userConfiguration = computed<string>({
 const configuration = computed<CommonsSearchConfiguration>(() => {
   return {
     ...parsedConfiguration.value,
-    layout: { type: layoutType.value, options: [] },
+    layout: {
+      types: layoutType.value.split(',').map((t) => t.trim()) as LayoutType[],
+      options: [],
+    },
   };
 });
 const usesLargeArea = computed(() => layoutType.value === 'LargeMapWithStaticSidebar');
@@ -154,9 +163,11 @@ de:
   editConfiguration: Konfiguration bearbeiten
   numberLocationsLabel: Anzahl der Ausleihstationen
   layoutLabel: Layout
+  layoutHelp: Komma-separierte Liste. Wähle aus {availableLayouts}.
 
 en:
   editConfiguration: Edit Configuration
   numberLocationsLabel: Number of lending stations
   layoutLabel: Layout
+  layoutHelp: Comma-separated list. Choose from {availableLayouts}.
 </i18n>

@@ -130,7 +130,7 @@ interface Messages {
 }
 
 type LayoutConfig = {
-  type: LayoutType;
+  types: LayoutType[];
   options?: string[];
 };
 
