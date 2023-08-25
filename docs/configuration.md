@@ -25,29 +25,35 @@ This configuration example
 2. if no category has a match, the thumbnail is used
 3. if the common has no thumbnail, a static color is used
 
-```json5
+```json
 {
-  map: {
-    markerIcon: {
-      renderers: [
+  "map": {
+    "markerIcon": {
+      "renderers": [
         {
-          type: 'category',
-          match: [
+          "type": "category",
+          "match": [
             {
-              categories: [6, 8],
-              renderers: [{ type: 'image', url: '/assets/kasten-elektrisch.png' }],
+              "categories": [6, 8],
+              "renderers": [{ "type": "image", "url": "/assets/kasten-elektrisch.png" }]
             },
-            { categories: [6], renderers: [{ type: 'image', url: '/assets/elektrisch.png' }] },
-            { categories: [8], renderers: [{ type: 'image', url: '/assets/kasten.png' }] },
-            { categories: [12], renderers: [{ type: 'image', url: '/assets/3-raeder.png' }] },
-            { categories: [16], renderers: [{ type: 'color', color: 'teal' }] },
-          ],
+            {
+              "categories": [6],
+              "renderers": [{ "type": "image", "url": "/assets/elektrisch.png" }]
+            },
+            { "categories": [8], "renderers": [{ "type": "image", "url": "/assets/kasten.png" }] },
+            {
+              "categories": [12],
+              "renderers": [{ "type": "image", "url": "/assets/3-raeder.png" }]
+            },
+            { "categories": [16], "renderers": [{ "type": "color", "color": "teal" }] }
+          ]
         },
-        { type: 'thumbnail' },
-        { type: 'color', color: 'hsl(20 60% 80%)' },
-      ],
-    },
-  },
+        { "type": "thumbnail" },
+        { "type": "color", "color": "hsl(20 60% 80%)" }
+      ]
+    }
+  }
 }
 ```
 
@@ -55,13 +61,13 @@ This configuration example
 
 This configuration example simply uses the standard map marker icon we’re all used to.
 
-```json5
+```json
 {
-  map: {
-    markerIcon: {
-      renderers: [{ type: 'traditional-icon' }],
-    },
-  },
+  "map": {
+    "markerIcon": {
+      "renderers": [{ "type": "traditional-icon" }]
+    }
+  }
 }
 ```
 
@@ -69,21 +75,21 @@ This configuration example simply uses the standard map marker icon we’re all 
 
 This configuration example uses a custom map marker icon.
 
-```json5
+```json
 {
-  map: {
-    markerIcon: {
-      renderers: [
+  "map": {
+    "markerIcon": {
+      "renderers": [
         {
-          type: 'icon',
-          url: '/assets/my-custom-icon.png',
-          width: 25,
-          height: 40,
-          anchor: { x: 0.5, y: 1 },
-        },
-      ],
-    },
-  },
+          "type": "icon",
+          "url": "/assets/my-custom-icon.png",
+          "width": 25,
+          "height": 40,
+          "anchor": { "x": 0.5, "y": 1 }
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -93,29 +99,29 @@ This configuration example uses a custom map marker icon.
 
 Renders a static color inside a map marker.
 
-```json5
-{ type: 'color', color: '#cc0000' }
+```json
+{ "type": "color", "color": "#cc0000" }
 ```
 
 #### Image
 
 Renders a static image inside a map marker.
 
-```json5
-{ type: 'image', url: '/assets/my-image.jpg' }
+```json
+{ "type": "image", "url": "/assets/my-image.jpg" }
 ```
 
 #### Icon
 
 Renders a custom icon.
 
-```json5
+```json
 {
-  type: 'icon',
-  url: '/assets/my-icon.png',
-  width: 25,
-  height: 40,
-  anchor: { x: 0.5, y: 1 },
+  "type": "icon",
+  "url": "/assets/my-icon.png",
+  "width": 25,
+  "height": 40,
+  "anchor": { "x": 0.5, "y": 1 }
 }
 ```
 
@@ -123,8 +129,8 @@ Renders a custom icon.
 
 Renders a traditional map marker icon shipped with the CB-Frontend library.
 
-```json5
-{ type: 'traditional-icon' }
+```json
+{ "type": "traditional-icon" }
 ```
 
 #### Thumbnail
@@ -132,8 +138,8 @@ Renders a traditional map marker icon shipped with the CB-Frontend library.
 Renders the common’s thumbnail image inside a map marker.
 Does not work as user marker icon.
 
-```json5
-{ type: 'thumbnail' }
+```json
+{ "type": "thumbnail" }
 ```
 
 #### Category
@@ -141,13 +147,13 @@ Does not work as user marker icon.
 Checks if all the category ids match for the given common and renders the appropriate marker.
 The first match wins. Does not work as user marker icon.
 
-```json5
+```json
 {
-  type: 'category',
-  match: [
-    { categories: [1, 2, 3], renderers: [{ type: 'color', color: 'green' }] },
-    { categories: [2], renderers: [{ type: 'color', color: 'hsl(90 60% 80%)' }] },
-  ],
+  "type": "category",
+  "match": [
+    { "categories": [1, 2, 3], "renderers": [{ "type": "color", "color": "green" }] },
+    { "categories": [2], "renderers": [{ "type": "color", "color": "hsl(90 60% 80%)" }] }
+  ]
 }
 ```
 
@@ -160,45 +166,47 @@ attribute that takes a configuration object.
 
 This object looks like this (all keys are optional):
 
+<!-- prettier-ignore-start -->
 ```json5
 {
   // The color of the envelope itself.
-  fill: '#fff',
+  "fill": "#fff",
   // A number that scales the icon proportionally.
-  scale: 0.5,
+  "scale": 0.5,
   // An SVG image string is used for creating icons.
   // This must NOT be a path, but the actual SVG string.
   // See: /src/assets/map-marker-template.svg
-  template: '...',
+  "template": "...",
   // The background color of the circle that embeds the content.
   // You might want to change this, if you want to use an image renderer
   // with a transparent image background.
-  embedFill: 'yellow',
+  "embedFill": "yellow",
   // A label that is displayed at the center of the circle.
   // Only relevant for cluster icon.
-  embedLabel: '...',
+  "embedLabel": "...",
   // The text color of the label at the center of the circle.
   // Only relevant for cluster icon.
-  embedLabelStroke: 'red',
+  "embedLabelStroke": "red"
 }
 ```
+<!-- prettier-ignore-end -->
 
 You can also modify the envelope globally by using the `wrapDefaults` property.
 
 In the following example we half the size of the envelope and change its color,
 but increase the size by a factor of 5, if a thumbnail is rendered.
 
-```json5
+```json
 {
-  map: {
-    markerIcon: {
-      wrapDefaults: { scale: 0.5, fill: '#eaeaea' },
-      renderers: [
-        { type: 'thumbnail', wrap: { scale: 5 } },
-        { type: 'color', color: 'hsl(20 60% 80%)' },
-      ],
-    },
-  },
+  "map": {
+    "markerIcon": {
+      "wrapDefaults": { "scale": 0.5, "fill": "#eaeaea" },
+      "renderers": [
+        { "type": "thumbnail", "wrap": { "scale": 5 } },
+        { "type": "color", "color": "hsl(20 60% 80%)" }
+      ]
+    }
+  }
 }
 ```
 
@@ -219,15 +227,15 @@ Only the `color` renderer type is supported, but the icon envelope can be modifi
 
 Example:
 
-```json5
+```json
 {
-  map: {
-    cluster: {
-      radiusPixels: 60,
-      markerIcon: {
-        renderers: [{ type: 'color', color: 'crimson', labelColor: 'white' }],
-      },
-    },
-  },
+  "map": {
+    "cluster": {
+      "radiusPixels": 60,
+      "markerIcon": {
+        "renderers": [{ "type": "color", "color": "crimson", "labelColor": "white" }]
+      }
+    }
+  }
 }
 ```
