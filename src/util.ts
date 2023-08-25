@@ -291,8 +291,8 @@ export function maxBy<T>(
   return maxItem;
 }
 
-export function* iterDates(end: Date) {
-  let day = new Date();
+export function* iterDates(end: Date, start?: Date) {
+  let day = start ?? new Date();
   while (
     day.getDate() !== end.getDate() ||
     day.getMonth() !== end.getMonth() ||
