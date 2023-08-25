@@ -22,7 +22,6 @@
     "lint-prettier": "prettier --check --ignore-path .prettierignore .",
     "lint-types": "vue-tsc --noEmit",
     "lint-spelling": "cspell --locale en-us,de-de .",
-    "format": "npm run lint-prettier -- --write && npm run lint-eslint -- --fix",
     "prepare": "husky install",
     "prepublishOnly": "cross-env VITE_BUILD_MODE=lib npm run build",
     "test": "vitest",

@@ -26,7 +26,7 @@ npm run dev
 npm run lint
 
 # auto-fix some formatting issues
-npm run format
+npm run style
 
 # execute tests
 npm run test
