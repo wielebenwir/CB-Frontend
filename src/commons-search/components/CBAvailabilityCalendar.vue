@@ -150,6 +150,7 @@ function moveColumnHighlight(event: MouseEvent) {
 
 <style lang="postcss">
 .cb-acal {
+  --cb-acal-column-name-color: var(--cb-layer-base-1-color);
   --cb-acal-column-name-width: 120px;
   --cb-acal-column-date-width: 35px;
   --cb-acal-column-padding-x: theme('spacing.2');
@@ -160,7 +161,6 @@ function moveColumnHighlight(event: MouseEvent) {
   --cb-acal-highlight-color: theme('colors.amber.50');
   --cb-acal-highlight-indicator-color: currentColor;
   --cb-acal-column-weekend-color: theme('colors.teal.50');
-  --cb-acal-header-color: var(--cb-layer-base-1-color);
 }
 
 .cb-acal :is(th, td) {
@@ -236,7 +236,7 @@ col.cb-acal-day--sun {
 .cb-acal-name {
   position: sticky;
   left: 0;
-  background-color: var(--cb-acal-header-color);
+  background-color: var(--cb-acal-column-name-color);
   z-index: 1;
 }
 .cb-acal thead tr:last-child {
