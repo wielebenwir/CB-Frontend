@@ -7,6 +7,7 @@ import CommonsSearch from './CommonsSearch.vue';
 import type { CommonsSearchAPI, CommonsSearchConfiguration } from './types';
 import { API } from './state';
 
+export { default as mergeConfigs } from 'defaults';
 export { createAdminAjaxAPI } from './apis/admin-ajax-api';
 export { parseLegacyConfig } from './legacy';
 

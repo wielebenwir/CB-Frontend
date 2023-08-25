@@ -73,6 +73,7 @@
     "@rokoli/vue-tiny-i18n": "^0.3.0",
     "@vueuse/core": "^10.3.0",
     "date-fns": "^2.30.0",
+    "defaults": "^2.0.1",
     "haversine-distance": "^1.2.1"
   }
 }
