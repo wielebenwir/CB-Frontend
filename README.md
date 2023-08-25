@@ -4,7 +4,7 @@ This repository contains standalone components for use in the [_CommonsBooking_ 
 
 ## Documentation
 
-See [./docs/configuration.md] for configuration examples.
+See the [documentation](./docs/configuration.md) for configuration examples.
 
 ## Development
 
