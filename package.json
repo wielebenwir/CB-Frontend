@@ -26,7 +26,8 @@
     "prepare": "husky install",
     "prepublishOnly": "cross-env VITE_BUILD_MODE=lib npm run build",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "style": "npm run lint-eslint -- --fix && npm run lint-prettier -- -w"
   },
   "lint-staged": {
     "*": "prettier --check --ignore-path .prettierignore",
