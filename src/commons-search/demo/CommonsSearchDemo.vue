@@ -35,7 +35,7 @@
           type="text"
           class="cb-input tw-border tw-bg-base-1 tw-border-base-2"
           :value="layoutType"
-          @blur="layoutType = ($event.target as HTMLInputElement).value ?? 'FilterableMap'"
+          @blur="layoutType = ($event.target as HTMLInputElement).value ?? defaultLayoutType"
         />
         <span class="tw-text-xs tw-mt-1">
           {{ t('layoutHelp', { availableLayouts: layoutNames.join(', ') }) }}
@@ -82,7 +82,8 @@ const { t } = useI18n();
 const initEl = ref<HTMLDivElement>();
 const showConfigurationDialog = ref(false);
 const numLocations = ref<number>(30);
-const layoutType = ref<string>('FilterableMap');
+const defaultLayoutType = 'Filter, MapWithAutoSidebar';
+const layoutType = ref<string>(defaultLayoutType);
 const parsedConfiguration = ref<CommonsSearchConfiguration>(
   parseLegacyConfig({
     ..._configuration,
