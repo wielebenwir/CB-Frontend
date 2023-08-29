@@ -68,58 +68,60 @@ de:
 
 <style lang="postcss">
 :root {
-  --cb-availability-available-color: var(--commonsbooking-color-success, theme('colors.green.500'));
-  --cb-availability-available-text-color: currentColor;
-  --cb-availability-booked-color: theme('colors.gray.100');
-  --cb-availability-booked-text-color: theme('colors.gray.600');
+  --cb-availability-available-bg: var(--commonsbooking-color-success, theme('colors.green.500'));
+  --cb-availability-available-color: currentColor;
+  --cb-availability-booked-bg: theme('colors.gray.100');
+  --cb-availability-booked-color: theme('colors.gray.600');
+  --cb-availability-partially-booked-bg: linear-gradient(
+    -45deg,
+    var(--cb-availability-available-bg),
+    var(--cb-availability-available-bg) 50%,
+    var(--cb-availability-booked-bg) 50%,
+    var(--cb-availability-booked-bg)
+  );
+  --cb-available-partially-booked-color: var(--cb-availability-available-color);
+  --cb-availability-locked-bg: var(--cb-availability-booked-bg);
   --cb-availability-locked-color: var(--cb-availability-booked-color);
-  --cb-availability-locked-text-color: var(--cb-availability-booked-text-color);
-  --cb-availability-unknown-color: var(--cb-availability-booked-color);
-  --cb-availability-unknown-text-color: var(--cb-availability-booked-text-color);
-  --cb-availability-location-closed-color: var(--cb-availability-booked-color);
-  --cb-availability-location-closed-text-color: var(--cb-availability-booked-text-color);
-  --cb-availability-location-holiday-color: var(--cb-availability-booked-color);
-  --cb-availability-location-holiday-text-color: var(--cb-availability-booked-text-color);
+  --cb-availability-unknown-bg: var(--cb-availability-locked-bg);
+  --cb-availability-unknown-color: var(--cb-availability-locked-color);
+  --cb-availability-location-closed-bg: var(--cb-availability-locked-bg);
+  --cb-availability-location-closed-color: var(--cb-availability-locked-color);
+  --cb-availability-location-holiday-bg: var(--cb-availability-locked-bg);
+  --cb-availability-location-holiday-color: var(--cb-availability-locked-color);
 }
 
 .cb-availability--available {
-  background-color: var(--cb-availability-available-color);
-  color: var(--cb-availability-available-text-color);
-}
-
-.cb-availability--partially-booked {
-  background-image: linear-gradient(
-    -45deg,
-    var(--cb-availability-available-color),
-    var(--cb-availability-available-color) 50%,
-    var(--cb-availability-booked-color) 50%,
-    var(--cb-availability-booked-color)
-  );
-  color: var(--cb-availability-available-text-color);
+  background: var(--cb-availability-available-bg);
+  color: var(--cb-availability-available-color);
 }
 
 .cb-availability--booked {
-  background-color: var(--cb-availability-booked-color);
-  color: var(--cb-availability-booked-text-color);
+  background: var(--cb-availability-booked-bg);
+  color: var(--cb-availability-booked-color);
+}
+
+.cb-availability--partially-booked {
+  background: var(--cb-availability-partially-booked-bg);
+  color: var(--cb-availability-partially-booked-bg);
 }
 
 .cb-availability--locked {
-  background-color: var(--cb-availability-locked-color);
-  color: var(--cb-availability-locked-text-color);
+  background: var(--cb-availability-locked-bg);
+  color: var(--cb-availability-locked-color);
 }
 
 .cb-availability--unknown {
-  background-color: var(--cb-availability-unknown-color);
-  color: var(--cb-availability-unknown-text-color);
+  background: var(--cb-availability-unknown-bg);
+  color: var(--cb-availability-unknown-color);
 }
 
 .cb-availability--location-closed {
-  background-color: var(--cb-availability-location-closed-color);
-  color: var(--cb-availability-location-closed-text-color);
+  background: var(--cb-availability-location-closed-bg);
+  color: var(--cb-availability-location-closed-color);
 }
 
 .cb-availability--location-holiday {
-  background-color: var(--cb-availability-location-holiday-color);
-  color: var(--cb-availability-location-holiday-text-color);
+  background: var(--cb-availability-location-holiday-bg);
+  color: var(--cb-availability-location-holiday-color);
 }
 </style>
