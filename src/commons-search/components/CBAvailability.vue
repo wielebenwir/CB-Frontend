@@ -67,7 +67,7 @@ de:
 </i18n>
 
 <style lang="postcss">
-.cb-availability {
+:root {
   --cb-availability-available-color: var(--commonsbooking-color-success, theme('colors.green.500'));
   --cb-availability-available-text-color: currentColor;
   --cb-availability-booked-color: theme('colors.gray.100');

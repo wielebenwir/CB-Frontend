@@ -149,7 +149,7 @@ function moveColumnHighlight(event: MouseEvent) {
 </script>
 
 <style lang="postcss">
-.cb-acal {
+:root {
   --cb-acal-column-name-color: var(--cb-layer-base-1-color);
   --cb-acal-column-name-width: 120px;
   --cb-acal-column-date-width: 35px;
