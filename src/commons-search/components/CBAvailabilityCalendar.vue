@@ -150,17 +150,22 @@ function moveColumnHighlight(event: MouseEvent) {
 
 <style lang="postcss">
 :root {
+  --cb-acal-font-size: 1rem;
   --cb-acal-column-name-color: var(--cb-layer-base-1-color);
   --cb-acal-column-name-width: 120px;
   --cb-acal-column-date-width: 35px;
-  --cb-acal-column-padding-x: theme('spacing.2');
-  --cb-acal-column-padding-y: theme('spacing.2');
+  --cb-acal-column-padding-x: calc(var(--cb-acal-font-size) / 2);
+  --cb-acal-column-padding-y: calc(var(--cb-acal-font-size) / 2);
   --cb-acal-border-color: 0 0% 0%;
   --cb-acal-border-color-header: hsl(var(--cb-acal-border-color) / 0.05);
   --cb-acal-border-color-rows: hsl(var(--cb-acal-border-color) / 0.03);
   --cb-acal-highlight-color: theme('colors.amber.50');
   --cb-acal-highlight-indicator-color: currentColor;
   --cb-acal-column-weekend-color: theme('colors.teal.50');
+}
+
+.cb-acal {
+  font-size: var(--cb-acal-font-size);
 }
 
 .cb-acal :is(th, td) {
