@@ -110,6 +110,22 @@ function parseSerializedPHPArray<T>(serializedArray: string): T[] {
   return result;
 }
 
+function parseClosedDays(closedDays: APIDay[] | string | unknown): APIDay[] {
+  // The API returns a serialized PHP Array or booleans sometimes
+  // TODO: remove PHP parsing code once API reliably returns arrays
+  // TODO: remove closed_days processing entirely once availability status contains location-closed info
+  if (Array.isArray(closedDays)) {
+    return closedDays;
+  } else if (typeof closedDays === 'string') {
+    try {
+      return parseSerializedPHPArray<APIDay>(closedDays);
+    } catch (e) {
+      // pass
+    }
+  }
+  return [];
+}
+
 export function useAdminAjaxData(
   config: CommonsSearchConfiguration,
   locationData: Ref<APILocation[]>,
@@ -137,12 +153,7 @@ export function useAdminAjaxData(
 
   const commons = computed<Common[]>(() => {
     return locationData.value.flatMap((location) => {
-      // The API returns a serialized PHP Array sometimes
-      // TODO: remove PHP parsing code once API reliably returns arrays
-      // TODO: remove closed_days processing entirely once availability status contains location-closed info
-      const closedDays = Array.isArray(location.closed_days)
-        ? location.closed_days
-        : parseSerializedPHPArray<APIDay>(location.closed_days);
+      const closedDays = parseClosedDays(location.closed_days);
       return location.items.map((item) => ({
         id: item.id.toString(),
         locationId: createLocationId(location),
