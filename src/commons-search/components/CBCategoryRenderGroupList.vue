@@ -2,6 +2,7 @@
   <div v-for="renderGroup in renderGroupList" :key="renderGroup.id">
     <header class="tw-flex tw-items-center tw-mb-1">
       <CBFilterLabel
+        v-if="renderGroup.label"
         :id="`${labelPrefix}-${renderGroup.id}`"
         :label="renderGroup.label"
         class="tw-mb-0"
