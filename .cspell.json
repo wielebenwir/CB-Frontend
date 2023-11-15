@@ -38,7 +38,7 @@
   "ignorePaths": [
     "node_modules/**",
     "dist/**",
-    "coverage/**",
+    "**/coverage/**",
     "**/fixtures/*",
     "stats/**",
     "*.svg",
