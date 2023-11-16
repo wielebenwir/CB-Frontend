@@ -40,7 +40,7 @@
             <button
               type="button"
               class="cb-btn tw-bg-base-1 tw-p-1"
-              :aria-label="t('close')"
+              :aria-label="t('closeDialog')"
               @click="close"
             >
               <IconCross />
