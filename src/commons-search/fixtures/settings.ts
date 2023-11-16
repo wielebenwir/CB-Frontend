@@ -40,6 +40,7 @@ export default {
   filter_cb_item_categories: {
     'g1610805575766-21823': {
       name: '',
+      isExclusive: true,
       elements: [
         {
           cat_id: 27,
@@ -57,6 +58,7 @@ export default {
     },
     'g1610805862646-605141': {
       name: 'Antrieb',
+      isExclusive: true,
       elements: [
         {
           cat_id: 29,

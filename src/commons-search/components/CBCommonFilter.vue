@@ -139,8 +139,9 @@ const appliedFilters = computed(() => {
     const meta = categoryRenderGroupsMeta.value.get(renderGroup.id);
     if (meta?.isActive !== true) continue;
     const detail =
-      renderGroup.groupedCategories.length === 1
-        ? renderGroup.groupedCategories.flat().find((c) => props.categories.has(c.id))?.name ?? ''
+      renderGroup.groups.length === 1
+        ? renderGroup.groups.flatMap((g) => g.categories).find((c) => props.categories.has(c.id))
+            ?.name ?? ''
         : `${meta.numberOfActiveCategories}`;
     filters.push({
       key: `category-group:${renderGroup.id}`,
@@ -149,7 +150,7 @@ const appliedFilters = computed(() => {
       reset() {
         activeCategories.value = disableCategories(
           activeCategories.value,
-          renderGroup.groupedCategories.flat(),
+          renderGroup.groups.flatMap((g) => g.categories),
         );
       },
     });

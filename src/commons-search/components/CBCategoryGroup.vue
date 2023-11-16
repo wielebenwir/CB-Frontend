@@ -4,17 +4,20 @@
     :key="category.id"
     :category="category"
     :model-value="modelValue.has(category.id)"
+    :type="group.isExclusive ? 'radio' : 'checkbox'"
+    :name="group.isExclusive ? `_rg_${group.id}` : undefined"
     v-bind="attrs"
     @update:model-value="updateState(category, $event)"
   />
 </template>
 
 <script lang="ts" setup>
-import { CommonCategory, Id } from '../types';
+import { CommonCategory, CommonCategoryGroup, Id } from '../types';
 import CBCategory from './CBCategory.vue';
 import { useAttrs } from 'vue';
 
 const props = defineProps<{
+  group: CommonCategoryGroup;
   categories: CommonCategory[];
   modelValue: Set<Id>;
 }>();
@@ -23,17 +26,14 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: Set<Id>): void;
 }>();
 
-function updateState(toggledCategory: CommonCategory, newState: boolean) {
-  const activeCategoryIds = new Set(props.modelValue);
-  // Only one category of the same category group can be active at a time.
-  // We therefore need to
-  //   1) reset all categories that belong to this category group
-  //   2) activate the filter for the toggled category if its new state is true
-  for (const category of props.categories) {
-    activeCategoryIds.delete(category.id);
-  }
-  if (newState) {
+function updateState(toggledCategory: CommonCategory, isActive: boolean) {
+  const activeCategoryIds: Set<Id> = props.group.isExclusive
+    ? new Set()
+    : new Set(props.modelValue);
+  if (isActive) {
     activeCategoryIds.add(toggledCategory.id);
+  } else {
+    activeCategoryIds.delete(toggledCategory.id);
   }
   emit('update:modelValue', activeCategoryIds);
 }

@@ -1,11 +1,17 @@
-import { CommonCategory, CommonCategoryGroup, Id, IdMap } from '../types';
+import {
+  CommonCategory,
+  CommonCategoryGroup,
+  HierarchicalCommonCategoryGroup,
+  Id,
+  IdMap,
+} from '../types';
 import { computed, Ref } from 'vue';
 import { groupBy, partition, useMap } from '../../util';
 
 export type CategoryRenderGroup = {
   id: Id;
   label: string;
-  groupedCategories: CommonCategory[][];
+  groups: HierarchicalCommonCategoryGroup[];
 };
 
 type CategoryRenderGroupMeta = {
@@ -53,17 +59,19 @@ export function useCategoryRenderGroups(
       yield {
         id: group.id,
         label: group.name,
-        groupedCategories: [categories],
+        groups: [{ ...group, categories }],
       };
     }
-    const unlabelledGroupedCategories = Array.from(
-      groupBy(categoriesWithoutNamedGroup, getGroup).values(),
-    );
+
+    const unlabelledGroupedCategories = Array.from(groupBy(categoriesWithoutNamedGroup, getGroup));
     if (unlabelledGroupedCategories.length > 0) {
       yield {
         id: 'unlabelled-group',
         label: ungroupedLabel,
-        groupedCategories: unlabelledGroupedCategories,
+        groups: unlabelledGroupedCategories.map(([group, categories]) => ({
+          ...group,
+          categories,
+        })),
       };
     }
   }
@@ -72,8 +80,10 @@ export function useCategoryRenderGroups(
   const renderGroups = computed(() => Array.from(findRenderGroups()));
   const renderGroupsMeta = computed<CategoryRenderGroupMetaMap>(() => {
     return new Map(
-      renderGroups.value.map(({ id, label, groupedCategories }) => {
-        const numberOfActiveCategories = getNumberOfActiveCategories(groupedCategories.flat());
+      renderGroups.value.map(({ id, label, groups }) => {
+        const numberOfActiveCategories = getNumberOfActiveCategories(
+          groups.flatMap((group) => group.categories),
+        );
         const isActive = numberOfActiveCategories > 0;
         const meta = { id, label, numberOfActiveCategories, isActive };
         return [id, meta];

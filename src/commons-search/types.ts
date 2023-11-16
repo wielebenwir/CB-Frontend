@@ -58,6 +58,7 @@ export type ExtendedLegacyMapConfiguration = {
     string,
     {
       name: string;
+      isExclusive?: boolean;
       elements: {
         cat_id: number;
         markup: string;
@@ -192,6 +193,11 @@ export type CommonCategory = {
 export type CommonCategoryGroup = {
   id: Id;
   name: string;
+  isExclusive: boolean;
+};
+
+export type HierarchicalCommonCategoryGroup = CommonCategoryGroup & {
+  categories: CommonCategory[];
 };
 
 export type GeoCoordinate = {

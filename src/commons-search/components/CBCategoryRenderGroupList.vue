@@ -10,15 +10,16 @@
       <CBFilterResetButton
         :visible="renderGroupMeta.get(renderGroup.id)?.isActive"
         :aria-label="t('reset', { attr: renderGroup.label })"
-        @click="value = disableCategories(modelValue, renderGroup.groupedCategories.flat())"
+        @click="disableRenderGroup(renderGroup)"
       />
     </header>
 
     <div class="tw-flex tw-flex-wrap tw-gap-2">
-      <template v-for="(categories, index) in renderGroup.groupedCategories" :key="index">
+      <template v-for="(group, index) in renderGroup.groups" :key="index">
         <CBCategoryGroup
           v-model="value"
-          :categories="categories"
+          :group="group"
+          :categories="group.categories"
           :aria-describedby="`${labelPrefix}-${renderGroup.id}`"
         />
       </template>
@@ -48,6 +49,13 @@ const emit = defineEmits<{
 const { t } = useI18n();
 
 const value = useVModel(props, 'modelValue', emit);
+
+function disableRenderGroup(renderGroup: CategoryRenderGroup) {
+  value.value = disableCategories(
+    props.modelValue,
+    renderGroup.groups.flatMap((g) => g.categories),
+  );
+}
 </script>
 
 <i18n lang="yaml">

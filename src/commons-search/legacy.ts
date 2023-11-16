@@ -13,9 +13,10 @@ export function parseLegacyConfig(
   config: ExtendedLegacyMapConfiguration,
 ): CommonsSearchConfiguration {
   function parseCategoryGroups(): CommonCategoryGroup[] {
-    return Object.entries(config.filter_cb_item_categories).map(([id, { name }]) => ({
+    return Object.entries(config.filter_cb_item_categories).map(([id, data]) => ({
       id,
-      name,
+      name: data.name,
+      isExclusive: data?.isExclusive ?? false,
     }));
   }
 
