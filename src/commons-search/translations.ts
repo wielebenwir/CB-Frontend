@@ -1,6 +1,6 @@
 export default {
   en: {
-    common: 'Common | Commons',
+    common: 'Item | Items',
   },
   de: {
     common: 'Artikel | Artikel',
