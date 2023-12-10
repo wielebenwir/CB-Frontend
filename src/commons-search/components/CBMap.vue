@@ -151,6 +151,7 @@ onMounted(() => {
     minZoom: props.config.map.zoom.min,
     // Leaflet may request higher resolution tiles on retina displays,
     // so we need to increase the maxZoom level for the tile layer.
+    // See: https://github.com/Leaflet/Leaflet/issues/6059
     maxZoom: isRetina ? maxZoom + 1 : maxZoom,
     detectRetina: true,
   });
