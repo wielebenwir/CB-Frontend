@@ -138,16 +138,20 @@ function setBounds(points: LatLngTuple[]) {
 
 onMounted(() => {
   const { MarkerClusterGroup, Map, TileLayer } = globalThis.L;
+  const maxZoom = props.config.map.zoom.max;
+  const isRetina = globalThis.L.Browser.retina;
   const _map = new Map(mapEl.value as HTMLElement, {
     center: coordinateToLatLngTuple(props.config.map.center),
     zoom: props.config.map.zoom.start,
     minZoom: props.config.map.zoom.min,
-    maxZoom: props.config.map.zoom.max,
+    maxZoom,
   });
   const _tileLayer = new TileLayer(props.config.map.tileServerApi.url, {
     attribution: attribution.value,
     minZoom: props.config.map.zoom.min,
-    maxZoom: props.config.map.zoom.max,
+    // Leaflet may request higher resolution tiles on retina displays,
+    // so we need to increase the maxZoom level for the tile layer.
+    maxZoom: isRetina ? maxZoom + 1 : maxZoom,
     detectRetina: true,
   });
   _tileLayer.addTo(_map);
