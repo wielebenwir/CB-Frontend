@@ -4,7 +4,7 @@
   "type": "module",
   "exports": {
     "commons-search": {
-      "import": "./dist/lib/commons-search/commons-search.js"
+      "import": "./dist/lib/commons-search/commons-search.es.js"
     }
   },
   "files": [

@@ -51,6 +51,7 @@ export default defineConfig({
         return false;
       },
       output: {
+        entryFileNames: `${NAME}.[format].js`,
         globals: {
           vue: 'Vue',
           leaflet: 'L',
