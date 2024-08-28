@@ -1,5 +1,5 @@
 <template>
-  <div class="cb-layout-large-map-with-static-sidebar md:tw-rounded tw-overflow-hidden">
+  <div class="cb-layout-large-map-with-static-sidebar md:tw-rounded tw-overflow-hidden tw-h-full">
     <CBCommonFilter
       v-model:categories="filter.categories"
       v-model:user-location="filter.userLocation"
@@ -112,14 +112,15 @@ function scrollMapIntoView() {
   grid-template-areas: 'map' 'filter' 'list' 'availability';
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: minmax(0, 33dvh) min-content minmax(0, 2fr) auto;
-  height: 100%;
+  height: var(--cb-layout-height, 80dvh);
+  max-height: 100%;
 }
 
 @media (min-width: 800px) {
   .cb-layout-large-map-with-static-sidebar {
     grid-template-areas: 'filter map' 'list map' 'availability availability';
     grid-template-columns: minmax(320px, 400px) minmax(0, 1fr);
-    grid-template-rows: min-content minmax(0, 80dvh) auto;
+    grid-template-rows: min-content minmax(0, 1fr) auto;
   }
 }
 </style>

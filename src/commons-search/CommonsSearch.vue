@@ -1,7 +1,7 @@
 <template>
   <CBLoadingOverlay
     v-if="!apiError"
-    class="cb-layout-wrapper tw-flex tw-flex-col tw-gap-6"
+    class="cb-layout-wrapper tw-flex tw-flex-col tw-gap-6 tw-h-full"
     :require-state="layoutStateRequirements"
   >
     <template v-for="(layoutType, index) in layoutTypes" :key="index">

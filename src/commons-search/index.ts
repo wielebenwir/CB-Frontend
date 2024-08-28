@@ -27,6 +27,7 @@ export function init(
   app.provide(API, api);
   app.mount(element);
   element.classList.add('cb-app');
+  element.style.height = '100%';
   return app;
 }
 
