@@ -22,6 +22,11 @@
     border-color: transparent;
     min-height: 0;
   }
+
+  #headlessui-portal-root {
+    position: relative;
+    z-index: 500;
+  }
 }
 
 @layer utilities {

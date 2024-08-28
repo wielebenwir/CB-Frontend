@@ -5,7 +5,7 @@
       v-model:user-location="filter.userLocation"
       v-model:available-between="filter.availableBetween"
       v-model:available-today="filter.availableToday"
-      class="tw-flex-none tw-bg-base-1 tw-border-b tw-border-base-3"
+      class="tw-flex-none tw-bg-base-1 tw-border-b tw-border-base-3 tw-z-20"
       :api="api"
       :config="config"
       :availability-range="availabilityRange"
