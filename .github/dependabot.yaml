@@ -15,4 +15,5 @@ updates:
       - dependency-name: '*'
         dependency-type: 'production'
     commit-message:
+      prefix: 'npm'
       include: 'scope'
