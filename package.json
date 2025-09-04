@@ -74,7 +74,7 @@
     "@headlessui/vue": "^1.7.23",
     "@rokoli/vue-tiny-i18n": "^0.3.0",
     "@vueuse/core": "^10.6.1",
-    "date-fns": "^2.30.0",
+    "date-fns": "^4.1.0",
     "defaults": "^3.0.0",
     "haversine-distance": "^1.2.1"
   }
